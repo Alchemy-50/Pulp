@@ -18,6 +18,15 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb602307879781350</string>
+            </array>
+        </dict>
+    </array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Fabric</key>
@@ -34,6 +43,38 @@
 			</dict>
 		</array>
 	</dict>
+    <key>FacebookAppID</key>
+    <string>602307879781350</string>
+    <key>FacebookDisplayName</key>
+    <string>Calendar</string>
+    <key>LSApplicationCategoryType</key>
+    <string></string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>For weather and such</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>For the weather</string>
+    <key>UIAppFonts</key>
+    <array>
+        <string>Lato-Black.ttf</string>
+        <string>Lato-BlackItalic.ttf</string>
+        <string>Lato-Bold.ttf</string>
+        <string>Lato-Hairline.ttf</string>
+        <string>Lato-BoldItalic.ttf</string>
+        <string>Lato-Hairline.ttf</string>
+        <string>Lato-HairlineItalic.ttf</string>
+        <string>Lato-Italic.ttf</string>
+        <string>Lato-Light.ttf</string>
+        <string>Lato-LightItalic.ttf</string>
+        <string>Lato-Regular.ttf</string>
+        <string>fontawesome-webfont.ttf</string>
+    </array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -47,8 +88,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
 </dict>
 </plist>
