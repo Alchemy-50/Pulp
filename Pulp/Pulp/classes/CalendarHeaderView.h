@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HeaderArrowView.h"
 
 @class FullCalendarViewController;
 
@@ -19,13 +18,11 @@
 }
 
 -(void) loadTitleLabel;
--(void) transformNormal;
--(void) transformDown;
+
 
 @property (nonatomic, retain) FullCalendarViewController *fullCalendarparentController;
 @property (nonatomic, retain) UILabel *calendarTitleLabel;
 @property (nonatomic, retain) UISwipeGestureRecognizer *swipeToDismissFullTableRecognizer;
-@property (nonatomic, retain) HeaderArrowView *headerArrowView;
 
 @end
 

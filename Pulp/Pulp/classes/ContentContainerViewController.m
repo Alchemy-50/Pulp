@@ -11,7 +11,7 @@
 #import "GroupDataManager.h"
 #import "MonthContainerView.h"
 #import "GroupFormatManager.h"
-#import "AppStateManager.h"
+
 #import <QuartzCore/QuartzCore.h>
 #import "Defs.h"
 #import "Utils.h"

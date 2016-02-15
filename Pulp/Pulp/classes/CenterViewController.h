@@ -10,7 +10,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import "TodosViewController.h"
 #import "DailyView.h"
-#import "DailyTodoImageView.h"
 #import "PositionUpdatedRespondeeProtocol.h"
 #import <EventKit/EventKit.h>
 #import <EventKitUI/EventKitUIDefines.h>

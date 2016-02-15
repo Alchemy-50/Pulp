@@ -8,7 +8,6 @@
 
 #import "EventForCalendarDayView.h"
 #import "CalendarEvent.h"
-#import "EventRepresentationView.h"
 
 
 @implementation EventForCalendarDayView
@@ -47,7 +46,7 @@
         
         float width = 2.5;
                 
-        EventRepresentationView *eventRepresentationView = [[EventRepresentationView alloc] initWithFrame:CGRectMake(width, 1.5 + i * width, self.frame.size.width - 2 * width, width)];
+        UIView *eventRepresentationView = [[UIView alloc] initWithFrame:CGRectMake(width, 1.5 + i * width, self.frame.size.width - 2 * width, width)];
         eventRepresentationView.backgroundColor = eventColor;
         [self addSubview:eventRepresentationView];
                                                                
@@ -61,12 +60,9 @@
     for (int i = 0; i < [subviewsArray count]; i++)
     {
         UIView *subview = [subviewsArray objectAtIndex:i];
-        if ([subview isKindOfClass:[EventRepresentationView class]])
-        {
             [subview removeFromSuperview];
             [subview release];
             subview = nil;
-        }
     }
 }
 

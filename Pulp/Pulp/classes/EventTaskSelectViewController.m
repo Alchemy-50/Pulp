@@ -10,7 +10,6 @@
 #import "EventKitManager.h"
 #import "EventTaskSelectTableViewCell.h"
 #import "CommonEventsManager.h"
-#import "FullViewEventCreateViewController.h"
 #import "CommonEventsOrderManager.h"
 
 
@@ -232,8 +231,6 @@
             NSLog(@"cellEditingIndex!: %ld", (long)indexPath.row);
             [self.theTableView reloadData];
         }
-        else
-            [self.parentFullViewEventCreateViewController commonTaskSelected:selectedEventContainer];
         
     }
     

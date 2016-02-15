@@ -8,7 +8,7 @@
 
 #import "EventStoreChangeThread.h"
 #import "EventKitManager.h"
-#import "AppStateManager.h"
+
 
 
 @implementation EventStoreChangeThread

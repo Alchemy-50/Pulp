@@ -175,7 +175,6 @@ float theTransitionTime = .22;
         self.calendarManagementTableViewController.theTableView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.theTableView.frame.size.width, self.calendarManagementTableViewController.view.frame.size.height);
         self.calendarManagementTableViewController.bgView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.bgView.frame.size.width, self.calendarManagementTableViewController.view.frame.size.height);
         self.calendarHeaderView.backgroundColor = [UIColor blackColor];
-        [self.calendarHeaderView transformDown];
         [UIView commitAnimations];
     }
     else
@@ -186,7 +185,6 @@ float theTransitionTime = .22;
         self.calendarManagementTableViewController.theTableView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.theTableView.frame.size.width, 0);
         self.calendarManagementTableViewController.bgView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.bgView.frame.size.width, 0);
         self.calendarHeaderView.backgroundColor = [UIColor colorWithRed:11.0f/255.0f green:76.0f/255.0f blue:62.0f/255.0f alpha:1];
-        [self.calendarHeaderView transformNormal];
         [UIView commitAnimations];
     }
 

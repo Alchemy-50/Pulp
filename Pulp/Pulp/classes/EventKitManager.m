@@ -316,10 +316,14 @@ static dispatch_queue_t ekQueue;
         if (err) {
             
             NSLog(@"saveCalendarWaitForResult, error: %@", err);
+            //FIXME:  REimplement alert
+            /*
+            
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning7" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
                                                            delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [alert release];
+             */
         }
         
     });
@@ -336,10 +340,16 @@ static dispatch_queue_t ekQueue;
         if (err) {
             
             NSLog(@"deleteCalendar, error: %@", err);
+            
+            //FIXME:  REimplement alert
+            /*
+
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning6" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
                                                            delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [alert release];
+             */
+            
         }
     });
 }
@@ -355,11 +365,13 @@ static dispatch_queue_t ekQueue;
         if (err)
         {
             NSLog(@"saveCalendarEvent, error: %@", err);
-            
+            //FIXME:  REimplement alert
+            /*
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning5" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
                                                            delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [alert release];
+             */
         }
         else
             [AlarmNotificationHandler processEventWithCalEvent:event];
@@ -382,10 +394,13 @@ static dispatch_queue_t ekQueue;
     if (err) {
         
         NSLog(@"err: %@", err);
+        //FIXME:  REimplement alert
+        /*
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning2" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
                                                        delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
+         */
     }
     
     
@@ -407,10 +422,13 @@ static dispatch_queue_t ekQueue;
         if (err) {
             
             NSLog(@"err: %@", err);
+            //FIXME:  REimplement alert
+            /*
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning1" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
                                                            delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [alert release];
+             */
         }
     });
 }

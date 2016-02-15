@@ -9,7 +9,6 @@
 #import "EventCalendarSelectViewController.h"
 #import "EventCalendarSelectTableViewCell.h"
 #import "EventKitManager.h"
-#import "FullViewEventCreateViewController.h"
 #import "GroupDataManager.h"
 @interface EventCalendarSelectViewController ()
 
@@ -115,7 +114,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.parentFullViewEventCreateViewController calendarSelected:[self.calendarsArray objectAtIndex:indexPath.row]];
+//    [self.parentFullViewEventCreateViewController calendarSelected:[self.calendarsArray objectAtIndex:indexPath.row]];
     
 }
 

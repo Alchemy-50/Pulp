@@ -23,5 +23,5 @@
 -(void)toggleToCalendar;
 -(void)dailyEventSelected:(EKEvent *)theEvent;
 -(void)refreshContent;
-
+-(void)dismissSettingsViewController;
 @end

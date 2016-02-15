@@ -13,7 +13,7 @@
 
 @class EventStoreChangeThread;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
 
 + (AppDelegate *)sharedDelegate;

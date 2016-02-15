@@ -13,16 +13,13 @@
 #import "GroupDiskManager.h"
 #import "EventKitManager.h"
 #import "EventStoreChangeThread.h"
-#import "AppStateManager.h"
 #import "PositionUpdatedRespondeeProtocol.h"
 #import "ContentContainerViewController.h"
-
 #import "AlarmNotificationHandler.h"
-#import "EventRepresentationView.h"
 #import "Utils.h"
 
-#define USER_LAST_ENTERED_APP @"USEfR_LASfT_ENTEfRED_APP2"
 
+#define USER_LAST_ENTERED_APP @"USEfR_LASfT_ENTEfRED_APP2"
 
 @interface AppDelegate ()
 
@@ -311,7 +308,7 @@
             EKCalendar *calendarEKEventCalendar = calendarEKEvent.calendar;
             
             UIColor *eventColor = [UIColor colorWithCGColor:calendarEKEventCalendar.CGColor];
-            EventRepresentationView *eventRepresentationView = [[EventRepresentationView alloc] initWithFrame:CGRectMake(theLabel.frame.origin.x, theLabel.frame.size.height + j * 10, width, 9)];
+            UIView *eventRepresentationView = [[UIView alloc] initWithFrame:CGRectMake(theLabel.frame.origin.x, theLabel.frame.size.height + j * 10, width, 9)];
             eventRepresentationView.backgroundColor = eventColor;
             [retView addSubview:eventRepresentationView];
         }

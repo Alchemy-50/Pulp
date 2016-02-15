@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ContentContainerViewController.h"
 #import "CalendarHeaderView.h"
-#import "FullViewEventCreateViewController.h"
 #import "CalendarManagementTableViewController.h"
 
 @class CalendarTasksViewController;

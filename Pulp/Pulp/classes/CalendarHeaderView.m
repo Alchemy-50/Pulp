@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Utils.h"
 #import "GroupDataManager.h"
-#import "AppStateManager.h"
+
 #import "AppDelegate.h"
 #import "FullCalendarViewController.h"
 #import "AppSettingsViewController.h"
@@ -20,7 +20,7 @@
 
 @implementation CalendarHeaderView
 
-@synthesize fullCalendarparentController, calendarTitleLabel, swipeToDismissFullTableRecognizer, headerArrowView;
+@synthesize fullCalendarparentController, calendarTitleLabel, swipeToDismissFullTableRecognizer;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -47,16 +47,10 @@
         self.swipeToDismissFullTableRecognizer = [[UISwipeGestureRecognizer alloc] init];
         self.swipeToDismissFullTableRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
         [self addGestureRecognizer:self.swipeToDismissFullTableRecognizer];
-        
-        self.headerArrowView = [[HeaderArrowView alloc] initWithFrame:CGRectMake(self.calendarTitleLabel.frame.origin.x + self.calendarTitleLabel.frame.size.width + 15, self.frame.size.height / 2 - 1.1, 8, 8)];
-        self.headerArrowView.backgroundColor = [UIColor clearColor];
-        [self addSubview:self.headerArrowView];
-        
-        
+                
     }
     
     [self loadTitleLabel];
-    [self transformNormal];
     return self;
 }
 
@@ -98,22 +92,9 @@
     
     self.calendarTitleLabel.frame = CGRectMake(self.calendarTitleLabel.frame.origin.x, self.calendarTitleLabel.frame.origin.y, expectedLabelSize.width, self.calendarTitleLabel.frame.size.height);
     
-    self.headerArrowView.frame = CGRectMake(self.calendarTitleLabel.frame.origin.x + self.calendarTitleLabel.frame.size.width + 8, self.headerArrowView.frame.origin.y, self.headerArrowView.frame.size.width, self.headerArrowView.frame.size.height);
     
 }
 
--(void)transformNormal
-{
-    CGAffineTransform transform = CGAffineTransformMakeRotation(0);
-    self.headerArrowView.transform = transform;
-}
-
-
--(void)transformDown
-{
-    CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI_2);
-    self.headerArrowView.transform = transform;
-}
 
 
 
