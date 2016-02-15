@@ -161,9 +161,7 @@
 		3A2840F11C72521500056061 /* Untitled-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2840AB1C72521500056061 /* Untitled-7.png */; };
 		3AB577DE1C7248FA008FE5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577DD1C7248FA008FE5C0 /* main.m */; };
 		3AB577E11C7248FA008FE5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577E01C7248FA008FE5C0 /* AppDelegate.m */; };
-		3AB577E71C7248FA008FE5C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E51C7248FA008FE5C0 /* Main.storyboard */; };
 		3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E81C7248FA008FE5C0 /* Assets.xcassets */; };
-		3AB577EC1C7248FA008FE5C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577EA1C7248FA008FE5C0 /* LaunchScreen.storyboard */; };
 		3AFEB9481C72728600FA991F /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9411C72728600FA991F /* Icon-60@2x.png */; };
 		3AFEB9491C72728600FA991F /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9421C72728600FA991F /* Icon-60@3x.png */; };
 		3AFEB94A1C72728600FA991F /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9431C72728600FA991F /* Icon-Small-40@2x.png */; };
@@ -171,6 +169,9 @@
 		3AFEB94C1C72728600FA991F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9451C72728600FA991F /* Icon-Small.png */; };
 		3AFEB94D1C72728600FA991F /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9461C72728600FA991F /* Icon-Small@2x.png */; };
 		3AFEB94E1C72728600FA991F /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9471C72728600FA991F /* Icon-Small@3x.png */; };
+		3AFEB9521C72730300FA991F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9511C72730300FA991F /* Images.xcassets */; };
+		3AFEB9551C72732B00FA991F /* splash-750x1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9531C72732B00FA991F /* splash-750x1334.png */; };
+		3AFEB9561C72732B00FA991F /* splash-2208x1242.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9541C72732B00FA991F /* splash-2208x1242.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -407,9 +408,7 @@
 		3AB577DD1C7248FA008FE5C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pulp/AppDelegate.h; sourceTree = "<group>"; };
 		3AB577E01C7248FA008FE5C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AppDelegate.m; path = Pulp/AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		3AB577E61C7248FA008FE5C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AB577E81C7248FA008FE5C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3AB577EB1C7248FA008FE5C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AB577ED1C7248FA008FE5C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Pulp/Info.plist; sourceTree = "<group>"; };
 		3AFEB9411C72728600FA991F /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		3AFEB9421C72728600FA991F /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
@@ -418,6 +417,9 @@
 		3AFEB9451C72728600FA991F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		3AFEB9461C72728600FA991F /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		3AFEB9471C72728600FA991F /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		3AFEB9511C72730300FA991F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Pulp/Images.xcassets; sourceTree = "<group>"; };
+		3AFEB9531C72732B00FA991F /* splash-750x1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-750x1334.png"; sourceTree = "<group>"; };
+		3AFEB9541C72732B00FA991F /* splash-2208x1242.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-2208x1242.png"; sourceTree = "<group>"; };
 		9CAF0C15B18774B7E59FF8F4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B1EB6E850D4DAE3B4091D3F3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -761,6 +763,7 @@
 		3AB577D01C7248FA008FE5C0 = {
 			isa = PBXGroup;
 			children = (
+				3AFEB9511C72730300FA991F /* Images.xcassets */,
 				3A2840FC1C7258AC00056061 /* Main */,
 				3A2840FF1C725B9700056061 /* Todos */,
 				3A2840FE1C725B8A00056061 /* EventVCS */,
@@ -794,9 +797,7 @@
 				02C6D98A8D6F2DC24331FCB7 /* Pods */,
 				2096ACF877E6377D0797711F /* Frameworks */,
 				3AB577DA1C7248FA008FE5C0 /* Products */,
-				3AB577E51C7248FA008FE5C0 /* Main.storyboard */,
 				3AB577E81C7248FA008FE5C0 /* Assets.xcassets */,
-				3AB577EA1C7248FA008FE5C0 /* LaunchScreen.storyboard */,
 				3AB577DD1C7248FA008FE5C0 /* main.m */,
 			);
 			name = Cruft;
@@ -849,6 +850,8 @@
 		3AFEB94F1C72729A00FA991F /* AppIcons */ = {
 			isa = PBXGroup;
 			children = (
+				3AFEB9531C72732B00FA991F /* splash-750x1334.png */,
+				3AFEB9541C72732B00FA991F /* splash-2208x1242.png */,
 				3AFEB9411C72728600FA991F /* Icon-60@2x.png */,
 				3AFEB9421C72728600FA991F /* Icon-60@3x.png */,
 				3AFEB9431C72728600FA991F /* Icon-Small-40@2x.png */,
@@ -996,7 +999,6 @@
 				3A2840601C7251BB00056061 /* Lato-HairlineItalic.ttf in Resources */,
 				3A2840D81C72521500056061 /* icn-sunny.png in Resources */,
 				3A2840C71C72521500056061 /* Default-568h@2x.png in Resources */,
-				3AB577EC1C7248FA008FE5C0 /* LaunchScreen.storyboard in Resources */,
 				3A2840E61C72521500056061 /* settings-knockout.png in Resources */,
 				3A2840BE1C72521500056061 /* background_default.png in Resources */,
 				3A2840261C724D2800056061 /* RadialEventDateController.xib in Resources */,
@@ -1010,7 +1012,6 @@
 				3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */,
 				3A2840DD1C72521500056061 /* nothing-today-graphic@2x.png in Resources */,
 				3A283FF61C724D2800056061 /* ContainerEventViewController.xib in Resources */,
-				3AB577E71C7248FA008FE5C0 /* Main.storyboard in Resources */,
 				3A2840EB1C72521500056061 /* todo-addnew@2x.png in Resources */,
 				3A2840E41C72521500056061 /* settings-btn@2x.png in Resources */,
 				3A2840F11C72521500056061 /* Untitled-7.png in Resources */,
@@ -1036,6 +1037,7 @@
 				3A2840C31C72521500056061 /* cb_off.png in Resources */,
 				3A2840CE1C72521500056061 /* eventeditcancelbutton.png in Resources */,
 				3AFEB94A1C72728600FA991F /* Icon-Small-40@2x.png in Resources */,
+				3AFEB9561C72732B00FA991F /* splash-2208x1242.png in Resources */,
 				3A283FD01C724D2800056061 /* AddEditEventViewController.xib in Resources */,
 				3A2840E11C72521500056061 /* radio-off.png in Resources */,
 				3A2840DA1C72521500056061 /* iTunesArtwork.png in Resources */,
@@ -1050,7 +1052,9 @@
 				3A2840DE1C72521500056061 /* pageEdgeTear.png in Resources */,
 				3A283FE61C724D2800056061 /* CalendarSelectViewController.xib in Resources */,
 				3A2840AF1C72521500056061 /* add-event-plus.png in Resources */,
+				3AFEB9551C72732B00FA991F /* splash-750x1334.png in Resources */,
 				3A2840C61C72521500056061 /* cogwheel.png in Resources */,
+				3AFEB9521C72730300FA991F /* Images.xcassets in Resources */,
 				3A2840E81C72521500056061 /* shitty_trash.png in Resources */,
 				3A2840DF1C72521500056061 /* phone-knockout@2x.png in Resources */,
 				3A28405A1C7251BB00056061 /* fontawesome-webfont.ttf in Resources */,
@@ -1223,25 +1227,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		3AB577E51C7248FA008FE5C0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3AB577E61C7248FA008FE5C0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3AB577EA1C7248FA008FE5C0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3AB577EB1C7248FA008FE5C0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		3AB577EE1C7248FA008FE5C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1328,6 +1313,7 @@
 			baseConfigurationReference = 9CAF0C15B18774B7E59FF8F4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = Pulp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1341,6 +1327,7 @@
 			baseConfigurationReference = 2820B18F2A5FCB81C9A490E8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = Pulp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
