@@ -10,6 +10,8 @@
 #import "EventKitManager.h"
 #import "CalendarManagementTableViewCell.h"
 #import "AppDelegate.h"
+#import "FullCalendarViewController.h"
+
 @interface CalendarManagementTableViewController ()
 
 @end
@@ -121,6 +123,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"HOLD NOW PLEASE!");
+    
+    if (indexPath.row ==  0)
+    {
+        [self.parentFullCalendarViewController topCalButtonHit:YES];
+    }
+    
 /*
     AppDelegate *theDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     

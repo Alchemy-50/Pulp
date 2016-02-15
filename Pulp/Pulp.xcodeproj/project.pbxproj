@@ -17,7 +17,6 @@
 		3A283FDE1C724D2800056061 /* CalendarDoubleDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F0D1C724D2800056061 /* CalendarDoubleDayView.m */; };
 		3A283FDF1C724D2800056061 /* CalendarDragManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F0F1C724D2800056061 /* CalendarDragManagerView.m */; };
 		3A283FE01C724D2800056061 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F111C724D2800056061 /* CalendarEvent.m */; };
-		3A283FE11C724D2800056061 /* CalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F131C724D2800056061 /* CalendarHeaderView.m */; };
 		3A283FE21C724D2800056061 /* CalendarManagementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F151C724D2800056061 /* CalendarManagementTableViewCell.m */; };
 		3A283FE31C724D2800056061 /* CalendarManagementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F171C724D2800056061 /* CalendarManagementTableViewController.m */; };
 		3A283FE41C724D2800056061 /* CalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F191C724D2800056061 /* CalendarMonthView.m */; };
@@ -199,8 +198,6 @@
 		3A283F0F1C724D2800056061 /* CalendarDragManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarDragManagerView.m; path = Pulp/classes/CalendarDragManagerView.m; sourceTree = "<group>"; };
 		3A283F101C724D2800056061 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarEvent.h; path = Pulp/classes/CalendarEvent.h; sourceTree = "<group>"; };
 		3A283F111C724D2800056061 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarEvent.m; path = Pulp/classes/CalendarEvent.m; sourceTree = "<group>"; };
-		3A283F121C724D2800056061 /* CalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarHeaderView.h; path = Pulp/classes/CalendarHeaderView.h; sourceTree = "<group>"; };
-		3A283F131C724D2800056061 /* CalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CalendarHeaderView.m; path = Pulp/classes/CalendarHeaderView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3A283F141C724D2800056061 /* CalendarManagementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarManagementTableViewCell.h; path = Pulp/classes/CalendarManagementTableViewCell.h; sourceTree = "<group>"; };
 		3A283F151C724D2800056061 /* CalendarManagementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarManagementTableViewCell.m; path = Pulp/classes/CalendarManagementTableViewCell.m; sourceTree = "<group>"; };
 		3A283F161C724D2800056061 /* CalendarManagementTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarManagementTableViewController.h; path = Pulp/classes/CalendarManagementTableViewController.h; sourceTree = "<group>"; };
@@ -581,21 +578,6 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		3A2840F31C72566600056061 /* VCS */ = {
-			isa = PBXGroup;
-			children = (
-				3A2841041C725D4400056061 /* Sidebar */,
-				3A2840FF1C725B9700056061 /* Todos */,
-				3A2840FE1C725B8A00056061 /* EventVCS */,
-				3A2840FC1C7258AC00056061 /* Main */,
-				3A2840F71C72577F00056061 /* Full Calendar */,
-				3A2840F61C72575300056061 /* Daily */,
-				3A2840F51C72569100056061 /* Settings */,
-				3A2840F41C72566D00056061 /* OLD */,
-			);
-			name = VCS;
-			sourceTree = "<group>";
-		};
 		3A2840F41C72566D00056061 /* OLD */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +595,7 @@
 				3A283EF61C724D2800056061 /* AddEditEventViewController.xib */,
 			);
 			name = OLD;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		3A2840F51C72569100056061 /* Settings */ = {
@@ -655,25 +638,12 @@
 		3A2840F71C72577F00056061 /* Full Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				3AFEB9401C726E1800FA991F /* Views */,
 				3A283F6A1C724D2800056061 /* FullCalendarViewController.h */,
 				3A283F6B1C724D2800056061 /* FullCalendarViewController.m */,
 				3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */,
 				3A283F3D1C724D2800056061 /* ContentContainerViewController.h */,
 				3A283F3E1C724D2800056061 /* ContentContainerViewController.m */,
-				3A283F241C724D2800056061 /* Circle.h */,
-				3A283F251C724D2800056061 /* Circle.m */,
-				3A283F261C724D2800056061 /* CircleView.h */,
-				3A283F271C724D2800056061 /* CircleView.m */,
-				3A283F121C724D2800056061 /* CalendarHeaderView.h */,
-				3A283F131C724D2800056061 /* CalendarHeaderView.m */,
-				3A283F181C724D2800056061 /* CalendarMonthView.h */,
-				3A283F191C724D2800056061 /* CalendarMonthView.m */,
-				3A283F0A1C724D2800056061 /* CalendarDayView.h */,
-				3A283F0B1C724D2800056061 /* CalendarDayView.m */,
-				3A283F0C1C724D2800056061 /* CalendarDoubleDayView.h */,
-				3A283F0D1C724D2800056061 /* CalendarDoubleDayView.m */,
-				3A283F0E1C724D2800056061 /* CalendarDragManagerView.h */,
-				3A283F0F1C724D2800056061 /* CalendarDragManagerView.m */,
 			);
 			name = "Full Calendar";
 			sourceTree = "<group>";
@@ -745,8 +715,8 @@
 		3A2840FC1C7258AC00056061 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3A283F3F1C724D2800056061 /* CoverScrollView.h */,
-				3A283F401C724D2800056061 /* CoverScrollView.m */,
+				3AFEB93F1C726E0800FA991F /* CoverScroll */,
+				3A2841041C725D4400056061 /* Sidebar */,
 				3A283F7E1C724D2800056061 /* MainViewController.h */,
 				3A283F7F1C724D2800056061 /* MainViewController.m */,
 			);
@@ -801,16 +771,9 @@
 		3A2840FF1C725B9700056061 /* Todos */ = {
 			isa = PBXGroup;
 			children = (
-				3A283FB91C724D2800056061 /* TodoDataManager.h */,
-				3A283FBA1C724D2800056061 /* TodoDataManager.m */,
-				3A283FBB1C724D2800056061 /* TodoObject.h */,
-				3A283FBC1C724D2800056061 /* TodoObject.m */,
+				3AFEB93E1C726DC000FA991F /* Views */,
 				3A283FBF1C724D2800056061 /* TodosViewController.h */,
 				3A283FC01C724D2800056061 /* TodosViewController.m */,
-				3A283FC11C724D2800056061 /* TodoTableViewCell.h */,
-				3A283FC21C724D2800056061 /* TodoTableViewCell.m */,
-				3A283F3B1C724D2800056061 /* ContainerTodosViewController.h */,
-				3A283F3C1C724D2800056061 /* ContainerTodosViewController.m */,
 			);
 			name = Todos;
 			sourceTree = "<group>";
@@ -880,12 +843,17 @@
 		3AB577D01C7248FA008FE5C0 = {
 			isa = PBXGroup;
 			children = (
-				3A2840F31C72566600056061 /* VCS */,
+				3A2840FC1C7258AC00056061 /* Main */,
+				3A2840FF1C725B9700056061 /* Todos */,
+				3A2840FE1C725B8A00056061 /* EventVCS */,
+				3A2840F71C72577F00056061 /* Full Calendar */,
+				3A2840F61C72575300056061 /* Daily */,
+				3A2840F51C72569100056061 /* Settings */,
 				3A2840F21C72526500056061 /* Utils */,
 				3A2840FD1C7258E900056061 /* Data */,
+				3AB577ED1C7248FA008FE5C0 /* Info.plist */,
 				3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */,
 				3AB577E01C7248FA008FE5C0 /* AppDelegate.m */,
-				3AB577ED1C7248FA008FE5C0 /* Info.plist */,
 				3AB577F31C72493B008FE5C0 /* Cruft */,
 			);
 			sourceTree = "<group>";
@@ -913,6 +881,7 @@
 		3AB577F31C72493B008FE5C0 /* Cruft */ = {
 			isa = PBXGroup;
 			children = (
+				3A2840F41C72566D00056061 /* OLD */,
 				3A2840651C7251C800056061 /* Assets */,
 				3A28404E1C72516A00056061 /* Fonts */,
 				02C6D98A8D6F2DC24331FCB7 /* Pods */,
@@ -922,6 +891,49 @@
 			);
 			name = Cruft;
 			path = Pulp;
+			sourceTree = "<group>";
+		};
+		3AFEB93E1C726DC000FA991F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A283F3B1C724D2800056061 /* ContainerTodosViewController.h */,
+				3A283F3C1C724D2800056061 /* ContainerTodosViewController.m */,
+				3A283FB91C724D2800056061 /* TodoDataManager.h */,
+				3A283FBA1C724D2800056061 /* TodoDataManager.m */,
+				3A283FBB1C724D2800056061 /* TodoObject.h */,
+				3A283FBC1C724D2800056061 /* TodoObject.m */,
+				3A283FC11C724D2800056061 /* TodoTableViewCell.h */,
+				3A283FC21C724D2800056061 /* TodoTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3AFEB93F1C726E0800FA991F /* CoverScroll */ = {
+			isa = PBXGroup;
+			children = (
+				3A283F3F1C724D2800056061 /* CoverScrollView.h */,
+				3A283F401C724D2800056061 /* CoverScrollView.m */,
+			);
+			name = CoverScroll;
+			sourceTree = "<group>";
+		};
+		3AFEB9401C726E1800FA991F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A283F241C724D2800056061 /* Circle.h */,
+				3A283F251C724D2800056061 /* Circle.m */,
+				3A283F261C724D2800056061 /* CircleView.h */,
+				3A283F271C724D2800056061 /* CircleView.m */,
+				3A283F181C724D2800056061 /* CalendarMonthView.h */,
+				3A283F191C724D2800056061 /* CalendarMonthView.m */,
+				3A283F0A1C724D2800056061 /* CalendarDayView.h */,
+				3A283F0B1C724D2800056061 /* CalendarDayView.m */,
+				3A283F0C1C724D2800056061 /* CalendarDoubleDayView.h */,
+				3A283F0D1C724D2800056061 /* CalendarDoubleDayView.m */,
+				3A283F0E1C724D2800056061 /* CalendarDragManagerView.h */,
+				3A283F0F1C724D2800056061 /* CalendarDragManagerView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1175,7 +1187,6 @@
 				3A28403E1C724D2800056061 /* Utils.m in Sources */,
 				3A283FFA1C724D2800056061 /* DailyIconView.m in Sources */,
 				3A283FEF1C724D2800056061 /* CommonEventsManager.m in Sources */,
-				3A283FE11C724D2800056061 /* CalendarHeaderView.m in Sources */,
 				3A28401B1C724D2800056061 /* MaskView.m in Sources */,
 				3A283FE01C724D2800056061 /* CalendarEvent.m in Sources */,
 				3A2840061C724D2800056061 /* EventKitManager.m in Sources */,

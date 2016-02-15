@@ -199,6 +199,8 @@ static float allDayHeight = 32;
     if (cell == nil) {
         cell = [[[DailyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.cellStyleClear = self.cellStyleClear;
+        if (self.cellStyleClear)
+            tableView.separatorColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.autoresizesSubviews = NO;
         cell.parentView = self;
