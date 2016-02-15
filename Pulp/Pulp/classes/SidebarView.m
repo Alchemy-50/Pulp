@@ -59,6 +59,7 @@
     self.containerScrollView.backgroundColor = [UIColor clearColor];
     self.containerScrollView.pagingEnabled = YES;
     self.containerScrollView.delegate = self;
+    self.containerScrollView.scrollEnabled = NO;
     [self addSubview:self.containerScrollView];
     
     
