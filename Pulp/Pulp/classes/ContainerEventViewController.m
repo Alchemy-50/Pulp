@@ -74,6 +74,8 @@
     }
      */
     
+    
+
     UIColor *buttonColor = [UIColor colorWithRed:75.0f/255.0f green:160.0f/255.0f blue:250.0f/255.0f alpha:1];
     buttonColor = [UIColor whiteColor];
     
@@ -171,59 +173,5 @@
 }
 
 
-
-
-
-
-
-
-
-/*
-
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    NSLog(@"numberOfSectionsInTableView called !!!!!!!!!!!!!!!!");
-    
-    int retVal = [self.eKEventViewController numberOfSectionsInTableView:tableView];
-    NSLog(@"retVal: %d", retVal);
-    
-    
-    return retVal;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    NSLog(@"numberOfRowsInSection called !!!!!!!!!!!!!!!!");
-    
-    int retVal = [self.eKEventViewController tableView:tableView numberOfRowsInSection:section];
-    NSLog(@"retVal: %d", retVal);
-    
-    
-    return retVal;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    UITableViewCell *cell = [self.eKEventViewController tableView:tableView cellForRowAtIndexPath:indexPath];
-    
-    if (indexPath.row == 0)
-        cell.backgroundColor = [UIColor redColor];
-    else
-        cell.backgroundColor = [UIColor blueColor];
-    
-    return  cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    float height = [self.eKEventViewController tableView:tableView heightForRowAtIndexPath:indexPath];
-    return height;
-}
-
-
- */
 
 @end

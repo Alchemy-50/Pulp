@@ -186,13 +186,25 @@
 -(void) displayEvent
 {
     NSLog(@"displayEvent!");
+    NSLog(@"josh look here");
     
     self.eventInScope = (EKEvent *)self.ekObjectReference;
     
+    /*
     ContainerEventViewController *containerEventViewController = [[ContainerEventViewController alloc] initWithNibName:@"ContainerEventViewController" bundle:nil];
     containerEventViewController.parentController = self;
     containerEventViewController.theEvent = self.eventInScope;
-    [self.view addSubview:containerEventViewController.view];
+     [self.view addSubview:containerEventViewController.view];
+    */
+    
+    EKEventEditViewController *eventEditController = [[EKEventEditViewController alloc] initWithNibName:nil bundle:nil];
+    eventEditController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
+    eventEditController.eventStore = [EventKitManager sharedManager].eventStore;
+    eventEditController.event = self.eventInScope;
+    eventEditController.editViewDelegate = self;
+    [self.view addSubview:eventEditController.view];
+
+    
     
 }
 
