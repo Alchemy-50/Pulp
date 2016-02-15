@@ -17,6 +17,11 @@
 #import "GroupDataManager.h"
 #import "ThemeManager.h"
 
+@interface CalendarMonthView ()
+@property (nonatomic, retain) UILabel *theHeaderLabel;
+@property (nonatomic, retain) NSMutableArray *daysLabelsArray;
+@end
+
 @implementation CalendarMonthView
 
 @synthesize startDate;
@@ -213,26 +218,49 @@ static float insetHeight = 40.0f;
 
 -(void)setHeads
 {
+    
+    if (self.theHeaderLabel != nil)
+    {
+        [self.theHeaderLabel removeFromSuperview];
+        [self.theHeaderLabel release];
+        self.theHeaderLabel = nil;
+        
+        
+    }
+
+    self.theHeaderLabel = [[UILabel alloc] initWithFrame:CGRectMake(6.5,0, self.frame.size.width, insetHeight * .7)];
+    self.theHeaderLabel.backgroundColor = [UIColor clearColor];
+    self.theHeaderLabel.textColor = [UIColor whiteColor];
+    self.theHeaderLabel.textAlignment = NSTextAlignmentLeft;
+    self.theHeaderLabel.font = [UIFont fontWithName:@"Lato-Bold" size:14];
+    [self addSubview:self.theHeaderLabel];
+    
+
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMM yyyy"];
-    
-    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(6.5,0, self.frame.size.width, insetHeight * .7)];
-    dateLabel.backgroundColor = [UIColor clearColor];
-    dateLabel.textColor = [UIColor whiteColor];
-    dateLabel.textAlignment = NSTextAlignmentLeft;
-    dateLabel.text = [[dateFormatter stringFromDate:self.startDate] uppercaseString];
-    dateLabel.font = [UIFont fontWithName:@"Lato-Bold" size:14];
-    [self addSubview:dateLabel];
-    
+    self.theHeaderLabel.text = [[dateFormatter stringFromDate:self.startDate] uppercaseString];
     [dateFormatter release];
     
-    [self getSubheaderViewWithY:dateLabel.frame.origin.y + dateLabel.frame.size.height - 2];
+    [self getSubheaderViewWithY:self.theHeaderLabel.frame.origin.y + self.theHeaderLabel.frame.size.height - 2];
     
     
 }
 
 -(void)getSubheaderViewWithY:(float)y
 {
+    
+    if (self.daysLabelsArray == nil)
+        self.daysLabelsArray = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    for (int i = 0; i < [self.daysLabelsArray count]; i++)
+    {
+        UIView *labelView = [self.daysLabelsArray objectAtIndex:i];
+        [labelView removeFromSuperview];
+        [labelView release];
+        labelView = nil;
+        
+    }
+    
     float barHeight = 15;
     
     NSArray *labelsArray = [NSArray arrayWithObjects:@"SUN", @"MON", @"TUE", @"WED", @"THU", @"FRI", @"SAT", nil];
@@ -251,6 +279,7 @@ static float insetHeight = 40.0f;
         [self addSubview:label];
         
         [[ThemeManager sharedThemeManager] registerSecondaryObject:label];
+        [self.daysLabelsArray addObject:label];
     }
     
     

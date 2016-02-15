@@ -77,10 +77,8 @@
 -(void)appDidEnterForeground
 {
     NSLog(@"do implement appDidEnterForeground");
-    [[EventKitManager sharedManager] remoteRefresh];
-    
-    
     [[ContentContainerViewController sharedContainerViewController] setDailyBorderWithDate:[NSDate date]];
+    [[MainViewController sharedMainViewController] dataChanged];
     //    self.appController.dailyViewController.hasRunWeather = NO;
 }
 

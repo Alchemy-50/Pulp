@@ -153,6 +153,8 @@ static ContentContainerViewController *theStaticVC;
                     [calendarMonthView cleanUp];
             }
         }
+        
+        [self.dailyView.theTableView reloadData];
     });
 
 }

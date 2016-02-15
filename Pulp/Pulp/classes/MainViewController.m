@@ -56,10 +56,6 @@ static MainViewController *staticVC;
         [self.view insertSubview:self.fullCalendarViewController.view belowSubview:self.coverScrollView];
 }
 
--(void)refreshContent
-{
-    NSLog(@"IMPLEMENT REFRESH CONTENT");
-}
 
 
 - (void)viewDidLoad {

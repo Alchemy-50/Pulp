@@ -89,7 +89,7 @@ static SettingsManager *theStaticSettingsManager;
     [defaults setObject:[NSNumber numberWithBool:val] forKey:PROPERTY_TIME_IN_TWENTY_FOUR];
     [defaults synchronize];
     
-    [[MainViewController sharedMainViewController] refreshContent];
+    [[MainViewController sharedMainViewController] dataChanged];
 }
 
 -(void)setTempInCelcius:(BOOL)val
@@ -98,7 +98,7 @@ static SettingsManager *theStaticSettingsManager;
     [defaults setObject:[NSNumber numberWithBool:val] forKey:PROPERTY_TEMPERATURE_IN_CELCIUS];
     [defaults synchronize];
     
-    [[MainViewController sharedMainViewController] refreshContent];
+    [[MainViewController sharedMainViewController] dataChanged];
 }
 
 -(void)setDefaultCalendarID:(NSString *)theDefaultCalendarID
@@ -107,7 +107,7 @@ static SettingsManager *theStaticSettingsManager;
     [defaults setObject:theDefaultCalendarID forKey:PROPERTY_DEFAULT_CALENDER_ID];
     [defaults synchronize];
     
-    [[MainViewController sharedMainViewController] refreshContent];
+    [[MainViewController sharedMainViewController] dataChanged];
 }
 
 
