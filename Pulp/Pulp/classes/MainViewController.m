@@ -128,14 +128,10 @@ static MainViewController *staticVC;
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
 
-    /*
-    [self.fullCalendarViewController dataChanged];
-    [self.centerViewController refreshContent];
-    [self.containerTodosViewController.todosViewController reloadTodos];
-*/
-    
-    [self.centerViewController refreshContent];
 
+//    [self.fullCalendarViewController dataChanged];
+    [self.centerViewController refreshContent];
+    //[self.containerTodosViewController.todosViewController reloadTodos];
     
     if (!self.initialized)
     {
@@ -207,8 +203,8 @@ static MainViewController *staticVC;
         EventManagerViewController *createEventViewController = [[EventManagerViewController alloc] initWithNibName:@"EventManagerViewController" bundle:nil];
         createEventViewController.theParentViewController = self;
         createEventViewController.ekObjectReference = theEvent;
-        [createEventViewController displayEvent];
-        [self presentViewController:createEventViewController animated:YES completion:nil];
+        [self presentViewController:createEventViewController animated:YES completion: ^(void) {  [createEventViewController displayEvent]; }];
+        
     }
 }
 

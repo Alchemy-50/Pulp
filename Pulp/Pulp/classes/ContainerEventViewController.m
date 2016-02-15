@@ -157,7 +157,7 @@
     if (action == EKEventViewActionDeleted)
     {
         [[MainViewController sharedMainViewController] dismissViewControllerAnimated:YES completion:nil];
-        
+        [[MainViewController sharedMainViewController] dataChanged];
     }
 
     

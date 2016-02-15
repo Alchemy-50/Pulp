@@ -38,7 +38,7 @@ float theTransitionTime = .22;
 
 
 -(void)doLoadViews
-{    
+{
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
         [self setNeedsStatusBarAppearanceUpdate];
     
