@@ -212,7 +212,10 @@ static MainViewController *staticVC;
     }
 }
 
-
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 
 @end

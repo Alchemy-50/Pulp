@@ -6,14 +6,13 @@
 //
 //
 
+#import "AppDelegate.h"
 #import "CalendarManagementTableViewCell.h"
 #import "GroupDiskManager.h"
 #import "EventKitManager.h"
 #import "CalendarManagementTableViewController.h"
 
-#import "CalendarTasksViewController.h"
-#import "AppDelegate.h"
-#import "MMDrawerController.h"
+
 
 
 @implementation CalendarManagementTableViewCell
@@ -236,11 +235,6 @@
 
 -(void)cogButtonHit
 {
-    CalendarTasksViewController *calendarTasksViewController = [[CalendarTasksViewController alloc] initWithNibName:@"CalendarTasksViewController" bundle:nil];
-    calendarTasksViewController.referenceCalendar = self.referenceCalendar;
-
-    NSLog(@"HERE!");
-
     
 }
 -(void)checkButtonHit

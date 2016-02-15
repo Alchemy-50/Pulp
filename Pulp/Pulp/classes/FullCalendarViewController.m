@@ -9,11 +9,11 @@
 #import "FullCalendarViewController.h"
 #import "GroupDataManager.h"
 #import "EventManagerViewController.h"
-
 #import "AppDelegate.h"
-#import "CalendarTasksViewController.h"
 #import "Defs.h"
 #import "ThemeManager.h"
+
+
 @interface FullCalendarViewController ()
 
 @end
@@ -195,68 +195,7 @@ float theTransitionTime = .22;
 
 
 
-- (void) calendarTasksViewControllerShouldExit:(CalendarTasksViewController *)calendarTasksViewController
-{
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:theTransitionTime];
-    calendarTasksViewController.view.frame = CGRectMake(calendarTasksViewController.view.frame.size.width, 0, calendarTasksViewController.view.frame.size.width, calendarTasksViewController.view.frame.size.height);
-    [UIView commitAnimations];
-}
 
-
-
-
-/*
- float middleXPoint = monthViewFrame.size.width / 2 - calendarDayView.frame.size.width;
- float middleYPoint = 132;//monthViewFrame.size.height / 2 - calendarDayView.frame.size.height / 2;
- 
- 
- UIGraphicsBeginImageContext(CGSizeMake(self.view.frame.size.width, self.view.frame.size.height));    //([self.view frame].size);
- [[self.view layer] renderInContext:UIGraphicsGetCurrentContext()];
- UIImage *screenImage = UIGraphicsGetImageFromCurrentImageContext();
- UIGraphicsEndImageContext();
- 
- 
- self.zoomingImageView = [[UIImageView alloc] initWithImage:screenImage];
- self.zoomingImageView.frame = CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height);
- [self.view addSubview:self.zoomingImageView];
- 
- 
- 
- float factor = 6;
- CGAffineTransform tr = CGAffineTransformScale(self.zoomingImageView.transform, factor, factor);
- [UIView animateWithDuration:theTransitionTime delay:0 options:0 animations:^{
- self.zoomingImageView.transform = tr;
- self.zoomingImageView.center = CGPointMake(startEndPoint.x + ((1 + factor) * (middleXPoint - startEndPoint.x)),  startEndPoint.y * factor + (12 * (middleYPoint - startEndPoint.y)));
- 
- } completion:^(BOOL finished) {}];
- */
-
-
-/*
- startEndPoint = [self.view.superview convertPoint:calendarDayView.frame.origin toView:nil];
- startEndPoint = CGPointMake(startEndPoint.x + self.parentAppViewController.overlayScrollView.contentOffset.x - 33, startEndPoint.y - 29);
- startEndPoint.y = startEndPoint.y + calendarDayView.frame.size.height / 2;
- CGRect startEndFrame = CGRectMake(startEndPoint.x, startEndPoint.y + calendarDayView.frame.size.height / 1.4, calendarDayView.frame.size.width, calendarDayView.frame.size.height);
- 
- EventManagerViewController *eventManagerViewController = [[EventManagerViewController alloc] initWithNibName:@"EventManagerViewController" bundle:nil];
- eventManagerViewController.delegate = self;
- eventManagerViewController.startEndRect = startEndFrame;
- eventManagerViewController.view.frame = startEndFrame;
- eventManagerViewController.calendarReferenceDate = calendarDayView.theDate;
- [self.parentAppViewController.view addSubview:eventManagerViewController.view];
- 
- 
- [UIView beginAnimations:nil context:nil];
- [UIView setAnimationDuration:theTransitionTime];
- [UIView setAnimationDelegate:eventManagerViewController];
- //    eventManagerViewController.view.frame = CGRectMake(0,-15,self.parentAppViewController.view.frame.size.width, self.parentAppViewController.view.frame.size.height + 15);
- eventManagerViewController.view.frame = CGRectMake(0,0,self.parentAppViewController.view.frame.size.width, self.parentAppViewController.view.frame.size.height);
- [UIView setAnimationDidStopSelector:@selector(createNewEventWithReferenceDate)];
- [UIView commitAnimations];
- 
- */
 
 
 

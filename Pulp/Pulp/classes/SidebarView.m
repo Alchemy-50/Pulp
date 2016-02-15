@@ -11,7 +11,7 @@
 #import "SidebarInstanceView.h"
 #import "PulpFAImageView.h"
 #import "AppDelegate.h"
-#import "MMDrawerController.h"
+
 #import "AppSettingsViewController.h"
 #import "SidebarButtonView.h"
 #import "CenterViewController.h"

@@ -10,7 +10,6 @@
 #import "GroupDiskManager.h"
 #import "CommonEventContainer.h"
 #import "EventKitManager.h"
-#import "CalendarTasksDropdownView.h"
 
 #define COMMON_EVENTS_MANAGER_STORAGE_KEY @"COMMON_EVENTS_MANAGER_STORAGE_KEY"
 
@@ -88,46 +87,6 @@ static CommonEventsManager *theCommonEventsManager;
 
 -(void)setCommonEvent:(CommonEventContainer *)newEventContainer forCalendar:(EKCalendar *)theCalendar
 {
-    BOOL replace = NO;
-    NSArray *keysArray = [self.commonEventsForCalendarsDictionary allKeys];
-    
-    for (int i = 0; i < [keysArray count]; i++)
-    {
-        NSString *key = [keysArray objectAtIndex:i];
-        
-        NSMutableArray *containersArray = [NSMutableArray arrayWithArray:[self.commonEventsForCalendarsDictionary objectForKey:key]];
-        
-        for (int j = 0; j < [containersArray count]; j++)
-        {
-            CommonEventContainer *existingEventContainer = [containersArray objectAtIndex:j];
-
-            if ([existingEventContainer.commonEventID compare:newEventContainer.commonEventID] == NSOrderedSame)
-            {
-                replace = YES;
-                [containersArray replaceObjectAtIndex:j withObject:newEventContainer];
-                [self.commonEventsForCalendarsDictionary setObject:containersArray forKey:existingEventContainer.referenceCalendarIdentifier];
-
-            }
-        }
-
-        
-        
-    }
-    
-    
-    if (!replace)
-    {
-        NSLog(@"add common event");
-        NSMutableArray *ar = [NSMutableArray arrayWithArray:[self.commonEventsForCalendarsDictionary objectForKey:theCalendar.calendarIdentifier]];
-        [ar addObject:newEventContainer];
-        [self.commonEventsForCalendarsDictionary setObject:ar forKey:theCalendar.calendarIdentifier];
-
-        [[CalendarTasksDropdownView getSharedCalendarTasksDropdownView] loadCommonTaskSubviews];
-        
-    }
-
-    [[GroupDiskManager sharedManager] saveDataToDiskWithObject:self.commonEventsForCalendarsDictionary withKey:COMMON_EVENTS_MANAGER_STORAGE_KEY];
-
     
 }
 

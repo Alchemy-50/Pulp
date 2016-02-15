@@ -16,7 +16,6 @@
 #import "FullCalendarViewController.h"
 #import "AppSettingsViewController.h"
 #import "AppDelegate.h"
-#import "MMDrawerController.h"
 #import "ThemeManager.h"
 
 @implementation CalendarHeaderView

@@ -16,7 +16,7 @@
 #import "AppStateManager.h"
 #import "PositionUpdatedRespondeeProtocol.h"
 #import "ContentContainerViewController.h"
-#import "MMDrawerController.h"
+
 #import "AlarmNotificationHandler.h"
 #import "EventRepresentationView.h"
 #import "Utils.h"
@@ -47,8 +47,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     application.statusBarHidden = YES;
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
     
     self.locationDelegateRespondeesArray = [[NSMutableArray alloc] initWithCapacity:0];
     

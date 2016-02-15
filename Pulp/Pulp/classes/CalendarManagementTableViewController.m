@@ -153,12 +153,26 @@
 
 - (void) calendarDropdownAddCalendarSelected
 {
+    
+    // FIXME: Implement uialertcontroller with handlers below
+    
+    /*
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"My Title"
+                                  message:@"Enter User Credentials"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New Calendar" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
     [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [message show];
+     
+     */
 }
 
-
+/*
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
@@ -186,7 +200,7 @@
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     NSLog(@"IMPLEMENT THIS ACTION SHEET POPUP CLICKED BUTTON AT INDEX");
-    /*
+
     if ([[popup buttonTitleAtIndex:buttonIndex] compare:@"Cancel"] != NSOrderedSame)
     {
         [self.parentFullCalendarViewController topCalButtonHit:YES];
@@ -197,10 +211,8 @@
          [[EventKitManager sharedManager] createAndSaveCalendar:calendar];
         
     }
-    
-    */
 }
-
+     */
 
 
 

@@ -218,18 +218,18 @@
 
 +(float)getScreenWidth
 {
-    float screenWidth = [UIScreen mainScreen].applicationFrame.size.height;
-    if ([UIScreen mainScreen].applicationFrame.size.width < screenWidth)
-        screenWidth = [UIScreen mainScreen].applicationFrame.size.width;
+    float screenWidth = [UIScreen mainScreen].bounds.size.height;
+    if ([UIScreen mainScreen].bounds.size.width < screenWidth)
+        screenWidth = [UIScreen mainScreen].bounds.size.width;
     
     return screenWidth;
 }
 
 +(float)getScreenHeight
 {
-    float screenHeight = [UIScreen mainScreen].applicationFrame.size.height;
-    if ([UIScreen mainScreen].applicationFrame.size.width > screenHeight)
-        screenHeight = [UIScreen mainScreen].applicationFrame.size.width;
+    float screenHeight = [UIScreen mainScreen].bounds.size.height;
+    if ([UIScreen mainScreen].bounds.size.width > screenHeight)
+        screenHeight = [UIScreen mainScreen].bounds.size.width;
     
     return screenHeight;
 }

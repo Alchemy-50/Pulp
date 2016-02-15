@@ -282,10 +282,11 @@
         [self.view addSubview:textExitButton];
         NSLog(@"textFieldShouldBeginEditing");
         
+        /*
         ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
         picker.peoplePickerDelegate = self;
         [self presentViewController:picker animated:YES completion:nil];
-        
+        */
         return NO;
     }
     else if (textField == self.locationTextField)
@@ -304,6 +305,8 @@
 }
 
 
+/*
+
 - (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person NS_AVAILABLE_IOS(8_0)
 {
     [self.attendeesArray addObject:person];
@@ -316,6 +319,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+*/
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
