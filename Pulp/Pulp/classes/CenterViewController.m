@@ -151,8 +151,6 @@ static CenterViewController *globalViewController;
 
 -(void)scrollToDate:(NSDate *)theDate
 {
-    NSLog(@"scrollToDate");
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *key = [dateFormatter stringFromDate:theDate];
@@ -310,7 +308,6 @@ static CenterViewController *globalViewController;
 
 -(void)runWeatherReport
 {
-    NSLog(@"runWeatherReport");
     [WeatherAPIHandler makeWeatherRequestWithDelegate:self withLocation:self.theLatestLocation];
     [WeatherAPIHandler makeHourlyRequest:self withLocation:self.theLatestLocation];
 }

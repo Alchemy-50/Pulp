@@ -55,7 +55,7 @@ static float allDayHeight = 32;
             {
                 UIImage *nothingImage = [UIImage imageNamed:@"nothing-today-graphic.png"];
                 
-                self.emptyCountView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width / 2 - nothingImage.size.width / 2, self.frame.size.height / 2 - nothingImage.size.height / 2 - 35, nothingImage.size.width, nothingImage.size.height)];
+                self.emptyCountView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width / 2 - nothingImage.size.width / 2, self.frame.size.height / 2 - nothingImage.size.height / 2, nothingImage.size.width, nothingImage.size.height)];
                 self.emptyCountView.image = nothingImage;
                 [self addSubview:self.emptyCountView];
             }
@@ -206,21 +206,16 @@ static float allDayHeight = 32;
         cell.parentView = self;
     }
     
-    
     cell.theIndexPath = indexPath;
+    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, tableView.frame.size.width, [self tableView:tableView heightForRowAtIndexPath:indexPath]);
+    
+    
     EKEvent *theEvent = [self.eventsArray objectAtIndex:indexPath.row];
     [cell loadWithEvent:theEvent];
     
-    
-    if (theEvent.allDay)
-        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, allDayHeight);
-    else if ([theEvent.calendar.title compare:@"TODO"] == NSOrderedSame)
-        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, todoHeight);
-    else
-    {
+    if (!theEvent.allDay && ([theEvent.calendar.title compare:@"TODO"] == NSOrderedSame))
         [cell setFieldsWithEvent:theEvent];
-        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, [Utils getScreenWidth], [self tableView:tableView heightForRowAtIndexPath:indexPath]);
-    }
+
     
     cell.dividerView.frame = CGRectMake(0, cell.frame.size.height - 1, cell.frame.size.width, 1);
     
@@ -237,7 +232,18 @@ static float allDayHeight = 32;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    float height = [DailyTableViewCell getDesiredCellHeightWithEvent:[self.eventsArray objectAtIndex:indexPath.row] withIndexPath:indexPath];
+    EKEvent *theEvent = [self.eventsArray objectAtIndex:indexPath.row];
+    
+    float height = 0;
+    
+    if (theEvent.allDay)
+         height = allDayHeight;
+    else if ([theEvent.calendar.title compare:@"TODO"] == NSOrderedSame)
+        height = todoHeight;
+    else
+        height = [DailyTableViewCell getDesiredCellHeightWithEvent:theEvent withIndexPath:indexPath];
+    
+    
     return height;
 }
 

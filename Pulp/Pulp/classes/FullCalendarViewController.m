@@ -39,6 +39,9 @@ float theTransitionTime = .22;
 
 -(void)doLoadViews
 {
+    
+    NSLog(@"self.frame!: %@", NSStringFromCGRect(self.view.frame));
+    
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
         [self setNeedsStatusBarAppearanceUpdate];
     
@@ -52,9 +55,9 @@ float theTransitionTime = .22;
     float footerHeight = 40;
     
     self.contentContainerViewController = [[ContentContainerViewController alloc] initWithNibName:nil bundle:nil];
-    self.contentContainerViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - footerHeight);
     self.contentContainerViewController.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.contentContainerViewController.view];
+    self.contentContainerViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - footerHeight);
     [self.contentContainerViewController doLoadViews];
     
     [self.contentContainerViewController calendarDataChanged];
