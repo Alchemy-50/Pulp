@@ -1,10 +1,17 @@
 PODS:
+  - Crashlytics (3.6.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.5)
   - iOSBlocks (1.0.2)
 
 DEPENDENCIES:
+  - Crashlytics
+  - Fabric
   - iOSBlocks (~> 1.0.2)
 
 SPEC CHECKSUMS:
+  Crashlytics: e4e8d02914f2608fbc7bf42b1a7af838b0db67a2
+  Fabric: 338ffd3c2afcab120638907b4251189de9ad17b3
   iOSBlocks: e86e746cda312ff3a50a4b4733e3173491689b88
 
 COCOAPODS: 0.39.0

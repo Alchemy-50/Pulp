@@ -7,36 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22C146D20B971D7B9F6EC9E646471600 /* UINavigationController+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DCBF960B2C980D6451CC0D1C37A13C8 /* UINavigationController+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26E6737B6480271CF37FBDAD330434D1 /* UIPopoverController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = AB06E04E10F946575E4A0F06A72B7CD2 /* UIPopoverController+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		295634E21FA480B57CAE0BD82C0F010F /* iOSBlocksProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 48850964C6AFAA7E5DE3F470B8703FC3 /* iOSBlocksProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2B3CA28D1DA643EC2AA4224895FEC790 /* UIPickerView+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 757EA227DD9CF2B2BB1BF1CD096138F7 /* UIPickerView+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22C146D20B971D7B9F6EC9E646471600 /* UINavigationController+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF57292B4D52E02A230E91057498D07 /* UINavigationController+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26E6737B6480271CF37FBDAD330434D1 /* UIPopoverController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4AE41E7F69773BA388F46D5CF6165D /* UIPopoverController+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		295634E21FA480B57CAE0BD82C0F010F /* iOSBlocksProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 185F50E44780C416BCDFB141A60A6268 /* iOSBlocksProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B3CA28D1DA643EC2AA4224895FEC790 /* UIPickerView+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = AD3B61E09A7DBD9578B87791C1BEE8A5 /* UIPickerView+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DB5EDABDE81CAA91CFE44A2295F94BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C67D689D86F87432189BF2A8FE9F45A /* CoreGraphics.framework */; };
 		3E441ACF5675299984D7A0561443641D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04ECF2967651FE89F6C378A5F772C79 /* MessageUI.framework */; };
-		4034C3E1F6A9115658AA921E6BF1F0BB /* MFMessageComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 259E28EF42858132F1B729F24D393C30 /* MFMessageComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4056C0AECA71D6CAF2771AE9D330B229 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5B73AE82412F28B98684B19B2033C2 /* UIAlertView+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		51E101FFC207AE4E70D89A811A7229A8 /* UIAlertView+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = D6607CE37C3B20178A4701146A4A20C5 /* UIAlertView+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BE8229EF856F00317CCCC664004BEF7 /* iOSBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 36C044571F7AEB8ECB054D4684C894F0 /* iOSBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4034C3E1F6A9115658AA921E6BF1F0BB /* MFMessageComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAF4AF14610792E96F3CB52128DC97D /* MFMessageComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4056C0AECA71D6CAF2771AE9D330B229 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = DF72EE3E626369C31AAC9829F9FD87D2 /* UIAlertView+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		51E101FFC207AE4E70D89A811A7229A8 /* UIAlertView+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA93E44AE539378FD823A207381C9A2 /* UIAlertView+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BE8229EF856F00317CCCC664004BEF7 /* iOSBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FEF0C5C9AFF3459C3D38DF6C86470B7 /* iOSBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C38ED5F6F67B9CEE1E965C865B6C51D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A42344BC0EF08596E89382A259C283 /* Foundation.framework */; };
 		74433CF3140CA19342724E1AA147D1DB /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
-		79E5A380B43DA6F8AB88A23185ED148D /* UINavigationController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EBADCE7DF6F78AE7B8A6CFA31098D5 /* UINavigationController+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		88ABE12DE40F2244F77688978FB12A81 /* UIPickerView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 29EE36A997B00A2004467B773D436ADB /* UIPickerView+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		89E55F18F45848EE61BEF8A9CDA53598 /* MFMessageComposeViewController+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 09DBDA0CD71D0B35FE7CB025DE4C893C /* MFMessageComposeViewController+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92278000ED1687FF254B480F8BC7C1C6 /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C6AA7D37A7C4D627695755AA79ED90 /* UIActionSheet+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		79E5A380B43DA6F8AB88A23185ED148D /* UINavigationController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 129B38CB996FCFCD4DB48BA259E24547 /* UINavigationController+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		88ABE12DE40F2244F77688978FB12A81 /* UIPickerView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B1B9A6646D518022A3D9A0A0278B0C /* UIPickerView+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		89E55F18F45848EE61BEF8A9CDA53598 /* MFMessageComposeViewController+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 2375D24B8F6EA9E8A43AA80E609C970B /* MFMessageComposeViewController+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92278000ED1687FF254B480F8BC7C1C6 /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A3051B17ED6C46C66CBD4B0FB001CC /* UIActionSheet+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		928E504C4B7C829229F4E7A3D6F6DC2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5409822F1678F877F00036A1AEA92D9C /* UIKit.framework */; };
 		92EB74D8C0475A60BAC1EBA66157C4E8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B80AF5AAD0250B0A44439582B775A3 /* MapKit.framework */; };
-		9826D2E5292C80C99F0D672DB4323CBE /* MFMailComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = B651BD0EE59BC04D5AC3A5E2E9B5154C /* MFMailComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9D0A6275E103B26F3AD636E401242E83 /* NSURLConnection+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 652FF68DE1161F047D5CF88D284BCD58 /* NSURLConnection+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9826D2E5292C80C99F0D672DB4323CBE /* MFMailComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 97604083BAF2220756E0F6F5C1675A84 /* MFMailComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9D0A6275E103B26F3AD636E401242E83 /* NSURLConnection+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C9659377D2686D7C218C43391DE6A76 /* NSURLConnection+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF64449AB3B0DCF3EAD382D2484734DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392E59D6C9F56DE4380D49E59DF3C563 /* CoreLocation.framework */; };
-		B24B939E1B321DE9DAF59F7AA003B9B6 /* iOSBlocks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4263ED8AB41804804F79A4B90977917 /* iOSBlocks-dummy.m */; };
-		B574FD0FF5E7540425B1CEA0B4CE3318 /* CLLocationManager+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B6288D0DAF632E098669CDED7F9465 /* CLLocationManager+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C411FB720FE24952C4FC4CC3FEA906E7 /* UIPopoverController+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CF98A690A301CDA5B4818A8493705DF /* UIPopoverController+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C6D952778BE4C6B8EA9ECBD06D057CC6 /* CLLocationManager+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9473827E94C6D6D3F2EF0CCFC570A7 /* CLLocationManager+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B24B939E1B321DE9DAF59F7AA003B9B6 /* iOSBlocks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9FB86CF3FDEDE39DD83BFBD17858A1 /* iOSBlocks-dummy.m */; };
+		B574FD0FF5E7540425B1CEA0B4CE3318 /* CLLocationManager+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 06F603A8FAE95D47478630959B9EF7FB /* CLLocationManager+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C411FB720FE24952C4FC4CC3FEA906E7 /* UIPopoverController+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 291445737F27DF1CF9A11C02FC991AFA /* UIPopoverController+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6D952778BE4C6B8EA9ECBD06D057CC6 /* CLLocationManager+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = E23073A11EEFF29819863F8644FA6698 /* CLLocationManager+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		CFBE5BF528A692C1404723F4EF231D2A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C2902BD8900098B811412881077608 /* MobileCoreServices.framework */; };
 		D408B729B468B09BF65144A8E8E3F3DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A42344BC0EF08596E89382A259C283 /* Foundation.framework */; };
-		D9E6155CB69E01272A7D38A1D7E8F17D /* NSURLConnection+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DAB7E28CD69D0FE5BFFC14C4C07B64 /* NSURLConnection+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F71FDAEE078D2FA25D193F06D20C9AD4 /* UIActionSheet+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0B81B75B751E3DB43D231EA601CCAE /* UIActionSheet+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F99B55907D3C465692A7682F208548C8 /* MFMailComposeViewController+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 86950B9ECFEA36FC23A67A6E061D60E0 /* MFMailComposeViewController+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9E6155CB69E01272A7D38A1D7E8F17D /* NSURLConnection+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDF38E07DD526210A4608CB51C8883C /* NSURLConnection+Block.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F71FDAEE078D2FA25D193F06D20C9AD4 /* UIActionSheet+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0BF468F08F70DF1D23F7B8B5EA3BD6 /* UIActionSheet+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F99B55907D3C465692A7682F208548C8 /* MFMailComposeViewController+Block.h in Headers */ = {isa = PBXBuildFile; fileRef = F934F2A5E5453D99F9F80E73F86315B4 /* MFMailComposeViewController+Block.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,46 +50,48 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09DBDA0CD71D0B35FE7CB025DE4C893C /* MFMessageComposeViewController+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MFMessageComposeViewController+Block.h"; path = "Source/MessageUI/MFMessageComposeViewController+Block.h"; sourceTree = "<group>"; };
-		0CF98A690A301CDA5B4818A8493705DF /* UIPopoverController+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPopoverController+Block.h"; path = "Source/UIKit/UIPopoverController+Block.h"; sourceTree = "<group>"; };
+		06F603A8FAE95D47478630959B9EF7FB /* CLLocationManager+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CLLocationManager+Block.h"; path = "Source/CoreLocation/CLLocationManager+Block.h"; sourceTree = "<group>"; };
 		0DBD324E420C7BE06C26E1729D09464C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		129B38CB996FCFCD4DB48BA259E24547 /* UINavigationController+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Block.m"; path = "Source/UIKit/UINavigationController+Block.m"; sourceTree = "<group>"; };
+		12D91B51BEA4EB90D06750C53545C996 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		185F50E44780C416BCDFB141A60A6268 /* iOSBlocksProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = iOSBlocksProtocol.h; path = Source/iOSBlocksProtocol.h; sourceTree = "<group>"; };
 		1C67D689D86F87432189BF2A8FE9F45A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		259E28EF42858132F1B729F24D393C30 /* MFMessageComposeViewController+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MFMessageComposeViewController+Block.m"; path = "Source/MessageUI/MFMessageComposeViewController+Block.m"; sourceTree = "<group>"; };
+		2375D24B8F6EA9E8A43AA80E609C970B /* MFMessageComposeViewController+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MFMessageComposeViewController+Block.h"; path = "Source/MessageUI/MFMessageComposeViewController+Block.h"; sourceTree = "<group>"; };
 		26A42344BC0EF08596E89382A259C283 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		29EE36A997B00A2004467B773D436ADB /* UIPickerView+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPickerView+Block.m"; path = "Source/UIKit/UIPickerView+Block.m"; sourceTree = "<group>"; };
-		2DCBF960B2C980D6451CC0D1C37A13C8 /* UINavigationController+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Block.h"; path = "Source/UIKit/UINavigationController+Block.h"; sourceTree = "<group>"; };
-		36C044571F7AEB8ECB054D4684C894F0 /* iOSBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = iOSBlocks.h; path = Source/iOSBlocks.h; sourceTree = "<group>"; };
-		37C6AA7D37A7C4D627695755AA79ED90 /* UIActionSheet+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActionSheet+Block.m"; path = "Source/UIKit/UIActionSheet+Block.m"; sourceTree = "<group>"; };
+		291445737F27DF1CF9A11C02FC991AFA /* UIPopoverController+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPopoverController+Block.h"; path = "Source/UIKit/UIPopoverController+Block.h"; sourceTree = "<group>"; };
+		2C9659377D2686D7C218C43391DE6A76 /* NSURLConnection+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLConnection+Block.h"; path = "Source/Foundation/NSURLConnection+Block.h"; sourceTree = "<group>"; };
 		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		392E59D6C9F56DE4380D49E59DF3C563 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
-		405EC775866469C0E7A83BE7C69E5A2F /* iOSBlocks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSBlocks.xcconfig; sourceTree = "<group>"; };
+		40B1B9A6646D518022A3D9A0A0278B0C /* UIPickerView+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPickerView+Block.m"; path = "Source/UIKit/UIPickerView+Block.m"; sourceTree = "<group>"; };
 		43B80AF5AAD0250B0A44439582B775A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
-		48850964C6AFAA7E5DE3F470B8703FC3 /* iOSBlocksProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = iOSBlocksProtocol.h; path = Source/iOSBlocksProtocol.h; sourceTree = "<group>"; };
+		4BC3DCA0C5419C91383C893D7F8C0BC9 /* iOSBlocks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSBlocks-prefix.pch"; sourceTree = "<group>"; };
+		4C4AE41E7F69773BA388F46D5CF6165D /* UIPopoverController+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPopoverController+Block.m"; path = "Source/UIKit/UIPopoverController+Block.m"; sourceTree = "<group>"; };
 		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		4FF57292B4D52E02A230E91057498D07 /* UINavigationController+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Block.h"; path = "Source/UIKit/UINavigationController+Block.h"; sourceTree = "<group>"; };
 		520FE41068F53C3B7037A4C3D40C7300 /* libiOSBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOSBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5409822F1678F877F00036A1AEA92D9C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		56C2902BD8900098B811412881077608 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		652FF68DE1161F047D5CF88D284BCD58 /* NSURLConnection+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLConnection+Block.h"; path = "Source/Foundation/NSURLConnection+Block.h"; sourceTree = "<group>"; };
+		5DDF38E07DD526210A4608CB51C8883C /* NSURLConnection+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLConnection+Block.m"; path = "Source/Foundation/NSURLConnection+Block.m"; sourceTree = "<group>"; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		757EA227DD9CF2B2BB1BF1CD096138F7 /* UIPickerView+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPickerView+Block.h"; path = "Source/UIKit/UIPickerView+Block.h"; sourceTree = "<group>"; };
-		86950B9ECFEA36FC23A67A6E061D60E0 /* MFMailComposeViewController+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MFMailComposeViewController+Block.h"; path = "Source/MessageUI/MFMailComposeViewController+Block.h"; sourceTree = "<group>"; };
-		97DAB7E28CD69D0FE5BFFC14C4C07B64 /* NSURLConnection+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLConnection+Block.m"; path = "Source/Foundation/NSURLConnection+Block.m"; sourceTree = "<group>"; };
+		6AAF4AF14610792E96F3CB52128DC97D /* MFMessageComposeViewController+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MFMessageComposeViewController+Block.m"; path = "Source/MessageUI/MFMessageComposeViewController+Block.m"; sourceTree = "<group>"; };
+		6E0BF468F08F70DF1D23F7B8B5EA3BD6 /* UIActionSheet+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActionSheet+Block.h"; path = "Source/UIKit/UIActionSheet+Block.h"; sourceTree = "<group>"; };
+		6E9FB86CF3FDEDE39DD83BFBD17858A1 /* iOSBlocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSBlocks-dummy.m"; sourceTree = "<group>"; };
+		76A3051B17ED6C46C66CBD4B0FB001CC /* UIActionSheet+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActionSheet+Block.m"; path = "Source/UIKit/UIActionSheet+Block.m"; sourceTree = "<group>"; };
+		8FEF0C5C9AFF3459C3D38DF6C86470B7 /* iOSBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = iOSBlocks.h; path = Source/iOSBlocks.h; sourceTree = "<group>"; };
+		97604083BAF2220756E0F6F5C1675A84 /* MFMailComposeViewController+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MFMailComposeViewController+Block.m"; path = "Source/MessageUI/MFMailComposeViewController+Block.m"; sourceTree = "<group>"; };
 		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
 		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		A7EBADCE7DF6F78AE7B8A6CFA31098D5 /* UINavigationController+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Block.m"; path = "Source/UIKit/UINavigationController+Block.m"; sourceTree = "<group>"; };
-		AB06E04E10F946575E4A0F06A72B7CD2 /* UIPopoverController+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPopoverController+Block.m"; path = "Source/UIKit/UIPopoverController+Block.m"; sourceTree = "<group>"; };
-		B651BD0EE59BC04D5AC3A5E2E9B5154C /* MFMailComposeViewController+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MFMailComposeViewController+Block.m"; path = "Source/MessageUI/MFMailComposeViewController+Block.m"; sourceTree = "<group>"; };
+		AD3B61E09A7DBD9578B87791C1BEE8A5 /* UIPickerView+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPickerView+Block.h"; path = "Source/UIKit/UIPickerView+Block.h"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BE5B73AE82412F28B98684B19B2033C2 /* UIAlertView+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+Block.m"; path = "Source/UIKit/UIAlertView+Block.m"; sourceTree = "<group>"; };
-		C4263ED8AB41804804F79A4B90977917 /* iOSBlocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iOSBlocks-dummy.m"; sourceTree = "<group>"; };
 		D04ECF2967651FE89F6C378A5F772C79 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
-		D6607CE37C3B20178A4701146A4A20C5 /* UIAlertView+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+Block.h"; path = "Source/UIKit/UIAlertView+Block.h"; sourceTree = "<group>"; };
-		D76CB280C31A8E35036C79A52735A852 /* iOSBlocks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSBlocks-prefix.pch"; sourceTree = "<group>"; };
-		D8B6288D0DAF632E098669CDED7F9465 /* CLLocationManager+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CLLocationManager+Block.h"; path = "Source/CoreLocation/CLLocationManager+Block.h"; sourceTree = "<group>"; };
-		DF0B81B75B751E3DB43D231EA601CCAE /* UIActionSheet+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActionSheet+Block.h"; path = "Source/UIKit/UIActionSheet+Block.h"; sourceTree = "<group>"; };
-		FD9473827E94C6D6D3F2EF0CCFC570A7 /* CLLocationManager+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CLLocationManager+Block.m"; path = "Source/CoreLocation/CLLocationManager+Block.m"; sourceTree = "<group>"; };
+		D53352A43970D4797B7B8AAAAD377E21 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		DCA93E44AE539378FD823A207381C9A2 /* UIAlertView+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+Block.h"; path = "Source/UIKit/UIAlertView+Block.h"; sourceTree = "<group>"; };
+		DF72EE3E626369C31AAC9829F9FD87D2 /* UIAlertView+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+Block.m"; path = "Source/UIKit/UIAlertView+Block.m"; sourceTree = "<group>"; };
+		E23073A11EEFF29819863F8644FA6698 /* CLLocationManager+Block.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CLLocationManager+Block.m"; path = "Source/CoreLocation/CLLocationManager+Block.m"; sourceTree = "<group>"; };
+		F934F2A5E5453D99F9F80E73F86315B4 /* MFMailComposeViewController+Block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MFMailComposeViewController+Block.h"; path = "Source/MessageUI/MFMailComposeViewController+Block.h"; sourceTree = "<group>"; };
+		FF869A10CB6832F2B9B9CEC85C6303BE /* iOSBlocks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSBlocks.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,15 +128,50 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		1DB17897B2387C11C247F9289F5A54F2 /* Support Files */ = {
+		177F4E43A81357FE5DB9840D240EA262 /* Crashlytics */ = {
 			isa = PBXGroup;
 			children = (
-				405EC775866469C0E7A83BE7C69E5A2F /* iOSBlocks.xcconfig */,
-				C4263ED8AB41804804F79A4B90977917 /* iOSBlocks-dummy.m */,
-				D76CB280C31A8E35036C79A52735A852 /* iOSBlocks-prefix.pch */,
+				9169A0B0E9A0A7EA61C0DB0CCCD0C90B /* Frameworks */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/iOSBlocks";
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		26174CE0007F444C1C81498C72D14E08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				177F4E43A81357FE5DB9840D240EA262 /* Crashlytics */,
+				91A909E561B823E558CDC1B200F14AB5 /* Fabric */,
+				3DBED9149B66C615A3816FC42988E89D /* iOSBlocks */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3DBED9149B66C615A3816FC42988E89D /* iOSBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				06F603A8FAE95D47478630959B9EF7FB /* CLLocationManager+Block.h */,
+				E23073A11EEFF29819863F8644FA6698 /* CLLocationManager+Block.m */,
+				8FEF0C5C9AFF3459C3D38DF6C86470B7 /* iOSBlocks.h */,
+				185F50E44780C416BCDFB141A60A6268 /* iOSBlocksProtocol.h */,
+				F934F2A5E5453D99F9F80E73F86315B4 /* MFMailComposeViewController+Block.h */,
+				97604083BAF2220756E0F6F5C1675A84 /* MFMailComposeViewController+Block.m */,
+				2375D24B8F6EA9E8A43AA80E609C970B /* MFMessageComposeViewController+Block.h */,
+				6AAF4AF14610792E96F3CB52128DC97D /* MFMessageComposeViewController+Block.m */,
+				2C9659377D2686D7C218C43391DE6A76 /* NSURLConnection+Block.h */,
+				5DDF38E07DD526210A4608CB51C8883C /* NSURLConnection+Block.m */,
+				6E0BF468F08F70DF1D23F7B8B5EA3BD6 /* UIActionSheet+Block.h */,
+				76A3051B17ED6C46C66CBD4B0FB001CC /* UIActionSheet+Block.m */,
+				DCA93E44AE539378FD823A207381C9A2 /* UIAlertView+Block.h */,
+				DF72EE3E626369C31AAC9829F9FD87D2 /* UIAlertView+Block.m */,
+				4FF57292B4D52E02A230E91057498D07 /* UINavigationController+Block.h */,
+				129B38CB996FCFCD4DB48BA259E24547 /* UINavigationController+Block.m */,
+				AD3B61E09A7DBD9578B87791C1BEE8A5 /* UIPickerView+Block.h */,
+				40B1B9A6646D518022A3D9A0A0278B0C /* UIPickerView+Block.m */,
+				291445737F27DF1CF9A11C02FC991AFA /* UIPopoverController+Block.h */,
+				4C4AE41E7F69773BA388F46D5CF6165D /* UIPopoverController+Block.m */,
+				B9EE0735C086DE7A3289FA49022F7D97 /* Support Files */,
+			);
+			path = iOSBlocks;
 			sourceTree = "<group>";
 		};
 		41AA987B3620C7D84AFC94E30CF719BF /* Products */ = {
@@ -146,12 +183,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6F081D03A19CDE1111F82E8553EF9056 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D53352A43970D4797B7B8AAAAD377E21 /* Fabric.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				F4CDA5FA9197A41E0081E84F932906EB /* Frameworks */,
-				B4F27672CFCC1C637F39FB2A9756A568 /* Pods */,
+				26174CE0007F444C1C81498C72D14E08 /* Pods */,
 				41AA987B3620C7D84AFC94E30CF719BF /* Products */,
 				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
 			);
@@ -171,32 +216,20 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		9D19BF927F98EA7A2FCC5B76275489B5 /* iOSBlocks */ = {
+		9169A0B0E9A0A7EA61C0DB0CCCD0C90B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D8B6288D0DAF632E098669CDED7F9465 /* CLLocationManager+Block.h */,
-				FD9473827E94C6D6D3F2EF0CCFC570A7 /* CLLocationManager+Block.m */,
-				36C044571F7AEB8ECB054D4684C894F0 /* iOSBlocks.h */,
-				48850964C6AFAA7E5DE3F470B8703FC3 /* iOSBlocksProtocol.h */,
-				86950B9ECFEA36FC23A67A6E061D60E0 /* MFMailComposeViewController+Block.h */,
-				B651BD0EE59BC04D5AC3A5E2E9B5154C /* MFMailComposeViewController+Block.m */,
-				09DBDA0CD71D0B35FE7CB025DE4C893C /* MFMessageComposeViewController+Block.h */,
-				259E28EF42858132F1B729F24D393C30 /* MFMessageComposeViewController+Block.m */,
-				652FF68DE1161F047D5CF88D284BCD58 /* NSURLConnection+Block.h */,
-				97DAB7E28CD69D0FE5BFFC14C4C07B64 /* NSURLConnection+Block.m */,
-				DF0B81B75B751E3DB43D231EA601CCAE /* UIActionSheet+Block.h */,
-				37C6AA7D37A7C4D627695755AA79ED90 /* UIActionSheet+Block.m */,
-				D6607CE37C3B20178A4701146A4A20C5 /* UIAlertView+Block.h */,
-				BE5B73AE82412F28B98684B19B2033C2 /* UIAlertView+Block.m */,
-				2DCBF960B2C980D6451CC0D1C37A13C8 /* UINavigationController+Block.h */,
-				A7EBADCE7DF6F78AE7B8A6CFA31098D5 /* UINavigationController+Block.m */,
-				757EA227DD9CF2B2BB1BF1CD096138F7 /* UIPickerView+Block.h */,
-				29EE36A997B00A2004467B773D436ADB /* UIPickerView+Block.m */,
-				0CF98A690A301CDA5B4818A8493705DF /* UIPopoverController+Block.h */,
-				AB06E04E10F946575E4A0F06A72B7CD2 /* UIPopoverController+Block.m */,
-				1DB17897B2387C11C247F9289F5A54F2 /* Support Files */,
+				12D91B51BEA4EB90D06750C53545C996 /* Crashlytics.framework */,
 			);
-			path = iOSBlocks;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91A909E561B823E558CDC1B200F14AB5 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				6F081D03A19CDE1111F82E8553EF9056 /* Frameworks */,
+			);
+			path = Fabric;
 			sourceTree = "<group>";
 		};
 		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
@@ -214,12 +247,15 @@
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		B4F27672CFCC1C637F39FB2A9756A568 /* Pods */ = {
+		B9EE0735C086DE7A3289FA49022F7D97 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9D19BF927F98EA7A2FCC5B76275489B5 /* iOSBlocks */,
+				FF869A10CB6832F2B9B9CEC85C6303BE /* iOSBlocks.xcconfig */,
+				6E9FB86CF3FDEDE39DD83BFBD17858A1 /* iOSBlocks-dummy.m */,
+				4BC3DCA0C5419C91383C893D7F8C0BC9 /* iOSBlocks-prefix.pch */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/iOSBlocks";
 			sourceTree = "<group>";
 		};
 		F4CDA5FA9197A41E0081E84F932906EB /* Frameworks */ = {
@@ -355,7 +391,7 @@
 /* Begin XCBuildConfiguration section */
 		0EA119CFA08A33C1E57A796B35929CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 405EC775866469C0E7A83BE7C69E5A2F /* iOSBlocks.xcconfig */;
+			baseConfigurationReference = FF869A10CB6832F2B9B9CEC85C6303BE /* iOSBlocks.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/iOSBlocks/iOSBlocks-prefix.pch";
@@ -373,7 +409,7 @@
 		};
 		3714B54032B3DE7DDA073F62CD0CD82D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 405EC775866469C0E7A83BE7C69E5A2F /* iOSBlocks.xcconfig */;
+			baseConfigurationReference = FF869A10CB6832F2B9B9CEC85C6303BE /* iOSBlocks.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/iOSBlocks/iOSBlocks-prefix.pch";
