@@ -1,0 +1,10 @@
+PODS:
+  - iOSBlocks (1.0.2)
+
+DEPENDENCIES:
+  - iOSBlocks (~> 1.0.2)
+
+SPEC CHECKSUMS:
+  iOSBlocks: e86e746cda312ff3a50a4b4733e3173491689b88
+
+COCOAPODS: 0.39.0
