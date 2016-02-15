@@ -470,28 +470,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		3A283EF31C724D1700056061 /* classes */ = {
-			isa = PBXGroup;
-			children = (
-				3A283F4B1C724D2800056061 /* DefaultCalendarSelectTableViewController.h */,
-				3A283F4C1C724D2800056061 /* DefaultCalendarSelectTableViewController.m */,
-				3A283F591C724D2800056061 /* EventForCalendarDayView.h */,
-				3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */,
-				3A283F641C724D2800056061 /* EventTaskSelectTableViewCell.h */,
-				3A283F651C724D2800056061 /* EventTaskSelectTableViewCell.m */,
-				3A283F661C724D2800056061 /* EventTaskSelectViewController.h */,
-				3A283F671C724D2800056061 /* EventTaskSelectViewController.m */,
-				3A283F6A1C724D2800056061 /* FullCalendarViewController.h */,
-				3A283F6B1C724D2800056061 /* FullCalendarViewController.m */,
-				3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */,
-				3A283F921C724D2800056061 /* PulpFAImageView.h */,
-				3A283F931C724D2800056061 /* PulpFAImageView.m */,
-				3A283F941C724D2800056061 /* PulpMapView.h */,
-				3A283F951C724D2800056061 /* PulpMapView.m */,
-			);
-			name = classes;
-			sourceTree = "<group>";
-		};
 		3A28404E1C72516A00056061 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,6 +623,8 @@
 				3A283EFD1C724D2800056061 /* AppSettingsViewController.h */,
 				3A283EFE1C724D2800056061 /* AppSettingsViewController.m */,
 				3A283EFF1C724D2800056061 /* AppSettingsViewController.xib */,
+				3A283F4B1C724D2800056061 /* DefaultCalendarSelectTableViewController.h */,
+				3A283F4C1C724D2800056061 /* DefaultCalendarSelectTableViewController.m */,
 				3A283F9F1C724D2800056061 /* SettingsManager.h */,
 				3A283FA01C724D2800056061 /* SettingsManager.m */,
 			);
@@ -675,6 +655,9 @@
 		3A2840F71C72577F00056061 /* Full Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				3A283F6A1C724D2800056061 /* FullCalendarViewController.h */,
+				3A283F6B1C724D2800056061 /* FullCalendarViewController.m */,
+				3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */,
 				3A283F3D1C724D2800056061 /* ContentContainerViewController.h */,
 				3A283F3E1C724D2800056061 /* ContentContainerViewController.m */,
 				3A283F241C724D2800056061 /* Circle.h */,
@@ -698,6 +681,14 @@
 		3A2840F81C72579B00056061 /* Categories-Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3A283EF91C724D2800056061 /* AlarmNotificationHandler.h */,
+				3A283EFA1C724D2800056061 /* AlarmNotificationHandler.m */,
+				3A2840421C724DAA00056061 /* FAImageView.h */,
+				3A2840431C724DAA00056061 /* FAImageView.m */,
+				3A283F941C724D2800056061 /* PulpMapView.h */,
+				3A283F951C724D2800056061 /* PulpMapView.m */,
+				3A283F921C724D2800056061 /* PulpFAImageView.h */,
+				3A283F931C724D2800056061 /* PulpFAImageView.m */,
 				3A283F8F1C724D2800056061 /* PositionUpdatedRespondeeProtocol.h */,
 				3A2840481C724E8B00056061 /* UIFont+FontAwesome.h */,
 				3A2840491C724E8B00056061 /* UIFont+FontAwesome.m */,
@@ -712,10 +703,6 @@
 		3A2840F91C7257BF00056061 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3A283EF91C724D2800056061 /* AlarmNotificationHandler.h */,
-				3A283EFA1C724D2800056061 /* AlarmNotificationHandler.m */,
-				3A2840421C724DAA00056061 /* FAImageView.h */,
-				3A2840431C724DAA00056061 /* FAImageView.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -789,6 +776,12 @@
 		3A2840FE1C725B8A00056061 /* EventVCS */ = {
 			isa = PBXGroup;
 			children = (
+				3A283F591C724D2800056061 /* EventForCalendarDayView.h */,
+				3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */,
+				3A283F641C724D2800056061 /* EventTaskSelectTableViewCell.h */,
+				3A283F651C724D2800056061 /* EventTaskSelectTableViewCell.m */,
+				3A283F661C724D2800056061 /* EventTaskSelectViewController.h */,
+				3A283F671C724D2800056061 /* EventTaskSelectViewController.m */,
 				3A283F521C724D2800056061 /* EventCalendarSelectTableViewCell.h */,
 				3A283F531C724D2800056061 /* EventCalendarSelectTableViewCell.m */,
 				3A283F541C724D2800056061 /* EventCalendarSelectViewController.h */,
@@ -890,7 +883,6 @@
 				3A2840F31C72566600056061 /* VCS */,
 				3A2840F21C72526500056061 /* Utils */,
 				3A2840FD1C7258E900056061 /* Data */,
-				3A283EF31C724D1700056061 /* classes */,
 				3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */,
 				3AB577E01C7248FA008FE5C0 /* AppDelegate.m */,
 				3AB577ED1C7248FA008FE5C0 /* Info.plist */,
