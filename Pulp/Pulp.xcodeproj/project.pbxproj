@@ -199,7 +199,6 @@
 		3A2840F11C72521500056061 /* Untitled-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2840AB1C72521500056061 /* Untitled-7.png */; };
 		3AB577DE1C7248FA008FE5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577DD1C7248FA008FE5C0 /* main.m */; };
 		3AB577E11C7248FA008FE5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577E01C7248FA008FE5C0 /* AppDelegate.m */; };
-		3AB577E41C7248FA008FE5C0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577E31C7248FA008FE5C0 /* ViewController.m */; };
 		3AB577E71C7248FA008FE5C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E51C7248FA008FE5C0 /* Main.storyboard */; };
 		3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E81C7248FA008FE5C0 /* Assets.xcassets */; };
 		3AB577EC1C7248FA008FE5C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577EA1C7248FA008FE5C0 /* LaunchScreen.storyboard */; };
@@ -502,8 +501,6 @@
 		3AB577DD1C7248FA008FE5C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pulp/AppDelegate.h; sourceTree = "<group>"; };
 		3AB577E01C7248FA008FE5C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Pulp/AppDelegate.m; sourceTree = "<group>"; };
-		3AB577E21C7248FA008FE5C0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Pulp/ViewController.h; sourceTree = "<group>"; };
-		3AB577E31C7248FA008FE5C0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Pulp/ViewController.m; sourceTree = "<group>"; };
 		3AB577E61C7248FA008FE5C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AB577E81C7248FA008FE5C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AB577EB1C7248FA008FE5C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -861,8 +858,6 @@
 				3A283EF31C724D1700056061 /* classes */,
 				3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */,
 				3AB577E01C7248FA008FE5C0 /* AppDelegate.m */,
-				3AB577E21C7248FA008FE5C0 /* ViewController.h */,
-				3AB577E31C7248FA008FE5C0 /* ViewController.m */,
 				3AB577ED1C7248FA008FE5C0 /* Info.plist */,
 				3AB577F31C72493B008FE5C0 /* Cruft */,
 			);
@@ -1149,7 +1144,6 @@
 				3A2840161C724D2800056061 /* LayeredBorderView.m in Sources */,
 				3A2840411C724D2800056061 /* WeatherView.m in Sources */,
 				3A2840251C724D2800056061 /* RadialEventDateController.m in Sources */,
-				3AB577E41C7248FA008FE5C0 /* ViewController.m in Sources */,
 				3A2840401C724D2800056061 /* WeatherDataManager.m in Sources */,
 				3A283FE31C724D2800056061 /* CalendarManagementTableViewController.m in Sources */,
 				3A2840471C724E6400056061 /* NSString+FontAwesome.m in Sources */,
