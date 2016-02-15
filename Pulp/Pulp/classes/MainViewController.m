@@ -129,9 +129,9 @@ static MainViewController *staticVC;
     NSLog(@"%s", __PRETTY_FUNCTION__);
 
 
-//    [self.fullCalendarViewController dataChanged];
+    [self.fullCalendarViewController dataChanged];
     [self.centerViewController refreshContent];
-    //[self.containerTodosViewController.todosViewController reloadTodos];
+    [self.containerTodosViewController.todosViewController reloadTodos];
     
     if (!self.initialized)
     {
