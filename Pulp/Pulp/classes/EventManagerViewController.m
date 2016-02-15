@@ -114,7 +114,7 @@
     self.addController.event = self.eventInScope;
     self.addController.editViewDelegate = self;
     [self.view addSubview:self.addController.view];
-    self.addController.view.frame = CGRectMake(self.addController.view.frame.origin.x, self.addController.view.frame.origin.y, [Utils getScreenWidth] - [Utils getScreenWidth] / 7, [Utils getScreenHeight]);
+    self.addController.view.frame = CGRectMake(self.addController.view.frame.origin.x, self.addController.view.frame.origin.y, [Utils getScreenWidth], [Utils getScreenHeight]);
     
     
     //   [self performSelectorInBackground:@selector(doAdd) withObject:nil];

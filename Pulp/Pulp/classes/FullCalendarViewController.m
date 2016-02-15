@@ -38,10 +38,7 @@ float theTransitionTime = .22;
 
 
 -(void)doLoadViews
-{
-    
-    NSLog(@"self.frame!: %@", NSStringFromCGRect(self.view.frame));
-    
+{    
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
         [self setNeedsStatusBarAppearanceUpdate];
     

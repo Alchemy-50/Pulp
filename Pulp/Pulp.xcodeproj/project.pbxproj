@@ -537,18 +537,7 @@
 		3A2840F61C72575300056061 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
-				3A283F8B1C724D2800056061 /* MonthContainerView.h */,
-				3A283F8C1C724D2800056061 /* MonthContainerView.m */,
-				3A283F821C724D2800056061 /* MaskView.h */,
-				3A283F831C724D2800056061 /* MaskView.m */,
-				3A283F411C724D2800056061 /* DailyIconView.h */,
-				3A283F421C724D2800056061 /* DailyIconView.m */,
-				3A283F431C724D2800056061 /* DailyScrollView.h */,
-				3A283F441C724D2800056061 /* DailyScrollView.m */,
-				3A283F451C724D2800056061 /* DailyTableViewCell.h */,
-				3A283F461C724D2800056061 /* DailyTableViewCell.m */,
-				3A283F491C724D2800056061 /* DailyView.h */,
-				3A283F4A1C724D2800056061 /* DailyView.m */,
+				3AFEB9571C72796D00FA991F /* Views */,
 				3A283F221C724D2800056061 /* CenterViewController.h */,
 				3A283F231C724D2800056061 /* CenterViewController.m */,
 			);
@@ -924,6 +913,25 @@
 				3A2840AB1C72521500056061 /* Untitled-7.png */,
 			);
 			name = Etc;
+			sourceTree = "<group>";
+		};
+		3AFEB9571C72796D00FA991F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A283F8B1C724D2800056061 /* MonthContainerView.h */,
+				3A283F8C1C724D2800056061 /* MonthContainerView.m */,
+				3A283F821C724D2800056061 /* MaskView.h */,
+				3A283F831C724D2800056061 /* MaskView.m */,
+				3A283F411C724D2800056061 /* DailyIconView.h */,
+				3A283F421C724D2800056061 /* DailyIconView.m */,
+				3A283F431C724D2800056061 /* DailyScrollView.h */,
+				3A283F441C724D2800056061 /* DailyScrollView.m */,
+				3A283F451C724D2800056061 /* DailyTableViewCell.h */,
+				3A283F461C724D2800056061 /* DailyTableViewCell.m */,
+				3A283F491C724D2800056061 /* DailyView.h */,
+				3A283F4A1C724D2800056061 /* DailyView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
