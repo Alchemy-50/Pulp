@@ -43,7 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				3AB577DB1C7248FA008FE5C0 /* Pulp */,
-				3AB577DA1C7248FA008FE5C0 /* Products */,
+				3AB577F31C72493B008FE5C0 /* Cruft */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +53,7 @@
 				3AB577D91C7248FA008FE5C0 /* Pulp.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		3AB577DB1C7248FA008FE5C0 /* Pulp */ = {
@@ -62,11 +63,7 @@
 				3AB577E01C7248FA008FE5C0 /* AppDelegate.m */,
 				3AB577E21C7248FA008FE5C0 /* ViewController.h */,
 				3AB577E31C7248FA008FE5C0 /* ViewController.m */,
-				3AB577E51C7248FA008FE5C0 /* Main.storyboard */,
-				3AB577E81C7248FA008FE5C0 /* Assets.xcassets */,
-				3AB577EA1C7248FA008FE5C0 /* LaunchScreen.storyboard */,
 				3AB577ED1C7248FA008FE5C0 /* Info.plist */,
-				3AB577DC1C7248FA008FE5C0 /* Supporting Files */,
 			);
 			path = Pulp;
 			sourceTree = "<group>";
@@ -74,9 +71,22 @@
 		3AB577DC1C7248FA008FE5C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3AB577E51C7248FA008FE5C0 /* Main.storyboard */,
+				3AB577E81C7248FA008FE5C0 /* Assets.xcassets */,
+				3AB577EA1C7248FA008FE5C0 /* LaunchScreen.storyboard */,
 				3AB577DD1C7248FA008FE5C0 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3AB577F31C72493B008FE5C0 /* Cruft */ = {
+			isa = PBXGroup;
+			children = (
+				3AB577DA1C7248FA008FE5C0 /* Products */,
+				3AB577DC1C7248FA008FE5C0 /* Supporting Files */,
+			);
+			name = Cruft;
+			path = Pulp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
