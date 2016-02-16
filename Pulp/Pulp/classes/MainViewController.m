@@ -45,18 +45,40 @@ static MainViewController *staticVC;
 
 -(void)toggleToTodos
 {
-    self.theSecondaryState = SECONDARY_VIEW_STATE_TODOS;
-    [self.fullCalendarViewController.view removeFromSuperview];
-    
-    if (self.containerTodosViewController.view.superview == nil)
-        [self.view insertSubview:self.containerTodosViewController.view belowSubview:self.coverScrollView];
-    
-    [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    if (self.theSecondaryState == SECONDARY_VIEW_STATE_TODOS)
+    {
+        if (self.coverScrollView.contentOffset.x == 0)
+            [self.coverScrollView setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
+        else
+            [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        
+    }
+    else
+    {
+        self.theSecondaryState = SECONDARY_VIEW_STATE_TODOS;
+        [self.fullCalendarViewController.view removeFromSuperview];
+        
+        if (self.containerTodosViewController.view.superview == nil)
+            [self.view insertSubview:self.containerTodosViewController.view belowSubview:self.coverScrollView];
+        
+        [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
 }
 
 
 -(void)toggleToCalendar
 {
+    if (self.theSecondaryState == SECONDARY_VIEW_STATE_CALENDAR)
+    {
+        if (self.coverScrollView.contentOffset.x == 0)
+            [self.coverScrollView setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
+        else
+            [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        
+    }
+    else
+    {
+        
     self.theSecondaryState = SECONDARY_VIEW_STATE_CALENDAR;
     
     [self.containerTodosViewController.view removeFromSuperview];
@@ -64,7 +86,8 @@ static MainViewController *staticVC;
     if (self.fullCalendarViewController.view.superview == nil)
         [self.view insertSubview:self.fullCalendarViewController.view belowSubview:self.coverScrollView];
     
-    [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];    
+    [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
 }
 
 
@@ -74,12 +97,12 @@ static MainViewController *staticVC;
     staticVC = self;
     
     [super viewDidLoad];
-
+    
     float barWidth = 60;
     
     self.sidebarView = [[SidebarView alloc] initWithFrame:CGRectMake(0, 0, barWidth, self.view.frame.size.height)];
     [self.view addSubview:self.sidebarView];
-
+    
     
     self.fullCalendarViewController = [[FullCalendarViewController alloc] initWithNibName:@"FullCalendarViewController" bundle:nil];
     [self.view addSubview:self.fullCalendarViewController.view];
@@ -91,7 +114,7 @@ static MainViewController *staticVC;
     self.containerTodosViewController.view.frame = self.fullCalendarViewController.view.frame;
     
     
-
+    
     
     
     self.coverScrollView = [[CoverScrollView alloc] initWithFrame:self.fullCalendarViewController.view.frame];
@@ -101,7 +124,7 @@ static MainViewController *staticVC;
     self.coverScrollView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.coverScrollView];
     
-   
+    
     float width =  [Utils getScreenWidth] - self.sidebarView.frame.size.width;
     
     self.centerViewController = [[CenterViewController alloc] initWithNibName:nil bundle:nil];
@@ -109,7 +132,7 @@ static MainViewController *staticVC;
     self.centerViewController.view.frame = CGRectMake(width, 0, width, self.view.frame.size.height);
     [self.coverScrollView addSubview:self.centerViewController.view];
     [self.centerViewController loadViews];
-   
+    
     self.coverScrollView.contentSize = CGSizeMake(self.centerViewController.view.frame.size.width * 2, 0);
     [self.coverScrollView setContentOffset:CGPointMake(self.centerViewController.view.frame.origin.x, 0) animated:NO];
     
@@ -153,8 +176,8 @@ static MainViewController *staticVC;
 -(void)dataChanged
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-
-
+    
+    
     [self.fullCalendarViewController dataChanged];
     [self.centerViewController refreshContent];
     [self.containerTodosViewController.todosViewController reloadTodos];
@@ -165,7 +188,7 @@ static MainViewController *staticVC;
     }
     
     self.initialized = YES;
-
+    
 }
 
 
@@ -175,7 +198,7 @@ static MainViewController *staticVC;
     createEventViewController.theParentViewController = self;
     createEventViewController.calendarReferenceDate = referenceDate;
     [createEventViewController createNewEventWithReferenceDate];
-
+    
     [self presentViewController:createEventViewController animated:YES completion:nil];
     createEventViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
 }
@@ -190,8 +213,8 @@ static MainViewController *staticVC;
 - (void) dismissSettingsViewController
 {
     [self dismissViewControllerAnimated:YES completion:^{
-         [self dataChanged];
-     }];
+        [self dataChanged];
+    }];
 }
 
 
@@ -210,14 +233,14 @@ static MainViewController *staticVC;
                 
             }
     
-        [self dismissViewControllerAnimated:YES completion:^(void){
-            
-        }];
+    [self dismissViewControllerAnimated:YES completion:^(void){
+        
+    }];
 }
 
 
 - (void) dayViewTapped:(CalendarDayView *)tappedDay
-{    
+{
     [self.fullCalendarViewController.contentContainerViewController dayViewSelected:tappedDay];
 }
 
