@@ -140,7 +140,8 @@ static float insetHeight = 40.0f;
             {
                 dayView.dayLabel.font = [UIFont fontWithName:@"Lato-Regular" size:28 / 2];;
                 dayView.dayLabel.textColor = [Utils getAppColor:COLOR_10];
-                dayView.backgroundColor = [UIColor colorWithWhite:0 alpha:.05];
+                dayView.backgroundColor = [UIColor colorWithWhite:0 alpha:.8];
+//                dayView.backgroundColor = [UIColor clearColor];
             }
             
             
