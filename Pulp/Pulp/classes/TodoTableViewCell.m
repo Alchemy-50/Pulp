@@ -50,7 +50,7 @@
         self.frame = CGRectMake(insetValue, self.frame.origin.y, self.frame.size.width - insetValue, self.frame.size.height);
         
         
-        self.todoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(tierTwoLabelInsetX2, todoHeight / 2 - 10 - cutFloat, self.frame.size.width - tierTwoLabelInsetX2 - 60, 23)];
+        self.todoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(tierTwoLabelInsetX2, todoHeight / 2 - 10 - cutFloat, self.frame.size.width - 25, 23)];
         self.todoTitleLabel.textColor = [UIColor whiteColor];
         self.todoTitleLabel.adjustsFontSizeToFitWidth = NO;
         self.todoTitleLabel.lineBreakMode = NSLineBreakByTruncatingTail;

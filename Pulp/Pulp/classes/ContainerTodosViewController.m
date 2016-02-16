@@ -81,7 +81,7 @@
     [[ThemeManager sharedThemeManager] registerSecondaryObject:self.addTodoLabel];
     
     
-    self.textEntryField = [[UITextField alloc] initWithFrame:self.addTodoLabel.frame];
+    self.textEntryField = [[UITextField alloc] initWithFrame:CGRectMake(self.addTodoLabel.frame.origin.x, self.addTodoLabel.frame.origin.y, self.addTodoLabel.frame.size.width * .9, self.addTodoLabel.frame.size.height)];
     self.textEntryField.delegate = self;
     self.textEntryField.backgroundColor = [UIColor clearColor];
     self.textEntryField.textColor = self.addTodoLabel.textColor;
@@ -105,7 +105,7 @@
     CGSize actualSize = [PulpFAImageView getImageSizeFromString:@"fa-check-circle" withDesiredHeight:desiredHeight];
 
     
-    PulpFAImageView *todoCheckImageView = [[PulpFAImageView alloc] initWithFrame:CGRectMake(self.textEntryField.frame.origin.x + self.textEntryField.frame.size.width + 25, entryBackgroundView.frame.size.height / 2 - actualSize.height / 2  + 12, actualSize.width, actualSize.height)];
+    PulpFAImageView *todoCheckImageView = [[PulpFAImageView alloc] initWithFrame:CGRectMake(self.addTodoLabel.frame.origin.x + self.addTodoLabel.frame.size.width + 25, entryBackgroundView.frame.size.height / 2 - actualSize.height / 2  + 12, actualSize.width, actualSize.height)];
     todoCheckImageView.desiredHeight = desiredHeight;
     todoCheckImageView.referenceString = @"fa-check-circle";
     [self.view addSubview:todoCheckImageView];

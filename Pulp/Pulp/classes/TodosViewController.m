@@ -101,9 +101,12 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.todosViewController = self;
 //        cell.insetValue = self.cellXInset;
+        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, self.view.frame.size.width, cell.frame.size.height);
         [cell loadViews];
         cell.backgroundColor = [UIColor clearColor];
     }
+    
+    
     
     cell.theIndexPath = indexPath;
     
