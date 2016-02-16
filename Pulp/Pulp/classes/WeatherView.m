@@ -46,7 +46,7 @@
             self.weatherLabel.text = [NSString stringWithFormat:@"%@°/%@°", [highDict objectForKey:@"celsius"], [lowDict objectForKey:@"celsius"]];
         else
             self.weatherLabel.text = [NSString stringWithFormat:@"%@°/%@°", [highDict objectForKey:@"fahrenheit"], [lowDict objectForKey:@"fahrenheit"]];
-                
+        
         self.iconImageView.image = [self getWeatherImageWithString:[weatherDictionary objectForKey:@"icon"]];
         
         [ImagesAPIHandler makeImageRequestWithDelegate:self withURL:[weatherDictionary objectForKey:@"icon_url"]];
