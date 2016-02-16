@@ -548,6 +548,8 @@
 			isa = PBXGroup;
 			children = (
 				3AFEB9401C726E1800FA991F /* Views */,
+				3A283F821C724D2800056061 /* MaskView.h */,
+				3A283F831C724D2800056061 /* MaskView.m */,
 				3A283F6A1C724D2800056061 /* FullCalendarViewController.h */,
 				3A283F6B1C724D2800056061 /* FullCalendarViewController.m */,
 				3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */,
@@ -920,8 +922,6 @@
 			children = (
 				3A283F8B1C724D2800056061 /* MonthContainerView.h */,
 				3A283F8C1C724D2800056061 /* MonthContainerView.m */,
-				3A283F821C724D2800056061 /* MaskView.h */,
-				3A283F831C724D2800056061 /* MaskView.m */,
 				3A283F411C724D2800056061 /* DailyIconView.h */,
 				3A283F421C724D2800056061 /* DailyIconView.m */,
 				3A283F431C724D2800056061 /* DailyScrollView.h */,

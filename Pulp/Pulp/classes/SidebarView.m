@@ -32,16 +32,22 @@
 
 
 
-//   self.dailyTodoImageView.countLabel.text = [NSString stringWithFormat:@"%lu",  (unsigned long)[[FlowControlHandler sharedFlowControlHandler].containerTodosViewController.todosViewController.todosArray count]];
-
 
 @implementation SidebarView
 
+
+static SidebarView *theStaticSidebarView;
+
++(SidebarView *)sharedSidebarView
+{
+    return theStaticSidebarView;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        theStaticSidebarView = self;
         [[ThemeManager sharedThemeManager] registerPrimaryObject:self];
         self.referencePointContainerDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
         
@@ -113,6 +119,16 @@
     [self.cogButtonView loadWithType:SIDEBAR_BUTTON_TYPE_COG];
 }
 
+-(void)updateButtonStateWithSelected:(int)selectedStateInt withShowEnabled:(BOOL)showEnabled
+{
+    if (!showEnabled)
+        [SidebarButtonView toggleButtonStatesWithSelectedButton:nil];
+    else if (selectedStateInt == SECONDARY_VIEW_STATE_CALENDAR)
+        [SidebarButtonView toggleButtonStatesWithSelectedButton:self.calendarButtonView];
+    else if (selectedStateInt == SECONDARY_VIEW_STATE_TODOS)
+        [SidebarButtonView toggleButtonStatesWithSelectedButton:self.checkSquareButtonView];
+    
+}
 
 -(void)chevronButtonHit
 {

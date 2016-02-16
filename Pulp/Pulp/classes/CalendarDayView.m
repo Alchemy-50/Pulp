@@ -10,12 +10,11 @@
 #import <EventKit/EventKit.h>
 #import "Circle.h"
 #import "CalendarMonthView.h"
-
 #import "GroupFormatManager.h"
 #import "Utils.h"
-
 #import "EventForCalendarDayView.h"
 #import "AppDelegate.h"
+#import "ThemeManager.h"
 
 @implementation CalendarDayView
 
@@ -40,10 +39,6 @@
         self.dayLabel.font = [UIFont fontWithName:@"Lato-Bold" size:16];
 		[self addSubview:dayLabel];     
                 
-/*        UITapGestureRecognizer *createEventTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addEvent)];
-        createEventTapGestureRecognizer.numberOfTapsRequired = 2;
-        [self addGestureRecognizer:createEventTapGestureRecognizer];
-  */
         
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureFired)];
         singleTap.numberOfTapsRequired = 1;
@@ -60,9 +55,11 @@
         touchAndHoldRecognizer.minimumPressDuration = 0.45;
         [self addGestureRecognizer:touchAndHoldRecognizer];
         
-//        [singleTap requireGestureRecognizerToFail:doubleTap];
+        [singleTap requireGestureRecognizerToFail:doubleTap];
 
 
+        self.theMaskView = [[MaskView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        [self addSubview:self.theMaskView];
     }
     
     return self;
@@ -71,6 +68,7 @@
 
 - (void)singleTapGestureFired
 {
+    NSLog(@"singleTapGestureFired");
 //    [[FlowControlHandler sharedFlowControlHandler] dayViewTapped:self];
     
     [[MainViewController sharedMainViewController] dayViewTapped:self];
@@ -78,6 +76,7 @@
 
 -(void) doubleTapGestureFired
 {
+    NSLog(@"doubleTapGestureFired");
 //    [[FlowControlHandler sharedFlowControlHandler] dayViewDoubleTapped:self];
 }
 
@@ -161,6 +160,7 @@
     [self.eventForCalendarDayView loadViewsWithEvents:ar];
     [self.drawLock unlock];
 
+    [self bringSubviewToFront:self.theMaskView];
 }
 
 

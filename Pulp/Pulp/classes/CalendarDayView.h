@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CalendarEvent.h"
 #import "EventForCalendarDayView.h"
+#import "MaskView.h"
+
 
 @class CalendarMonthView;
 
@@ -23,13 +25,9 @@
 -(void) setUnselected;
 
 @property (nonatomic, retain) CalendarMonthView *parentView;
-
 @property (nonatomic, retain) EventForCalendarDayView *eventForCalendarDayView;
-
 @property (nonatomic, retain) NSDate *theDate;
 @property (nonatomic, retain) UILabel *dayLabel;
-
-
-
 @property (nonatomic, retain) NSLock *drawLock;
+@property (nonatomic, retain) MaskView *theMaskView;
 @end

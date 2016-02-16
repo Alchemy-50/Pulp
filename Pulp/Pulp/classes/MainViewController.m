@@ -25,6 +25,7 @@
 @property (nonatomic, retain) CenterViewController *centerViewController;
 
 @property (nonatomic, assign) BOOL initialized;
+@property (nonatomic, assign) int theSecondaryState;
 @end
 
 
@@ -37,9 +38,14 @@ static MainViewController *staticVC;
     return staticVC;
 }
 
+-(int)getSecondaryState
+{
+    return self.theSecondaryState;
+}
 
 -(void)toggleToTodos
 {
+    self.theSecondaryState = SECONDARY_VIEW_STATE_TODOS;
     [self.fullCalendarViewController.view removeFromSuperview];
     
     if (self.containerTodosViewController.view.superview == nil)
@@ -50,6 +56,8 @@ static MainViewController *staticVC;
 
 -(void)toggleToCalendar
 {
+    self.theSecondaryState = SECONDARY_VIEW_STATE_CALENDAR;
+    
     [self.containerTodosViewController.view removeFromSuperview];
     
     if (self.fullCalendarViewController.view.superview == nil)
@@ -112,6 +120,15 @@ static MainViewController *staticVC;
 {
     if (scrollView.contentOffset.x > self.centerViewController.view.frame.size.width)
         scrollView.contentOffset = CGPointMake(self.centerViewController.view.frame.origin.x, 0);
+    
+    if (scrollView.contentOffset.x == self.centerViewController.view.frame.origin.x)
+    {
+        NSLog(@"state one");
+    }
+    else
+    {
+        NSLog(@"state two");
+    }
 }
 
 -(void)resetCover
