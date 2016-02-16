@@ -65,7 +65,6 @@
 		3A2840191C724D2800056061 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F7F1C724D2800056061 /* MainViewController.m */; };
 		3A28401A1C724D2800056061 /* MapAPIHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F811C724D2800056061 /* MapAPIHandler.m */; };
 		3A28401B1C724D2800056061 /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F831C724D2800056061 /* MaskView.m */; };
-		3A28401F1C724D2800056061 /* MonthContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F8C1C724D2800056061 /* MonthContainerView.m */; };
 		3A2840221C724D2800056061 /* PulpFAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F931C724D2800056061 /* PulpFAImageView.m */; };
 		3A2840231C724D2800056061 /* PulpMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F951C724D2800056061 /* PulpMapView.m */; };
 		3A2840241C724D2800056061 /* RadialContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F971C724D2800056061 /* RadialContainerView.m */; };
@@ -286,8 +285,6 @@
 		3A283F811C724D2800056061 /* MapAPIHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapAPIHandler.m; path = Pulp/classes/MapAPIHandler.m; sourceTree = "<group>"; };
 		3A283F821C724D2800056061 /* MaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaskView.h; path = Pulp/classes/MaskView.h; sourceTree = "<group>"; };
 		3A283F831C724D2800056061 /* MaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaskView.m; path = Pulp/classes/MaskView.m; sourceTree = "<group>"; };
-		3A283F8B1C724D2800056061 /* MonthContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MonthContainerView.h; path = Pulp/classes/MonthContainerView.h; sourceTree = "<group>"; };
-		3A283F8C1C724D2800056061 /* MonthContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MonthContainerView.m; path = Pulp/classes/MonthContainerView.m; sourceTree = "<group>"; };
 		3A283F8F1C724D2800056061 /* PositionUpdatedRespondeeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PositionUpdatedRespondeeProtocol.h; path = Pulp/classes/PositionUpdatedRespondeeProtocol.h; sourceTree = "<group>"; };
 		3A283F921C724D2800056061 /* PulpFAImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PulpFAImageView.h; path = Pulp/classes/PulpFAImageView.h; sourceTree = "<group>"; };
 		3A283F931C724D2800056061 /* PulpFAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PulpFAImageView.m; path = Pulp/classes/PulpFAImageView.m; sourceTree = "<group>"; };
@@ -926,8 +923,6 @@
 		3AFEB9571C72796D00FA991F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A283F8B1C724D2800056061 /* MonthContainerView.h */,
-				3A283F8C1C724D2800056061 /* MonthContainerView.m */,
 				3A283F411C724D2800056061 /* DailyIconView.h */,
 				3A283F421C724D2800056061 /* DailyIconView.m */,
 				3A283F431C724D2800056061 /* DailyScrollView.h */,
@@ -1206,7 +1201,6 @@
 				3A2840231C724D2800056061 /* PulpMapView.m in Sources */,
 				3A28400B1C724D2800056061 /* EventTaskSelectTableViewCell.m in Sources */,
 				3A283FF71C724D2800056061 /* ContainerTodosViewController.m in Sources */,
-				3A28401F1C724D2800056061 /* MonthContainerView.m in Sources */,
 				3A283FD21C724D2800056061 /* AlarmNotificationHandler.m in Sources */,
 				3AB577DE1C7248FA008FE5C0 /* main.m in Sources */,
 				3A283FCF1C724D2800056061 /* AddEditEventViewController.m in Sources */,

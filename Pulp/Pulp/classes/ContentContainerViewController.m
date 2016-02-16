@@ -9,18 +9,17 @@
 #import "ContentContainerViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GroupDataManager.h"
-#import "MonthContainerView.h"
 #import "GroupFormatManager.h"
-
 #import <QuartzCore/QuartzCore.h>
 #import "Defs.h"
 #import "Utils.h"
 #import "DailyView.h"
 
+
 @interface ContentContainerViewController ()
 
 @property (nonatomic, retain) UIScrollView *theScrollView;
-@property (nonatomic, retain) NSMutableDictionary *containerViewLookupDictionary;
+@property (nonatomic, retain) NSMutableDictionary *monthViewLookupDictionary;
 @property (nonatomic, retain) CalendarDayView *highlightedDayView;
 @property (nonatomic, retain) DailyView *dailyView;
 @property (nonatomic, assign) BOOL initialized;
@@ -48,7 +47,7 @@ static ContentContainerViewController *theStaticVC;
     theStaticVC = self;
     self.view.backgroundColor = [UIColor clearColor];
     
-    self.containerViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
+    self.monthViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     
     self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height / 2)];
     self.theScrollView.backgroundColor = [UIColor clearColor];
@@ -76,20 +75,14 @@ static ContentContainerViewController *theStaticVC;
         NSString *endString = [NSString stringWithFormat:@"%ld-%ld-%lu 23:59:59", (long)year, (long)month, (unsigned long)monthRange.length];
         NSDate *end = [[GroupFormatManager sharedManager].dateTimeFormatter dateFromString:endString];
         
-        
-        MonthContainerView *containerView = [[MonthContainerView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self.theScrollView.frame.size.height)];
-        containerView.firstOfMonthDateReference = start;
-        containerView.backgroundColor = [UIColor clearColor];
-        [self.theScrollView addSubview:containerView];
-        [self.containerViewLookupDictionary setObject:containerView forKey:startString];
-        
-        CalendarMonthView *calendarMonthView = [[CalendarMonthView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.theScrollView.frame.size.height)];
+        CalendarMonthView *calendarMonthView = [[CalendarMonthView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self.theScrollView.frame.size.height)];
         calendarMonthView.autoresizesSubviews = NO;
         calendarMonthView.backgroundColor = [UIColor clearColor];
         calendarMonthView.startDate = start;
         calendarMonthView.endDate = end;
-        [containerView addSubview:calendarMonthView];
-        containerView.theCalendarMonthView = calendarMonthView;
+        [self.theScrollView addSubview:calendarMonthView];
+        [self.monthViewLookupDictionary setObject:calendarMonthView forKey:startString];
+        
         
         
         if (month == 12)
@@ -100,9 +93,9 @@ static ContentContainerViewController *theStaticVC;
         else
             month++;
         
-        self.theScrollView.contentSize = CGSizeMake(0, containerView.frame.origin.y + containerView.frame.size.height);
+        y = calendarMonthView.frame.origin.y + calendarMonthView.frame.size.height;
         
-        y = containerView.frame.origin.y + containerView.frame.size.height;
+        self.theScrollView.contentSize = CGSizeMake(0,y);
     }
     
     self.dailyView = [[DailyView alloc] initWithFrame:CGRectMake(0, self.theScrollView.frame.size.height, self.theScrollView.frame.size.width, self.view.frame.size.height - self.theScrollView.frame.size.height)];
@@ -140,14 +133,13 @@ static ContentContainerViewController *theStaticVC;
     
     for (int i =0; i < [subviewsArray count]; i++)
     {
-        MonthContainerView *containerView = [subviewsArray objectAtIndex:i];
-        if ([containerView isKindOfClass:[MonthContainerView class]])
+        CalendarMonthView *calendarMonthView = [subviewsArray objectAtIndex:i];
+
+        if ([calendarMonthView isKindOfClass:[CalendarMonthView class]])
         {
-            CalendarMonthView *calendarMonthView = containerView.theCalendarMonthView;
-            
             [calendarMonthView cleanUp];
             
-            if ([presentArray containsObject:containerView])
+            if ([presentArray containsObject:calendarMonthView])
             {
                 if ([calendarMonthView drawCalendar])
                     [calendarMonthView loadEvents];
@@ -211,8 +203,8 @@ static ContentContainerViewController *theStaticVC;
     monthString = [monthString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"0%ld", (long)monthInt] withString:[NSString stringWithFormat:@"%ld", (long)monthInt]];
     
     
-    MonthContainerView *monthContainerView = [self.containerViewLookupDictionary objectForKey:monthString];
-    [self.theScrollView setContentOffset:CGPointMake(0, monthContainerView.frame.origin.y) animated:YES];
+    CalendarMonthView *calendarMonthView = [self.monthViewLookupDictionary objectForKey:monthString];
+    [self.theScrollView setContentOffset:CGPointMake(0, calendarMonthView.frame.origin.y) animated:YES];
     
 }
 
@@ -226,7 +218,7 @@ static ContentContainerViewController *theStaticVC;
 
 
 
--(MonthContainerView *)setDailyBorderWithDate:(NSDate *)theDate
+-(CalendarMonthView *)setDailyBorderWithDate:(NSDate *)theDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init ];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
@@ -237,17 +229,16 @@ static ContentContainerViewController *theStaticVC;
 }
 
 
--(MonthContainerView *)setDailyBorderWithDateString:(NSString *)dateString
+-(CalendarMonthView *)setDailyBorderWithDateString:(NSString *)dateString
 {
     id ret = nil;
     
     if (self.highlightedDayView != nil)
         [self.highlightedDayView setUnselected];
     
-    for (id key in self.containerViewLookupDictionary)
+    for (id key in self.monthViewLookupDictionary)
     {
-        MonthContainerView *monthContainerView = [self.containerViewLookupDictionary objectForKey:key];
-        CalendarMonthView *monthView = monthContainerView.theCalendarMonthView;
+        CalendarMonthView *monthView = [self.monthViewLookupDictionary objectForKey:key];
         
         if ([monthView isKindOfClass:[CalendarMonthView class]])
         {
@@ -262,7 +253,7 @@ static ContentContainerViewController *theStaticVC;
                             {
                                 [theDayView setSelected];
                                 self.highlightedDayView = theDayView;
-                                ret = monthContainerView;
+                                ret = monthView;
                             }
                             else if (theDayView.layer.borderWidth == 3.5f)
                                 [theDayView setUnselected];
@@ -283,8 +274,7 @@ static ContentContainerViewController *theStaticVC;
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
-    
-    MonthContainerView *monthContainerView = nil;
+    CalendarMonthView *monthView = nil;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-01 00:00:00"];
@@ -292,18 +282,18 @@ static ContentContainerViewController *theStaticVC;
     NSDate *monthDate = [dateFormatter dateFromString:monthLookupString];
     
     
-    for (id key in self.containerViewLookupDictionary)
+    for (id key in self.monthViewLookupDictionary)
     {
         NSDate *keyDate = [dateFormatter dateFromString:key];
         if ([keyDate compare:monthDate] == NSOrderedSame)
-            monthContainerView = [self.containerViewLookupDictionary objectForKey:key];
+            monthView = [self.monthViewLookupDictionary objectForKey:key];
         
     }
     
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    if (monthContainerView != nil)
+    if (monthView != nil)
     {
-        CalendarMonthView *monthView = monthContainerView.theCalendarMonthView;
+
         
         NSMutableArray *events = [NSMutableArray arrayWithCapacity:0];
         if ([monthView.dateStringForEventDictionary objectForKey:[dateFormatter stringFromDate:theEvent.startDate]] != nil)

@@ -11,7 +11,6 @@
 #import <EventKit/EventKit.h>
 #import "EventKitManager.h"
 #import <EventKitUI/EventKitUI.h>
-#import "MonthContainerView.h"
 #import "CalendarDayView.h"
 
 
@@ -28,8 +27,8 @@
 - (void) doLoadViews;
 - (void) calendarShouldScrollToDate:(NSDate *)theDate;
 - (void) calendarDataChanged;
-- (MonthContainerView *) setDailyBorderWithDate:(NSDate *)theDate;
-- (MonthContainerView *) setDailyBorderWithDateString:(NSString *)dateString;
+- (CalendarMonthView *) setDailyBorderWithDate:(NSDate *)theDate;
+- (CalendarMonthView *) setDailyBorderWithDateString:(NSString *)dateString;
 - (void) spoofCalendarDayViewWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
 - (void) dayViewSelected:(CalendarDayView *)theDayView;
 
