@@ -45,10 +45,6 @@ static float insetHeight = 40.0f;
     
     if (!self.presented)
     {
-        NSLog(@"%s, self: %@", __PRETTY_FUNCTION__, self);
-        NSLog(@"startDate: %@", self.startDate);
-        NSLog(@"endDate: %@", self.endDate);
-        
         
         self.calendarDayViewDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
         self.presented = YES;

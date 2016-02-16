@@ -13,28 +13,17 @@
 @implementation ImagesAPIHandler
 
 +(void)makeImageRequestWithDelegate:(id)theDelegate withURL:(NSString *)imageURLString
-{
-    NSLog(@"gotta implement me");
+{            
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
+    request.HTTPMethod = @"GET";
+    [request setHTTPMethod: @"GET"];
     
-    // FIXME: re-implement
-    
-    
-    /*
-    ImagesAPIHandler *apiHandler = [[ImagesAPIHandler alloc] init];
-    apiHandler.delegate = theDelegate;
-    NSMutableURLRequest *URLRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
-    
-    URLRequest.HTTPMethod = @"GET";
-    
-    apiHandler.theWebRequest = [SMWebRequest requestWithURLRequest:URLRequest delegate:apiHandler context:NULL];
-    [apiHandler.theWebRequest addTarget:apiHandler action:@selector(makeImageRequestWithURLFinished:) forRequestEvents:SMWebRequestEventAllEvents];
-    [apiHandler.theWebRequest start];
-    */
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         [(WeatherView *)theDelegate performSelectorOnMainThread:@selector(imageReturnedWithImage:) withObject:[UIImage imageWithData:data] waitUntilDone:YES];
+     }];
 }
 
 
--(void)makeImageRequestWithURLFinished:(id)obj
-{
-//    [(WeatherView *)self.delegate imageReturnedWithImage:[UIImage imageWithData:self.responseData]];
-}
 @end
