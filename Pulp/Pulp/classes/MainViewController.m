@@ -51,6 +51,7 @@ static MainViewController *staticVC;
     if (self.containerTodosViewController.view.superview == nil)
         [self.view insertSubview:self.containerTodosViewController.view belowSubview:self.coverScrollView];
     
+    [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
 }
 
 
@@ -62,6 +63,8 @@ static MainViewController *staticVC;
     
     if (self.fullCalendarViewController.view.superview == nil)
         [self.view insertSubview:self.fullCalendarViewController.view belowSubview:self.coverScrollView];
+    
+    [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];    
 }
 
 
