@@ -10,6 +10,7 @@
 #import "ColorSelectView.h"
 #import "ThemeManager.h"
 #import "ThemeSelectObject.h"
+#import "MainViewController.h"
 
 
 @interface ThemeSelectViewController ()
@@ -70,6 +71,7 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [[ThemeManager sharedThemeManager] updateThemeColorWithPrimaryColor:theView.primaryColor withSecondaryColor:theView.secondaryColor];
     [self.navigationController popViewControllerAnimated:YES];
+    [[MainViewController sharedMainViewController] dataChanged];
     
 }
 

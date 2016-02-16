@@ -43,6 +43,7 @@ float theTransitionTime = .22;
         [self setNeedsStatusBarAppearanceUpdate];
     
     [[ThemeManager sharedThemeManager] registerPrimaryObject:self];
+    [[ThemeManager sharedThemeManager] registerAdvisoryObject:self];
     
     UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width + 25, self.view.frame.size.height)];
     coverView.backgroundColor = [UIColor colorWithWhite:0 alpha:.25];
@@ -84,6 +85,11 @@ float theTransitionTime = .22;
     [calLabelBackgroundView addSubview:self.calendarsLabel];
     
     [[ThemeManager sharedThemeManager] registerSecondaryObject:self.calendarsLabel];
+}
+
+
+-(void)adviseThemeUpdateWithPrimaryColor:(UIColor *)thePrimaryColor withSecondaryColor:(UIColor *)theSecondaryColor
+{
 }
 
 
