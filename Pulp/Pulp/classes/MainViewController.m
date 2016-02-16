@@ -124,10 +124,12 @@ static MainViewController *staticVC;
     if (scrollView.contentOffset.x == self.centerViewController.view.frame.origin.x)
     {
         NSLog(@"state one");
+        [self.sidebarView updateButtonStateWithSelected:self.theSecondaryState withShowEnabled:NO];
     }
     else
     {
         NSLog(@"state two");
+        [self.sidebarView updateButtonStateWithSelected:self.theSecondaryState withShowEnabled:YES];
     }
 }
 

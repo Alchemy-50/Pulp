@@ -14,5 +14,6 @@
 @property (nonatomic, retain) NSMutableDictionary *referencePointContainerDictionary;
 
 -(void)dailyScrollViewDidScrollWithOffset:(float)theOffset;
+-(void)updateButtonStateWithSelected:(int)selectedStateInt withShowEnabled:(BOOL)showEnabled;
 -(void)updateWeatherData;
 @end
