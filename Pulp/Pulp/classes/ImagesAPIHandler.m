@@ -13,16 +13,24 @@
 @implementation ImagesAPIHandler
 
 +(void)makeImageRequestWithDelegate:(id)theDelegate withURL:(NSString *)imageURLString
-{            
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
-    request.HTTPMethod = @"GET";
-    [request setHTTPMethod: @"GET"];
+{
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-     {
-         [(WeatherView *)theDelegate performSelectorOnMainThread:@selector(imageReturnedWithImage:) withObject:[UIImage imageWithData:data] waitUntilDone:YES];
-     }];
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
+                                                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                           if(error == nil)
+                                                           {
+                                                               [(WeatherView *)theDelegate performSelectorOnMainThread:@selector(imageReturnedWithImage:) withObject:[UIImage imageWithData:data] waitUntilDone:YES];
+                                                           }
+                                                       }];
+    [dataTask resume];
+    
+    
 }
 
 

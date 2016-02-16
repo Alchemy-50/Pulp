@@ -18,27 +18,29 @@
 
 +(void)makeWeatherRequestWithDelegate:(id)theDelegate withLocation:(CLLocation *)theLocation
 {
-
     NSString *latitude = [NSString stringWithFormat:@"%f", theLocation.coordinate.latitude];
     NSString *longitude = [NSString stringWithFormat:@"%f", theLocation.coordinate.longitude];
     
     NSString *requestString = [NSString stringWithFormat:@"http://api.wunderground.com/api/a494ddf4e080c52e/forecast10day/q/%@,%@.json", latitude, longitude];
-
-    NSLog(@"!makeWeatherRequestWithDelegate requestString: %@", requestString);
-
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString]];
-    request.HTTPMethod = @"GET";
-    [request setHTTPMethod: @"GET"];
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-     {
-
-         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-         [theDelegate performSelectorOnMainThread:@selector(weatherDidReturnWithDictionary:) withObject:dict waitUntilDone:YES];
-     }];    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
+                                                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                           if(error == nil)
+                                                           {
+                                                               NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                                                               [theDelegate performSelectorOnMainThread:@selector(weatherDidReturnWithDictionary:) withObject:dict waitUntilDone:YES];
+                                                               
+                                                           }
+                                                       }];
+    [dataTask resume];
 }
+
 
 
 +(void)makeHourlyRequest:(id)theDelegate withLocation:(CLLocation *)theLocation
@@ -47,19 +49,26 @@
     NSString *longitude = [NSString stringWithFormat:@"%f", theLocation.coordinate.longitude];
     
     NSString *requestString = [NSString stringWithFormat:@"http://api.wunderground.com/api/a494ddf4e080c52e/hourly/q/%@,%@.json", latitude, longitude];
-
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString]];
-    request.HTTPMethod = @"GET";
-    [request setHTTPMethod: @"GET"];
+           
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-     {
-         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
+                                                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                           if(error == nil)
+                                                           {
+                                                               NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                                                               [theDelegate performSelectorOnMainThread:@selector(handleHourlyWeatherDataWithDictionary:) withObject:dict waitUntilDone:YES];
+                                                           }
+                                                       }];
+    [dataTask resume];
 
-         
-         [theDelegate performSelectorOnMainThread:@selector(handleHourlyWeatherDataWithDictionary:) withObject:dict waitUntilDone:YES];
-     }];
+    
+    
+    
 }
 
 
