@@ -46,7 +46,9 @@ static float mapHeight = 80;
 
 +(CGRect)getEventTitleLabelRect
 {
-    return CGRectMake(75.200005, topInset, 175.8, 17);
+ 
+    
+    return CGRectMake(75.200005, topInset, [Utils getScreenWidth] * .54, 17);
 }
 
 +(UIFont *)getEventTitleLabelFont
