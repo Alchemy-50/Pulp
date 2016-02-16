@@ -22,9 +22,9 @@
 -(void)createEventExitButtonHitWithController:(EventManagerViewController *)theController withEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
 -(void)dayViewTapped:(CalendarDayView *)tappedDay;
 -(void)presentSettingsViewController;
--(void)resetCover;
 -(void)toggleToTodos;
 -(void)toggleToCalendar;
 -(void)dailyEventSelected:(EKEvent *)theEvent;
 -(void)dismissSettingsViewController;
+-(void)resetCoverScrollToDate:(NSDate *)theDate;
 @end

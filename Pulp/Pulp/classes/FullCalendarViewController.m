@@ -57,7 +57,6 @@ float theTransitionTime = .22;
     self.contentContainerViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - footerHeight);
     [self.contentContainerViewController doLoadViews];
     
-    [self.contentContainerViewController calendarDataChanged];
  
     float inset = self.view.frame.size.width * .08;
     

@@ -103,7 +103,7 @@ static NSMutableArray *allButtonsArray;
     switch (self.referenceType) {
         case SIDEBAR_BUTTON_TYPE_CHEVRON:
 
-            [[MainViewController sharedMainViewController] resetCover];
+            [[MainViewController sharedMainViewController] resetCoverScrollToDate:[NSDate date]];
             break;
             
         case SIDEBAR_BUTTON_TYPE_CHECKSQUARE:

@@ -23,6 +23,7 @@
 -(void) clearEvents;
 -(void) setSelected;
 -(void) setUnselected;
+-(void) destroyViews;
 
 @property (nonatomic, retain) CalendarMonthView *parentView;
 @property (nonatomic, retain) EventForCalendarDayView *eventForCalendarDayView;

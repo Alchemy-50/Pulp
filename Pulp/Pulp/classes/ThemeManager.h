@@ -16,5 +16,6 @@
 -(void)registerPrimaryObject:(id)theObj;
 -(void)registerSecondaryObject:(id)theObj;
 -(void)registerAdvisoryObject:(id)theObj;
+-(void)removeThemeObject:(id)obj;
 -(void)updateThemeColorWithPrimaryColor:(UIColor *)primaryColor withSecondaryColor:(UIColor *)secondaryColor;
 @end

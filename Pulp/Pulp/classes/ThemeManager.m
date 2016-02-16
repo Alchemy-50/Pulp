@@ -167,7 +167,12 @@ static ThemeManager *theStaticManager;
 }
 
 
-
+-(void)removeThemeObject:(id)obj
+{
+    [self.primaryReferenceArray removeObject:obj];
+    [self.secondaryReferenceArray removeObject:obj];
+    [self.advisoryReferenceArray removeObject:obj];
+}
 
 
 

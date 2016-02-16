@@ -10,4 +10,6 @@
 
 @interface MaskView : UIView
 
+-(void)destroyViews;
+
 @end

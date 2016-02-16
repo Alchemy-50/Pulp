@@ -23,6 +23,8 @@
 @property (nonatomic, retain) NSMutableDictionary *containerViewLookupDictionary;
 @property (nonatomic, retain) CalendarDayView *highlightedDayView;
 @property (nonatomic, retain) DailyView *dailyView;
+@property (nonatomic, assign) BOOL initialized;
+
 @end
 
 
@@ -45,9 +47,9 @@ static ContentContainerViewController *theStaticVC;
 {
     theStaticVC = self;
     self.view.backgroundColor = [UIColor clearColor];
-
+    
     self.containerViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
-        
+    
     self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height / 2)];
     self.theScrollView.backgroundColor = [UIColor clearColor];
     self.theScrollView.pagingEnabled = YES;
@@ -107,71 +109,34 @@ static ContentContainerViewController *theStaticVC;
     self.dailyView.backgroundColor = [UIColor clearColor];
     self.dailyView.cellStyleClear = YES;
     [self.view addSubview:self.dailyView];
-
+    
     [self calendarShouldScrollToDate:[NSDate date]];
     
     [self setDailyBorderWithDate:[NSDate date]];
     self.dailyView.dailyViewDate = [NSDate date];
     [self.dailyView loadEvents];
-
     
+    
+    self.initialized = YES;
     
 }
 
-
--(void) calendarDataChanged
+-(void)updateMonthViews
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        int index = [[NSNumber numberWithFloat:self.theScrollView.contentOffset.y / self.theScrollView.frame.size.height] intValue] + 1;
-        
-        NSArray *subviewsArray = [self.theScrollView subviews];
-        
-        NSMutableArray *presentArray = [NSMutableArray arrayWithCapacity:0];
-        
-        for (int i = index - 5; i < index+5; i++)
-            if (i > 0 && i < [subviewsArray count])
-                [presentArray addObject:[subviewsArray objectAtIndex:i]];
-        
-        
-        
-        for (int i =0; i < [subviewsArray count]; i++)
-        {
-            MonthContainerView *containerView = [subviewsArray objectAtIndex:i];
-            if ([containerView isKindOfClass:[MonthContainerView class]])
-            {
-                CalendarMonthView *calendarMonthView = containerView.theCalendarMonthView;
-                
-                [calendarMonthView cleanUp];
-                
-                if ([presentArray containsObject:containerView])
-                {
-                    if ([calendarMonthView drawCalendar])
-                        [calendarMonthView loadEvents];
-                }
-                else
-                    [calendarMonthView cleanUp];
-            }
-        }
-        
-        [self.dailyView.theTableView reloadData];
-    });
-
-}
-
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    int index = [[NSNumber numberWithFloat:scrollView.contentOffset.y / scrollView.frame.size.height] intValue] + 1;
+    NSLog(@"updateMonthViews!");
+    
+    
+    int index = [[NSNumber numberWithFloat:self.theScrollView.contentOffset.y / self.theScrollView.frame.size.height] intValue] + 1;
     
     NSArray *subviewsArray = [self.theScrollView subviews];
     
-    
     NSMutableArray *presentArray = [NSMutableArray arrayWithCapacity:0];
     
-    for (int i = index - 5; i < index+5; i++)
+    for (int i = index - 2; i < index+2; i++)
         if (i > 0 && i < [subviewsArray count])
             [presentArray addObject:[subviewsArray objectAtIndex:i]];
+    
+    
     
     for (int i =0; i < [subviewsArray count]; i++)
     {
@@ -180,15 +145,60 @@ static ContentContainerViewController *theStaticVC;
         {
             CalendarMonthView *calendarMonthView = containerView.theCalendarMonthView;
             
+            [calendarMonthView cleanUp];
+            
             if ([presentArray containsObject:containerView])
             {
                 if ([calendarMonthView drawCalendar])
                     [calendarMonthView loadEvents];
             }
-            //            else
-            //                [calendarMonthView cleanUp];
+            else
+                [calendarMonthView cleanUp];
         }
     }
+    
+    
+}
+
+-(void) calendarDataChanged
+{
+    [self updateMonthViews];
+    [self.dailyView.theTableView reloadData];
+}
+
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+        NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+        NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+      
+    if (self.initialized)
+        [self updateMonthViews];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+        NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+
+
 }
 
 -(void)calendarShouldScrollToDate:(NSDate *)theDate
@@ -320,10 +330,10 @@ static ContentContainerViewController *theStaticVC;
             if (eventToRemove != nil)
                 [events removeObject:eventToRemove];
         }
-                
+        
         [theDayView loadEvents:events];
     }
-
+    
     [self.dailyView loadEvents];
 }
 

@@ -113,7 +113,7 @@ static MainViewController *staticVC;
     self.coverScrollView.contentSize = CGSizeMake(self.centerViewController.view.frame.size.width * 2, 0);
     [self.coverScrollView setContentOffset:CGPointMake(self.centerViewController.view.frame.origin.x, 0) animated:NO];
     
-    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(resetCover)];
+    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestureRecognizerTriggered)];
     swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.coverScrollView addGestureRecognizer:swipeGestureRecognizer];
     [self.view addGestureRecognizer:swipeGestureRecognizer];
@@ -126,20 +126,28 @@ static MainViewController *staticVC;
     
     if (scrollView.contentOffset.x == self.centerViewController.view.frame.origin.x)
     {
-        NSLog(@"state one");
         [self.sidebarView updateButtonStateWithSelected:self.theSecondaryState withShowEnabled:NO];
     }
     else
     {
-        NSLog(@"state two");
         [self.sidebarView updateButtonStateWithSelected:self.theSecondaryState withShowEnabled:YES];
     }
 }
 
--(void)resetCover
+-(void)swipeGestureRecognizerTriggered
 {
+    [self resetCoverScrollToDate:nil];
+}
+
+-(void)resetCoverScrollToDate:(NSDate *)theDate
+{
+    if (theDate != nil)
+        [self.centerViewController scrollToDate:theDate];
+    
     [self.coverScrollView setContentOffset:CGPointMake(self.centerViewController.view.frame.origin.x, 0) animated:YES];
 }
+
+
 
 
 -(void)dataChanged

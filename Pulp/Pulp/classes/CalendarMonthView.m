@@ -42,8 +42,14 @@ static float insetHeight = 40.0f;
 
 -(BOOL) drawCalendar
 {
+    
     if (!self.presented)
     {
+        NSLog(@"%s, self: %@", __PRETTY_FUNCTION__, self);
+        NSLog(@"startDate: %@", self.startDate);
+        NSLog(@"endDate: %@", self.endDate);
+        
+        
         self.calendarDayViewDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
         self.presented = YES;
         self.backgroundColor = [Defs getClearColor];
@@ -104,14 +110,15 @@ static float insetHeight = 40.0f;
         int rowPosition = 0;
         int iter = 0;
         
+        float y = insetHeight;
         while (rowPosition < 6)
         {
             
             
             float x = (self.frame.size.width / 7) * iter;
-            float y = insetHeight + rowPosition * ((self.frame.size.height - insetHeight) / 5);
             float width =  (self.frame.size.width / 7);
             float height = (self.frame.size.height - insetHeight) / 5;
+            height = width;
             
             CalendarDayView *dayView = [[CalendarDayView alloc] initWithFrame:CGRectMake(x, y, width, height) withParentView:self];
             dayView.backgroundColor = dayViewBackgroundColor;
@@ -147,6 +154,7 @@ static float insetHeight = 40.0f;
             {
                 rowPosition++;
                 iter = 0;
+                y = dayView.frame.origin.y + dayView.frame.size.height;
             }
             
             if (rowPosition == 5 && iter == 0)
@@ -255,9 +263,13 @@ static float insetHeight = 40.0f;
     for (int i = 0; i < [self.daysLabelsArray count]; i++)
     {
         UIView *labelView = [self.daysLabelsArray objectAtIndex:i];
+        if (labelView != nil)
+            if (labelView.superview != nil)
+            {
         [labelView removeFromSuperview];
         [labelView release];
         labelView = nil;
+            }
         
     }
     
@@ -296,9 +308,18 @@ static float insetHeight = 40.0f;
         for (int i = 0; i < [viewKeysArray count]; i++)
         {
             UIView *theView = [self.calendarDayViewDictionary objectForKey:[viewKeysArray objectAtIndex:i]];
+            if ([theView isKindOfClass:[CalendarDayView class]])
+            {
+                CalendarDayView *calendarDayView = (CalendarDayView *)theView;
+                [calendarDayView destroyViews];
+                
+            }
+
+
             [theView removeFromSuperview];
             [theView release];
             theView = nil;
+
         }
     }
 }

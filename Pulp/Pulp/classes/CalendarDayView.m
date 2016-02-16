@@ -78,6 +78,8 @@
 {
     NSLog(@"doubleTapGestureFired");
 //    [[FlowControlHandler sharedFlowControlHandler] dayViewDoubleTapped:self];
+    
+    [[MainViewController sharedMainViewController] resetCoverScrollToDate:self.theDate];
 }
 
 
@@ -161,6 +163,8 @@
     [self.drawLock unlock];
 
     [self bringSubviewToFront:self.theMaskView];
+    [self bringSubviewToFront:self.dayLabel];
+    
 }
 
 
@@ -216,10 +220,24 @@
     
     
 }
+
+-(void)destroyViews
+{
+    [self.theDate release];
+    [self.dayLabel release];
+    
+    if (self.theMaskView != nil)
+    {
+    [self.theMaskView destroyViews];
+    [self.theMaskView removeFromSuperview];
+    [self.theMaskView release];
+    self.theMaskView = nil;
+    }
+    
+}
+
 - (void)dealloc {
 
-	[self.theDate release];
-	[dayLabel release];
 	
     [super dealloc];
 }
