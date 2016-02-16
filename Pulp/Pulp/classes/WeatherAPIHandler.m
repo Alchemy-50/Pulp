@@ -49,7 +49,7 @@
     NSString *longitude = [NSString stringWithFormat:@"%f", theLocation.coordinate.longitude];
     
     NSString *requestString = [NSString stringWithFormat:@"http://api.wunderground.com/api/a494ddf4e080c52e/hourly/q/%@,%@.json", latitude, longitude];
-           
+    
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
     

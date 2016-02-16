@@ -170,7 +170,7 @@ static float mapHeight = 80;
         
         float dividerColor = 240.0f;
         self.dividerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 1, self.frame.size.width, 1)];
-        self.dividerView.backgroundColor = [UIColor colorWithRed:dividerColor/255.0f green:dividerColor/255.0f blue:dividerColor/255.0f alpha:1];
+        self.dividerView.backgroundColor = [UIColor colorWithWhite:1 alpha:.1];
         [self addSubview:self.dividerView];
         
         
