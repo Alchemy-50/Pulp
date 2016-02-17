@@ -7,6 +7,7 @@
 //
 
 #import "TodoBubbleView.h"
+#import "TodoDataManager.h"
 
 @interface TodoBubbleView ()
 @property (nonatomic, retain) UILabel *theLabel;
@@ -41,6 +42,7 @@ static TodoBubbleView *theStaticView;
 
 -(void)updateTodoValue
 {
-    self.theLabel.text = @"X";
+    self.theLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[[TodoDataManager getAllTodos] count]];
 }
+
 @end

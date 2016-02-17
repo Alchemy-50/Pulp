@@ -73,6 +73,10 @@
         [[ThemeManager sharedThemeManager] registerPrimaryObject:self.todoCheckImageView];
 
         
+        self.theBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [Utils getScreenWidth], self.frame.size.height - cutFloat)];
+        self.theBackgroundView.backgroundColor = [UIColor colorWithWhite:1 alpha:.15];
+        [self addSubview:self.theBackgroundView];
+        
         
         self.todoCheckButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         self.todoCheckButton.backgroundColor = [UIColor clearColor];
@@ -82,9 +86,7 @@
         self.todoCheckButton.alpha = 0;
         
         
-        self.theBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [Utils getScreenWidth], self.frame.size.height - cutFloat)];
-        self.theBackgroundView.backgroundColor = [UIColor colorWithWhite:1 alpha:.15];
-        [self addSubview:self.theBackgroundView];
+        
         
         
     }
@@ -117,6 +119,7 @@
 
 -(void)todoCheckButtonHit
 {
+    NSLog(@"todoCheckButtonHit");
     [self.todosViewController cellCallForDeletion:self];
 }
 
@@ -124,6 +127,8 @@
 
 - (void) editTodo
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
     if (self.todoEditTextField == nil)
     {
         [self.todosViewController.containerTodosViewController beginEditWithDailyTableViewCell:self];
