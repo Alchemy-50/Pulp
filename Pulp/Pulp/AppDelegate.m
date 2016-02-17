@@ -60,9 +60,8 @@
     [self beginLocationManager];
     [self runBackgroundTasks];
     
-
-    
     [Fabric with:@[[Crashlytics class]]];
+    
     return YES;
 }
 

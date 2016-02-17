@@ -185,6 +185,7 @@ static MainViewController *staticVC;
     if (!self.initialized)
     {
         [self.centerViewController processPositioningWithScrollView:self.centerViewController.contentScrollView];
+        [self.fullCalendarViewController.contentContainerViewController navigateToToday];        
     }
     
     self.initialized = YES;

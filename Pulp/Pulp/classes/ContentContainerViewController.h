@@ -31,6 +31,6 @@
 - (CalendarMonthView *) setDailyBorderWithDateString:(NSString *)dateString;
 - (void) spoofCalendarDayViewWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
 - (void) dayViewSelected:(CalendarDayView *)theDayView;
-
+- (void) navigateToToday;
 
 @end

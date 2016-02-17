@@ -211,6 +211,29 @@ static ContentContainerViewController *theStaticVC;
     
 }
 
+-(void)navigateToToday
+{
+    CalendarDayView *theDayView = nil;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init ];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *todayKey = [dateFormatter stringFromDate:[NSDate date]];
+    
+    [self setDailyBorderWithDateString:todayKey];
+    
+    for (id key in self.monthViewLookupDictionary)
+    {
+        CalendarMonthView *monthView = [self.monthViewLookupDictionary objectForKey:key];
+        NSLog(@"monthView.calendarDayViewDictionary: %@", monthView.calendarDayViewDictionary);
+        
+        if ([monthView.calendarDayViewDictionary objectForKey:todayKey] != nil)
+            theDayView = [monthView.calendarDayViewDictionary objectForKey:todayKey];
+    }
+    
+    
+    [self dayViewSelected:theDayView];
+}
+
 
 - (void) dayViewSelected:(CalendarDayView *)theDayView
 {
