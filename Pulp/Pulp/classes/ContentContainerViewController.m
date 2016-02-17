@@ -49,7 +49,10 @@ static ContentContainerViewController *theStaticVC;
     
     self.monthViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     
-    self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height / 2)];
+    float width =  (self.view.frame.size.width / 7);
+    float height = width * 5 + 40;
+    
+    self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, height)];
     self.theScrollView.backgroundColor = [UIColor clearColor];
     self.theScrollView.pagingEnabled = YES;
     self.theScrollView.delegate = self;

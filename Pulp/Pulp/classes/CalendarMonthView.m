@@ -242,7 +242,7 @@ static float insetHeight = 40.0f;
     
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM yyyy"];
+    [dateFormatter setDateFormat:@"MMMM yyyy"];
     self.theHeaderLabel.text = [[dateFormatter stringFromDate:self.startDate] uppercaseString];
     [dateFormatter release];
     
