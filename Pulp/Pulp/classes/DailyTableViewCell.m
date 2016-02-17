@@ -533,10 +533,24 @@ static float mapHeight = 80;
 -(void)loadMapData
 {
     NSDictionary *referenceDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:self.referenceEvent]];
+    NSDictionary *geometryDictionary = [referenceDictionary objectForKey:@"geometry"];
+    NSDictionary *locationDictionary = [geometryDictionary objectForKey:@"location"];
+    
+    if (self.theMapView != nil)
+    {
+        if (![self.theMapView.referenceLocationDictionary isEqualToDictionary:locationDictionary])
+        {
+            NSLog(@"REMOVE MAP VIEW");
+            
+            [self.theMapView removeFromSuperview];
+            [self.theMapView release];
+            self.theMapView = nil;
+        }
+    }
     
     if (self.theMapView == nil)
     {
-        self.theMapView = [[MKMapView alloc]  initWithFrame:CGRectMake(self.theMapView.frame.origin.x, self.locationLabel.frame.origin.y + self.locationLabel.frame.size.height + 10, self.frame.size.width, mapHeight)];
+        self.theMapView = [[ContainerMapView alloc]  initWithFrame:CGRectMake(self.theMapView.frame.origin.x, self.locationLabel.frame.origin.y + self.locationLabel.frame.size.height + 10, self.frame.size.width, mapHeight)];
         self.theMapView.scrollEnabled = NO;
         self.theMapView.userInteractionEnabled = NO;
         [self addSubview:self.theMapView];
@@ -559,16 +573,18 @@ static float mapHeight = 80;
         
 
         
-        NSDictionary *geometryDictionary = [referenceDictionary objectForKey:@"geometry"];
+        
         
         CLLocationCoordinate2D center;
-        
-        NSDictionary *locationDictionary = [geometryDictionary objectForKey:@"location"];
         center.latitude = [[locationDictionary objectForKey:@"lat"] doubleValue];
         center.longitude = [[locationDictionary objectForKey:@"lng"] doubleValue];
         
         MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
         myAnnotation.coordinate = center;
+        
+        
+        self.theMapView.referenceLocationDictionary = [[NSDictionary alloc] initWithDictionary:locationDictionary];
+        
         
         [self.theMapView addAnnotation:myAnnotation];
         [self.theMapView setCenterCoordinate:center];

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EventKitManager.h"
 #import "DailyIconView.h"
+#import "ContainerMapView.h"
 #import <MapKit/MapKit.h>
 
 
@@ -48,7 +49,7 @@
 
 @property (nonatomic, retain) EKEvent *referenceEvent;
 
-@property (nonatomic, retain) MKMapView *theMapView;
+@property (nonatomic, retain) ContainerMapView *theMapView;
 
 @property (nonatomic, retain) UIButton *mapViewButton;
 

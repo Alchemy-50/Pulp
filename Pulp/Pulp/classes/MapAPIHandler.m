@@ -64,7 +64,7 @@ static MapAPIHandler *theStaticHandler;
                                                                    {
                                                                        NSDictionary *refereceDict = [resultsArray objectAtIndex:0];
                                                                        
-                                                                       [[MapAPIHandler getSharedMapAPIHandler].allLocationDictionary setObject:[NSDictionary dictionaryWithDictionary:refereceDict] forKey:referenceEvent.eventIdentifier];
+                                                                       [[MapAPIHandler getSharedMapAPIHandler].allLocationDictionary setObject:[NSDictionary dictionaryWithDictionary:refereceDict] forKey:referenceEvent.location];
                                                                        [referenceCell eventLocationDataReturned];
                                                                    }
                                                                }
@@ -80,7 +80,7 @@ static MapAPIHandler *theStaticHandler;
 -(NSDictionary *)getLocationDictionaryWithEvent:(EKEvent *)refereneceEvent
 {
 //    NSLog(@"!self.allLocationDictionary: %@", self.allLocationDictionary);
-    return [self.allLocationDictionary objectForKey:refereneceEvent.eventIdentifier];
+    return [self.allLocationDictionary objectForKey:refereneceEvent.location];
 }
 
 
