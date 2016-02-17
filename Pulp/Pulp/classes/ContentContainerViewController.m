@@ -49,8 +49,8 @@ static ContentContainerViewController *theStaticVC;
     
     self.monthViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     
-    float width =  (self.view.frame.size.width / 7);
-    float height = width * 5 + 40;
+
+    float height = 265 + 40;
     
     self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, height)];
     self.theScrollView.backgroundColor = [UIColor clearColor];
