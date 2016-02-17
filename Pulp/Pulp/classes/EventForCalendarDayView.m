@@ -26,6 +26,9 @@
 -(void)loadViewsWithEvents:(NSArray *)eventsArray
 {
     [self destroy];
+
+    float height = 2.5;
+    
     
     for (int i = 0; i < [eventsArray count]; i++)
     {
@@ -44,9 +47,11 @@
         
         UIColor *eventColor = [UIColor colorWithCGColor:calendarEKEventCalendar.CGColor];
         
-        float width = 2.5;
-                
-        UIView *eventRepresentationView = [[UIView alloc] initWithFrame:CGRectMake(width, 1.5 + i * width, self.frame.size.width - 2 * width, width)];
+
+
+        float yPos = self.frame.size.height - (([eventsArray count] - i) * height) - 5;                
+    
+        UIView *eventRepresentationView = [[UIView alloc] initWithFrame:CGRectMake(0, yPos, self.frame.size.width, height)];
         eventRepresentationView.backgroundColor = eventColor;
         [self addSubview:eventRepresentationView];
                                                                

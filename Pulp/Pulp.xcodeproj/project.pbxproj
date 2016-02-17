@@ -162,6 +162,7 @@
 		3AB577E11C7248FA008FE5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577E01C7248FA008FE5C0 /* AppDelegate.m */; };
 		3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E81C7248FA008FE5C0 /* Assets.xcassets */; };
 		3ABD61271C74F53C006F8FAA /* TodoBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD61261C74F53C006F8FAA /* TodoBubbleView.m */; };
+		3ABD61291C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD61281C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png */; };
 		3AC2DDD21C737BAC00AF1D19 /* pulp-cal-circle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */; };
 		3AC2DDD41C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */; };
 		3AFEB9481C72728600FA991F /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9411C72728600FA991F /* Icon-60@2x.png */; };
@@ -412,6 +413,7 @@
 		3AB577ED1C7248FA008FE5C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Pulp/Info.plist; sourceTree = "<group>"; };
 		3ABD61251C74F53C006F8FAA /* TodoBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoBubbleView.h; sourceTree = "<group>"; };
 		3ABD61261C74F53C006F8FAA /* TodoBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoBubbleView.m; sourceTree = "<group>"; };
+		3ABD61281C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pulp-cal-circle-mask-trans-smlr.png"; path = "../pulp-cal-circle-mask-trans-smlr.png"; sourceTree = "<group>"; };
 		3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask.png"; sourceTree = "<group>"; };
 		3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask-trans.png"; sourceTree = "<group>"; };
 		3AFEB9411C72728600FA991F /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
@@ -789,6 +791,7 @@
 		3AB577F31C72493B008FE5C0 /* Cruft */ = {
 			isa = PBXGroup;
 			children = (
+				3ABD61281C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png */,
 				3AFEB9511C72730300FA991F /* Images.xcassets */,
 				3A2840F41C72566D00056061 /* OLD */,
 				3A2840651C7251C800056061 /* Assets */,
@@ -1060,6 +1063,7 @@
 				3A2840C01C72521500056061 /* calbackbutton.png in Resources */,
 				3AC2DDD21C737BAC00AF1D19 /* pulp-cal-circle-mask.png in Resources */,
 				3A2840CC1C72521500056061 /* eventclosebutton.png in Resources */,
+				3ABD61291C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png in Resources */,
 				3A2840CB1C72521500056061 /* editeventsavebutton.png in Resources */,
 				3AFEB9491C72728600FA991F /* Icon-60@3x.png in Resources */,
 				3A2840C81C72521500056061 /* Default@2x.png in Resources */,
