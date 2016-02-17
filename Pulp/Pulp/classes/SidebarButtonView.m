@@ -10,6 +10,7 @@
 #import "PulpFAImageView.h"
 #import "ThemeManager.h"
 #import "MainViewController.h"
+#import "TodoBubbleView.h"
 
 
 @interface SidebarButtonView ()
@@ -90,6 +91,14 @@ static NSMutableArray *allButtonsArray;
 
     [[ThemeManager sharedThemeManager] registerSecondaryObject:self.theImageView];
     [[ThemeManager sharedThemeManager] registerAdvisoryObject:self];
+    
+    if (theType == SIDEBAR_BUTTON_TYPE_CHECKSQUARE)
+    {
+        TodoBubbleView *theTodoBubbleView = [TodoBubbleView sharedTodoBubbleView];
+        theTodoBubbleView.frame = CGRectMake(self.frame.size.width / 4 - theTodoBubbleView.frame.size.width / 2, self.frame.size.height / 4 - theTodoBubbleView.frame.size.height / 2, theTodoBubbleView.frame.size.width, theTodoBubbleView.frame.size.height);
+        [self addSubview:theTodoBubbleView];
+        
+    }
 }
 
 -(void)adviseThemeUpdateWithPrimaryColor:(UIColor *)thePrimaryColor withSecondaryColor:(UIColor *)theSecondaryColor

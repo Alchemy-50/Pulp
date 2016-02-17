@@ -161,6 +161,7 @@
 		3AB577DE1C7248FA008FE5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577DD1C7248FA008FE5C0 /* main.m */; };
 		3AB577E11C7248FA008FE5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577E01C7248FA008FE5C0 /* AppDelegate.m */; };
 		3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E81C7248FA008FE5C0 /* Assets.xcassets */; };
+		3ABD61271C74F53C006F8FAA /* TodoBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD61261C74F53C006F8FAA /* TodoBubbleView.m */; };
 		3AC2DDD21C737BAC00AF1D19 /* pulp-cal-circle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */; };
 		3AC2DDD41C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */; };
 		3AFEB9481C72728600FA991F /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9411C72728600FA991F /* Icon-60@2x.png */; };
@@ -409,6 +410,8 @@
 		3AB577E01C7248FA008FE5C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AppDelegate.m; path = Pulp/AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3AB577E81C7248FA008FE5C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AB577ED1C7248FA008FE5C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Pulp/Info.plist; sourceTree = "<group>"; };
+		3ABD61251C74F53C006F8FAA /* TodoBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoBubbleView.h; sourceTree = "<group>"; };
+		3ABD61261C74F53C006F8FAA /* TodoBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoBubbleView.m; sourceTree = "<group>"; };
 		3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask.png"; sourceTree = "<group>"; };
 		3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask-trans.png"; sourceTree = "<group>"; };
 		3AFEB9411C72728600FA991F /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
@@ -748,6 +751,8 @@
 				3A283FA41C724D2800056061 /* SidebarInstanceView.m */,
 				3A283FA51C724D2800056061 /* SidebarView.h */,
 				3A283FA61C724D2800056061 /* SidebarView.m */,
+				3ABD61251C74F53C006F8FAA /* TodoBubbleView.h */,
+				3ABD61261C74F53C006F8FAA /* TodoBubbleView.m */,
 			);
 			name = Sidebar;
 			sourceTree = "<group>";
@@ -1219,6 +1224,7 @@
 				3A2840221C724D2800056061 /* PulpFAImageView.m in Sources */,
 				3A283FD41C724D2800056061 /* AppSettingsViewController.m in Sources */,
 				3A283FEC1C724D2800056061 /* CircleView.m in Sources */,
+				3ABD61271C74F53C006F8FAA /* TodoBubbleView.m in Sources */,
 				3A283FF31C724D2800056061 /* CommonTaskItem.m in Sources */,
 				3A2840241C724D2800056061 /* RadialContainerView.m in Sources */,
 				3A28400E1C724D2800056061 /* FullCalendarViewController.m in Sources */,
