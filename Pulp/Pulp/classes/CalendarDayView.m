@@ -15,6 +15,7 @@
 #import "EventForCalendarDayView.h"
 #import "AppDelegate.h"
 #import "ThemeManager.h"
+#import "CalendarDaySelectedOverview.h"
 
 @implementation CalendarDayView
 
@@ -185,8 +186,15 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     if ([[dateFormatter stringFromDate:today] compare:[dateFormatter stringFromDate:self.theDate]] != NSOrderedSame)
     {
-        self.layer.borderColor = [UIColor clearColor].CGColor;
-        self.layer.borderWidth = 0.0f;
+//        self.layer.borderColor = [UIColor clearColor].CGColor;
+  //      self.layer.borderWidth = 0.0f;
+        
+        if (self.calendarDaySelectedOverview != nil)
+        {
+            [self.calendarDaySelectedOverview removeFromSuperview];
+            [self.calendarDaySelectedOverview release];
+            self.calendarDaySelectedOverview = nil;            
+        }
     }
 
     [dateFormatter release];
@@ -196,8 +204,16 @@
 
 -(void) setSelected
 {
-    self.layer.borderColor = [Utils getAppColor:COLOR_5].CGColor;
-    self.layer.borderWidth = 3.5f;
+//    self.layer.borderColor = [Utils getAppColor:COLOR_5].CGColor;
+//    self.layer.borderWidth = 3.5f;
+    
+    if (self.calendarDaySelectedOverview == nil)
+    {
+        self.calendarDaySelectedOverview = [[CalendarDaySelectedOverview alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        self.calendarDaySelectedOverview.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.calendarDaySelectedOverview];
+        self.calendarDaySelectedOverview.backgroundColor = [UIColor clearColor];        
+    }    
 }
 
 

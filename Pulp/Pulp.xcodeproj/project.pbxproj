@@ -163,6 +163,7 @@
 		3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E81C7248FA008FE5C0 /* Assets.xcassets */; };
 		3ABD61271C74F53C006F8FAA /* TodoBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD61261C74F53C006F8FAA /* TodoBubbleView.m */; };
 		3ABD61291C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD61281C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png */; };
+		3ABD612C1C750784006F8FAA /* CalendarDaySelectedOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD612B1C750784006F8FAA /* CalendarDaySelectedOverview.m */; };
 		3AC2DDD21C737BAC00AF1D19 /* pulp-cal-circle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */; };
 		3AC2DDD41C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */; };
 		3AFEB9481C72728600FA991F /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9411C72728600FA991F /* Icon-60@2x.png */; };
@@ -414,6 +415,8 @@
 		3ABD61251C74F53C006F8FAA /* TodoBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoBubbleView.h; sourceTree = "<group>"; };
 		3ABD61261C74F53C006F8FAA /* TodoBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoBubbleView.m; sourceTree = "<group>"; };
 		3ABD61281C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pulp-cal-circle-mask-trans-smlr.png"; path = "../pulp-cal-circle-mask-trans-smlr.png"; sourceTree = "<group>"; };
+		3ABD612A1C750784006F8FAA /* CalendarDaySelectedOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDaySelectedOverview.h; sourceTree = "<group>"; };
+		3ABD612B1C750784006F8FAA /* CalendarDaySelectedOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDaySelectedOverview.m; sourceTree = "<group>"; };
 		3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask.png"; sourceTree = "<group>"; };
 		3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask-trans.png"; sourceTree = "<group>"; };
 		3AFEB9411C72728600FA991F /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
@@ -845,6 +848,8 @@
 				3A283F0D1C724D2800056061 /* CalendarDoubleDayView.m */,
 				3A283F0E1C724D2800056061 /* CalendarDragManagerView.h */,
 				3A283F0F1C724D2800056061 /* CalendarDragManagerView.m */,
+				3ABD612A1C750784006F8FAA /* CalendarDaySelectedOverview.h */,
+				3ABD612B1C750784006F8FAA /* CalendarDaySelectedOverview.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1224,6 +1229,7 @@
 				3A28403B1C724D2800056061 /* TodoTableViewCell.m in Sources */,
 				3A283FE51C724D2800056061 /* CalendarSelectViewController.m in Sources */,
 				3A283FDE1C724D2800056061 /* CalendarDoubleDayView.m in Sources */,
+				3ABD612C1C750784006F8FAA /* CalendarDaySelectedOverview.m in Sources */,
 				3A283FF41C724D2800056061 /* CommonTasksManager.m in Sources */,
 				3A2840221C724D2800056061 /* PulpFAImageView.m in Sources */,
 				3A283FD41C724D2800056061 /* AppSettingsViewController.m in Sources */,

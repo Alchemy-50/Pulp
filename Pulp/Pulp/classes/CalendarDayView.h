@@ -10,7 +10,7 @@
 #import "CalendarEvent.h"
 #import "EventForCalendarDayView.h"
 #import "MaskView.h"
-
+#import "CalendarDaySelectedOverview.h"
 
 @class CalendarMonthView;
 
@@ -31,4 +31,5 @@
 @property (nonatomic, retain) UILabel *dayLabel;
 @property (nonatomic, retain) NSLock *drawLock;
 @property (nonatomic, retain) MaskView *theMaskView;
+@property (nonatomic, retain) CalendarDaySelectedOverview *calendarDaySelectedOverview;
 @end
