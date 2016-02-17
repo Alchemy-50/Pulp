@@ -532,7 +532,7 @@ static float mapHeight = 80;
 
 -(void)loadMapData
 {
-    NSDictionary *locationDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:self.referenceEvent]];
+    NSDictionary *referenceDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:self.referenceEvent]];
     
     if (self.theMapView == nil)
     {
@@ -557,11 +557,23 @@ static float mapHeight = 80;
          [self.theMapView addGestureRecognizer:touchAndHoldRecognizer];
          */
         
+        NSLog(@"referenceDictionary: %@", referenceDictionary);
+        
+        NSDictionary *geometryDictionary = [referenceDictionary objectForKey:@"geometry"];
+        NSLog(@"geometryDictionary: %@", geometryDictionary);
+        
+        
+        
+        
         CLLocationCoordinate2D center;
         
-        NSDictionary *metadataDictionary = [locationDictionary objectForKey:@"metadata"];
-        center.latitude = [[metadataDictionary objectForKey:@"latitude"] doubleValue];
-        center.longitude = [[metadataDictionary objectForKey:@"longitude"] doubleValue];
+        NSDictionary *locationDictionary = [geometryDictionary objectForKey:@"location"];
+        NSLog(@"locationDictionary: %@", locationDictionary);
+        center.latitude = [[locationDictionary objectForKey:@"lat"] doubleValue];
+        center.longitude = [[locationDictionary objectForKey:@"lng"] doubleValue];
+        
+        NSLog(@"center.latitude: %f", center.latitude);
+        NSLog(@"center.longitude: %f", center.longitude);
         
         MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
         myAnnotation.coordinate = center;

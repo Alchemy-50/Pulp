@@ -33,14 +33,12 @@
 
 +(BOOL)isIPad;
 
-+ (void) changeColors:(UIView *)theView withTopColor:(UIColor *)topColor withBottomColor:(UIColor *)bottomColor;
-+ (CalendarEvent *) partialCopyCalendarEvent:(CalendarEvent *)eventToCopy toCalendarEvent:(CalendarEvent *)copyingEvent;
-
-+ (UIImage*) hueImageWithImage:(UIImage*) source fixedHue:(CGFloat) hue alpha:(CGFloat) alpha withSaturation:(float)theSaturation withBrigtness:(float)theBrightness;
-
++(void) changeColors:(UIView *)theView withTopColor:(UIColor *)topColor withBottomColor:(UIColor *)bottomColor;
++(CalendarEvent *) partialCopyCalendarEvent:(CalendarEvent *)eventToCopy toCalendarEvent:(CalendarEvent *)copyingEvent;
++(UIImage*) hueImageWithImage:(UIImage*) source fixedHue:(CGFloat) hue alpha:(CGFloat) alpha withSaturation:(float)theSaturation withBrigtness:(float)theBrightness;
 +(UIColor *)getAppColor:(int)colorDefinition;
-
 +(float)getScreenWidth;
 +(float)getScreenHeight;
++ (NSString *)urlencode:(NSString *)theString;
 
 @end

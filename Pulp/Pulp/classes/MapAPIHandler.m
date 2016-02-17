@@ -8,6 +8,11 @@
 
 #import "MapAPIHandler.h"
 #import <MapKit/MapKit.h>
+#import "Utils.h"
+
+#define API_KEY @"AIzaSyBm6NB4P0jnH8TTskQCILjrCvJ97y0X6xw"
+
+#define ROOT_URI @"https://maps.googleapis.com/maps/api/geocode/json?address="
 
 @interface MapAPIHandler ()
 
@@ -33,60 +38,44 @@ static MapAPIHandler *theStaticHandler;
 
 +(void)getLocationForMapWithEvent:(EKEvent *)referenceEvent withReferenceCell:(DailyTableViewCell *)referenceCell
 {
-    // FIXME: re-implement
-    /*
-    
-    [MapAPIHandler getSharedMapAPIHandler];
-    
-    NSString *authID =  @"8099735d-f90d-47f5-a748-4b203881a0b2";
-    NSString *authToken = @"EEYP3QqoGpaPxNOd143i";
+    NSString *addressString = [Utils urlencode:referenceEvent.location];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@&key=%@", ROOT_URI, addressString, API_KEY];
+    NSLog(@"urlString: %@", urlString);
     
     
-    NSString *esc_addr =  [referenceEvent.location stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    NSString *req = [NSString stringWithFormat:@"http://maps.google.com/maps/api/geocode/json?sensor=false&address=%@", esc_addr];
-    NSString *req = [NSString stringWithFormat:@"https://api.smartystreets.com/street-address?auth-id=%@&auth-token=%@&street=%@&candidates=10", authID, authToken, esc_addr];
-//    NSLog(@"req!: %@", req);
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
+                                                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                           if(error == nil)
+                                                           {
+                                                               NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                                                               
+                                                               if (dict != nil)
+                                                               {
+                                                                   NSArray *resultsArray = [dict objectForKey:@"results"];
+                                                                   if (resultsArray != nil)
+                                                                   if ([resultsArray count] > 0)
+                                                                   {
+                                                                       NSDictionary *refereceDict = [resultsArray objectAtIndex:0];
+                                                                       
+                                                                       [[MapAPIHandler getSharedMapAPIHandler].allLocationDictionary setObject:[NSDictionary dictionaryWithDictionary:refereceDict] forKey:referenceEvent.eventIdentifier];
+                                                                       [referenceCell eventLocationDataReturned];
+                                                                   }
+                                                               }
+                                                               
+                                                           }
+                                                       }];
+    [dataTask resume];
+    
 
-    NSMutableURLRequest *URLRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:req]];
-    URLRequest.HTTPMethod = @"GET";
-    
-    MapAPIHandler *apiHandler = [[MapAPIHandler alloc] init];
-    apiHandler.delegate = referenceCell;
-    apiHandler.requestContextObject = referenceEvent;
-    apiHandler.theWebRequest = [SMWebRequest requestWithURLRequest:URLRequest delegate:apiHandler context:NULL];
-    [apiHandler.theWebRequest addTarget:apiHandler action:@selector(getLocationForMapWithEventFinished:) forRequestEvents:SMWebRequestEventAllEvents];
-    [apiHandler.theWebRequest start];
-    
-    [theStaticHandler.holderArray addObject:apiHandler];
-     */
 }
 
-
-
--(void)getLocationForMapWithEventFinished:(id)obj
-{
-    // FIXME: re-implement
-    
-    /*
-//    NSLog(@"getLocationForMapWithEventFinished: %@", obj);
-    EKEvent *referenceEvent = (EKEvent *)self.requestContextObject;
-    DailyTableViewCell *returnCell = (DailyTableViewCell *)self.delegate;
-    
-    if (self.responseData != nil)
-    {
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:nil];
-
-        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
-        if ([array count] > 0)
-            [dict addEntriesFromDictionary:[array objectAtIndex:0]];
-
-        [[MapAPIHandler getSharedMapAPIHandler].allLocationDictionary setObject:[NSDictionary dictionaryWithDictionary:dict] forKey:referenceEvent.eventIdentifier];
-        [returnCell eventLocationDataReturned];        
-    }
-    [theStaticHandler.holderArray removeObject:self];
-     
-     */
-}
 
 -(NSDictionary *)getLocationDictionaryWithEvent:(EKEvent *)refereneceEvent
 {
