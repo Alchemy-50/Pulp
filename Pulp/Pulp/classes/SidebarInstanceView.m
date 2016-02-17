@@ -43,10 +43,21 @@
     self.dayOfWeekLabel.backgroundColor = [UIColor clearColor];
     self.dayOfWeekLabel.textColor = [UIColor whiteColor];
     self.dayOfWeekLabel.textAlignment = NSTextAlignmentCenter;
-    self.dayOfWeekLabel.font = [UIFont fontWithName:@"Lato-Regular" size:18];
+    self.dayOfWeekLabel.font = [UIFont fontWithName:@"Lato-Semibold" size:18];
     [self addSubview:self.dayOfWeekLabel];
     
-    self.dayOfMonthLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 32, self.frame.size.width, 34)];
+
+
+    self.monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 34, self.frame.size.width, 14)];
+    self.monthLabel.backgroundColor = [UIColor clearColor];
+    self.monthLabel.textColor = [UIColor whiteColor];
+    self.monthLabel.textAlignment = NSTextAlignmentCenter;
+    self.monthLabel.font = [UIFont fontWithName:@"Lato-Bold" size:11];
+    [self addSubview:self.monthLabel];
+
+    
+    
+    self.dayOfMonthLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 47, self.frame.size.width, 34)];
     self.dayOfMonthLabel.backgroundColor = [UIColor clearColor];
     self.dayOfMonthLabel.textColor = [UIColor whiteColor];
     self.dayOfMonthLabel.textAlignment = NSTextAlignmentCenter;
@@ -55,24 +66,18 @@
 
     
 
-/*
-    self.monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 32, self.frame.size.width, 34)];
-    self.monthLabel.backgroundColor = [UIColor clearColor];
-    self.monthLabel.textColor = [UIColor whiteColor];
-    self.monthLabel.textAlignment = NSTextAlignmentCenter;
-    self.monthLabel.font = [UIFont fontWithName:@"Lato-Bold" size:17];
-    [self addSubview:self.monthLabel];
-  */
+
+
     
     
     
     
     
-    [[ThemeManager sharedThemeManager] registerSecondaryObject:self.dayOfWeekLabel];
+    [[ThemeManager sharedThemeManager] registerSecondaryObject:self.monthLabel];
     
     float inset = 4.5;
     
-    self.weatherView = [[WeatherView alloc] initWithFrame:CGRectMake(14, 81, self.frame.size.width - 2 * inset, self.frame.size.width - 2 * inset)];
+    self.weatherView = [[WeatherView alloc] initWithFrame:CGRectMake(14, 93, self.frame.size.width - 2 * inset, self.frame.size.width - 2 * inset)];
     self.weatherView.backgroundColor = [UIColor clearColor];
     [self addSubview:self.weatherView];
     
