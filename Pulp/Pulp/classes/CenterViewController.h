@@ -36,6 +36,8 @@
 - (void) spoofAddEventWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
 - (void) refreshAllDailyViews;
 - (void) sidebarDidScroll:(float)theOffset;
+
+@property (nonatomic, retain) PulpFAImageView *addEventPlusImageView;
 @property (nonatomic, retain) UIScrollView *contentScrollView;
 @property (nonatomic, retain) NSMutableDictionary *dayDatesDictionary;
 @property (nonatomic, retain) NSMutableArray *dayDatesArray;

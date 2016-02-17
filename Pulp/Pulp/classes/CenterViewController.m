@@ -22,7 +22,7 @@
 
 
 @interface CenterViewController ()
-@property (nonatomic, retain) PulpFAImageView *addEventPlusImageView;
+
 @end
 
 @implementation CenterViewController

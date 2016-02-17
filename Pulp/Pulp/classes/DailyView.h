@@ -33,6 +33,8 @@
 @property (nonatomic, retain) UIImageView *emptyCountView;
 @property (nonatomic, assign) BOOL eventsLoaded;
 @property (nonatomic, retain) UIView *testView;
+
+@property (nonatomic, retain) UIView *mapBGView;
 @property (nonatomic, retain) PulpMapView *expandedMapView;
 @property (nonatomic, assign) CGRect referenceMapViewFrame;
 @property (nonatomic, retain) EKEvent *currentReferenceEvent;
