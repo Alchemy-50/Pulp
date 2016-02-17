@@ -8,7 +8,7 @@
 
 #import "TodoDataManager.h"
 #import "GroupDiskManager.h"
-
+#import "TodoBubbleView.h"
 #define STORED_TODOS_KEY @"STORED_TODOS_KEY"
 
 
@@ -41,6 +41,9 @@
     [array addObject:todoObject];
     
     [[GroupDiskManager sharedManager] saveDataToDiskWithObject:array withKey:STORED_TODOS_KEY];
+    
+    [[TodoBubbleView sharedTodoBubbleView] updateTodoValue];
+    
 }
 
 +(void)deleteTodo:(TodoObject *)theTodoObject
@@ -62,6 +65,9 @@
     if (deletableTodoObject != nil)
         [array removeObject:deletableTodoObject];
     [[GroupDiskManager sharedManager] saveDataToDiskWithObject:array withKey:STORED_TODOS_KEY];
+    
+    [[TodoBubbleView sharedTodoBubbleView] updateTodoValue];
+    
 }
 
 

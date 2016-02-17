@@ -12,5 +12,5 @@
 
 
 +(TodoBubbleView *)sharedTodoBubbleView;
-
+-(void)updateTodoValue;
 @end

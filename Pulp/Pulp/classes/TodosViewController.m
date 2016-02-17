@@ -14,7 +14,7 @@
 #import "TodoDataManager.h"
 #import "TodoObject.h"
 #import "TodoTableViewCell.h"
-
+#import "TodoBubbleView.h"
 #import "ThemeManager.h"
 
 
@@ -153,7 +153,7 @@
         theCell.frame = CGRectMake(theCell.frame.origin.x + theCell.frame.size.width, theCell.frame.origin.y, theCell.frame.size.width, theCell.frame.size.height);
         [UIView commitAnimations];
         
-
+        [[TodoBubbleView sharedTodoBubbleView] updateTodoValue];
     }
 }
 
