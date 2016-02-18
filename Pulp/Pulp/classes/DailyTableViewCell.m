@@ -44,37 +44,33 @@
 static float topInset = 13;
 static float mapHeight = 80;
 
-+(CGRect)getEventTitleLabelRect
-{
- 
-    
-    return CGRectMake(75.200005, topInset, [Utils getScreenWidth] * .54, 17);
-}
+static UIFont *theTitleLabelFont;
+static UIFont *theLocationLabelFont;
 
-+(UIFont *)getEventTitleLabelFont
-{
-    return [UIFont fontWithName:@"Lato-Bold" size:16];
-}
+#define MIN_CELL_HEIGHT 68.0f
 
-+(CGRect)getEventLocationLabelRect
-{
-    return CGRectMake(85.4, 46.5, 180.8, 12);
-}
-
-+(UIFont *)getEventLocationLabelFont
-{
-    return [UIFont fontWithName:@"Lato-Regular" size:11];
-}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
+        
+        
+        
+        
     }
     return self;
 }
 
++(void)loadFonts
+{
+    if (theTitleLabelFont == nil)
+        theTitleLabelFont = [UIFont fontWithName:@"Lato-Bold" size:16];
+    
+    if (theLocationLabelFont == nil)
+        theLocationLabelFont = [UIFont fontWithName:@"Lato-Regular" size:11];
+}
 
 -(CGRect)getDailyIconViewFrame
 {
@@ -85,6 +81,7 @@ static float mapHeight = 80;
 
 - (void) loadViews
 {
+    [DailyTableViewCell loadFonts];
     
     self.autoresizesSubviews = NO;
     if (self.startTimeLabel == nil)
@@ -125,11 +122,11 @@ static float mapHeight = 80;
         [self addSubview:self.durationLabel];
         
         
-        self.eventTitleLabel = [[UILabel alloc] initWithFrame:[DailyTableViewCell getEventTitleLabelRect]];
+        self.eventTitleLabel = [[UILabel alloc] initWithFrame:[DailyTableViewCell getTitleLabelRectWithEvent:nil]];
         self.eventTitleLabel.numberOfLines = 0;
         self.eventTitleLabel.backgroundColor = [UIColor clearColor];
         self.eventTitleLabel.textColor = self.startTimeLabel.textColor;
-        self.eventTitleLabel.font = [DailyTableViewCell getEventTitleLabelFont];
+        self.eventTitleLabel.font = theTitleLabelFont;
         self.eventTitleLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:self.eventTitleLabel];
         
@@ -152,7 +149,7 @@ static float mapHeight = 80;
         
         
         
-        self.weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.eventTitleLabel.frame.origin.x + self.eventTitleLabel.frame.size.width, self.eventTitleLabel.frame.origin.y, 25, self.eventTitleLabel.frame.size.height)];
+        self.weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.eventTitleLabel.frame.origin.x + self.eventTitleLabel.frame.size.width, self.eventTitleLabel.frame.origin.y, 25, 18)];
         self.weatherLabel.backgroundColor = [UIColor clearColor];
         self.weatherLabel.textColor = self.startTimeLabel.textColor;
         self.weatherLabel.font = [UIFont fontWithName:@"Lato-Regular" size:10];
@@ -161,16 +158,15 @@ static float mapHeight = 80;
         
         
         
-        self.locationLabel = [[UILabel alloc] initWithFrame:[DailyTableViewCell getEventLocationLabelRect]];
+        self.locationLabel = [[UILabel alloc] initWithFrame:[DailyTableViewCell getLocationLabelRectWithEvent:nil withTitleRect:self.eventTitleLabel.frame]];
         self.locationLabel.numberOfLines = 0;
         self.locationLabel.backgroundColor = [UIColor clearColor];
         self.locationLabel.textColor = [UIColor colorWithRed:durationBaseColor/255.0f green:durationBaseColor/255.0f blue:durationBaseColor/255.0f alpha:1];
-        self.locationLabel.font =  [DailyTableViewCell getEventLocationLabelFont];
+        self.locationLabel.font =  theLocationLabelFont;
         self.locationLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:self.locationLabel];
         
         
-        float dividerColor = 240.0f;
         self.dividerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 1, self.frame.size.width, 1)];
         self.dividerView.backgroundColor = [UIColor colorWithWhite:1 alpha:.1];
         [self addSubview:self.dividerView];
@@ -218,9 +214,7 @@ static float mapHeight = 80;
 
 -(void)loadWithEvent:(EKEvent *)theEvent
 {
-    //    ALog(@"indexPath: %d", self.theIndexPath.row);
     [self loadViews];
-//    self.dailyIconView.frame = [self getDailyIconViewFrame];
     
     self.referenceEvent = theEvent;
     
@@ -253,9 +247,6 @@ static float mapHeight = 80;
         self.eventTitleLabel.alpha = 1;
         self.allDayLabel.alpha = 0;
         self.allDayBackgroundView.alpha = 0;
-        
-    
-        
     }
     
     [self loadWeatherData];
@@ -270,7 +261,10 @@ static float mapHeight = 80;
         self.dividerView.alpha = 0;
     
     
+    self.eventTitleLabel.frame = [DailyTableViewCell getTitleLabelRectWithEvent:theEvent];
     self.eventTitleLabel.text = theEvent.title;
+    
+    self.locationLabel.frame = [DailyTableViewCell getLocationLabelRectWithEvent:theEvent withTitleRect:self.eventTitleLabel.frame];
     self.locationLabel.text = theEvent.location;
     
     
@@ -366,53 +360,13 @@ static float mapHeight = 80;
 
 -(void) setFieldsWithEvent:(EKEvent *)theEvent
 {
-    //    ALog(@"indexPath: %d", self.theIndexPath.row);
     
-    if (!CGRectEqualToRect(self.eventTitleLabel.frame, [DailyTableViewCell getEventTitleLabelRect]))
-        self.eventTitleLabel.frame = [DailyTableViewCell getEventTitleLabelRect];
+    self.eventTitleLabel.frame = [DailyTableViewCell getTitleLabelRectWithEvent:theEvent];
+    self.eventTitleLabel.text = theEvent.title;
     
-    CGRect titleRect = CGRectMake(0, 0, 0, 0);
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
-        titleRect = [theEvent.title boundingRectWithSize:CGSizeMake(self.eventTitleLabel.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[self.eventTitleLabel font]}  context:nil];
-    else
-    {
-        CGSize constraint = CGSizeMake(self.eventTitleLabel.frame.size.width, 1000);
-        
-        CGRect theRect = [self.eventTitleLabel.text boundingRectWithSize:constraint
-                                                                 options:NSLineBreakByWordWrapping | NSStringDrawingUsesLineFragmentOrigin
-                                                              attributes:@{NSFontAttributeName:self.eventTitleLabel.font}
-                                                                 context:nil];
-        
-        CGSize titleSize = theRect.size;
-        titleRect = CGRectMake(0, 0, titleSize.width, titleSize.height);
-    }
+    self.locationLabel.frame = [DailyTableViewCell getLocationLabelRectWithEvent:theEvent withTitleRect:self.eventTitleLabel.frame];
+    self.locationLabel.text = theEvent.location;
     
-    if (titleRect.size.height > self.eventTitleLabel.frame.size.height)
-    {
-        self.eventTitleLabel.frame = CGRectMake(self.eventTitleLabel.frame.origin.x, self.eventTitleLabel.frame.origin.y, self.eventTitleLabel.frame.size.width, titleRect.size.height);
-        self.locationLabel.frame = CGRectMake(self.locationLabel.frame.origin.x, self.eventTitleLabel.frame.origin.y + self.eventTitleLabel.frame.size.height, self.locationLabel.frame.size.width, self.locationLabel.frame.size.height);
-    }
-    
-    CGRect locationRect = CGRectMake(0, 0, 0, 0);
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
-        locationRect = [theEvent.location boundingRectWithSize:CGSizeMake(self.locationLabel.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[self.locationLabel font]}  context:nil];
-    else
-    {
-        CGSize constraint = CGSizeMake(self.locationLabel.frame.size.width, 1000);
-        
-        CGRect theRect = [self.locationLabel.text boundingRectWithSize:constraint
-                                                               options:NSLineBreakByWordWrapping | NSStringDrawingUsesLineFragmentOrigin
-                                                            attributes:@{NSFontAttributeName:self.locationLabel.font}
-                                                               context:nil];
-        
-        
-        CGSize locationSize = theRect.size;
-        locationRect = CGRectMake(0, 0, locationSize.width, locationSize.height);
-    }
-    
-    
-    if (locationRect.size.height > self.locationLabel.frame.size.height)
-        self.locationLabel.frame = CGRectMake(self.locationLabel.frame.origin.x, self.locationLabel.frame.origin.y, self.locationLabel.frame.size.width, locationRect.size.height);
     
     
     float maxHeight = 0;
@@ -426,6 +380,8 @@ static float mapHeight = 80;
     
     float yDiff = self.stripeView.frame.origin.y;
     self.stripeView.frame = CGRectMake(self.stripeView.frame.origin.x, self.stripeView.frame.origin.y, self.stripeView.frame.size.width, maxHeight - 2 * yDiff);
+    
+    
 }
 
 -(void)loadCoverButton
@@ -442,79 +398,11 @@ static float mapHeight = 80;
     [self.parentView cellButtonHitWithIndexPath:self.theIndexPath];
 }
 
-+ (float) getDesiredCellHeightWithEvent:(EKEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath
-{
-    //    ALog(@"indexPath: %d", indexPath.row);
-    CGRect titleRect = CGRectMake(0, 0, 0, 0);
-    
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
-        titleRect = [theEvent.title boundingRectWithSize:CGSizeMake([DailyTableViewCell getEventTitleLabelRect].size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[DailyTableViewCell getEventTitleLabelFont]}  context:nil];
-    else
-    {
-        
-        
-        CGSize constraint = CGSizeMake([DailyTableViewCell getEventTitleLabelRect].size.width, 1000);
-        
-        CGRect theRect = [theEvent.title boundingRectWithSize:constraint
-                                                      options:NSLineBreakByWordWrapping | NSStringDrawingUsesLineFragmentOrigin
-                                                   attributes:@{NSFontAttributeName:[DailyTableViewCell getEventTitleLabelFont]}
-                                                      context:nil];
-        
-        
-        
-        titleRect = CGRectMake(0, 0, theRect.size.width, theRect.size.height);
-    }
-    titleRect.origin = [DailyTableViewCell getEventTitleLabelRect].origin;
-    
-    
-    CGRect locationRect = CGRectMake(0, 0, 0, 0);
-    
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
-        locationRect = [theEvent.location boundingRectWithSize:CGSizeMake([DailyTableViewCell getEventLocationLabelRect].size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[DailyTableViewCell getEventLocationLabelFont]}  context:nil];
-    else
-    {
-        CGSize constraint = CGSizeMake([DailyTableViewCell getEventLocationLabelRect].size.width, 1000);
-        
-        
-        CGRect theRect = [theEvent.location boundingRectWithSize:constraint
-                                                      options:NSLineBreakByWordWrapping | NSStringDrawingUsesLineFragmentOrigin
-                                                   attributes:@{NSFontAttributeName:[DailyTableViewCell getEventLocationLabelFont]}
-                                                      context:nil];
-
-        
-        locationRect = CGRectMake(0, 0, theRect.size.width, theRect.size.height);
-    }
-    
-    
-    locationRect.origin = CGPointMake(locationRect.origin.x, titleRect.origin.y + titleRect.size.height);
-    if (locationRect.size.height == 0)
-        locationRect.size = CGSizeMake(0, [DailyTableViewCell getEventLocationLabelRect].size.height);
-    
-    
-    float returnHeight = locationRect.origin.y + locationRect.size.height + 10;
-    
-    
-    if (theEvent.allDay)
-        return 30;
-    else
-    {
-        NSDictionary *locationDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:theEvent]];
-        if (locationDictionary != nil)
-            if ([[locationDictionary allKeys] count] > 0)
-                returnHeight += mapHeight;
-        
-        return returnHeight;
-    }
-    
-    
-}
-
 
 - (void) eventLocationDataReturned
 {
     [self.parentView cellDidReturnWithLocation];
 }
-
 
 
 
@@ -561,19 +449,6 @@ static float mapHeight = 80;
         [mapButton addTarget:self action:@selector(tapGestureRecognizerFired) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:mapButton];
         
-        /*
-         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerFired)];
-         tapGestureRecognizer.numberOfTapsRequired = 1;
-         [self.theMapView addGestureRecognizer:tapGestureRecognizer];
-         
-         UILongPressGestureRecognizer *touchAndHoldRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(touchAndHoldRecognizerFired)];
-         touchAndHoldRecognizer.minimumPressDuration = 0.45;
-         [self.theMapView addGestureRecognizer:touchAndHoldRecognizer];
-         */
-        
-
-        
-        
         
         CLLocationCoordinate2D center;
         center.latitude = [[locationDictionary objectForKey:@"lat"] doubleValue];
@@ -593,11 +468,91 @@ static float mapHeight = 80;
         adjustedRegion.span.longitudeDelta  = 0.0105;
         adjustedRegion.span.latitudeDelta  = 0.0105;
         [self.theMapView setRegion:adjustedRegion animated:NO];
-        
-        
-        
     }
 }
+
+
++(CGRect)getTitleLabelRectWithEvent:(EKEvent *)theEvent
+{
+    NSString *theString = @"";
+    if (theEvent != nil)
+        theString = theEvent.title;
+
+
+    float maxWidth = [Utils getScreenWidth] * .54;
+    
+
+    
+
+
+    float height = [theString boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
+                                                options:NSStringDrawingUsesLineFragmentOrigin
+                                             attributes:@{NSFontAttributeName:theTitleLabelFont}
+                                                context:nil].size.height;
+
+    if (height < 18)
+        height = 18;
+    
+    height += 2;
+    return CGRectMake(75.0, topInset - 1.5, maxWidth, height);
+}
+
+
++(CGRect)getLocationLabelRectWithEvent:(EKEvent *)theEvent withTitleRect:(CGRect)titleRect
+{
+    NSString *theString = @"";
+    if (theEvent != nil)
+        theString = theEvent.location;
+    
+    float height = [theString boundingRectWithSize:CGSizeMake(titleRect.size.width, MAXFLOAT)
+                                                   options:NSStringDrawingUsesLineFragmentOrigin
+                                                attributes:@{NSFontAttributeName:theLocationLabelFont}
+                                                   context:nil].size.height;
+    
+    
+    
+    height += 3;
+    
+    return CGRectMake(titleRect.origin.x, titleRect.origin.y + titleRect.size.height + 2, titleRect.size.width, height);
+}
+
+
+
+
+
+
+
++ (float) getDesiredCellHeightWithEvent:(EKEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath
+{
+    [DailyTableViewCell loadFonts];
+    
+    if (theEvent.allDay)
+        return 30;
+    else
+    {
+        CGRect titleLabelRect = [DailyTableViewCell getTitleLabelRectWithEvent:theEvent];
+        CGRect locationLabelRect = [DailyTableViewCell getLocationLabelRectWithEvent:theEvent withTitleRect:titleLabelRect];
+        
+        float returnHeight = locationLabelRect.origin.y + locationLabelRect.size.height;
+        
+        NSDictionary *locationDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:theEvent]];
+        if (locationDictionary != nil)
+            if ([[locationDictionary allKeys] count] > 0)
+                returnHeight += mapHeight;
+        
+        if (returnHeight < MIN_CELL_HEIGHT)
+            returnHeight = MIN_CELL_HEIGHT;
+        
+        returnHeight += 10;
+        
+//        NSLog(@"getDesiredCellHeightWithEvent[%@]: %f", theEvent.title, returnHeight);
+        
+        return returnHeight;
+    }
+    
+    
+}
+
 
 
 @end

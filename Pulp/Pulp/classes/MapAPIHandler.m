@@ -40,7 +40,6 @@ static MapAPIHandler *theStaticHandler;
 {
     NSString *addressString = [Utils urlencode:referenceEvent.location];
     NSString *urlString = [NSString stringWithFormat:@"%@%@&key=%@", ROOT_URI, addressString, API_KEY];
-    NSLog(@"urlString: %@", urlString);
     
     
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];

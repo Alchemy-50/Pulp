@@ -224,7 +224,6 @@ static ContentContainerViewController *theStaticVC;
     for (id key in self.monthViewLookupDictionary)
     {
         CalendarMonthView *monthView = [self.monthViewLookupDictionary objectForKey:key];
-        NSLog(@"monthView.calendarDayViewDictionary: %@", monthView.calendarDayViewDictionary);
         
         if ([monthView.calendarDayViewDictionary objectForKey:todayKey] != nil)
             theDayView = [monthView.calendarDayViewDictionary objectForKey:todayKey];
