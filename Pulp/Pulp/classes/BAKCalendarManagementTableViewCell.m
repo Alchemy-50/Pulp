@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "CalendarManagementTableViewCell.h"
+#import "BAKCalendarManagementTableViewCell.h"
 #import "GroupDiskManager.h"
 #import "EventKitManager.h"
 #import "CalendarManagementTableViewController.h"
@@ -15,7 +15,7 @@
 
 
 
-@implementation CalendarManagementTableViewCell
+@implementation BAKCalendarManagementTableViewCell
 
 @synthesize referenceCalendar;
 @synthesize parentCalendarManagementTableViewController;

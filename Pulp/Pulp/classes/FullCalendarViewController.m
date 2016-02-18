@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 #import "Defs.h"
 #import "ThemeManager.h"
+#import "AllCalendarButtonView.h"
+
 
 
 @interface FullCalendarViewController ()
@@ -50,41 +52,16 @@ float theTransitionTime = .22;
     [self.view addSubview:coverView];
 
 
-    float footerHeight = 40;
-    
+
     self.contentContainerViewController = [[ContentContainerViewController alloc] initWithNibName:nil bundle:nil];
     self.contentContainerViewController.view.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.contentContainerViewController.view];
-    self.contentContainerViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - footerHeight);
+    self.contentContainerViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self.contentContainerViewController doLoadViews];
-    
- 
-    float inset = self.view.frame.size.width * .08;
+
     
     
-    UIView *calLabelBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(inset, self.contentContainerViewController.view.frame.size.height, self.view.frame.size.width - 2 * inset, footerHeight * .9)];
-    [[ThemeManager sharedThemeManager] registerPrimaryObject:calLabelBackgroundView];
-    [self.view addSubview:calLabelBackgroundView];
-    
-    coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, calLabelBackgroundView.frame.size.width, calLabelBackgroundView.frame.size.height)];
-    coverView.backgroundColor = [UIColor colorWithWhite:0 alpha:.75];
-    [calLabelBackgroundView addSubview:coverView];
-    
-    UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    calButton.backgroundColor = [UIColor clearColor];
-    [calButton addTarget:self action:@selector(calButtonHit) forControlEvents:UIControlEventTouchUpInside];
-    calButton.frame = CGRectMake(0, 0, calLabelBackgroundView.frame.size.width, calLabelBackgroundView.frame.size.height);
-    [calLabelBackgroundView addSubview:calButton];
-    
-    
-    self.calendarsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, calLabelBackgroundView.frame.size.width, calLabelBackgroundView.frame.size.height)];
-    self.calendarsLabel.backgroundColor = [UIColor clearColor];
-    self.calendarsLabel.textAlignment = NSTextAlignmentCenter;
-    self.calendarsLabel.font = [UIFont fontWithName:@"Lato-Regular" size:self.calendarsLabel.frame.size.height / 2];
-    self.calendarsLabel.text = @"All Calendars";
-    [calLabelBackgroundView addSubview:self.calendarsLabel];
-    
-    [[ThemeManager sharedThemeManager] registerSecondaryObject:self.calendarsLabel];
+    [self.view addSubview:[AllCalendarButtonView sharedButtonView]];        
 }
 
 
@@ -150,66 +127,6 @@ float theTransitionTime = .22;
 {
     [context removeFromSuperview];
 }
-
-- (void) calButtonHit
-{
-    [self topCalButtonHit:NO];
-}
-
-- (void) topCalButtonHit:(BOOL)refresh
-{
- //   [self.calendarDropdownViewController loadCalendars];
-    
-    if (self.calendarManagementTableViewController == nil)
-    {
-
-        
-        self.calendarManagementTableViewController = [[CalendarManagementTableViewController alloc] initWithNibName:nil bundle:nil];
-        self.calendarManagementTableViewController.parentFullCalendarViewController = self;
-        self.calendarManagementTableViewController.view.backgroundColor = [UIColor clearColor];
-        self.calendarManagementTableViewController.view.frame = CGRectMake(0, 0, 280, self.view.frame.size.height);
-        self.calendarManagementTableViewController.theTableView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.theTableView.frame.size.width, self.calendarManagementTableViewController.theTableView.frame.size.height);
-        self.calendarManagementTableViewController.bgView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.bgView.frame.size.width, self.calendarManagementTableViewController.bgView.frame.size.height);
-        [self.view addSubview:self.calendarManagementTableViewController.view];
-        
-        self.calendarManagementTableViewController.view.frame = CGRectMake(0, 0, 280, 0);
-        self.calendarManagementTableViewController.theTableView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.theTableView.frame.size.width, 0);
-        self.calendarManagementTableViewController.bgView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.bgView.frame.size.width, 0);
-    }
-    
-    if (self.calendarManagementTableViewController.view.frame.size.height == 0)
-    {
-        [self.calendarManagementTableViewController reload];
-        float height = self.view.frame.size.height * .8;
-        
-        float numHeight = ([[[EventKitManager sharedManager] getEKCalendars:NO] count] + 1) * 44;
-        
-        if (numHeight < height)
-            height = numHeight;
-        
-        height = self.view.frame.size.height;
-        
-        
-        [self.calendarManagementTableViewController reload];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:theTransitionTime];
-        self.calendarManagementTableViewController.view.frame = CGRectMake(0, 0, 280, self.view.frame.size.height);
-        self.calendarManagementTableViewController.theTableView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.theTableView.frame.size.width, self.calendarManagementTableViewController.view.frame.size.height);
-        self.calendarManagementTableViewController.bgView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.bgView.frame.size.width, self.calendarManagementTableViewController.view.frame.size.height);
-        [UIView commitAnimations];
-    }
-    else
-    {
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:theTransitionTime];        
-        self.calendarManagementTableViewController.view.frame = CGRectMake(0, 0, 280, 0);
-        self.calendarManagementTableViewController.theTableView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.theTableView.frame.size.width, 0);
-        self.calendarManagementTableViewController.bgView.frame = CGRectMake(0, 0, self.calendarManagementTableViewController.bgView.frame.size.width, 0);
-        [UIView commitAnimations];
-    }
-
-}
-
 
 
 

@@ -10,7 +10,7 @@
 #import <EventKit/EventKit.h>
 
 @class CalendarManagementTableViewController;
-@interface CalendarManagementTableViewCell : UITableViewCell
+@interface BAKCalendarManagementTableViewCell : UITableViewCell
 
 
 -(void)loadWithCalendar:(EKCalendar *)theCalendar;

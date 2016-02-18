@@ -168,7 +168,10 @@ static UIFont *theLocationLabelFont;
         
         
         self.dividerView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 1, self.frame.size.width, 1)];
-        self.dividerView.backgroundColor = [UIColor colorWithWhite:1 alpha:.1];
+        if (self.cellStyleClear)
+            self.dividerView.backgroundColor = [UIColor colorWithWhite:1 alpha:.1];
+        else
+            self.dividerView.backgroundColor = [UIColor colorWithWhite:.125 alpha:.125];
         [self addSubview:self.dividerView];
         
         

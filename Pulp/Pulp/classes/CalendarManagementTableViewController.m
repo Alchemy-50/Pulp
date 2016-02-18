@@ -19,7 +19,7 @@
 @implementation CalendarManagementTableViewController
 
 @synthesize calendarsArray;
-@synthesize parentFullCalendarViewController;
+
 @synthesize theTableView;
 @synthesize theNewCalendarString;
 @synthesize bgView;
@@ -27,11 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    self.bgView.backgroundColor = [UIColor blackColor];
-    self.bgView.alpha = .5;
-    [self.view insertSubview:self.bgView atIndex:0];
     
     self.calendarsArray = [[NSMutableArray alloc] initWithCapacity:0];
     
@@ -44,7 +39,6 @@
     }
 
     self.theTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    NSLog(@"theTableView.frame: %@", NSStringFromCGRect(self.theTableView.frame));
     self.theTableView.backgroundColor = [UIColor clearColor];
     self.theTableView.delegate = self;
     self.theTableView.dataSource = self;
@@ -80,7 +74,7 @@
 {
 
     
-    NSInteger retVal = [self.calendarsArray count]  + 2;
+    NSInteger retVal = [self.calendarsArray count];
     
 
     return retVal;
@@ -96,24 +90,18 @@
     if (cell == nil) {
         cell = [[[CalendarManagementTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.text = @"";
+        cell.backgroundColor = [UIColor clearColor];
+        [cell initialize];
     }
     
-    cell.textLabel.text = @"";
-    cell.backgroundColor = [UIColor clearColor];
+    
+    
     [cell cleanViews];
     
     
-    if (indexPath.row == 0)
-    {
-        cell.textLabel.text = @"all calendars";
-        cell.backgroundColor = [UIColor whiteColor];
-    }
-    else if (indexPath.row <= [self.calendarsArray count])
-        [cell loadWithCalendar:[self.calendarsArray objectAtIndex:indexPath.row-1]];
-    else if (indexPath.row == [self.calendarsArray count] + 1)
-        [cell loadForAddCalendar];
-
-        
+    [cell loadWithCalendar:[self.calendarsArray objectAtIndex:indexPath.row]];
+    //[cell loadForAddCalendar];
  
     return cell;
 }
@@ -124,12 +112,13 @@
 {
     NSLog(@"HOLD NOW PLEASE!");
     
+/*
     if (indexPath.row ==  0)
     {
         [self.parentFullCalendarViewController topCalButtonHit:YES];
     }
     
-/*
+
     AppDelegate *theDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     
