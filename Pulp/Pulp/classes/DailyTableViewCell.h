@@ -20,7 +20,7 @@
     
 }
 
-+ (float) getDesiredCellHeightWithEvent:(EKEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath;
++ (float) getDesiredCellHeightWithEvent:(EKEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath withSuppressMaps:(BOOL)doSuppressMaps;
 - (void) loadViews;
 - (void) loadWithEvent:(EKEvent *)theEvent;
 - (void) setFieldsWithEvent:(EKEvent *)theEvent;
@@ -56,5 +56,6 @@
 
 @property (nonatomic, retain) UIView *lastRowView;
 @property (nonatomic, assign) BOOL cellStyleClear;
+@property (nonatomic, assign) BOOL suppressMaps;
 
 @end

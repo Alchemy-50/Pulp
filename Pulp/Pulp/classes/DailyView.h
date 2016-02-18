@@ -39,5 +39,6 @@
 @property (nonatomic, retain) EKEvent *currentReferenceEvent;
 @property (nonatomic, retain) UIScrollView *contentScrollView;
 @property (nonatomic, assign) BOOL cellStyleClear;
+@property (nonatomic, assign) BOOL suppressMaps;
 
 @end

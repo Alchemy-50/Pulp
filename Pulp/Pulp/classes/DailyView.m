@@ -198,6 +198,7 @@ static float allDayHeight = 32;
     DailyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[DailyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.suppressMaps = self.suppressMaps;
         cell.cellStyleClear = self.cellStyleClear;
         if (self.cellStyleClear)
             tableView.separatorColor = [UIColor clearColor];
@@ -241,7 +242,7 @@ static float allDayHeight = 32;
     else if ([theEvent.calendar.title compare:@"TODO"] == NSOrderedSame)
         height = todoHeight;
     else
-        height = [DailyTableViewCell getDesiredCellHeightWithEvent:theEvent withIndexPath:indexPath];
+        height = [DailyTableViewCell getDesiredCellHeightWithEvent:theEvent withIndexPath:indexPath withSuppressMaps:self.suppressMaps];
     
     
     return height;

@@ -102,6 +102,7 @@ static ContentContainerViewController *theStaticVC;
     }
     
     self.dailyView = [[DailyView alloc] initWithFrame:CGRectMake(0, self.theScrollView.frame.size.height, self.theScrollView.frame.size.width, self.view.frame.size.height - self.theScrollView.frame.size.height)];
+    self.dailyView.suppressMaps = YES;
     self.dailyView.backgroundColor = [UIColor clearColor];
     self.dailyView.cellStyleClear = YES;
     [self.view addSubview:self.dailyView];

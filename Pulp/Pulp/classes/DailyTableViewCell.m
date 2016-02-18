@@ -269,7 +269,8 @@ static UIFont *theLocationLabelFont;
     
     
     //    NSLog(@"THEEVENT.LOCATION: %@", theEvent.location);
-    if ([theEvent.location length] > 0)
+
+    if ([theEvent.location length] > 0 && !self.suppressMaps)
     {
         NSDictionary *dict = [[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:self.referenceEvent];
         //        NSLog(@"dict!!: %@", dict);
@@ -489,7 +490,7 @@ static UIFont *theLocationLabelFont;
 
 
 
-+ (float) getDesiredCellHeightWithEvent:(EKEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath
++ (float) getDesiredCellHeightWithEvent:(EKEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath withSuppressMaps:(BOOL)doSuppressMaps
 {
     [DailyTableViewCell loadFonts];
     
@@ -502,11 +503,13 @@ static UIFont *theLocationLabelFont;
         
         float returnHeight = locationLabelRect.origin.y + locationLabelRect.size.height;
         
-        NSDictionary *locationDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:theEvent]];
-        if (locationDictionary != nil)
-            if ([[locationDictionary allKeys] count] > 0)
-                returnHeight += mapHeight;
-        
+        if (!doSuppressMaps)
+        {
+            NSDictionary *locationDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:theEvent]];
+            if (locationDictionary != nil)
+                if ([[locationDictionary allKeys] count] > 0)
+                    returnHeight += mapHeight;
+        }
         if (returnHeight < MIN_CELL_HEIGHT)
             returnHeight = MIN_CELL_HEIGHT;
         
