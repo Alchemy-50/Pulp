@@ -180,12 +180,12 @@ static UIFont *theLocationLabelFont;
     }
 }
 
--(void)tapGestureRecognizerFired
+
+-(void)mapTapped
 {
-    NSLog(@"tapGestureRecognizerFired");
-    
     [self.parentView mapTappedWithMapView:self.theMapView withEvent:self.referenceEvent];
 }
+
 -(void)touchAndHoldRecognizerFired
 {
     NSString *charactersToEscape = @"!*'();:@&=+$,/?%#[]\" ";
@@ -421,15 +421,12 @@ static UIFont *theLocationLabelFont;
 -(void)loadMapData
 {
     NSDictionary *referenceDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:self.referenceEvent]];
-    NSDictionary *geometryDictionary = [referenceDictionary objectForKey:@"geometry"];
-    NSDictionary *locationDictionary = [geometryDictionary objectForKey:@"location"];
     
     if (self.theMapView != nil)
     {
-        if (![self.theMapView.referenceLocationDictionary isEqualToDictionary:locationDictionary])
+        if ([self.theMapView isReferenceDictionaryEqualToDictionary:referenceDictionary])
         {
             NSLog(@"REMOVE MAP VIEW");
-            
             [self.theMapView removeFromSuperview];
             [self.theMapView release];
             self.theMapView = nil;
@@ -438,36 +435,10 @@ static UIFont *theLocationLabelFont;
     
     if (self.theMapView == nil)
     {
-        self.theMapView = [[ContainerMapView alloc]  initWithFrame:CGRectMake(self.theMapView.frame.origin.x, self.locationLabel.frame.origin.y + self.locationLabel.frame.size.height + 10, self.frame.size.width, mapHeight)];
-        self.theMapView.scrollEnabled = NO;
-        self.theMapView.userInteractionEnabled = NO;
+        self.theMapView = [[CellContainerMapView alloc]  initWithFrame:CGRectMake(self.theMapView.frame.origin.x, self.locationLabel.frame.origin.y + self.locationLabel.frame.size.height + 10, self.frame.size.width, mapHeight)];
+        self.theMapView.parentCell = self;
         [self addSubview:self.theMapView];
-        
-        UIButton *mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        mapButton.frame = self.theMapView.frame;
-        mapButton.backgroundColor = [UIColor clearColor];
-        [mapButton addTarget:self action:@selector(tapGestureRecognizerFired) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:mapButton];
-        
-        
-        CLLocationCoordinate2D center;
-        center.latitude = [[locationDictionary objectForKey:@"lat"] doubleValue];
-        center.longitude = [[locationDictionary objectForKey:@"lng"] doubleValue];
-        
-        MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
-        myAnnotation.coordinate = center;
-        
-        
-        self.theMapView.referenceLocationDictionary = [[NSDictionary alloc] initWithDictionary:locationDictionary];
-        
-        
-        [self.theMapView addAnnotation:myAnnotation];
-        [self.theMapView setCenterCoordinate:center];
-        
-        MKCoordinateRegion adjustedRegion = [self.theMapView regionThatFits:MKCoordinateRegionMakeWithDistance(center, 800, 800)];
-        adjustedRegion.span.longitudeDelta  = 0.0105;
-        adjustedRegion.span.latitudeDelta  = 0.0105;
-        [self.theMapView setRegion:adjustedRegion animated:NO];
+        [self.theMapView loadWithDictionary:referenceDictionary];
     }
 }
 
@@ -481,10 +452,6 @@ static UIFont *theLocationLabelFont;
 
     float maxWidth = [Utils getScreenWidth] * .54;
     
-
-    
-
-
     float height = [theString boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT)
                                                 options:NSStringDrawingUsesLineFragmentOrigin
                                              attributes:@{NSFontAttributeName:theTitleLabelFont}

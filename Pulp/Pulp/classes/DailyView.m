@@ -267,9 +267,6 @@ static float allDayHeight = 32;
         //self.referenceMapViewFrame =  CGRectMake(0, [tappedMapView convertPoint:tappedMapView.frame.origin toView:nil].y - 105, tappedMapView.frame.size.width, tappedMapView.frame.size.height);
         self.referenceMapViewFrame =  CGRectMake(self.frame.size.width / 2, [tappedMapView convertPoint:tappedMapView.frame.origin toView:nil].y - 105, 0, 0);
         
-        self.mapBGView = [[UIView alloc] initWithFrame:self.referenceMapViewFrame];
-        self.mapBGView.backgroundColor = [UIColor whiteColor];
-        [self addSubview:self.mapBGView];
         
         
         self.expandedMapView = [[PulpMapView alloc] initWithFrame:self.referenceMapViewFrame];
@@ -289,7 +286,6 @@ static float allDayHeight = 32;
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:.33];
         self.expandedMapView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-        self.mapBGView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         [CenterViewController sharedCenterViewController].addEventPlusImageView.alpha = 0;
         [UIView commitAnimations];
         
@@ -364,7 +360,6 @@ static float allDayHeight = 32;
     [UIView setAnimationDidStopSelector:@selector(mapViewDidExit)];
     exitButton.alpha = 0;
     self.expandedMapView.frame = self.referenceMapViewFrame;
-    self.mapBGView.frame = self.expandedMapView.frame;
     [CenterViewController sharedCenterViewController].addEventPlusImageView.alpha = 1;
     [UIView commitAnimations];
 }

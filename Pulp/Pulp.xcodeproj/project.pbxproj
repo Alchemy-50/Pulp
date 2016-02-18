@@ -164,7 +164,7 @@
 		3ABD61271C74F53C006F8FAA /* TodoBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD61261C74F53C006F8FAA /* TodoBubbleView.m */; };
 		3ABD61291C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD61281C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png */; };
 		3ABD612C1C750784006F8FAA /* CalendarDaySelectedOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD612B1C750784006F8FAA /* CalendarDaySelectedOverview.m */; };
-		3ABD61301C751165006F8FAA /* ContainerMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD612F1C751165006F8FAA /* ContainerMapView.m */; };
+		3ABD61301C751165006F8FAA /* CellContainerMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD612F1C751165006F8FAA /* CellContainerMapView.m */; };
 		3AC2DDD21C737BAC00AF1D19 /* pulp-cal-circle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */; };
 		3AC2DDD41C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */; };
 		3AFEB9481C72728600FA991F /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEB9411C72728600FA991F /* Icon-60@2x.png */; };
@@ -418,8 +418,8 @@
 		3ABD61281C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pulp-cal-circle-mask-trans-smlr.png"; path = "../pulp-cal-circle-mask-trans-smlr.png"; sourceTree = "<group>"; };
 		3ABD612A1C750784006F8FAA /* CalendarDaySelectedOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDaySelectedOverview.h; sourceTree = "<group>"; };
 		3ABD612B1C750784006F8FAA /* CalendarDaySelectedOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDaySelectedOverview.m; sourceTree = "<group>"; };
-		3ABD612E1C751165006F8FAA /* ContainerMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerMapView.h; sourceTree = "<group>"; };
-		3ABD612F1C751165006F8FAA /* ContainerMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerMapView.m; sourceTree = "<group>"; };
+		3ABD612E1C751165006F8FAA /* CellContainerMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellContainerMapView.h; sourceTree = "<group>"; };
+		3ABD612F1C751165006F8FAA /* CellContainerMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellContainerMapView.m; sourceTree = "<group>"; };
 		3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask.png"; sourceTree = "<group>"; };
 		3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask-trans.png"; sourceTree = "<group>"; };
 		3AFEB9411C72728600FA991F /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
@@ -816,8 +816,6 @@
 		3ABD612D1C751157006F8FAA /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				3ABD612E1C751165006F8FAA /* ContainerMapView.h */,
-				3ABD612F1C751165006F8FAA /* ContainerMapView.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -955,6 +953,8 @@
 				3A283F441C724D2800056061 /* DailyScrollView.m */,
 				3A283F451C724D2800056061 /* DailyTableViewCell.h */,
 				3A283F461C724D2800056061 /* DailyTableViewCell.m */,
+				3ABD612E1C751165006F8FAA /* CellContainerMapView.h */,
+				3ABD612F1C751165006F8FAA /* CellContainerMapView.m */,
 				3A283F491C724D2800056061 /* DailyView.h */,
 				3A283F4A1C724D2800056061 /* DailyView.m */,
 			);
@@ -1239,7 +1239,7 @@
 				3A283FF51C724D2800056061 /* ContainerEventViewController.m in Sources */,
 				3A283FE21C724D2800056061 /* CalendarManagementTableViewCell.m in Sources */,
 				3A2840001C724D2800056061 /* Defs.m in Sources */,
-				3ABD61301C751165006F8FAA /* ContainerMapView.m in Sources */,
+				3ABD61301C751165006F8FAA /* CellContainerMapView.m in Sources */,
 				3A28403B1C724D2800056061 /* TodoTableViewCell.m in Sources */,
 				3A283FE51C724D2800056061 /* CalendarSelectViewController.m in Sources */,
 				3A283FDE1C724D2800056061 /* CalendarDoubleDayView.m in Sources */,

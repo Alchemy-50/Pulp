@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EventKitManager.h"
 #import "DailyIconView.h"
-#import "ContainerMapView.h"
+#import "CellContainerMapView.h"
 #import <MapKit/MapKit.h>
 
 
@@ -26,7 +26,8 @@
 - (void) setFieldsWithEvent:(EKEvent *)theEvent;
 - (void) eventLocationDataReturned;
 - (void) setLastRowStyle:(BOOL)isLastRow;
--(void)loadCoverButton;
+- (void) loadCoverButton;
+- (void) mapTapped;
 
 @property (nonatomic, retain) DailyView *parentView;
 
@@ -49,7 +50,7 @@
 
 @property (nonatomic, retain) EKEvent *referenceEvent;
 
-@property (nonatomic, retain) ContainerMapView *theMapView;
+@property (nonatomic, retain) CellContainerMapView *theMapView;
 
 @property (nonatomic, retain) UIButton *mapViewButton;
 
