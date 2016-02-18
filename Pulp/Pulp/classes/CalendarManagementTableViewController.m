@@ -13,7 +13,9 @@
 #import "FullCalendarViewController.h"
 #import "ThemeManager.h"
 #import "GroupDiskManager.h"
-
+#import "EditCalendarViewController.h"
+#import "CalendarManagementViewController.h"
+#import "Utils.h"
 
 @interface CalendarManagementTableViewController ()
 
@@ -74,9 +76,9 @@
 {
     [super viewDidLoad];
     
-
+    
     [self loadContentArray];
-
+    
     self.theTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.theTableView.backgroundColor = [UIColor clearColor];
     self.theTableView.separatorColor = [UIColor clearColor];
@@ -121,7 +123,7 @@
     }
     
     [cell cleanViews];
-
+    
     id obj = [self.contentArray objectAtIndex:indexPath.row];
     
     
@@ -133,7 +135,7 @@
     
     
     //[cell loadForAddCalendar];
- 
+    
     return cell;
 }
 
@@ -150,7 +152,7 @@
             NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY]];
             BOOL val = [[dict objectForKey:referenceCalendar.calendarIdentifier] boolValue];
             val = YES;
-    
+            
             [dict setObject:[NSNumber numberWithBool:val] forKey:referenceCalendar.calendarIdentifier];
             [[GroupDiskManager sharedManager] saveDataToDiskWithObject:dict withKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
         }
@@ -165,40 +167,52 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"HOLD NOW PLEASE!");
-    
-/*
-    if (indexPath.row ==  0)
+    EKCalendar *theCalendar = [self.contentArray objectAtIndex:indexPath.row];
+    if ([theCalendar isKindOfClass:[EKCalendar class]])
     {
-        [self.parentFullCalendarViewController topCalButtonHit:YES];
-    }
-    
-
-    AppDelegate *theDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
-    
-    if (indexPath.row == [self.calendarsArray count] + 1)
-    {
-        [self calendarDropdownAddCalendarSelected];
-    }
-    else if (indexPath.row ==  0)
-    {
-        theDelegate.currentSelectedCalendar = nil;
-        [self.parentFullCalendarViewController topCalButtonHit:YES];
-    }
-    else
-    {
-        EKCalendar *calendar = [calendarsArray objectAtIndex:indexPath.row - 1];
         
-        if (calendar == theDelegate.currentSelectedCalendar)
-            theDelegate.currentSelectedCalendar = nil;
-        else
-            theDelegate.currentSelectedCalendar = calendar;
         
-        [self.parentFullCalendarViewController topCalButtonHit:YES];
+        EditCalendarViewController *editCalendarViewController = [[EditCalendarViewController alloc] initWithNibName:nil bundle:nil];
+        editCalendarViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
+        [editCalendarViewController initialize];
+//        [[MainViewController sharedMainViewController] presentViewController:editCalendarViewController animated:YES completion:nil];
+        [[CalendarManagementViewController sharedCalendarManagementViewController] presentViewController:editCalendarViewController animated:YES completion:nil];
+        [editCalendarViewController loadWithCalendar:theCalendar];
         
     }
-    */
+    
+    /*
+     if (indexPath.row ==  0)
+     {
+     [self.parentFullCalendarViewController topCalButtonHit:YES];
+     }
+     
+     
+     AppDelegate *theDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+     
+     
+     if (indexPath.row == [self.calendarsArray count] + 1)
+     {
+     [self calendarDropdownAddCalendarSelected];
+     }
+     else if (indexPath.row ==  0)
+     {
+     theDelegate.currentSelectedCalendar = nil;
+     [self.parentFullCalendarViewController topCalButtonHit:YES];
+     }
+     else
+     {
+     EKCalendar *calendar = [calendarsArray objectAtIndex:indexPath.row - 1];
+     
+     if (calendar == theDelegate.currentSelectedCalendar)
+     theDelegate.currentSelectedCalendar = nil;
+     else
+     theDelegate.currentSelectedCalendar = calendar;
+     
+     [self.parentFullCalendarViewController topCalButtonHit:YES];
+     
+     }
+     */
     
 }
 
@@ -209,62 +223,62 @@
     // FIXME: Implement uialertcontroller with handlers below
     
     /*
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"My Title"
-                                  message:@"Enter User Credentials"
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-    
-    
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New Calendar" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
-    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
-    [message show];
+     UIAlertController * alert=   [UIAlertController
+     alertControllerWithTitle:@"My Title"
+     message:@"Enter User Credentials"
+     preferredStyle:UIAlertControllerStyleAlert];
+     
+     [self presentViewController:alert animated:YES completion:nil];
+     
+     
+     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"New Calendar" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
+     [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+     [message show];
      
      */
 }
 
 /*
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    
-    if (buttonIndex > 0)
-    {
-        self.theNewCalendarString = [alertView textFieldAtIndex:0].text;
-        
-        NSArray *sourcesArray = [[EventKitManager sharedManager].eventStore sources];
-        
-        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select Source" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-        
-        for (int i = 0; i < [sourcesArray count]; i++)
-        {
-            EKSource *source = [sourcesArray objectAtIndex:i];
-            [popup addButtonWithTitle:source.title];
-        }
-        
-        [popup addButtonWithTitle:@"Cancel"];
-        popup.tag = 1;
-        [popup showInView:[UIApplication sharedApplication].keyWindow];
-    }
-}
-
-
-- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    NSLog(@"IMPLEMENT THIS ACTION SHEET POPUP CLICKED BUTTON AT INDEX");
-
-    if ([[popup buttonTitleAtIndex:buttonIndex] compare:@"Cancel"] != NSOrderedSame)
-    {
-        [self.parentFullCalendarViewController topCalButtonHit:YES];
-         EKCalendar *calendar = [[EventKitManager sharedManager] getNewEKCalendar];
-         calendar.CGColor = [UIColor colorWithRed:(arc4random() % 255)/255.0f green:(arc4random() % 256)/255.0f blue:(arc4random() % 256)/255.0f alpha:1].CGColor;
-         calendar.title = self.theNewCalendarString;
-         calendar.source = [[[EventKitManager sharedManager].eventStore sources] objectAtIndex:buttonIndex];
-         [[EventKitManager sharedManager] createAndSaveCalendar:calendar];
-        
-    }
-}
-     */
+ - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+ {
+ 
+ if (buttonIndex > 0)
+ {
+ self.theNewCalendarString = [alertView textFieldAtIndex:0].text;
+ 
+ NSArray *sourcesArray = [[EventKitManager sharedManager].eventStore sources];
+ 
+ UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select Source" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+ 
+ for (int i = 0; i < [sourcesArray count]; i++)
+ {
+ EKSource *source = [sourcesArray objectAtIndex:i];
+ [popup addButtonWithTitle:source.title];
+ }
+ 
+ [popup addButtonWithTitle:@"Cancel"];
+ popup.tag = 1;
+ [popup showInView:[UIApplication sharedApplication].keyWindow];
+ }
+ }
+ 
+ 
+ - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+ 
+ NSLog(@"IMPLEMENT THIS ACTION SHEET POPUP CLICKED BUTTON AT INDEX");
+ 
+ if ([[popup buttonTitleAtIndex:buttonIndex] compare:@"Cancel"] != NSOrderedSame)
+ {
+ [self.parentFullCalendarViewController topCalButtonHit:YES];
+ EKCalendar *calendar = [[EventKitManager sharedManager] getNewEKCalendar];
+ calendar.CGColor = [UIColor colorWithRed:(arc4random() % 255)/255.0f green:(arc4random() % 256)/255.0f blue:(arc4random() % 256)/255.0f alpha:1].CGColor;
+ calendar.title = self.theNewCalendarString;
+ calendar.source = [[[EventKitManager sharedManager].eventStore sources] objectAtIndex:buttonIndex];
+ [[EventKitManager sharedManager] createAndSaveCalendar:calendar];
+ 
+ }
+ }
+ */
 
 
 
