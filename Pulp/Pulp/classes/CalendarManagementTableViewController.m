@@ -13,7 +13,7 @@
 #import "FullCalendarViewController.h"
 #import "ThemeManager.h"
 #import "GroupDiskManager.h"
-#import "EditCalendarViewController.h"
+#import "EditCalendarManagementViewController.h"
 #import "CalendarManagementViewController.h"
 #import "Utils.h"
 
@@ -172,9 +172,8 @@
     {
         
         
-        EditCalendarViewController *editCalendarViewController = [[EditCalendarViewController alloc] initWithNibName:nil bundle:nil];
+        EditCalendarManagementViewController *editCalendarViewController = [[EditCalendarManagementViewController alloc] initWithNibName:nil bundle:nil];
         editCalendarViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
-        [editCalendarViewController initialize];
 //        [[MainViewController sharedMainViewController] presentViewController:editCalendarViewController animated:YES completion:nil];
         [[CalendarManagementViewController sharedCalendarManagementViewController] presentViewController:editCalendarViewController animated:YES completion:nil];
         [editCalendarViewController loadWithCalendar:theCalendar];

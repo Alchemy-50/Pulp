@@ -161,7 +161,8 @@
 		3A40C9401C764068009B53F0 /* CalendarManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C93F1C764068009B53F0 /* CalendarManagementViewController.m */; };
 		3A40C9431C764645009B53F0 /* AllCalendarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C9421C764645009B53F0 /* AllCalendarButtonView.m */; };
 		3A40C94D1C765522009B53F0 /* CalendarManagementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C94C1C765522009B53F0 /* CalendarManagementTableViewCell.m */; };
-		3A40C9511C76667A009B53F0 /* EditCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C9501C76667A009B53F0 /* EditCalendarViewController.m */; };
+		3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C9531C766C17009B53F0 /* EditCalendarManagementViewController.m */; };
+		3A40C9561C766C17009B53F0 /* EditCalendarManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */; };
 		3AB577DE1C7248FA008FE5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577DD1C7248FA008FE5C0 /* main.m */; };
 		3AB577E11C7248FA008FE5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577E01C7248FA008FE5C0 /* AppDelegate.m */; };
 		3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E81C7248FA008FE5C0 /* Assets.xcassets */; };
@@ -417,8 +418,9 @@
 		3A40C9421C764645009B53F0 /* AllCalendarButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCalendarButtonView.m; sourceTree = "<group>"; };
 		3A40C94B1C765522009B53F0 /* CalendarManagementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarManagementTableViewCell.h; sourceTree = "<group>"; };
 		3A40C94C1C765522009B53F0 /* CalendarManagementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManagementTableViewCell.m; sourceTree = "<group>"; };
-		3A40C94F1C76667A009B53F0 /* EditCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCalendarViewController.h; sourceTree = "<group>"; };
-		3A40C9501C76667A009B53F0 /* EditCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCalendarViewController.m; sourceTree = "<group>"; };
+		3A40C9521C766C17009B53F0 /* EditCalendarManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCalendarManagementViewController.h; sourceTree = "<group>"; };
+		3A40C9531C766C17009B53F0 /* EditCalendarManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCalendarManagementViewController.m; sourceTree = "<group>"; };
+		3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCalendarManagementViewController.xib; sourceTree = "<group>"; };
 		3AB577D91C7248FA008FE5C0 /* Pulp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB577DD1C7248FA008FE5C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pulp/AppDelegate.h; sourceTree = "<group>"; };
@@ -707,6 +709,8 @@
 				3AFEB93E1C726DC000FA991F /* Views */,
 				3A283FBF1C724D2800056061 /* TodosViewController.h */,
 				3A283FC01C724D2800056061 /* TodosViewController.m */,
+				3A283F3B1C724D2800056061 /* ContainerTodosViewController.h */,
+				3A283F3C1C724D2800056061 /* ContainerTodosViewController.m */,
 			);
 			name = Todos;
 			sourceTree = "<group>";
@@ -865,8 +869,9 @@
 		3A40C94E1C766663009B53F0 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				3A40C94F1C76667A009B53F0 /* EditCalendarViewController.h */,
-				3A40C9501C76667A009B53F0 /* EditCalendarViewController.m */,
+				3A40C9521C766C17009B53F0 /* EditCalendarManagementViewController.h */,
+				3A40C9531C766C17009B53F0 /* EditCalendarManagementViewController.m */,
+				3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */,
 			);
 			name = Edit;
 			sourceTree = "<group>";
@@ -928,8 +933,6 @@
 		3AFEB93E1C726DC000FA991F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A283F3B1C724D2800056061 /* ContainerTodosViewController.h */,
-				3A283F3C1C724D2800056061 /* ContainerTodosViewController.m */,
 				3A283FB91C724D2800056061 /* TodoDataManager.h */,
 				3A283FBA1C724D2800056061 /* TodoDataManager.m */,
 				3A283FBB1C724D2800056061 /* TodoObject.h */,
@@ -1157,6 +1160,7 @@
 				3A2840D51C72521500056061 /* icn-rain.png in Resources */,
 				3A2840081C724D2800056061 /* EventManagerViewController.xib in Resources */,
 				3AFEB94E1C72728600FA991F /* Icon-Small@3x.png in Resources */,
+				3A40C9561C766C17009B53F0 /* EditCalendarManagementViewController.xib in Resources */,
 				3A2840C91C72521500056061 /* delete.png in Resources */,
 				3A2840F01C72521500056061 /* top-facets-background@2x.png in Resources */,
 				3A2840E01C72521500056061 /* radialokbutton.png in Resources */,
@@ -1348,12 +1352,12 @@
 				3A2840241C724D2800056061 /* RadialContainerView.m in Sources */,
 				3A28400E1C724D2800056061 /* FullCalendarViewController.m in Sources */,
 				3A2840321C724D2800056061 /* ThemeManager.m in Sources */,
-				3A40C9511C76667A009B53F0 /* EditCalendarViewController.m in Sources */,
 				3A2840111C724D2800056061 /* GroupDataManager.m in Sources */,
 				3A2840331C724D2800056061 /* ThemeSelectObject.m in Sources */,
 				3A2840131C724D2800056061 /* GroupFormatManager.m in Sources */,
 				3A283FDD1C724D2800056061 /* CalendarDayView.m in Sources */,
 				3A283FF21C724D2800056061 /* CommonTaskEventContainer.m in Sources */,
+				3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */,
 				3A283FF01C724D2800056061 /* CommonEventsOrderManager.m in Sources */,
 				3A28400A1C724D2800056061 /* EventStoreChangeThread.m in Sources */,
 				3A28402C1C724D2800056061 /* SidebarView.m in Sources */,
