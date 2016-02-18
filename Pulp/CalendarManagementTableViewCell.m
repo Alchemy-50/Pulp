@@ -8,14 +8,24 @@
 
 #import "CalendarManagementTableViewCell.h"
 #import "ThemeManager.h"
+#import "PulpFAImageView.h"
+#import "EventKitManager.h"
+#import "GroupDiskManager.h"
+
 
 @interface CalendarManagementTableViewCell ()
-@property (nonatomic, retain) UIView *strokeView;
-@property (nonatomic, retain) UIView *bottomStrokeView;
+
 
 @property (nonatomic, retain) UILabel *sourceLabel;
+@property (nonatomic, retain) UIImageView *checkBoxImageView;
+@property (nonatomic, retain) UIButton *checkButton;
+@property (nonatomic, retain) UIView *stripeView;
 @property (nonatomic, retain) UILabel *calendarNameLabel;
-@property (nonatomic, retain) UIImageView *cogImageView;
+@property (nonatomic, retain) PulpFAImageView *cogImageView;
+@property (nonatomic, retain) UIView *strokeView;
+
+@property (nonatomic, retain) EKCalendar *referenceCalendar;
+
 @end
 
 @implementation CalendarManagementTableViewCell
@@ -23,9 +33,20 @@
 
 -(void) initialize
 {
-    self.strokeView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height -1 , self.frame.size.width, 1)];
-    self.strokeView.backgroundColor = [UIColor colorWithWhite:0 alpha:.15];
-    [self addSubview:self.strokeView];
+    CGSize checkImageSize = CGSizeMake(15, 15);
+    self.checkBoxImageView = [[UIImageView alloc] initWithFrame:CGRectMake(9, self.frame.size.height / 2 - checkImageSize.height / 2, checkImageSize.width, checkImageSize.height)];
+    [self addSubview:self.checkBoxImageView];
+    
+    self.checkButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    self.checkButton.frame = CGRectMake(0, 0, self.checkBoxImageView.frame.origin.x + self.checkBoxImageView.frame.size.width + 3, self.frame.size.height);
+    [self.checkButton addTarget:self action:@selector(checkButtonHit) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.checkButton];
+    
+    float inset = self.frame.size.height * .05;
+    self.stripeView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width * ( 53.0f / 375.0f), inset, 3, self.frame.size.height - 2 * inset)];
+    self.stripeView.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.stripeView];
+    
     
     
     self.calendarNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(68, 0, self.frame.size.width - 80, self.frame.size.height)];
@@ -44,26 +65,85 @@
     [self addSubview:self.sourceLabel];
 
     [[ThemeManager sharedThemeManager] registerSecondaryObject:self.sourceLabel];
+    
+    
+    float desiredHeight = self.frame.size.height * .45;
+    
+    NSString *lookupString = @"fa-cog";
+    
+    CGSize actualSize = [PulpFAImageView getImageSizeFromString:lookupString withDesiredHeight:desiredHeight];
+    
+    self.cogImageView = [[PulpFAImageView alloc] initWithFrame:CGRectMake(self.frame.size.width * (335.0f / 375.0f), self.frame.size.height / 2 - actualSize.height / 2, actualSize.width, actualSize.height)];
+    self.cogImageView.desiredHeight = desiredHeight;
+    self.cogImageView.referenceString = lookupString;
+    [self addSubview:self.cogImageView];
+    [[ThemeManager sharedThemeManager] registerSecondaryObject:self.cogImageView];
+    
+    
+    self.strokeView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height -1 , self.frame.size.width, 1)];
+    self.strokeView.backgroundColor = [UIColor colorWithWhite:0 alpha:.15];
+    [self addSubview:self.strokeView];
+    
+    
 }
 
 -(void) cleanViews
 {
     self.sourceLabel.text = @"";
     self.calendarNameLabel.text = @"";
+
+    self.cogImageView.alpha = 0;
+    self.stripeView.alpha = 0;
     
+    self.referenceCalendar = nil;
 }
 
 -(void) loadWithSource:(EKSource *)theSource
 {
     self.sourceLabel.text = theSource.title;
+
 }
 
 -(void) loadWithCalendar:(EKCalendar *)theCalendar
 {
+    self.referenceCalendar = theCalendar;
+    
+    self.stripeView.alpha = 1;
+    self.cogImageView.alpha = 1;
+    
     self.calendarNameLabel.text = theCalendar.title;
+
+    self.stripeView.backgroundColor = [UIColor colorWithCGColor:theCalendar.CGColor];
     
-    NSLog(@"theCalendar.source: %@", theCalendar.source);
-    NSLog(@"theCalenar.name: %@", theCalendar.title);
     
+    [self setCheckBoxImageViewState];
 }
+
+
+-(void)checkButtonHit
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY]];
+    BOOL val = [[dict objectForKey:self.referenceCalendar.calendarIdentifier] boolValue];
+    val = !val;
+    
+    [dict setObject:[NSNumber numberWithBool:val] forKey:self.referenceCalendar.calendarIdentifier];
+    [[GroupDiskManager sharedManager] saveDataToDiskWithObject:dict withKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
+    
+    [self setCheckBoxImageViewState];
+}
+
+
+
+-(void)setCheckBoxImageViewState
+{
+    NSDictionary *dict = [[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
+    if ([[dict objectForKey:self.referenceCalendar.calendarIdentifier] boolValue])
+        self.checkBoxImageView.image =  [UIImage imageNamed:@"radio-on.png"];
+    else
+        self.checkBoxImageView.image = [UIImage imageNamed:@"radio-off.png"];
+}
+
+
+
+
 @end

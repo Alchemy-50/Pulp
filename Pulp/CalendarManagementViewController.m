@@ -54,10 +54,11 @@ static CalendarManagementViewController *theStaticVC;
     [self.view addSubview:coverView];
 
     
+    float yStart = 99;
     self.calendarManagementTableViewController = [[CalendarManagementTableViewController alloc] initWithNibName:nil bundle:nil];
     self.calendarManagementTableViewController.theParentController = self;
     self.calendarManagementTableViewController.view.backgroundColor = [UIColor clearColor];
-    self.calendarManagementTableViewController.view.frame = CGRectMake(0, self.view.frame.size.height / 2, self.view.frame.size.width, self.view.frame.size.height / 2);
+    self.calendarManagementTableViewController.view.frame = CGRectMake(0, yStart, self.view.frame.size.width, self.view.frame.size.height - yStart);
     [self.view addSubview:self.calendarManagementTableViewController.view];
     
     UILabel *doneLabel = [[UILabel alloc] initWithFrame:CGRectMake(318, 17, 40, 15)];
@@ -75,7 +76,29 @@ static CalendarManagementViewController *theStaticVC;
     [doneButton addTarget:self action:@selector(doneButtonHit) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:doneButton];
     
+    
+    UIView *checkAllLabelBackGroundView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * (80.0f / 375.0f), 46.0f, self.view.frame.size.width * (212.0f / 375.0f), 38)];
+    checkAllLabelBackGroundView.backgroundColor = [UIColor colorWithWhite:1 alpha:.15];
+    [self.view addSubview:checkAllLabelBackGroundView];
+    
+    UILabel *checkAllLabel = [[UILabel alloc] initWithFrame:checkAllLabelBackGroundView.frame];
+    checkAllLabel.backgroundColor = [UIColor clearColor];
+    checkAllLabel.textAlignment = NSTextAlignmentCenter;
+    checkAllLabel.textColor = [UIColor whiteColor];
+    checkAllLabel.text = @"Check All";
+    checkAllLabel.font = [UIFont fontWithName:@"Lato-Bold" size:14];
+    [self.view addSubview:checkAllLabel];
+    
+    
+    UIButton *checkAllButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    checkAllButton.backgroundColor = [UIColor clearColor];
+    checkAllButton.frame = checkAllLabelBackGroundView.frame;
+    [checkAllButton addTarget:self.calendarManagementTableViewController action:@selector(checkAllButtonHit) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:checkAllButton];
+    
 }
+
+
 
 -(void)doneButtonHit
 {

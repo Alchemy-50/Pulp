@@ -15,6 +15,8 @@
 #import "AppSettingsViewController.h"
 #import "ContainerTodosViewController.h"
 #import "SidebarButtonView.h"
+#import "CalendarManagementViewController.h"
+
 
 @interface MainViewController ()
 @property (nonatomic, retain) SidebarView *sidebarView;
@@ -185,7 +187,9 @@ static MainViewController *staticVC;
     if (!self.initialized)
     {
         [self.centerViewController processPositioningWithScrollView:self.centerViewController.contentScrollView];
-        [self.fullCalendarViewController.contentContainerViewController navigateToToday];        
+        [self.fullCalendarViewController.contentContainerViewController navigateToToday];
+        
+        [[CalendarManagementViewController sharedCalendarManagementViewController] handleDisplay:YES];
     }
     
     self.initialized = YES;

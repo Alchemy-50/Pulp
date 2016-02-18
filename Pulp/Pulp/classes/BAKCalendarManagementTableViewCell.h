@@ -20,7 +20,7 @@
 @property (nonatomic, retain) CalendarManagementTableViewController *parentCalendarManagementTableViewController;
 @property (nonatomic, retain) EKCalendar *referenceCalendar;
 
-@property (nonatomic, retain) UIImageView *checkBoxImageView;
+
 @property (nonatomic, retain) UILabel *calendarNameLabel;
 @property (nonatomic, retain) UILabel *sourceNameLabel;
 @property (nonatomic, retain) UIImageView *cogImageView;
@@ -29,5 +29,7 @@
 @property (nonatomic, retain) UILabel *addCalendarLabel;
 
 @property (nonatomic, retain) UIView *separatorView;
+
+@property (nonatomic, retain) UIImageView *checkBoxImageView;
 @property (nonatomic, retain) UIButton *checkButton;
 @end

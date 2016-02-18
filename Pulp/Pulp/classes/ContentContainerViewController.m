@@ -120,7 +120,6 @@ static ContentContainerViewController *theStaticVC;
 
 -(void)updateMonthViews
 {
-    NSLog(@"updateMonthViews!");
     
     
     int index = [[NSNumber numberWithFloat:self.theScrollView.contentOffset.y / self.theScrollView.frame.size.height] intValue] + 1;

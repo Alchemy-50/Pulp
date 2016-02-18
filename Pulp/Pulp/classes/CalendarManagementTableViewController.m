@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 #import "FullCalendarViewController.h"
 #import "ThemeManager.h"
+#import "GroupDiskManager.h"
+
 
 @interface CalendarManagementTableViewController ()
 
@@ -24,6 +26,12 @@
 @implementation CalendarManagementTableViewController
 
 
+
+-(void)reload
+{
+    [self loadContentArray];
+    [self.theTableView reloadData];
+}
 
 -(void)loadContentArray
 {
@@ -128,6 +136,30 @@
  
     return cell;
 }
+
+
+-(void)checkAllButtonHit
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    for (int i = 0; i < [self.contentArray count]; i++)
+    {
+        EKCalendar *referenceCalendar = [self.contentArray objectAtIndex:i];
+        if ([referenceCalendar isKindOfClass:[EKCalendar class]])
+        {
+            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY]];
+            BOOL val = [[dict objectForKey:referenceCalendar.calendarIdentifier] boolValue];
+            val = YES;
+    
+            [dict setObject:[NSNumber numberWithBool:val] forKey:referenceCalendar.calendarIdentifier];
+            [[GroupDiskManager sharedManager] saveDataToDiskWithObject:dict withKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
+        }
+    }
+    
+    [self reload];
+}
+
+
 
 
 

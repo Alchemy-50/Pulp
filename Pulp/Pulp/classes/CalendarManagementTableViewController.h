@@ -11,7 +11,8 @@
 
 @interface CalendarManagementTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
-
 @property (nonatomic, retain) id theParentController;
 
+-(void)reload;
+-(void)checkAllButtonHit;
 @end
