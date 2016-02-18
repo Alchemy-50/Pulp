@@ -13,6 +13,7 @@
 
 -(void) initialize;
 -(void) cleanViews;
+-(void) loadWithSource:(EKSource *)theSource;
 -(void) loadWithCalendar:(EKCalendar *)theCalendar;
 
 

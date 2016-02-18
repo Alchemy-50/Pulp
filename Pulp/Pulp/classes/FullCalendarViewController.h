@@ -17,7 +17,6 @@
 
 - (void) doLoadViews;
 - (void) dataChanged;
-- (void) topCalButtonHit:(BOOL)refresh;
 - (void) createEventExitButtonHitWithController:(EventManagerViewController *)theController withEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
 
 @property (nonatomic, retain) ContentContainerViewController *contentContainerViewController;

@@ -11,73 +11,88 @@
 #import "CalendarManagementTableViewCell.h"
 #import "AppDelegate.h"
 #import "FullCalendarViewController.h"
+#import "ThemeManager.h"
 
 @interface CalendarManagementTableViewController ()
+
+
+@property (nonatomic, retain) UITableView *theTableView;
+@property (nonatomic, retain) NSMutableArray *contentArray;
 
 @end
 
 @implementation CalendarManagementTableViewController
 
-@synthesize calendarsArray;
 
-@synthesize theTableView;
-@synthesize theNewCalendarString;
-@synthesize bgView;
+
+-(void)loadContentArray
+{
+    self.contentArray = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    NSMutableDictionary *calendarsBySourceDictionary = [NSMutableDictionary dictionaryWithCapacity:0];
+    
+    
+    NSArray *ar = [[EventKitManager sharedManager] getEKCalendars:NO];
+    for (int i = 0; i < [ar count]; i++)
+    {
+        EKCalendar *theCalendar = [ar objectAtIndex:i];
+        if ([[theCalendar.title lowercaseString] compare:@"todo"] != NSOrderedSame && [[theCalendar.title lowercaseString] compare:@"birthdays"] != NSOrderedSame)
+        {
+            NSMutableArray *ar = [calendarsBySourceDictionary objectForKey:theCalendar.source.title];
+            if (ar == nil)
+                ar = [[NSMutableArray alloc] initWithCapacity:0];
+            
+            [ar addObject:theCalendar];
+            
+            [calendarsBySourceDictionary setObject:ar forKey:theCalendar.source.title];
+        }
+        
+    }
+    
+    for (id key in calendarsBySourceDictionary)
+    {
+        NSArray *ar = [calendarsBySourceDictionary objectForKey:key];
+        
+        EKCalendar *cal = [ar objectAtIndex:0];
+        EKSource *theSource = cal.source;
+        [self.contentArray addObject:theSource];
+        
+        for (int i = 0; i < [ar count]; i++)
+            [self.contentArray addObject:[ar objectAtIndex:i]];
+    }
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.calendarsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    NSArray *ar = [[EventKitManager sharedManager] getEKCalendars:NO];
-    for (int i = 0; i < [ar count]; i++)
-    {
-        EKCalendar *theCalendar = [ar objectAtIndex:i];
-        if ([[theCalendar.title lowercaseString] compare:@"todo"] != NSOrderedSame && [[theCalendar.title lowercaseString] compare:@"birthdays"] != NSOrderedSame)
-            [self.calendarsArray addObject:theCalendar];
-    }
+
+    [self loadContentArray];
 
     self.theTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.theTableView.backgroundColor = [UIColor clearColor];
+    self.theTableView.separatorColor = [UIColor clearColor];
     self.theTableView.delegate = self;
     self.theTableView.dataSource = self;
     [self.view addSubview:self.theTableView];
+    
     [self.theTableView reloadData];
+    
+    
 }
 
--(void)reload
-{
-    [self.calendarsArray removeAllObjects];
-    self.calendarsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    NSArray *ar = [[EventKitManager sharedManager] getEKCalendars:NO];
-    for (int i = 0; i < [ar count]; i++)
-    {
-        EKCalendar *theCalendar = [ar objectAtIndex:i];
-        if ([[theCalendar.title lowercaseString] compare:@"todo"] != NSOrderedSame && [[theCalendar.title lowercaseString] compare:@"birthdays"] != NSOrderedSame)
-            [self.calendarsArray addObject:theCalendar];
-    }
-    
-    [self.theTableView reloadData];
-}
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    tableView.separatorColor = [UIColor clearColor];
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    
-    NSInteger retVal = [self.calendarsArray count];
-    
-
-    return retVal;
+    return [self.contentArray count];
     
 }
 
@@ -89,18 +104,26 @@
     CalendarManagementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[CalendarManagementTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, self.view.frame.size.width, cell.frame.size.height);//[self tableView:tableView heightForRowAtIndexPath:indexPath]);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = @"";
         cell.backgroundColor = [UIColor clearColor];
         [cell initialize];
+        
     }
     
-    
-    
     [cell cleanViews];
+
+    id obj = [self.contentArray objectAtIndex:indexPath.row];
     
     
-    [cell loadWithCalendar:[self.calendarsArray objectAtIndex:indexPath.row]];
+    if ([obj isKindOfClass:[EKSource class]])
+        [cell loadWithSource:obj];
+    
+    else if ([obj isKindOfClass:[EKCalendar class]])
+        [cell loadWithCalendar:obj];
+    
+    
     //[cell loadForAddCalendar];
  
     return cell;
