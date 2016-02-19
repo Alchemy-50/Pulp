@@ -16,6 +16,7 @@
 #import "ContainerTodosViewController.h"
 #import "SidebarButtonView.h"
 #import "CalendarManagementViewController.h"
+#import "DRColorPickerWheelView.h"
 
 
 @interface MainViewController ()
@@ -190,6 +191,10 @@ static MainViewController *staticVC;
         [self.fullCalendarViewController.contentContainerViewController navigateToToday];
         
         [[CalendarManagementViewController sharedCalendarManagementViewController] handleDisplay:YES];
+        
+        
+        
+        
     }
     
     self.initialized = YES;

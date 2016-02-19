@@ -158,6 +158,25 @@
 		3A2840EF1C72521500056061 /* todo-uncheckednew@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2840A91C72521500056061 /* todo-uncheckednew@2x.png */; };
 		3A2840F01C72521500056061 /* top-facets-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2840AA1C72521500056061 /* top-facets-background@2x.png */; };
 		3A2840F11C72521500056061 /* Untitled-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2840AB1C72521500056061 /* Untitled-7.png */; };
+		3A39180A1C76AFD300966DDA /* DRColorPicker+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917E81C76AFD300966DDA /* DRColorPicker+UIColor.m */; };
+		3A39180B1C76AFD300966DDA /* DRColorPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A3917E91C76AFD300966DDA /* DRColorPicker.bundle */; };
+		3A39180C1C76AFD300966DDA /* DRColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917EB1C76AFD300966DDA /* DRColorPicker.m */; };
+		3A39180D1C76AFD300966DDA /* DRColorPickerBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917ED1C76AFD300966DDA /* DRColorPickerBaseViewController.m */; };
+		3A39180E1C76AFD300966DDA /* DRColorPickerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917EF1C76AFD300966DDA /* DRColorPickerColor.m */; };
+		3A39180F1C76AFD300966DDA /* DRColorPickerColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917F11C76AFD300966DDA /* DRColorPickerColorView.m */; };
+		3A3918101C76AFD300966DDA /* DRColorPickerGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917F31C76AFD300966DDA /* DRColorPickerGridView.m */; };
+		3A3918111C76AFD300966DDA /* DRColorPickerGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917F51C76AFD300966DDA /* DRColorPickerGridViewCell.m */; };
+		3A3918121C76AFD300966DDA /* DRColorPickerGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917F71C76AFD300966DDA /* DRColorPickerGridViewController.m */; };
+		3A3918131C76AFD300966DDA /* DRColorPickerHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917F91C76AFD300966DDA /* DRColorPickerHomeView.m */; };
+		3A3918141C76AFD300966DDA /* DRColorPickerHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917FB1C76AFD300966DDA /* DRColorPickerHomeViewController.m */; };
+		3A3918151C76AFD300966DDA /* DRColorPickerHorizontalCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917FD1C76AFD300966DDA /* DRColorPickerHorizontalCollectionViewLayout.m */; };
+		3A3918161C76AFD300966DDA /* DRColorPickerHueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917FF1C76AFD300966DDA /* DRColorPickerHueView.m */; };
+		3A3918171C76AFD300966DDA /* DRColorPickerHueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3918011C76AFD300966DDA /* DRColorPickerHueViewController.m */; };
+		3A3918181C76AFD300966DDA /* DRColorPickerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3918031C76AFD300966DDA /* DRColorPickerStore.m */; };
+		3A3918191C76AFD300966DDA /* DRColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3918051C76AFD300966DDA /* DRColorPickerViewController.m */; };
+		3A39181A1C76AFD300966DDA /* DRColorPickerWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3918071C76AFD300966DDA /* DRColorPickerWheelView.m */; };
+		3A39181B1C76AFD300966DDA /* DRColorPickerWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3918091C76AFD300966DDA /* DRColorPickerWheelViewController.m */; };
+		3A39181F1C76B10800966DDA /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A39181E1C76B10800966DDA /* ColorPickerViewController.m */; };
 		3A40C9401C764068009B53F0 /* CalendarManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C93F1C764068009B53F0 /* CalendarManagementViewController.m */; };
 		3A40C9431C764645009B53F0 /* AllCalendarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C9421C764645009B53F0 /* AllCalendarButtonView.m */; };
 		3A40C94D1C765522009B53F0 /* CalendarManagementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C94C1C765522009B53F0 /* CalendarManagementTableViewCell.m */; };
@@ -412,6 +431,43 @@
 		3A2840A91C72521500056061 /* todo-uncheckednew@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "todo-uncheckednew@2x.png"; path = "ImageAssets/todo-uncheckednew@2x.png"; sourceTree = "<group>"; };
 		3A2840AA1C72521500056061 /* top-facets-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "top-facets-background@2x.png"; path = "ImageAssets/top-facets-background@2x.png"; sourceTree = "<group>"; };
 		3A2840AB1C72521500056061 /* Untitled-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled-7.png"; path = "ImageAssets/Untitled-7.png"; sourceTree = "<group>"; };
+		3A3917E71C76AFD300966DDA /* DRColorPicker+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DRColorPicker+UIColor.h"; sourceTree = "<group>"; };
+		3A3917E81C76AFD300966DDA /* DRColorPicker+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DRColorPicker+UIColor.m"; sourceTree = "<group>"; };
+		3A3917E91C76AFD300966DDA /* DRColorPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DRColorPicker.bundle; sourceTree = "<group>"; };
+		3A3917EA1C76AFD300966DDA /* DRColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPicker.h; sourceTree = "<group>"; };
+		3A3917EB1C76AFD300966DDA /* DRColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPicker.m; sourceTree = "<group>"; };
+		3A3917EC1C76AFD300966DDA /* DRColorPickerBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerBaseViewController.h; sourceTree = "<group>"; };
+		3A3917ED1C76AFD300966DDA /* DRColorPickerBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerBaseViewController.m; sourceTree = "<group>"; };
+		3A3917EE1C76AFD300966DDA /* DRColorPickerColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerColor.h; sourceTree = "<group>"; };
+		3A3917EF1C76AFD300966DDA /* DRColorPickerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerColor.m; sourceTree = "<group>"; };
+		3A3917F01C76AFD300966DDA /* DRColorPickerColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerColorView.h; sourceTree = "<group>"; };
+		3A3917F11C76AFD300966DDA /* DRColorPickerColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerColorView.m; sourceTree = "<group>"; };
+		3A3917F21C76AFD300966DDA /* DRColorPickerGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerGridView.h; sourceTree = "<group>"; };
+		3A3917F31C76AFD300966DDA /* DRColorPickerGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerGridView.m; sourceTree = "<group>"; };
+		3A3917F41C76AFD300966DDA /* DRColorPickerGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerGridViewCell.h; sourceTree = "<group>"; };
+		3A3917F51C76AFD300966DDA /* DRColorPickerGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerGridViewCell.m; sourceTree = "<group>"; };
+		3A3917F61C76AFD300966DDA /* DRColorPickerGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerGridViewController.h; sourceTree = "<group>"; };
+		3A3917F71C76AFD300966DDA /* DRColorPickerGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerGridViewController.m; sourceTree = "<group>"; };
+		3A3917F81C76AFD300966DDA /* DRColorPickerHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHomeView.h; sourceTree = "<group>"; };
+		3A3917F91C76AFD300966DDA /* DRColorPickerHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHomeView.m; sourceTree = "<group>"; };
+		3A3917FA1C76AFD300966DDA /* DRColorPickerHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHomeViewController.h; sourceTree = "<group>"; };
+		3A3917FB1C76AFD300966DDA /* DRColorPickerHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHomeViewController.m; sourceTree = "<group>"; };
+		3A3917FC1C76AFD300966DDA /* DRColorPickerHorizontalCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHorizontalCollectionViewLayout.h; sourceTree = "<group>"; };
+		3A3917FD1C76AFD300966DDA /* DRColorPickerHorizontalCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHorizontalCollectionViewLayout.m; sourceTree = "<group>"; };
+		3A3917FE1C76AFD300966DDA /* DRColorPickerHueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHueView.h; sourceTree = "<group>"; };
+		3A3917FF1C76AFD300966DDA /* DRColorPickerHueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHueView.m; sourceTree = "<group>"; };
+		3A3918001C76AFD300966DDA /* DRColorPickerHueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHueViewController.h; sourceTree = "<group>"; };
+		3A3918011C76AFD300966DDA /* DRColorPickerHueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHueViewController.m; sourceTree = "<group>"; };
+		3A3918021C76AFD300966DDA /* DRColorPickerStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerStore.h; sourceTree = "<group>"; };
+		3A3918031C76AFD300966DDA /* DRColorPickerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerStore.m; sourceTree = "<group>"; };
+		3A3918041C76AFD300966DDA /* DRColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerViewController.h; sourceTree = "<group>"; };
+		3A3918051C76AFD300966DDA /* DRColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerViewController.m; sourceTree = "<group>"; };
+		3A3918061C76AFD300966DDA /* DRColorPickerWheelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerWheelView.h; sourceTree = "<group>"; };
+		3A3918071C76AFD300966DDA /* DRColorPickerWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerWheelView.m; sourceTree = "<group>"; };
+		3A3918081C76AFD300966DDA /* DRColorPickerWheelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerWheelViewController.h; sourceTree = "<group>"; };
+		3A3918091C76AFD300966DDA /* DRColorPickerWheelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerWheelViewController.m; sourceTree = "<group>"; };
+		3A39181D1C76B10800966DDA /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerViewController.h; sourceTree = "<group>"; };
+		3A39181E1C76B10800966DDA /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerViewController.m; sourceTree = "<group>"; };
 		3A40C93E1C764068009B53F0 /* CalendarManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarManagementViewController.h; sourceTree = "<group>"; };
 		3A40C93F1C764068009B53F0 /* CalendarManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarManagementViewController.m; sourceTree = "<group>"; };
 		3A40C9411C764645009B53F0 /* AllCalendarButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCalendarButtonView.h; sourceTree = "<group>"; };
@@ -779,9 +835,62 @@
 			name = Sidebar;
 			sourceTree = "<group>";
 		};
+		3A3917DD1C76AF6900966DDA /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				3A39181C1C76B0F300966DDA /* DR */,
+				3A39181D1C76B10800966DDA /* ColorPickerViewController.h */,
+				3A39181E1C76B10800966DDA /* ColorPickerViewController.m */,
+			);
+			name = Color;
+			sourceTree = "<group>";
+		};
+		3A39181C1C76B0F300966DDA /* DR */ = {
+			isa = PBXGroup;
+			children = (
+				3A3917E71C76AFD300966DDA /* DRColorPicker+UIColor.h */,
+				3A3917E81C76AFD300966DDA /* DRColorPicker+UIColor.m */,
+				3A3917E91C76AFD300966DDA /* DRColorPicker.bundle */,
+				3A3917EA1C76AFD300966DDA /* DRColorPicker.h */,
+				3A3917EB1C76AFD300966DDA /* DRColorPicker.m */,
+				3A3917EC1C76AFD300966DDA /* DRColorPickerBaseViewController.h */,
+				3A3917ED1C76AFD300966DDA /* DRColorPickerBaseViewController.m */,
+				3A3917EE1C76AFD300966DDA /* DRColorPickerColor.h */,
+				3A3917EF1C76AFD300966DDA /* DRColorPickerColor.m */,
+				3A3917F01C76AFD300966DDA /* DRColorPickerColorView.h */,
+				3A3917F11C76AFD300966DDA /* DRColorPickerColorView.m */,
+				3A3917F21C76AFD300966DDA /* DRColorPickerGridView.h */,
+				3A3917F31C76AFD300966DDA /* DRColorPickerGridView.m */,
+				3A3917F41C76AFD300966DDA /* DRColorPickerGridViewCell.h */,
+				3A3917F51C76AFD300966DDA /* DRColorPickerGridViewCell.m */,
+				3A3917F61C76AFD300966DDA /* DRColorPickerGridViewController.h */,
+				3A3917F71C76AFD300966DDA /* DRColorPickerGridViewController.m */,
+				3A3917F81C76AFD300966DDA /* DRColorPickerHomeView.h */,
+				3A3917F91C76AFD300966DDA /* DRColorPickerHomeView.m */,
+				3A3917FA1C76AFD300966DDA /* DRColorPickerHomeViewController.h */,
+				3A3917FB1C76AFD300966DDA /* DRColorPickerHomeViewController.m */,
+				3A3917FC1C76AFD300966DDA /* DRColorPickerHorizontalCollectionViewLayout.h */,
+				3A3917FD1C76AFD300966DDA /* DRColorPickerHorizontalCollectionViewLayout.m */,
+				3A3917FE1C76AFD300966DDA /* DRColorPickerHueView.h */,
+				3A3917FF1C76AFD300966DDA /* DRColorPickerHueView.m */,
+				3A3918001C76AFD300966DDA /* DRColorPickerHueViewController.h */,
+				3A3918011C76AFD300966DDA /* DRColorPickerHueViewController.m */,
+				3A3918021C76AFD300966DDA /* DRColorPickerStore.h */,
+				3A3918031C76AFD300966DDA /* DRColorPickerStore.m */,
+				3A3918041C76AFD300966DDA /* DRColorPickerViewController.h */,
+				3A3918051C76AFD300966DDA /* DRColorPickerViewController.m */,
+				3A3918061C76AFD300966DDA /* DRColorPickerWheelView.h */,
+				3A3918071C76AFD300966DDA /* DRColorPickerWheelView.m */,
+				3A3918081C76AFD300966DDA /* DRColorPickerWheelViewController.h */,
+				3A3918091C76AFD300966DDA /* DRColorPickerWheelViewController.m */,
+			);
+			name = DR;
+			sourceTree = "<group>";
+		};
 		3A40C93D1C764056009B53F0 /* Management */ = {
 			isa = PBXGroup;
 			children = (
+				3A3917DD1C76AF6900966DDA /* Color */,
 				3A40C94E1C766663009B53F0 /* Edit */,
 				3A40C94A1C765507009B53F0 /* Table */,
 				3A40C93E1C764068009B53F0 /* CalendarManagementViewController.h */,
@@ -1202,6 +1311,7 @@
 				3A2840631C7251BB00056061 /* Lato-LightItalic.ttf in Resources */,
 				3A2840EE1C72521500056061 /* todo-unchecked.png in Resources */,
 				3AFEB94B1C72728600FA991F /* Icon-Small-40@3x.png in Resources */,
+				3A39180B1C76AFD300966DDA /* DRColorPicker.bundle in Resources */,
 				3A2840DB1C72521500056061 /* iTunesArtwork@2x.png in Resources */,
 				3A2840CD1C72521500056061 /* eventeditbutton.png in Resources */,
 				3A2840E91C72521500056061 /* to-do-triangle@2x.png in Resources */,
@@ -1278,6 +1388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A3918191C76AFD300966DDA /* DRColorPickerViewController.m in Sources */,
 				3A2840121C724D2800056061 /* GroupDiskManager.m in Sources */,
 				3A28404D1C724E8C00056061 /* UIImage+FontAwesome.m in Sources */,
 				3A28402A1C724D2800056061 /* SidebarButtonView.m in Sources */,
@@ -1290,6 +1401,7 @@
 				3A2840441C724DAA00056061 /* FAImageView.m in Sources */,
 				3A2840191C724D2800056061 /* MainViewController.m in Sources */,
 				3A2840011C724D2800056061 /* EditEventNavigationViewController.m in Sources */,
+				3A3918121C76AFD300966DDA /* DRColorPickerGridViewController.m in Sources */,
 				3A28403A1C724D2800056061 /* TodosViewController.m in Sources */,
 				3A2840361C724D2800056061 /* TimeView.m in Sources */,
 				3A28402B1C724D2800056061 /* SidebarInstanceView.m in Sources */,
@@ -1303,13 +1415,19 @@
 				3A2840171C724D2800056061 /* LocationViewController.m in Sources */,
 				3A2840291C724D2800056061 /* SettingsManager.m in Sources */,
 				3A28403E1C724D2800056061 /* Utils.m in Sources */,
+				3A39180E1C76AFD300966DDA /* DRColorPickerColor.m in Sources */,
 				3A283FFA1C724D2800056061 /* DailyIconView.m in Sources */,
 				3A283FEF1C724D2800056061 /* CommonEventsManager.m in Sources */,
 				3A28401B1C724D2800056061 /* MaskView.m in Sources */,
+				3A3918111C76AFD300966DDA /* DRColorPickerGridViewCell.m in Sources */,
+				3A39180D1C76AFD300966DDA /* DRColorPickerBaseViewController.m in Sources */,
 				3A283FE01C724D2800056061 /* CalendarEvent.m in Sources */,
+				3A3918161C76AFD300966DDA /* DRColorPickerHueView.m in Sources */,
 				3A2840061C724D2800056061 /* EventKitManager.m in Sources */,
+				3A3918131C76AFD300966DDA /* DRColorPickerHomeView.m in Sources */,
 				3A28400C1C724D2800056061 /* EventTaskSelectViewController.m in Sources */,
 				3A2840071C724D2800056061 /* EventManagerViewController.m in Sources */,
+				3A3918141C76AFD300966DDA /* DRColorPickerHomeViewController.m in Sources */,
 				3A2840341C724D2800056061 /* ThemeSelectViewController.m in Sources */,
 				3A283FFF1C724D2800056061 /* DefaultCalendarSelectTableViewController.m in Sources */,
 				3A283FF11C724D2800056061 /* CommonTaskDropdownSubview.m in Sources */,
@@ -1317,31 +1435,40 @@
 				3A283FE41C724D2800056061 /* CalendarMonthView.m in Sources */,
 				3A2840381C724D2800056061 /* TodoObject.m in Sources */,
 				3A2840371C724D2800056061 /* TodoDataManager.m in Sources */,
+				3A39180C1C76AFD300966DDA /* DRColorPicker.m in Sources */,
+				3A3918171C76AFD300966DDA /* DRColorPickerHueViewController.m in Sources */,
 				3A2840031C724D2800056061 /* EventCalendarSelectViewController.m in Sources */,
 				3A283FFB1C724D2800056061 /* DailyScrollView.m in Sources */,
 				3A283FEA1C724D2800056061 /* CenterViewController.m in Sources */,
 				3A283FF91C724D2800056061 /* CoverScrollView.m in Sources */,
+				3A39180A1C76AFD300966DDA /* DRColorPicker+UIColor.m in Sources */,
 				3A2840231C724D2800056061 /* PulpMapView.m in Sources */,
 				3A28400B1C724D2800056061 /* EventTaskSelectTableViewCell.m in Sources */,
 				3A283FF71C724D2800056061 /* ContainerTodosViewController.m in Sources */,
 				3A40C9431C764645009B53F0 /* AllCalendarButtonView.m in Sources */,
+				3A39181B1C76AFD300966DDA /* DRColorPickerWheelViewController.m in Sources */,
 				3A283FD21C724D2800056061 /* AlarmNotificationHandler.m in Sources */,
 				3AB577DE1C7248FA008FE5C0 /* main.m in Sources */,
 				3A283FCF1C724D2800056061 /* AddEditEventViewController.m in Sources */,
 				3A2840021C724D2800056061 /* EventCalendarSelectTableViewCell.m in Sources */,
 				3A283FF81C724D2800056061 /* ContentContainerViewController.m in Sources */,
+				3A39181F1C76B10800966DDA /* ColorPickerViewController.m in Sources */,
 				3A28403F1C724D2800056061 /* WeatherAPIHandler.m in Sources */,
 				3A283FFC1C724D2800056061 /* DailyTableViewCell.m in Sources */,
+				3A3918151C76AFD300966DDA /* DRColorPickerHorizontalCollectionViewLayout.m in Sources */,
 				3A283FEE1C724D2800056061 /* CommonEventContainer.m in Sources */,
 				3A283FF51C724D2800056061 /* ContainerEventViewController.m in Sources */,
 				3A283FE21C724D2800056061 /* BAKCalendarManagementTableViewCell.m in Sources */,
 				3A2840001C724D2800056061 /* Defs.m in Sources */,
+				3A3918101C76AFD300966DDA /* DRColorPickerGridView.m in Sources */,
 				3ABD61301C751165006F8FAA /* CellContainerMapView.m in Sources */,
+				3A3918181C76AFD300966DDA /* DRColorPickerStore.m in Sources */,
 				3A28403B1C724D2800056061 /* TodoTableViewCell.m in Sources */,
 				3A40C94D1C765522009B53F0 /* CalendarManagementTableViewCell.m in Sources */,
 				3A283FE51C724D2800056061 /* CalendarSelectViewController.m in Sources */,
 				3A283FDE1C724D2800056061 /* CalendarDoubleDayView.m in Sources */,
 				3A40C9401C764068009B53F0 /* CalendarManagementViewController.m in Sources */,
+				3A39181A1C76AFD300966DDA /* DRColorPickerWheelView.m in Sources */,
 				3ABD612C1C750784006F8FAA /* CalendarDaySelectedOverview.m in Sources */,
 				3A283FF41C724D2800056061 /* CommonTasksManager.m in Sources */,
 				3A2840221C724D2800056061 /* PulpFAImageView.m in Sources */,
@@ -1356,6 +1483,7 @@
 				3A2840331C724D2800056061 /* ThemeSelectObject.m in Sources */,
 				3A2840131C724D2800056061 /* GroupFormatManager.m in Sources */,
 				3A283FDD1C724D2800056061 /* CalendarDayView.m in Sources */,
+				3A39180F1C76AFD300966DDA /* DRColorPickerColorView.m in Sources */,
 				3A283FF21C724D2800056061 /* CommonTaskEventContainer.m in Sources */,
 				3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */,
 				3A283FF01C724D2800056061 /* CommonEventsOrderManager.m in Sources */,

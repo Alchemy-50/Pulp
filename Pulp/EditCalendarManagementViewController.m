@@ -9,7 +9,7 @@
 #import "EditCalendarManagementViewController.h"
 #import "ThemeManager.h"
 #import "CalendarManagementViewController.h"
-
+#import "ColorPickerViewController.h"
 
 @interface EditCalendarManagementViewController ()
 
@@ -180,8 +180,17 @@
 
     
 
+    UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    colorPickerButton.frame = self.displayColorView.frame;
+    [colorPickerButton addTarget:self action:@selector(colorPickerButtonHit) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:colorPickerButton];
     
-    
+}
+
+-(void)colorPickerButtonHit
+{
+    ColorPickerViewController *vc = [[ColorPickerViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 
