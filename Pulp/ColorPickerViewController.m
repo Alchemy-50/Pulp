@@ -9,6 +9,8 @@
 #import "ColorPickerViewController.h"
 #import "DRColorPickerWheelView.h"
 #import "Utils.h"
+#import "EditCalendarManagementViewController.h"
+
 @interface ColorPickerViewController ()
 
 @property (nonatomic, retain) DRColorPickerWheelView *thePickerWheelView;
@@ -24,9 +26,15 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.thePickerWheelView = [[DRColorPickerWheelView alloc] initWithFrame:CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight])];
+    self.thePickerWheelView.theParentController = self;
     [self.view addSubview:self.thePickerWheelView];
 
     
+}
+
+-(void)doneButtonHit
+{
+    [self.theParentController colorPickerSelectedWithColor:self.thePickerWheelView.color];
 }
 
 -(void)loadWithColor:(UIColor *)theColor

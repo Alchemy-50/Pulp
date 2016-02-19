@@ -132,6 +132,9 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 @property (nonatomic, strong) UIView* colorPreviewView;
 @property (nonatomic, retain) UIView* focusView;
 
+@property (nonatomic, strong) UILabel* doneLabel;
+@property (nonatomic, strong) UIButton* doneButton;
+
 @end
 
 @implementation DRColorPickerWheelView
@@ -206,6 +209,26 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
     _colorBubble.layer.shouldRasterize = YES;
     _colorBubble.layer.rasterizationScale = UIScreen.mainScreen.scale;
     [self addSubview:_colorBubble];
+    
+    _doneLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    _doneLabel.backgroundColor = [UIColor clearColor];
+    _doneLabel.textColor = [UIColor blackColor];
+    _doneLabel.textAlignment = NSTextAlignmentCenter;
+    _doneLabel.text = @"DONE";
+    _doneLabel.font = [UIFont fontWithName:@"Lato-Bold" size:14];
+    [self addSubview:_doneLabel];
+    
+    _doneButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    _doneButton.backgroundColor = [UIColor clearColor];
+    [_doneButton addTarget:self action:@selector(doneButtonHit) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_doneButton];
+    
+}
+
+
+-(void)doneButtonHit
+{
+    [self.theParentController doneButtonHit];
 }
 
 - (DRColorPickerWheelGradientView*) createBarViewWithBorderColor:(UIColor*)borderColor
@@ -246,8 +269,18 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
                                          DRColorPickerWheelLabelHeight);
 
     CGFloat previewX = DRColorPickerWheelViewDefaultMargin + DRColorPickerWheelLabelWidth + DRColorPickerWheelViewDefaultMargin + DRColorPickerWheelTextFieldWidth;
-    self.colorPreviewView.frame = CGRectMake(previewX, DRColorPickerWheelViewDefaultMargin, self.frame.size.width - DRColorPickerWheelViewDefaultMargin - previewX, DRColorPickerWheelLabelHeight);
+    CGFloat previewWidth = self.frame.size.width - DRColorPickerWheelViewDefaultMargin - previewX;
+    previewWidth = previewWidth / 2;
+    self.colorPreviewView.frame = CGRectMake(previewX, DRColorPickerWheelViewDefaultMargin, previewWidth, DRColorPickerWheelLabelHeight);
 
+    float remainingWidth = self.frame.size.width - (self.colorPreviewView.frame.origin.x + self.colorPreviewView.frame.size.width);
+    
+    self.doneLabel.frame = CGRectMake(self.colorPreviewView.frame.origin.x + self.colorPreviewView.frame.size.width, self.colorPreviewView.frame.origin.y, remainingWidth, self.colorPreviewView.frame.origin.y + self.colorPreviewView.frame.size.height);
+    
+    self.doneButton.frame = CGRectMake(self.doneLabel.frame.origin.x, 0, self.doneLabel.frame.size.width,  self.doneLabel.frame.origin.y+ self.doneLabel.frame.size.height);
+    
+
+                                      
     CGFloat hueHeight;
     if (self.saturationView == nil)
     {

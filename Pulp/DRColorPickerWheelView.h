@@ -36,6 +36,6 @@ typedef void (^DRColorPickerWheelViewColorChangedBlock)(UIColor* color);
 
 @property (nonatomic, copy) DRColorPickerWheelViewColorChangedBlock colorChangedBlock;
 @property (nonatomic, strong) UIColor* color;
-
+@property (nonatomic, retain) id theParentController;
 @end
 

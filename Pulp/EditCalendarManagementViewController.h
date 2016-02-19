@@ -14,7 +14,7 @@
 -(IBAction)cancelButtonHit;
 -(IBAction)doneButtonHit;
 -(void)loadWithCalendar:(EKCalendar *)theCalendar;
-
+-(void)colorPickerSelectedWithColor:(UIColor *)theColor;
 
 @property (nonatomic, retain) IBOutlet UILabel *cancelLabel;
 @property (nonatomic, retain) IBOutlet UILabel *titleLabel;

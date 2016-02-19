@@ -10,5 +10,7 @@
 
 @interface ColorPickerViewController : UIViewController
 
+@property (nonatomic, retain) id theParentController;
 -(void)loadWithColor:(UIColor *)theColor;
+-(void)doneButtonHit;
 @end

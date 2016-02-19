@@ -191,13 +191,18 @@
 -(void)colorPickerButtonHit
 {
     ColorPickerViewController *vc = [[ColorPickerViewController alloc] initWithNibName:nil bundle:nil];
+    vc.theParentController = self;
     vc.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
     [self presentViewController:vc animated:YES completion:nil];
     
     [vc loadWithColor:self.displayColorView.backgroundColor];
-    
 }
 
+-(void)colorPickerSelectedWithColor:(UIColor *)theColor
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    self.displayColorView.backgroundColor = theColor;
+}
 
 
 -(void)loadWithCalendar:(EKCalendar *)theCalendar
