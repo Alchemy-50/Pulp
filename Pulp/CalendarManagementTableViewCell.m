@@ -17,7 +17,7 @@
 
 
 @property (nonatomic, retain) UILabel *sourceLabel;
-@property (nonatomic, retain) UIImageView *checkBoxImageView;
+@property (nonatomic, retain) PulpFAImageView *checkBoxImageView;
 @property (nonatomic, retain) UIButton *checkButton;
 @property (nonatomic, retain) UIView *stripeView;
 @property (nonatomic, retain) UILabel *calendarNameLabel;
@@ -33,9 +33,19 @@
 
 -(void) initialize
 {
-    CGSize checkImageSize = CGSizeMake(15, 15);
-    self.checkBoxImageView = [[UIImageView alloc] initWithFrame:CGRectMake(9, self.frame.size.height / 2 - checkImageSize.height / 2, checkImageSize.width, checkImageSize.height)];
+    float eyeDesiredHeight = self.frame.size.height * .85;
+    
+    NSString *eyeLookupString = @"fa-eye";
+    
+    CGSize actualSize = [PulpFAImageView getImageSizeFromString:eyeLookupString withDesiredHeight:eyeDesiredHeight];
+    
+    self.checkBoxImageView = [[PulpFAImageView alloc] initWithFrame:CGRectMake(18,9.5, actualSize.width / 2, actualSize.height / 2)];
+    self.checkBoxImageView.desiredHeight = eyeDesiredHeight;
+    self.checkBoxImageView.referenceString = eyeLookupString;
     [self addSubview:self.checkBoxImageView];
+    [[ThemeManager sharedThemeManager] registerSecondaryObject:self.checkBoxImageView];
+    
+
     
     self.checkButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     self.checkButton.frame = CGRectMake(0, 0, self.checkBoxImageView.frame.origin.x + self.checkBoxImageView.frame.size.width + 3, self.frame.size.height);
@@ -68,10 +78,8 @@
     
     
     float desiredHeight = self.frame.size.height * .45;
-    
     NSString *lookupString = @"fa-cog";
-    
-    CGSize actualSize = [PulpFAImageView getImageSizeFromString:lookupString withDesiredHeight:desiredHeight];
+    actualSize = [PulpFAImageView getImageSizeFromString:lookupString withDesiredHeight:desiredHeight];
     
     self.cogImageView = [[PulpFAImageView alloc] initWithFrame:CGRectMake(self.frame.size.width * (335.0f / 375.0f), self.frame.size.height / 2 - actualSize.height / 2, actualSize.width, actualSize.height)];
     self.cogImageView.desiredHeight = desiredHeight;
@@ -96,6 +104,7 @@
     self.stripeView.alpha = 0;
     
     self.referenceCalendar = nil;
+    self.checkBoxImageView.alpha = 0;
 }
 
 -(void) loadWithSource:(EKSource *)theSource
@@ -110,6 +119,7 @@
     
     self.stripeView.alpha = 1;
     self.cogImageView.alpha = 1;
+    self.checkBoxImageView.alpha = 1;
     
     self.calendarNameLabel.text = theCalendar.title;
 
@@ -135,12 +145,18 @@
 
 
 -(void)setCheckBoxImageViewState
-{
+{    
     NSDictionary *dict = [[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
     if ([[dict objectForKey:self.referenceCalendar.calendarIdentifier] boolValue])
-        self.checkBoxImageView.image =  [UIImage imageNamed:@"radio-on.png"];
+    {
+        self.checkBoxImageView.referenceString = @"fa-eye";
+    }
     else
-        self.checkBoxImageView.image = [UIImage imageNamed:@"radio-off.png"];
+    {
+        self.checkBoxImageView.referenceString = @"fa-eye-slash";
+    }
+    
+    [self.checkBoxImageView loadWithColor:self.checkBoxImageView.referenceColor];
 }
 
 

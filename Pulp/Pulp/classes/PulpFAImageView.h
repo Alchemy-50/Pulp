@@ -16,4 +16,5 @@
 
 @property (nonatomic, retain) NSString *referenceString;
 @property (nonatomic, assign) float desiredHeight;
+@property (nonatomic, retain) UIColor *referenceColor;
 @end

@@ -165,7 +165,7 @@
 
 -(void)calendarContentChanged
 {
-    [self.theTableView reloadData];
+    [self reload];
     [[MainViewController sharedMainViewController] dataChanged];
 }
 

@@ -29,6 +29,8 @@
 
     self.image = icon;
     
+    self.referenceColor = theColor;
+    
 }
 
 
