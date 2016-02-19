@@ -234,6 +234,11 @@
     return screenHeight;
 }
 
++(float)getSidebarWidth
+{
+    return 60;
+}
+
 
 + (NSString *)urlencode:(NSString *)theString
 {

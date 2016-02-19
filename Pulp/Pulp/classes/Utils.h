@@ -39,6 +39,7 @@
 +(UIColor *)getAppColor:(int)colorDefinition;
 +(float)getScreenWidth;
 +(float)getScreenHeight;
++(float)getSidebarWidth;
 + (NSString *)urlencode:(NSString *)theString;
 
 @end

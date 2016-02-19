@@ -13,6 +13,8 @@
 #import "Defs.h"
 #import "ThemeManager.h"
 #import "AllCalendarButtonView.h"
+#import "CalendarManagementViewController.h"
+
 
 
 
@@ -60,8 +62,20 @@ float theTransitionTime = .22;
     [self.contentContainerViewController doLoadViews];
 
     
+    UIView *sharedButtonView = [AllCalendarButtonView sharedButtonView];
+    [self.view addSubview:sharedButtonView];
     
-    [self.view addSubview:[AllCalendarButtonView sharedButtonView]];        
+    UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    calButton.backgroundColor = [UIColor clearColor];
+    [calButton addTarget:self action:@selector(calButtonHit) forControlEvents:UIControlEventTouchUpInside];
+    calButton.frame = CGRectMake(sharedButtonView.frame.origin.x, 0, sharedButtonView.frame.size.width, sharedButtonView.frame.origin.y + sharedButtonView.frame.size.height + 5);
+    [self.view addSubview:calButton];
+    
+}
+
+-(void)calButtonHit
+{
+    [[CalendarManagementViewController sharedCalendarManagementViewController] handleDisplay:YES];
 }
 
 

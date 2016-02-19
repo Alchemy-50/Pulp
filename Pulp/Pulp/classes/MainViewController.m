@@ -102,15 +102,15 @@ static MainViewController *staticVC;
     
     [super viewDidLoad];
     
-    float barWidth = 60;
     
-    self.sidebarView = [[SidebarView alloc] initWithFrame:CGRectMake(0, 0, barWidth, self.view.frame.size.height)];
+    
+    self.sidebarView = [[SidebarView alloc] initWithFrame:CGRectMake(0, 0, [Utils getSidebarWidth], self.view.frame.size.height)];
     [self.view addSubview:self.sidebarView];
     
     
     self.fullCalendarViewController = [[FullCalendarViewController alloc] initWithNibName:@"FullCalendarViewController" bundle:nil];
     [self.view addSubview:self.fullCalendarViewController.view];
-    self.fullCalendarViewController.view.frame = CGRectMake(barWidth, 0, [Utils getScreenWidth] - barWidth, [Utils getScreenHeight]);
+    self.fullCalendarViewController.view.frame = CGRectMake([Utils getSidebarWidth], 0, [Utils getScreenWidth] - [Utils getSidebarWidth], [Utils getScreenHeight]);
     [self.fullCalendarViewController doLoadViews];
     
     
@@ -190,9 +190,7 @@ static MainViewController *staticVC;
     {
         [self.centerViewController processPositioningWithScrollView:self.centerViewController.contentScrollView];
         [self.fullCalendarViewController.contentContainerViewController navigateToToday];
-        
-        
-        [EventsDigester run];
+//        [EventsDigester run];
     }
     
     self.initialized = YES;
