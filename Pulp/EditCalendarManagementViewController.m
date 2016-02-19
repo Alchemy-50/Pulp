@@ -182,16 +182,75 @@
     self.strikeLineSix.backgroundColor = self.strikeLineOne.backgroundColor;
     
 
-    
-
     UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     colorPickerButton.frame = self.displayColorView.frame;
     [colorPickerButton addTarget:self action:@selector(colorPickerButtonHit) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:colorPickerButton];
+
+    
+    self.deleteCalendarBackgroundView.backgroundColor = [UIColor colorWithRed:190.0f/255.0f green:9.0f/255.0f blue:31.0f/255.0f alpha:1];
+    
+    
+    self.deleteCalendarLabel = [[UILabel alloc] initWithFrame:self.deleteCalendarBackgroundView.frame];
+    self.deleteCalendarLabel.backgroundColor = [UIColor clearColor];
+    self.deleteCalendarLabel.textAlignment = NSTextAlignmentCenter;
+    self.deleteCalendarLabel.text = @"Delete Calendar";
+    self.deleteCalendarLabel.textColor = [UIColor whiteColor];
+    self.deleteCalendarLabel.font = [UIFont fontWithName:@"Lato-Bold" size:14.0f];
+    [self.view addSubview:self.deleteCalendarLabel];
+    
+    
+    self.deleteCalendarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.deleteCalendarButton.frame = self.deleteCalendarLabel.frame;
+    self.deleteCalendarButton.backgroundColor = [UIColor clearColor];
+    [self.deleteCalendarButton addTarget:self action:@selector(deleteCalendarButtonHit) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.deleteCalendarButton];
     
 }
 
 
+-(void)deleteCalendarButtonHit
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Delete?"
+                                  message:[NSString stringWithFormat:@"Are you sure you want to delete %@", self.referenceCalendar.title]
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+    
+    UIAlertAction* yes = [UIAlertAction
+                         actionWithTitle:@"YES"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             //Do some thing here
+                             [self dismissViewControllerAnimated:YES completion:^(void) {
+                                 
+                                 [[EventKitManager sharedManager] deleteCalendar:self.referenceCalendar];
+                                 [self.theParentController calendarContentChanged];
+                                 
+                                 
+                                 }];                             
+                         }];
+    [alert addAction:yes];
+  
+    UIAlertAction* no = [UIAlertAction
+                          actionWithTitle:@"NO"
+                          style:UIAlertActionStyleDefault
+                          handler:^(UIAlertAction * action)
+                          {
+                              //Do some thing here
+                              [self dismissViewControllerAnimated:YES completion:nil];
+                              
+                          }];
+    [alert addAction:no];
+    
+    
+}
 
 -(void)loadWithCalendar:(EKCalendar *)theCalendar
 {

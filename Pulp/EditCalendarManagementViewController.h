@@ -47,7 +47,9 @@
 @property (nonatomic, retain) IBOutlet UILabel *publicSublabelTwo;
 @property (nonatomic, retain) IBOutlet UISwitch *publicSwitch;
 
-
+@property (nonatomic, retain) IBOutlet UIView *deleteCalendarBackgroundView;
+@property (nonatomic, retain) UILabel *deleteCalendarLabel;
+@property (nonatomic, retain) UIButton *deleteCalendarButton;
 
 
 @property (nonatomic, retain) IBOutlet UIView *strikeLineOne;

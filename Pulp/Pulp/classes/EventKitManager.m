@@ -333,25 +333,13 @@ static dispatch_queue_t ekQueue;
 
 -(void) deleteCalendar:(EKCalendar *)calendar
 {
-    dispatch_barrier_async(ekQueue, ^{
-        
         NSError *err = nil;
         [self.eventStore removeCalendar:calendar commit:YES error:&err];
         if (err) {
             
             NSLog(@"deleteCalendar, error: %@", err);
             
-            //FIXME:  REimplement alert
-            /*
-
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning6" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
-                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            [alert release];
-             */
-            
         }
-    });
 }
 
 -(void) saveCalendarEvent:(EKEvent *)event

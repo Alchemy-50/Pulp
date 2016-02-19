@@ -10,6 +10,7 @@
                 <outlet property="calendarDisplayColorLabel" destination="bPY-uv-vnz" id="W6l-3o-xao"/>
                 <outlet property="cancelLabel" destination="ncN-9d-MXp" id="HcN-1q-OAZ"/>
                 <outlet property="colorLabel" destination="1Pi-H9-coT" id="rB5-X1-eWQ"/>
+                <outlet property="deleteCalendarBackgroundView" destination="rYo-AA-rim" id="K8k-At-m1X"/>
                 <outlet property="displayColorView" destination="ekN-9C-czO" id="c1x-no-c1y"/>
                 <outlet property="doneLabel" destination="My2-Z1-3OJ" id="qKF-ta-Y5D"/>
                 <outlet property="eventsAlertsLabelOne" destination="y15-54-9Pa" id="GsF-lM-GxX"/>
@@ -171,6 +172,10 @@
                         <action selector="doneButtonHit" destination="-1" eventType="touchUpInside" id="8jl-Gp-wKT"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rYo-AA-rim">
+                    <rect key="frame" x="86" y="609" width="212" height="38"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
