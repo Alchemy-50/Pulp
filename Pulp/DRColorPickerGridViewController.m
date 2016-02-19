@@ -59,7 +59,7 @@
     self.gridView.frame = self.view.bounds;
     [self.view addSubview:self.gridView];
 
-    __weak DRColorPickerGridViewController* weakSelf = self;
+     DRColorPickerGridViewController* weakSelf = self;
     self.gridView.colorSelectedBlock = ^(DRColorPickerColor* color)
     {
         DRColorPickerGridViewController* strongSelf = weakSelf;
@@ -82,7 +82,7 @@
 {
     self.colorViewLongPressed = colorView;
     self.colorViewIndexPath = indexPath;
-    UIActionSheet* actionSheet = [[UIActionSheet alloc] init];
+/*    UIActionSheet* actionSheet = [[UIActionSheet alloc] init];
     NSInteger offset = 0;
     if (indexPath.row != 0)
     {
@@ -96,6 +96,7 @@
     actionSheet.delegate = self;
     CGRect rect = [self.view convertRect:colorView.bounds fromView:colorView];
     [actionSheet showFromRect:rect inView:self.view animated:YES];
+ */
 }
 
 - (void) updateColorsFromList
@@ -130,6 +131,7 @@
     [self.gridView moveItemAtIndexPath:self.colorViewIndexPath toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 }
 
+/*
 - (void) actionSheet:(UIActionSheet*)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == actionSheet.destructiveButtonIndex)
@@ -143,5 +145,7 @@
     self.colorViewLongPressed = nil;
     self.colorViewIndexPath = nil;
 }
+ */
+
 
 @end

@@ -102,6 +102,7 @@
     {
         CGGradientRelease(self.gradient);
     }
+    [super dealloc];
 }
 
 @end
@@ -356,6 +357,7 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
         {
             self.colorChangedBlock(self.color);
         }
+
 
         self.colorPreviewView.backgroundColor = newColor;
         NSString* hex = newColor.hexStringFromColorNoAlpha;

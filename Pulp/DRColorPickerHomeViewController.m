@@ -64,13 +64,15 @@
     {
         [[DRColorPickerStore sharedInstance] saveColorSettings];
     }
+    [super dealloc];
+    
 }
 
 - (id) init
 {
     if ((self = [super init]) == nil) { return nil; }
 
-    __weak DRColorPickerHomeViewController* weakSelf = self;
+     DRColorPickerHomeViewController* weakSelf = self;
     self.homeView = [[DRColorPickerHomeView alloc] init];
     self.homeView.standardColors.colorSelectedBlock = ^(DRColorPickerColor* color)
     {

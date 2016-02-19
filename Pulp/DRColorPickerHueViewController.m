@@ -47,7 +47,7 @@
 
     if (self.hueView == nil)
     {
-        __weak DRColorPickerHueViewController* weakSelf = self;
+         DRColorPickerHueViewController* weakSelf = self;
         self.title = DRCPTR(@"Hue");
         self.hueView = [[DRColorPickerHueView alloc] initWithFrame:self.view.bounds];
 

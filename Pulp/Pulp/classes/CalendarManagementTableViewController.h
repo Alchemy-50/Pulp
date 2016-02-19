@@ -16,5 +16,4 @@
 -(void)reload;
 -(void)checkAllButtonHit;
 -(void)calendarContentChanged;
--(void)calendarDeleted;
 @end

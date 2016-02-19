@@ -99,7 +99,7 @@ static CGFloat s_thumbnailSizePoints;
 + (NSString*) md5Image:(UIImage*)image
 {
     CFDataRef rawData = CGDataProviderCopyData(CGImageGetDataProvider(image.CGImage));
-    NSData* bytes = (__bridge_transfer NSData*)rawData;
+    NSData* bytes =  (NSData *)rawData;
 
     return [self md5Data:bytes];
 }
@@ -177,6 +177,7 @@ static CGFloat s_thumbnailSizePoints;
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
 }
 
 - (id) initAsSingleton

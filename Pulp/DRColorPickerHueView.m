@@ -49,7 +49,7 @@
     if ((self = [super initWithFrame:frame]) == nil) { return nil; }
 
     self.hueGrid = [[DRColorPickerGridView alloc] init];
-    __weak DRColorPickerHueView* weakSelf = self;
+     DRColorPickerHueView* weakSelf = self;
     self.hueGrid.scrolledBlock = ^
     {
         [weakSelf updatePage];

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <EventKit/EventKit.h>
 
-@interface EditCalendarManagementViewController : UIViewController
+@interface EditCalendarManagementViewController : UIViewController <UITextFieldDelegate>
 
 
 @property (nonatomic, retain) id theParentController;
