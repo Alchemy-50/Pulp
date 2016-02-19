@@ -11,9 +11,12 @@
 #import "CalendarManagementViewController.h"
 #import "ColorPickerViewController.h"
 #import "Utils.h"
+#import "EventKitManager.h"
+#import "CalendarManagementTableViewController.h"
+
 
 @interface EditCalendarManagementViewController ()
-@property (nonatomic,retain) EKCalendar *referenceCalendarView;
+@property (nonatomic,retain) EKCalendar *referenceCalendar;
 @end
 
 @implementation EditCalendarManagementViewController
@@ -188,6 +191,18 @@
     
 }
 
+
+
+-(void)loadWithCalendar:(EKCalendar *)theCalendar
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    self.referenceCalendar = theCalendar;
+    
+    self.nameEntryTextField.text = theCalendar.title;
+    self.displayColorView.backgroundColor = [UIColor colorWithCGColor:theCalendar.CGColor];
+}
+
+
 -(void)colorPickerButtonHit
 {
     ColorPickerViewController *vc = [[ColorPickerViewController alloc] initWithNibName:nil bundle:nil];
@@ -205,14 +220,6 @@
 }
 
 
--(void)loadWithCalendar:(EKCalendar *)theCalendar
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    self.nameEntryTextField.text = theCalendar.title;
-    self.displayColorView.backgroundColor = [UIColor colorWithCGColor:theCalendar.CGColor];
-    
-}
 
 -(IBAction)cancelButtonHit
 {
@@ -224,6 +231,12 @@
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [[CalendarManagementViewController sharedCalendarManagementViewController] dismissViewControllerAnimated:YES completion:nil];
+    
+    self.referenceCalendar.title = self.nameEntryTextField.text;
+    self.referenceCalendar.CGColor = self.displayColorView.backgroundColor.CGColor;
+    [[EventKitManager sharedManager] saveCalendar:self.referenceCalendar];
+    
+    [self.theParentController calendarContentChanged];
 }
 
 

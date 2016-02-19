@@ -163,7 +163,11 @@
 
 
 
-
+-(void)calendarContentChanged
+{
+    [self.theTableView reloadData];
+    [[MainViewController sharedMainViewController] dataChanged];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -173,6 +177,7 @@
         
         
         EditCalendarManagementViewController *editCalendarViewController = [[EditCalendarManagementViewController alloc] initWithNibName:nil bundle:nil];
+        editCalendarViewController.theParentController = self;
         editCalendarViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
 //        [[MainViewController sharedMainViewController] presentViewController:editCalendarViewController animated:YES completion:nil];
         [[CalendarManagementViewController sharedCalendarManagementViewController] presentViewController:editCalendarViewController animated:YES completion:nil];

@@ -11,6 +11,8 @@
 
 @interface EditCalendarManagementViewController : UIViewController
 
+
+@property (nonatomic, retain) id theParentController;
 -(IBAction)cancelButtonHit;
 -(IBAction)doneButtonHit;
 -(void)loadWithCalendar:(EKCalendar *)theCalendar;
