@@ -10,4 +10,5 @@
 
 @interface ColorPickerViewController : UIViewController
 
+-(void)loadWithColor:(UIColor *)theColor;
 @end

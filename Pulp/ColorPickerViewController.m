@@ -11,6 +11,8 @@
 #import "Utils.h"
 @interface ColorPickerViewController ()
 
+@property (nonatomic, retain) DRColorPickerWheelView *thePickerWheelView;
+
 @end
 
 @implementation ColorPickerViewController
@@ -21,11 +23,15 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    DRColorPickerWheelView *theView = [[DRColorPickerWheelView alloc] initWithFrame:CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight])];
-    [self.view addSubview:theView];
+    self.thePickerWheelView = [[DRColorPickerWheelView alloc] initWithFrame:CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight])];
+    [self.view addSubview:self.thePickerWheelView];
 
     
 }
 
+-(void)loadWithColor:(UIColor *)theColor
+{
+    self.thePickerWheelView.color = theColor;
+}
 
 @end

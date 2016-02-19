@@ -10,9 +10,10 @@
 #import "ThemeManager.h"
 #import "CalendarManagementViewController.h"
 #import "ColorPickerViewController.h"
+#import "Utils.h"
 
 @interface EditCalendarManagementViewController ()
-
+@property (nonatomic,retain) EKCalendar *referenceCalendarView;
 @end
 
 @implementation EditCalendarManagementViewController
@@ -190,7 +191,11 @@
 -(void)colorPickerButtonHit
 {
     ColorPickerViewController *vc = [[ColorPickerViewController alloc] initWithNibName:nil bundle:nil];
+    vc.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
     [self presentViewController:vc animated:YES completion:nil];
+    
+    [vc loadWithColor:self.displayColorView.backgroundColor];
+    
 }
 
 
