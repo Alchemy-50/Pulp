@@ -7,10 +7,29 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditCalendarManagementViewController">
             <connections>
+                <outlet property="calendarDisplayColorLabel" destination="bPY-uv-vnz" id="W6l-3o-xao"/>
                 <outlet property="cancelLabel" destination="ncN-9d-MXp" id="HcN-1q-OAZ"/>
+                <outlet property="colorLabel" destination="1Pi-H9-coT" id="rB5-X1-eWQ"/>
+                <outlet property="displayColorView" destination="ekN-9C-czO" id="c1x-no-c1y"/>
                 <outlet property="doneLabel" destination="My2-Z1-3OJ" id="qKF-ta-Y5D"/>
+                <outlet property="eventsAlertsLabelOne" destination="y15-54-9Pa" id="GsF-lM-GxX"/>
+                <outlet property="eventsAlertsLabelTwo" destination="o3B-Z8-apq" id="Qba-7A-8B4"/>
                 <outlet property="nameEntryBackgroundView" destination="TfV-zb-zHc" id="PBd-Ck-4zS"/>
                 <outlet property="nameLabel" destination="kVI-5p-rj9" id="ebC-TL-HSx"/>
+                <outlet property="notificationsLabel" destination="yHz-9H-N5e" id="R54-qb-S5t"/>
+                <outlet property="notificationsSwitch" destination="4j5-IL-YEl" id="WOJ-9C-8Hc"/>
+                <outlet property="publicLabel" destination="iXS-8a-H1u" id="H6F-Et-h2m"/>
+                <outlet property="publicSublabelOne" destination="715-jg-VaU" id="BSu-3r-Mkl"/>
+                <outlet property="publicSublabelTwo" destination="q0G-5O-kcd" id="bjZ-HO-WRr"/>
+                <outlet property="publicSwitch" destination="0eQ-6E-yxN" id="Sbg-xA-k2A"/>
+                <outlet property="shareWithBackroundView" destination="ZZU-n4-8sl" id="bUO-CG-1h4"/>
+                <outlet property="shareWithLabel" destination="kIe-A6-1dN" id="T43-Up-BPK"/>
+                <outlet property="strikeLineFive" destination="4Yf-uy-VG3" id="BbR-xm-IK7"/>
+                <outlet property="strikeLineFour" destination="gHE-oh-2X2" id="paR-Up-N3b"/>
+                <outlet property="strikeLineOne" destination="x8s-xO-GD0" id="A3r-r8-Wn4"/>
+                <outlet property="strikeLineSix" destination="ZcE-Oy-hYX" id="PBq-DR-fmT"/>
+                <outlet property="strikeLineThree" destination="TzO-ON-UnC" id="pgq-ID-kud"/>
+                <outlet property="strikeLineTwo" destination="Af4-fc-NsJ" id="Nnl-gA-KD7"/>
                 <outlet property="titleLabel" destination="YFB-5c-7Tp" id="rEN-Gd-vNq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -45,9 +64,113 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TfV-zb-zHc">
-                    <rect key="frame" x="15" y="92" width="339" height="36"/>
+                    <rect key="frame" x="15" y="91" width="339" height="36"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sharewith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIe-A6-1dN">
+                    <rect key="frame" x="14" y="148" width="185" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZU-n4-8sl">
+                    <rect key="frame" x="15" y="171" width="339" height="36"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pi-H9-coT">
+                    <rect key="frame" x="14" y="228" width="65" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x8s-xO-GD0">
+                    <rect key="frame" x="0.0" y="250" width="375" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Af4-fc-NsJ">
+                    <rect key="frame" x="0.0" y="298" width="375" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TzO-ON-UnC">
+                    <rect key="frame" x="0.0" y="340" width="375" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHE-oh-2X2">
+                    <rect key="frame" x="0.0" y="396" width="375" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Yf-uy-VG3">
+                    <rect key="frame" x="0.0" y="438" width="375" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZcE-Oy-hYX">
+                    <rect key="frame" x="0.0" y="494" width="375" height="2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPY-uv-vnz">
+                    <rect key="frame" x="27" y="266" width="204" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ekN-9C-czO">
+                    <rect key="frame" x="317" y="257" width="34" height="34"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHz-9H-N5e">
+                    <rect key="frame" x="14" y="321" width="97" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y15-54-9Pa">
+                    <rect key="frame" x="27" y="352" width="204" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3B-Z8-apq">
+                    <rect key="frame" x="28" y="371" width="265" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4j5-IL-YEl">
+                    <rect key="frame" x="301" y="355" width="51" height="31"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Public" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXS-8a-H1u">
+                    <rect key="frame" x="14" y="420" width="164" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="715-jg-VaU">
+                    <rect key="frame" x="27" y="451" width="204" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0G-5O-kcd">
+                    <rect key="frame" x="28" y="470" width="265" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0eQ-6E-yxN">
+                    <rect key="frame" x="301" y="454" width="51" height="31"/>
+                </switch>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qd6-dy-BWj">
+                    <rect key="frame" x="0.0" y="0.0" width="69" height="46.5"/>
+                    <connections>
+                        <action selector="cancelButtonHit" destination="-1" eventType="touchUpInside" id="I1W-9Y-jgm"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5u-G4-vKw">
+                    <rect key="frame" x="306" y="0.0" width="69" height="46.5"/>
+                    <connections>
+                        <action selector="doneButtonHit" destination="-1" eventType="touchUpInside" id="8jl-Gp-wKT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

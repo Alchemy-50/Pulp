@@ -11,6 +11,10 @@
 
 @interface EditCalendarManagementViewController : UIViewController
 
+-(IBAction)cancelButtonHit;
+-(IBAction)doneButtonHit;
+-(void)loadWithCalendar:(EKCalendar *)theCalendar;
+
 
 @property (nonatomic, retain) IBOutlet UILabel *cancelLabel;
 @property (nonatomic, retain) IBOutlet UILabel *titleLabel;
@@ -22,5 +26,36 @@
 @property (nonatomic, retain) UITextField *nameEntryTextField;
 
 
--(void)loadWithCalendar:(EKCalendar *)theCalendar;
+@property (nonatomic, retain) IBOutlet UILabel *shareWithLabel;
+@property (nonatomic, retain) IBOutlet UIView *shareWithBackroundView;
+@property (nonatomic, retain) UILabel *shareWithEntryLabel;
+
+@property (nonatomic, retain) IBOutlet UILabel *colorLabel;
+@property (nonatomic, retain) IBOutlet UILabel *calendarDisplayColorLabel;
+@property (nonatomic, retain) IBOutlet UIView *displayColorView;
+
+@property (nonatomic, retain) IBOutlet UILabel *notificationsLabel;
+@property (nonatomic, retain) IBOutlet UILabel *eventsAlertsLabelOne;
+@property (nonatomic, retain) IBOutlet UILabel *eventsAlertsLabelTwo;
+@property (nonatomic, retain) IBOutlet UISwitch *notificationsSwitch;
+
+
+@property (nonatomic, retain) IBOutlet UILabel *publicLabel;
+@property (nonatomic, retain) IBOutlet UILabel *publicSublabelOne;
+@property (nonatomic, retain) IBOutlet UILabel *publicSublabelTwo;
+@property (nonatomic, retain) IBOutlet UISwitch *publicSwitch;
+
+
+
+
+@property (nonatomic, retain) IBOutlet UIView *strikeLineOne;
+@property (nonatomic, retain) IBOutlet UIView *strikeLineTwo;
+@property (nonatomic, retain) IBOutlet UIView *strikeLineThree;
+@property (nonatomic, retain) IBOutlet UIView *strikeLineFour;
+@property (nonatomic, retain) IBOutlet UIView *strikeLineFive;
+@property (nonatomic, retain) IBOutlet UIView *strikeLineSix;
+
+
+
+
 @end

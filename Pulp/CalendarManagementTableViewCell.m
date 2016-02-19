@@ -52,12 +52,12 @@
     self.calendarNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(68, 0, self.frame.size.width - 80, self.frame.size.height)];
     self.calendarNameLabel.backgroundColor = [UIColor clearColor];
     self.calendarNameLabel.textAlignment = NSTextAlignmentLeft;
-    self.calendarNameLabel.font = [UIFont fontWithName:@"Lato-Semibold" size:14];
+    self.calendarNameLabel.font = [UIFont fontWithName:@"Lato-Bold" size:14];
     self.calendarNameLabel.textColor = [UIColor whiteColor];
     [self addSubview:self.calendarNameLabel];
 
     
-    self.sourceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.frame.size.height / 2, self.frame.size.width, self.frame.size.height / 2)];
+    self.sourceLabel = [[UILabel alloc] initWithFrame:CGRectMake(14, self.frame.size.height / 2, self.frame.size.width, self.frame.size.height / 2)];
     self.sourceLabel.backgroundColor = [UIColor clearColor];
     self.sourceLabel.textAlignment = NSTextAlignmentLeft;
     self.sourceLabel.font = [UIFont fontWithName:@"Lato-Bold" size:11];
@@ -100,7 +100,7 @@
 
 -(void) loadWithSource:(EKSource *)theSource
 {
-    self.sourceLabel.text = theSource.title;
+    self.sourceLabel.text = [theSource.title uppercaseString];
 
 }
 
