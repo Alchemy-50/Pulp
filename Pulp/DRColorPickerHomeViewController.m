@@ -216,7 +216,7 @@
 {
     self.cancelButton.enabled = self.doneButton.enabled = NO;
 
-    __weak DRColorPickerHomeViewController* weakSelf = self;
+     DRColorPickerHomeViewController* weakSelf = self;
     __block UIActivityIndicatorView* p = [[UIActivityIndicatorView alloc] initWithFrame:self.navigationController.view.bounds];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15f * NSEC_PER_SEC)), dispatch_get_main_queue(),
     ^{
@@ -253,7 +253,7 @@
 
 - (void) pushViewController:(DRColorPickerBaseViewController*)vc
 {
-    __weak DRColorPickerHomeViewController* weakSelf = self;
+     DRColorPickerHomeViewController* weakSelf = self;
     [self.navigationController pushViewController:vc animated:YES];
     vc.colorSelectedBlock = ^(DRColorPickerColor* color, DRColorPickerBaseViewController* _vc)
     {

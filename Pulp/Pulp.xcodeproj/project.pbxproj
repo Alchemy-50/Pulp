@@ -158,6 +158,8 @@
 		3A2840EF1C72521500056061 /* todo-uncheckednew@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2840A91C72521500056061 /* todo-uncheckednew@2x.png */; };
 		3A2840F01C72521500056061 /* top-facets-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2840AA1C72521500056061 /* top-facets-background@2x.png */; };
 		3A2840F11C72521500056061 /* Untitled-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2840AB1C72521500056061 /* Untitled-7.png */; };
+		3A2874A31C77959B002CEF8B /* EventsDigester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2874A21C77959B002CEF8B /* EventsDigester.m */; };
+		3A2874A71C7797C0002CEF8B /* EventConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2874A61C7797C0002CEF8B /* EventConverter.m */; };
 		3A39180A1C76AFD300966DDA /* DRColorPicker+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917E81C76AFD300966DDA /* DRColorPicker+UIColor.m */; };
 		3A39180B1C76AFD300966DDA /* DRColorPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A3917E91C76AFD300966DDA /* DRColorPicker.bundle */; };
 		3A39180C1C76AFD300966DDA /* DRColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3917EB1C76AFD300966DDA /* DRColorPicker.m */; };
@@ -431,6 +433,10 @@
 		3A2840A91C72521500056061 /* todo-uncheckednew@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "todo-uncheckednew@2x.png"; path = "ImageAssets/todo-uncheckednew@2x.png"; sourceTree = "<group>"; };
 		3A2840AA1C72521500056061 /* top-facets-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "top-facets-background@2x.png"; path = "ImageAssets/top-facets-background@2x.png"; sourceTree = "<group>"; };
 		3A2840AB1C72521500056061 /* Untitled-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled-7.png"; path = "ImageAssets/Untitled-7.png"; sourceTree = "<group>"; };
+		3A2874A11C77959B002CEF8B /* EventsDigester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsDigester.h; sourceTree = "<group>"; };
+		3A2874A21C77959B002CEF8B /* EventsDigester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsDigester.m; sourceTree = "<group>"; };
+		3A2874A51C7797C0002CEF8B /* EventConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventConverter.h; sourceTree = "<group>"; };
+		3A2874A61C7797C0002CEF8B /* EventConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventConverter.m; sourceTree = "<group>"; };
 		3A3917E71C76AFD300966DDA /* DRColorPicker+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DRColorPicker+UIColor.h"; sourceTree = "<group>"; };
 		3A3917E81C76AFD300966DDA /* DRColorPicker+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DRColorPicker+UIColor.m"; sourceTree = "<group>"; };
 		3A3917E91C76AFD300966DDA /* DRColorPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DRColorPicker.bundle; sourceTree = "<group>"; };
@@ -717,6 +723,7 @@
 		3A2840FD1C7258E900056061 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3A2874A41C7797AC002CEF8B /* Digester */,
 				3A2841011C725C7C00056061 /* Disk */,
 				3A283F6F1C724D2800056061 /* GroupDataManager.h */,
 				3A283F701C724D2800056061 /* GroupDataManager.m */,
@@ -833,6 +840,17 @@
 				3ABD61261C74F53C006F8FAA /* TodoBubbleView.m */,
 			);
 			name = Sidebar;
+			sourceTree = "<group>";
+		};
+		3A2874A41C7797AC002CEF8B /* Digester */ = {
+			isa = PBXGroup;
+			children = (
+				3A2874A11C77959B002CEF8B /* EventsDigester.h */,
+				3A2874A21C77959B002CEF8B /* EventsDigester.m */,
+				3A2874A51C7797C0002CEF8B /* EventConverter.h */,
+				3A2874A61C7797C0002CEF8B /* EventConverter.m */,
+			);
+			name = Digester;
 			sourceTree = "<group>";
 		};
 		3A3917DD1C76AF6900966DDA /* Color */ = {
@@ -1417,10 +1435,12 @@
 				3A28403E1C724D2800056061 /* Utils.m in Sources */,
 				3A39180E1C76AFD300966DDA /* DRColorPickerColor.m in Sources */,
 				3A283FFA1C724D2800056061 /* DailyIconView.m in Sources */,
+				3A2874A71C7797C0002CEF8B /* EventConverter.m in Sources */,
 				3A283FEF1C724D2800056061 /* CommonEventsManager.m in Sources */,
 				3A28401B1C724D2800056061 /* MaskView.m in Sources */,
 				3A3918111C76AFD300966DDA /* DRColorPickerGridViewCell.m in Sources */,
 				3A39180D1C76AFD300966DDA /* DRColorPickerBaseViewController.m in Sources */,
+				3A2874A31C77959B002CEF8B /* EventsDigester.m in Sources */,
 				3A283FE01C724D2800056061 /* CalendarEvent.m in Sources */,
 				3A3918161C76AFD300966DDA /* DRColorPickerHueView.m in Sources */,
 				3A2840061C724D2800056061 /* EventKitManager.m in Sources */,

@@ -17,6 +17,7 @@
 #import "SidebarButtonView.h"
 #import "CalendarManagementViewController.h"
 #import "DRColorPickerWheelView.h"
+#import "EventsDigester.h"
 
 
 @interface MainViewController ()
@@ -190,11 +191,8 @@ static MainViewController *staticVC;
         [self.centerViewController processPositioningWithScrollView:self.centerViewController.contentScrollView];
         [self.fullCalendarViewController.contentContainerViewController navigateToToday];
         
-        [[CalendarManagementViewController sharedCalendarManagementViewController] handleDisplay:YES];
         
-        
-        
-        
+        [EventsDigester run];
     }
     
     self.initialized = YES;
