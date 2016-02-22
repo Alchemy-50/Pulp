@@ -16,7 +16,51 @@
 
 +(void)run
 {
+    return;
+    /*
+    NSArray *ar = [[EventKitManager sharedManager] getEKCalendars:NO];
+
+    for (int i = 0; i < [ar count]; i++)
+    {
+        EKCalendar *cal = [ar objectAtIndex:i];
+        NSLog(@"cal: %@", cal);
+        EKSource *source = cal.source;
+        NSLog(@"source: %@", source);
+    }
+    */
     
+    NSString *urlString = @"webcal://p02-calendarws.icloud.com/ca/";
+    NSLog(@"urlString: %@", urlString);
+    
+    
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
+    
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [urlRequest setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
+                                                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+
+
+                                                               NSLog(@"error: %@", error);
+                                                               
+                                                               NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                               NSLog(@"newStr: %@", newStr);
+                                                               
+                                                               
+
+                                                           
+                                                       }];
+     [dataTask resume];
+    
+    
+ 
+}
+
++(void)testing
+{
     unsigned flags = NSCalendarUnitYear | NSCalendarUnitDay | NSCalendarUnitMonth;
     NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     [calendar setTimeZone:[NSTimeZone localTimeZone]];
@@ -59,6 +103,9 @@
                 NSLog(@"dict: %@", dict);
             }
     }
+    
+    
+    
     
 }
 @end

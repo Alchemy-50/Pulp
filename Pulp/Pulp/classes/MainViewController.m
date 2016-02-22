@@ -190,7 +190,7 @@ static MainViewController *staticVC;
     {
         [self.centerViewController processPositioningWithScrollView:self.centerViewController.contentScrollView];
         [self.fullCalendarViewController.contentContainerViewController navigateToToday];
-//        [EventsDigester run];
+        [EventsDigester run];
     }
     
     self.initialized = YES;

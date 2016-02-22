@@ -17,6 +17,7 @@
 #import "ContentContainerViewController.h"
 #import "AlarmNotificationHandler.h"
 #import "Utils.h"
+#import <Contacts/Contacts.h>
 
 
 #define USER_LAST_ENTERED_APP @"USEfR_LASfT_ENTEfRED_APP2"
@@ -61,6 +62,9 @@
     [self runBackgroundTasks];
     
     [Fabric with:@[[Crashlytics class]]];
+    
+    
+    
     
     return YES;
 }
