@@ -63,7 +63,42 @@
     
     [Fabric with:@[[Crashlytics class]]];
     
+    CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
     
+    
+    BOOL authorized = NO;
+    switch (status) {
+        case CNAuthorizationStatusNotDetermined:
+            NSLog(@"CNAuthorizationStatusNotDetermined");
+            break;
+
+        case CNAuthorizationStatusRestricted:
+            NSLog(@"CNAuthorizationStatusRestricted");
+            break;
+
+        case CNAuthorizationStatusDenied:
+            NSLog(@"CNAuthorizationStatusDenied");
+            break;
+
+        case CNAuthorizationStatusAuthorized:
+            NSLog(@"CNAuthorizationStatusAuthorized");
+            authorized = YES;
+            break;
+            
+        default:
+            break;
+    }
+    
+    if (!authorized)
+    {
+        CNContactStore *store =  [[CNContactStore alloc] init];
+        [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+           
+            NSLog(@"Granted?: %d", granted);
+            NSLog(@"error: %@", error);
+        }];
+        
+    }
     
     
     return YES;

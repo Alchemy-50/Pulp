@@ -200,6 +200,8 @@ static MainViewController *staticVC;
 
 -(void)dailyViewAddEventButtonHit:(NSDate *)referenceDate
 {
+    
+    
     EventManagerViewController *createEventViewController = [[EventManagerViewController alloc] initWithNibName:@"EventManagerViewController" bundle:nil];
     createEventViewController.theParentViewController = self;
     createEventViewController.calendarReferenceDate = referenceDate;
