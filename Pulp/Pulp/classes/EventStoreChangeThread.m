@@ -8,6 +8,7 @@
 
 #import "EventStoreChangeThread.h"
 #import "EventKitManager.h"
+#import "MainViewController.h"
 
 @interface EventStoreChangeThread ()
 @property (nonatomic, assign) NSTimer *notificationWatchTimer;
@@ -38,6 +39,13 @@
     {
         self.notificationWatchTimer = [[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired) userInfo:nil repeats:YES] retain];
         [self.notificationWatchTimer fire];
+        
+        
+        [[MainViewController sharedMainViewController] dataChanged];
+        
+        //[[MainViewController sharedMainViewController] eventStoreChangedNotificationFired];
+
+        
     }
 
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"ThreadNotification" object:self];
@@ -49,6 +57,14 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     self.count++;
     NSLog(@"count!: %d", self.count);
+    
+    if (self.count >= 2)
+    {
+        [self.notificationWatchTimer invalidate];
+        self.notificationWatchTimer = nil;
+        self.count = 0;
+        [[MainViewController sharedMainViewController] dismissUpdatingCoverView];
+    }
 }
 
 

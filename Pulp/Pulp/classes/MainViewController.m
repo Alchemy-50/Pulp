@@ -21,6 +21,7 @@
 #import "ContainerEKEventEditViewController.h"
 #import "AlarmNotificationHandler.h"
 #import "SettingsManager.h"
+#import "UpdatingCoverView.h"
 
 
 @interface MainViewController ()
@@ -31,6 +32,8 @@
 @property (nonatomic, retain) CenterViewController *centerViewController;
 @property (nonatomic, assign) BOOL initialized;
 @property (nonatomic, assign) int theSecondaryState;
+
+@property (nonatomic, retain) UpdatingCoverView *updatingCoverView;
 @end
 
 
@@ -189,13 +192,13 @@ static MainViewController *staticVC;
     
     if (!self.initialized)
     {
+        self.initialized = YES;
         [self.centerViewController processPositioningWithScrollView:self.centerViewController.contentScrollView];
         [self.fullCalendarViewController.contentContainerViewController navigateToToday];
         [EventsDigester run];
     }
     
-    self.initialized = YES;
-    
+    [self dismissUpdatingCoverView];
 }
 
 
@@ -298,11 +301,12 @@ static MainViewController *staticVC;
         case EKEventEditViewActionSaved:
             NSLog(@"EKEventEditViewActionSaved");
             [AlarmNotificationHandler processEventWithCalEvent:controller.event];
-            
+            [self launchUpdatingCoverView];
             break;
             
         case EKEventEditViewActionDeleted:
             NSLog(@"EKEventEditViewActionDeleted");
+            [self launchUpdatingCoverView];
             break;
             
             
@@ -311,6 +315,8 @@ static MainViewController *staticVC;
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
     
     /*
     [self.fullCalendarViewController.contentContainerViewController spoofCalendarDayViewWithEvent:theEvent withAction:theAction];
@@ -323,6 +329,51 @@ static MainViewController *staticVC;
 // - (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller;
 
 
+
+-(void)launchUpdatingCoverView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    if (self.updatingCoverView == nil)
+    {
+        self.updatingCoverView = [[UpdatingCoverView alloc] initWithFrame:CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight])];
+        self.updatingCoverView.alpha = 0;
+        [self.view addSubview:self.updatingCoverView];
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:.22];
+        self.updatingCoverView.alpha = 1;
+        [UIView commitAnimations];
+    }
+}
+
+-(void)dismissUpdatingCoverView
+{
+    NSLog(@"eventStoreChangedTimerComplete");
+
+    
+    if (self.updatingCoverView != nil)
+    {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.22];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(updatingCoverViewDidFade)];
+    self.updatingCoverView.alpha = 1;
+    [UIView commitAnimations];
+
+    }
+}
+
+-(void)updatingCoverViewDidFade
+{
+    NSLog(@"updatingCoverViewDidFade");
+    if (self.updatingCoverView != nil)
+    {
+        [self.updatingCoverView removeFromSuperview];
+        [self.updatingCoverView release];
+        self.updatingCoverView = nil;
+    }
+}
 
 
 - (BOOL)prefersStatusBarHidden

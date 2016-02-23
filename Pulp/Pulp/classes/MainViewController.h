@@ -20,6 +20,8 @@
 @interface MainViewController : UIViewController <UIScrollViewDelegate, EKEventEditViewDelegate>
 
 +(MainViewController *)sharedMainViewController;
+
+
 -(int)getSecondaryState;
 -(void)dataChanged;
 -(void)dailyViewAddEventButtonHit:(NSDate *)referenceDate;
@@ -30,4 +32,11 @@
 -(void)dailyEventSelected:(EKEvent *)theEvent;
 -(void)dismissSettingsViewController;
 -(void)resetCoverScrollToDate:(NSDate *)theDate;
+
+
+-(void)launchUpdatingCoverView;
+-(void)dismissUpdatingCoverView;
+
+
+    
 @end

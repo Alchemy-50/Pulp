@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		165B6FF3F86816A6693D0226 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EB6E850D4DAE3B4091D3F3 /* libPods.a */; };
+		3A0146C31C7CB8A40023D867 /* UpdatingCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0146C21C7CB8A40023D867 /* UpdatingCoverView.m */; };
 		3A283FD21C724D2800056061 /* AlarmNotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283EFA1C724D2800056061 /* AlarmNotificationHandler.m */; };
 		3A283FD41C724D2800056061 /* AppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283EFE1C724D2800056061 /* AppSettingsViewController.m */; };
 		3A283FD51C724D2800056061 /* AppSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283EFF1C724D2800056061 /* AppSettingsViewController.xib */; };
@@ -187,6 +188,8 @@
 
 /* Begin PBXFileReference section */
 		2820B18F2A5FCB81C9A490E8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3A0146C11C7CB8A40023D867 /* UpdatingCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatingCoverView.h; sourceTree = "<group>"; };
+		3A0146C21C7CB8A40023D867 /* UpdatingCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatingCoverView.m; sourceTree = "<group>"; };
 		3A283EF91C724D2800056061 /* AlarmNotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmNotificationHandler.h; path = Pulp/classes/AlarmNotificationHandler.h; sourceTree = "<group>"; };
 		3A283EFA1C724D2800056061 /* AlarmNotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmNotificationHandler.m; path = Pulp/classes/AlarmNotificationHandler.m; sourceTree = "<group>"; };
 		3A283EFD1C724D2800056061 /* AppSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppSettingsViewController.h; path = Pulp/classes/AppSettingsViewController.h; sourceTree = "<group>"; };
@@ -503,6 +506,15 @@
 			name = SortThese;
 			sourceTree = "<group>";
 		};
+		3A0146C01C7CB7D50023D867 /* Cover */ = {
+			isa = PBXGroup;
+			children = (
+				3A0146C11C7CB8A40023D867 /* UpdatingCoverView.h */,
+				3A0146C21C7CB8A40023D867 /* UpdatingCoverView.m */,
+			);
+			name = Cover;
+			sourceTree = "<group>";
+		};
 		3A28404E1C72516A00056061 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +645,7 @@
 		3A2840FC1C7258AC00056061 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3A0146C01C7CB7D50023D867 /* Cover */,
 				3AFEB93F1C726E0800FA991F /* CoverScroll */,
 				3A2841041C725D4400056061 /* Sidebar */,
 				3A283F7E1C724D2800056061 /* MainViewController.h */,
@@ -1392,6 +1405,7 @@
 				3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */,
 				3A28400A1C724D2800056061 /* EventStoreChangeThread.m in Sources */,
 				3A28402C1C724D2800056061 /* SidebarView.m in Sources */,
+				3A0146C31C7CB8A40023D867 /* UpdatingCoverView.m in Sources */,
 				3A28404C1C724E8C00056061 /* UIFont+FontAwesome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
