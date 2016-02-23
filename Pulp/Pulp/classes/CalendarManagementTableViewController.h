@@ -13,6 +13,7 @@
 
 @property (nonatomic, retain) id theParentController;
 
+-(void)initialize;
 -(void)reload;
 -(void)checkAllButtonHit;
 -(void)calendarContentChanged;

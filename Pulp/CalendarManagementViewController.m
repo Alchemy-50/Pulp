@@ -60,6 +60,7 @@ static CalendarManagementViewController *theStaticVC;
     self.calendarManagementTableViewController.view.backgroundColor = [UIColor clearColor];
     self.calendarManagementTableViewController.view.frame = CGRectMake(0, yStart, self.view.frame.size.width, self.view.frame.size.height - yStart);
     [self.view addSubview:self.calendarManagementTableViewController.view];
+    [self.calendarManagementTableViewController initialize];
     
     UILabel *doneLabel = [[UILabel alloc] initWithFrame:CGRectMake(318, 17, 40, 15)];
     doneLabel.backgroundColor = [UIColor clearColor];

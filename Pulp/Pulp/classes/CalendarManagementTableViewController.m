@@ -28,6 +28,20 @@
 @implementation CalendarManagementTableViewController
 
 
+-(void)initialize
+{
+    [self loadContentArray];
+    
+    self.theTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.theTableView.backgroundColor = [UIColor clearColor];
+    self.theTableView.separatorColor = [UIColor clearColor];
+    self.theTableView.delegate = self;
+    self.theTableView.dataSource = self;
+    [self.view addSubview:self.theTableView];
+    
+    [self.theTableView reloadData];
+}
+
 
 -(void)reload
 {
@@ -70,25 +84,6 @@
         for (int i = 0; i < [ar count]; i++)
             [self.contentArray addObject:[ar objectAtIndex:i]];
     }
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    
-    [self loadContentArray];
-    
-    self.theTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    self.theTableView.backgroundColor = [UIColor clearColor];
-    self.theTableView.separatorColor = [UIColor clearColor];
-    self.theTableView.delegate = self;
-    self.theTableView.dataSource = self;
-    [self.view addSubview:self.theTableView];
-    
-    [self.theTableView reloadData];
-    
-    
 }
 
 

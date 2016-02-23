@@ -578,8 +578,8 @@
 		3A2840F51C72569100056061 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				3A40C93D1C764056009B53F0 /* CalManagement */,
 				3A2841001C725C2E00056061 /* Theme */,
-				3A2840FA1C7257D300056061 /* CalManagement */,
 				3A283EFD1C724D2800056061 /* AppSettingsViewController.h */,
 				3A283EFE1C724D2800056061 /* AppSettingsViewController.m */,
 				3A283EFF1C724D2800056061 /* AppSettingsViewController.xib */,
@@ -604,7 +604,6 @@
 		3A2840F71C72577F00056061 /* Full Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				3A40C93D1C764056009B53F0 /* Management */,
 				3AFEB9401C726E1800FA991F /* Views */,
 				3A283F6A1C724D2800056061 /* FullCalendarViewController.h */,
 				3A283F6B1C724D2800056061 /* FullCalendarViewController.m */,
@@ -633,13 +632,6 @@
 				3A2840461C724E6400056061 /* NSString+FontAwesome.m */,
 			);
 			name = "Categories-Helpers";
-			sourceTree = "<group>";
-		};
-		3A2840FA1C7257D300056061 /* CalManagement */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = CalManagement;
 			sourceTree = "<group>";
 		};
 		3A2840FC1C7258AC00056061 /* Main */ = {
@@ -824,7 +816,7 @@
 			name = DR;
 			sourceTree = "<group>";
 		};
-		3A40C93D1C764056009B53F0 /* Management */ = {
+		3A40C93D1C764056009B53F0 /* CalManagement */ = {
 			isa = PBXGroup;
 			children = (
 				3A3917DD1C76AF6900966DDA /* Color */,
@@ -833,7 +825,7 @@
 				3A40C93E1C764068009B53F0 /* CalendarManagementViewController.h */,
 				3A40C93F1C764068009B53F0 /* CalendarManagementViewController.m */,
 			);
-			name = Management;
+			name = CalManagement;
 			sourceTree = "<group>";
 		};
 		3A40C9441C7646B0009B53F0 /* Months */ = {
