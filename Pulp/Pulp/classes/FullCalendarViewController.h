@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
+#import "EventKitManager.h"
 #import "ContentContainerViewController.h"
 #import "CalendarManagementTableViewController.h"
 
-@class CalendarTasksViewController;
-@class EventManagerViewController;
+
 
 @interface FullCalendarViewController : UIViewController
 
 - (void) doLoadViews;
 - (void) dataChanged;
-- (void) createEventExitButtonHitWithController:(EventManagerViewController *)theController withEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
+
 
 @property (nonatomic, retain) ContentContainerViewController *contentContainerViewController;
 @property (nonatomic, retain) UIImageView *zoomingImageView;

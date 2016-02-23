@@ -16,8 +16,7 @@
 
 +(void)run
 {
-    return;
-    /*
+/*
     NSArray *ar = [[EventKitManager sharedManager] getEKCalendars:NO];
 
     for (int i = 0; i < [ar count]; i++)
@@ -26,8 +25,11 @@
         NSLog(@"cal: %@", cal);
         EKSource *source = cal.source;
         NSLog(@"source: %@", source);
+        NSLog(@" ");
+        NSLog(@" ");
+        
     }
-    */
+
     
     NSString *urlString = @"webcal://p02-calendarws.icloud.com/ca/";
     NSLog(@"urlString: %@", urlString);
@@ -55,7 +57,7 @@
                                                        }];
      [dataTask resume];
     
-    
+    */
  
 }
 

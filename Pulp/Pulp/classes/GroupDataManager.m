@@ -10,12 +10,10 @@
 #import "GroupFormatManager.h"
 #import <EventKit/EventKit.h>
 #import "EventCalendarUtils.h"
-#import "CommonTaskItem.h"
 #import "GroupDiskManager.h"
-
 #import "EventKitManager.h"
-#import "CommonTasksManager.h"
 #import "AppDelegate.h"
+
 @interface GroupDataManager()
 
 - (GroupDataManager *)init;

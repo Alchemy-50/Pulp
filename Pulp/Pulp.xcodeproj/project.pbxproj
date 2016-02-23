@@ -8,33 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		165B6FF3F86816A6693D0226 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EB6E850D4DAE3B4091D3F3 /* libPods.a */; };
-		3A283FCF1C724D2800056061 /* AddEditEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283EF51C724D2800056061 /* AddEditEventViewController.m */; };
-		3A283FD01C724D2800056061 /* AddEditEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283EF61C724D2800056061 /* AddEditEventViewController.xib */; };
 		3A283FD21C724D2800056061 /* AlarmNotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283EFA1C724D2800056061 /* AlarmNotificationHandler.m */; };
 		3A283FD41C724D2800056061 /* AppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283EFE1C724D2800056061 /* AppSettingsViewController.m */; };
 		3A283FD51C724D2800056061 /* AppSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283EFF1C724D2800056061 /* AppSettingsViewController.xib */; };
 		3A283FDD1C724D2800056061 /* CalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F0B1C724D2800056061 /* CalendarDayView.m */; };
 		3A283FDE1C724D2800056061 /* CalendarDoubleDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F0D1C724D2800056061 /* CalendarDoubleDayView.m */; };
-		3A283FDF1C724D2800056061 /* CalendarDragManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F0F1C724D2800056061 /* CalendarDragManagerView.m */; };
 		3A283FE01C724D2800056061 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F111C724D2800056061 /* CalendarEvent.m */; };
 		3A283FE21C724D2800056061 /* BAKCalendarManagementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F151C724D2800056061 /* BAKCalendarManagementTableViewCell.m */; };
 		3A283FE31C724D2800056061 /* CalendarManagementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F171C724D2800056061 /* CalendarManagementTableViewController.m */; };
 		3A283FE41C724D2800056061 /* CalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F191C724D2800056061 /* CalendarMonthView.m */; };
-		3A283FE51C724D2800056061 /* CalendarSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F1B1C724D2800056061 /* CalendarSelectViewController.m */; };
-		3A283FE61C724D2800056061 /* CalendarSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283F1C1C724D2800056061 /* CalendarSelectViewController.xib */; };
 		3A283FEA1C724D2800056061 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F231C724D2800056061 /* CenterViewController.m */; };
 		3A283FEB1C724D2800056061 /* Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F251C724D2800056061 /* Circle.m */; };
 		3A283FEC1C724D2800056061 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F271C724D2800056061 /* CircleView.m */; };
 		3A283FED1C724D2800056061 /* ColorSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F291C724D2800056061 /* ColorSelectView.m */; };
-		3A283FEE1C724D2800056061 /* CommonEventContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F2B1C724D2800056061 /* CommonEventContainer.m */; };
-		3A283FEF1C724D2800056061 /* CommonEventsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F2D1C724D2800056061 /* CommonEventsManager.m */; };
-		3A283FF01C724D2800056061 /* CommonEventsOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F2F1C724D2800056061 /* CommonEventsOrderManager.m */; };
-		3A283FF11C724D2800056061 /* CommonTaskDropdownSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F311C724D2800056061 /* CommonTaskDropdownSubview.m */; };
-		3A283FF21C724D2800056061 /* CommonTaskEventContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F331C724D2800056061 /* CommonTaskEventContainer.m */; };
-		3A283FF31C724D2800056061 /* CommonTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F351C724D2800056061 /* CommonTaskItem.m */; };
-		3A283FF41C724D2800056061 /* CommonTasksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F371C724D2800056061 /* CommonTasksManager.m */; };
-		3A283FF51C724D2800056061 /* ContainerEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F391C724D2800056061 /* ContainerEventViewController.m */; };
-		3A283FF61C724D2800056061 /* ContainerEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283F3A1C724D2800056061 /* ContainerEventViewController.xib */; };
 		3A283FF71C724D2800056061 /* ContainerTodosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F3C1C724D2800056061 /* ContainerTodosViewController.m */; };
 		3A283FF81C724D2800056061 /* ContentContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F3E1C724D2800056061 /* ContentContainerViewController.m */; };
 		3A283FF91C724D2800056061 /* CoverScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F401C724D2800056061 /* CoverScrollView.m */; };
@@ -50,11 +36,7 @@
 		3A2840041C724D2800056061 /* EventCalendarUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F571C724D2800056061 /* EventCalendarUtils.m */; };
 		3A2840051C724D2800056061 /* EventForCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */; };
 		3A2840061C724D2800056061 /* EventKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F5C1C724D2800056061 /* EventKitManager.m */; };
-		3A2840071C724D2800056061 /* EventManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F5E1C724D2800056061 /* EventManagerViewController.m */; };
-		3A2840081C724D2800056061 /* EventManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283F5F1C724D2800056061 /* EventManagerViewController.xib */; };
 		3A28400A1C724D2800056061 /* EventStoreChangeThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F631C724D2800056061 /* EventStoreChangeThread.m */; };
-		3A28400B1C724D2800056061 /* EventTaskSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F651C724D2800056061 /* EventTaskSelectTableViewCell.m */; };
-		3A28400C1C724D2800056061 /* EventTaskSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F671C724D2800056061 /* EventTaskSelectViewController.m */; };
 		3A28400E1C724D2800056061 /* FullCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F6B1C724D2800056061 /* FullCalendarViewController.m */; };
 		3A28400F1C724D2800056061 /* FullCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */; };
 		3A2840111C724D2800056061 /* GroupDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F701C724D2800056061 /* GroupDataManager.m */; };
@@ -67,9 +49,6 @@
 		3A28401B1C724D2800056061 /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F831C724D2800056061 /* MaskView.m */; };
 		3A2840221C724D2800056061 /* PulpFAImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F931C724D2800056061 /* PulpFAImageView.m */; };
 		3A2840231C724D2800056061 /* PulpMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F951C724D2800056061 /* PulpMapView.m */; };
-		3A2840241C724D2800056061 /* RadialContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F971C724D2800056061 /* RadialContainerView.m */; };
-		3A2840251C724D2800056061 /* RadialEventDateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F991C724D2800056061 /* RadialEventDateController.m */; };
-		3A2840261C724D2800056061 /* RadialEventDateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283F9A1C724D2800056061 /* RadialEventDateController.xib */; };
 		3A2840291C724D2800056061 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283FA01C724D2800056061 /* SettingsManager.m */; };
 		3A28402A1C724D2800056061 /* SidebarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283FA21C724D2800056061 /* SidebarButtonView.m */; };
 		3A28402B1C724D2800056061 /* SidebarInstanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283FA41C724D2800056061 /* SidebarInstanceView.m */; };
@@ -184,6 +163,7 @@
 		3A40C94D1C765522009B53F0 /* CalendarManagementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C94C1C765522009B53F0 /* CalendarManagementTableViewCell.m */; };
 		3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C9531C766C17009B53F0 /* EditCalendarManagementViewController.m */; };
 		3A40C9561C766C17009B53F0 /* EditCalendarManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */; };
+		3A54877E1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */; };
 		3AB577DE1C7248FA008FE5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577DD1C7248FA008FE5C0 /* main.m */; };
 		3AB577E11C7248FA008FE5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577E01C7248FA008FE5C0 /* AppDelegate.m */; };
 		3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E81C7248FA008FE5C0 /* Assets.xcassets */; };
@@ -207,9 +187,6 @@
 
 /* Begin PBXFileReference section */
 		2820B18F2A5FCB81C9A490E8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		3A283EF41C724D2800056061 /* AddEditEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEditEventViewController.h; path = Pulp/classes/AddEditEventViewController.h; sourceTree = "<group>"; };
-		3A283EF51C724D2800056061 /* AddEditEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEditEventViewController.m; path = Pulp/classes/AddEditEventViewController.m; sourceTree = "<group>"; };
-		3A283EF61C724D2800056061 /* AddEditEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddEditEventViewController.xib; path = Pulp/classes/AddEditEventViewController.xib; sourceTree = "<group>"; };
 		3A283EF91C724D2800056061 /* AlarmNotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmNotificationHandler.h; path = Pulp/classes/AlarmNotificationHandler.h; sourceTree = "<group>"; };
 		3A283EFA1C724D2800056061 /* AlarmNotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmNotificationHandler.m; path = Pulp/classes/AlarmNotificationHandler.m; sourceTree = "<group>"; };
 		3A283EFD1C724D2800056061 /* AppSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppSettingsViewController.h; path = Pulp/classes/AppSettingsViewController.h; sourceTree = "<group>"; };
@@ -219,8 +196,6 @@
 		3A283F0B1C724D2800056061 /* CalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarDayView.m; path = Pulp/classes/CalendarDayView.m; sourceTree = "<group>"; };
 		3A283F0C1C724D2800056061 /* CalendarDoubleDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarDoubleDayView.h; path = Pulp/classes/CalendarDoubleDayView.h; sourceTree = "<group>"; };
 		3A283F0D1C724D2800056061 /* CalendarDoubleDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarDoubleDayView.m; path = Pulp/classes/CalendarDoubleDayView.m; sourceTree = "<group>"; };
-		3A283F0E1C724D2800056061 /* CalendarDragManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarDragManagerView.h; path = Pulp/classes/CalendarDragManagerView.h; sourceTree = "<group>"; };
-		3A283F0F1C724D2800056061 /* CalendarDragManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarDragManagerView.m; path = Pulp/classes/CalendarDragManagerView.m; sourceTree = "<group>"; };
 		3A283F101C724D2800056061 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarEvent.h; path = Pulp/classes/CalendarEvent.h; sourceTree = "<group>"; };
 		3A283F111C724D2800056061 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarEvent.m; path = Pulp/classes/CalendarEvent.m; sourceTree = "<group>"; };
 		3A283F141C724D2800056061 /* BAKCalendarManagementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAKCalendarManagementTableViewCell.h; path = Pulp/classes/BAKCalendarManagementTableViewCell.h; sourceTree = "<group>"; };
@@ -229,9 +204,6 @@
 		3A283F171C724D2800056061 /* CalendarManagementTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarManagementTableViewController.m; path = Pulp/classes/CalendarManagementTableViewController.m; sourceTree = "<group>"; };
 		3A283F181C724D2800056061 /* CalendarMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarMonthView.h; path = Pulp/classes/CalendarMonthView.h; sourceTree = "<group>"; };
 		3A283F191C724D2800056061 /* CalendarMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarMonthView.m; path = Pulp/classes/CalendarMonthView.m; sourceTree = "<group>"; };
-		3A283F1A1C724D2800056061 /* CalendarSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarSelectViewController.h; path = Pulp/classes/CalendarSelectViewController.h; sourceTree = "<group>"; };
-		3A283F1B1C724D2800056061 /* CalendarSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarSelectViewController.m; path = Pulp/classes/CalendarSelectViewController.m; sourceTree = "<group>"; };
-		3A283F1C1C724D2800056061 /* CalendarSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CalendarSelectViewController.xib; path = Pulp/classes/CalendarSelectViewController.xib; sourceTree = "<group>"; };
 		3A283F221C724D2800056061 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterViewController.h; path = Pulp/classes/CenterViewController.h; sourceTree = "<group>"; };
 		3A283F231C724D2800056061 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterViewController.m; path = Pulp/classes/CenterViewController.m; sourceTree = "<group>"; };
 		3A283F241C724D2800056061 /* Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Circle.h; path = Pulp/classes/Circle.h; sourceTree = "<group>"; };
@@ -240,23 +212,6 @@
 		3A283F271C724D2800056061 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleView.m; path = Pulp/classes/CircleView.m; sourceTree = "<group>"; };
 		3A283F281C724D2800056061 /* ColorSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSelectView.h; path = Pulp/classes/ColorSelectView.h; sourceTree = "<group>"; };
 		3A283F291C724D2800056061 /* ColorSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSelectView.m; path = Pulp/classes/ColorSelectView.m; sourceTree = "<group>"; };
-		3A283F2A1C724D2800056061 /* CommonEventContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonEventContainer.h; path = Pulp/classes/CommonEventContainer.h; sourceTree = "<group>"; };
-		3A283F2B1C724D2800056061 /* CommonEventContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonEventContainer.m; path = Pulp/classes/CommonEventContainer.m; sourceTree = "<group>"; };
-		3A283F2C1C724D2800056061 /* CommonEventsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonEventsManager.h; path = Pulp/classes/CommonEventsManager.h; sourceTree = "<group>"; };
-		3A283F2D1C724D2800056061 /* CommonEventsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonEventsManager.m; path = Pulp/classes/CommonEventsManager.m; sourceTree = "<group>"; };
-		3A283F2E1C724D2800056061 /* CommonEventsOrderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonEventsOrderManager.h; path = Pulp/classes/CommonEventsOrderManager.h; sourceTree = "<group>"; };
-		3A283F2F1C724D2800056061 /* CommonEventsOrderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonEventsOrderManager.m; path = Pulp/classes/CommonEventsOrderManager.m; sourceTree = "<group>"; };
-		3A283F301C724D2800056061 /* CommonTaskDropdownSubview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTaskDropdownSubview.h; path = Pulp/classes/CommonTaskDropdownSubview.h; sourceTree = "<group>"; };
-		3A283F311C724D2800056061 /* CommonTaskDropdownSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTaskDropdownSubview.m; path = Pulp/classes/CommonTaskDropdownSubview.m; sourceTree = "<group>"; };
-		3A283F321C724D2800056061 /* CommonTaskEventContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTaskEventContainer.h; path = Pulp/classes/CommonTaskEventContainer.h; sourceTree = "<group>"; };
-		3A283F331C724D2800056061 /* CommonTaskEventContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTaskEventContainer.m; path = Pulp/classes/CommonTaskEventContainer.m; sourceTree = "<group>"; };
-		3A283F341C724D2800056061 /* CommonTaskItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTaskItem.h; path = Pulp/classes/CommonTaskItem.h; sourceTree = "<group>"; };
-		3A283F351C724D2800056061 /* CommonTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTaskItem.m; path = Pulp/classes/CommonTaskItem.m; sourceTree = "<group>"; };
-		3A283F361C724D2800056061 /* CommonTasksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTasksManager.h; path = Pulp/classes/CommonTasksManager.h; sourceTree = "<group>"; };
-		3A283F371C724D2800056061 /* CommonTasksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTasksManager.m; path = Pulp/classes/CommonTasksManager.m; sourceTree = "<group>"; };
-		3A283F381C724D2800056061 /* ContainerEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerEventViewController.h; path = Pulp/classes/ContainerEventViewController.h; sourceTree = "<group>"; };
-		3A283F391C724D2800056061 /* ContainerEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerEventViewController.m; path = Pulp/classes/ContainerEventViewController.m; sourceTree = "<group>"; };
-		3A283F3A1C724D2800056061 /* ContainerEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContainerEventViewController.xib; path = Pulp/classes/ContainerEventViewController.xib; sourceTree = "<group>"; };
 		3A283F3B1C724D2800056061 /* ContainerTodosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerTodosViewController.h; path = Pulp/classes/ContainerTodosViewController.h; sourceTree = "<group>"; };
 		3A283F3C1C724D2800056061 /* ContainerTodosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerTodosViewController.m; path = Pulp/classes/ContainerTodosViewController.m; sourceTree = "<group>"; };
 		3A283F3D1C724D2800056061 /* ContentContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentContainerViewController.h; path = Pulp/classes/ContentContainerViewController.h; sourceTree = "<group>"; };
@@ -287,15 +242,8 @@
 		3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventForCalendarDayView.m; path = Pulp/classes/EventForCalendarDayView.m; sourceTree = "<group>"; };
 		3A283F5B1C724D2800056061 /* EventKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventKitManager.h; path = Pulp/classes/EventKitManager.h; sourceTree = "<group>"; };
 		3A283F5C1C724D2800056061 /* EventKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventKitManager.m; path = Pulp/classes/EventKitManager.m; sourceTree = "<group>"; };
-		3A283F5D1C724D2800056061 /* EventManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventManagerViewController.h; path = Pulp/classes/EventManagerViewController.h; sourceTree = "<group>"; };
-		3A283F5E1C724D2800056061 /* EventManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventManagerViewController.m; path = Pulp/classes/EventManagerViewController.m; sourceTree = "<group>"; };
-		3A283F5F1C724D2800056061 /* EventManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventManagerViewController.xib; path = Pulp/classes/EventManagerViewController.xib; sourceTree = "<group>"; };
 		3A283F621C724D2800056061 /* EventStoreChangeThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventStoreChangeThread.h; path = Pulp/classes/EventStoreChangeThread.h; sourceTree = "<group>"; };
 		3A283F631C724D2800056061 /* EventStoreChangeThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventStoreChangeThread.m; path = Pulp/classes/EventStoreChangeThread.m; sourceTree = "<group>"; };
-		3A283F641C724D2800056061 /* EventTaskSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventTaskSelectTableViewCell.h; path = Pulp/classes/EventTaskSelectTableViewCell.h; sourceTree = "<group>"; };
-		3A283F651C724D2800056061 /* EventTaskSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventTaskSelectTableViewCell.m; path = Pulp/classes/EventTaskSelectTableViewCell.m; sourceTree = "<group>"; };
-		3A283F661C724D2800056061 /* EventTaskSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventTaskSelectViewController.h; path = Pulp/classes/EventTaskSelectViewController.h; sourceTree = "<group>"; };
-		3A283F671C724D2800056061 /* EventTaskSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventTaskSelectViewController.m; path = Pulp/classes/EventTaskSelectViewController.m; sourceTree = "<group>"; };
 		3A283F6A1C724D2800056061 /* FullCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FullCalendarViewController.h; path = Pulp/classes/FullCalendarViewController.h; sourceTree = "<group>"; };
 		3A283F6B1C724D2800056061 /* FullCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FullCalendarViewController.m; path = Pulp/classes/FullCalendarViewController.m; sourceTree = "<group>"; };
 		3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FullCalendarViewController.xib; path = Pulp/classes/FullCalendarViewController.xib; sourceTree = "<group>"; };
@@ -320,11 +268,6 @@
 		3A283F931C724D2800056061 /* PulpFAImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PulpFAImageView.m; path = Pulp/classes/PulpFAImageView.m; sourceTree = "<group>"; };
 		3A283F941C724D2800056061 /* PulpMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PulpMapView.h; path = Pulp/classes/PulpMapView.h; sourceTree = "<group>"; };
 		3A283F951C724D2800056061 /* PulpMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PulpMapView.m; path = Pulp/classes/PulpMapView.m; sourceTree = "<group>"; };
-		3A283F961C724D2800056061 /* RadialContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RadialContainerView.h; path = Pulp/classes/RadialContainerView.h; sourceTree = "<group>"; };
-		3A283F971C724D2800056061 /* RadialContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RadialContainerView.m; path = Pulp/classes/RadialContainerView.m; sourceTree = "<group>"; };
-		3A283F981C724D2800056061 /* RadialEventDateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RadialEventDateController.h; path = Pulp/classes/RadialEventDateController.h; sourceTree = "<group>"; };
-		3A283F991C724D2800056061 /* RadialEventDateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RadialEventDateController.m; path = Pulp/classes/RadialEventDateController.m; sourceTree = "<group>"; };
-		3A283F9A1C724D2800056061 /* RadialEventDateController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RadialEventDateController.xib; path = Pulp/classes/RadialEventDateController.xib; sourceTree = "<group>"; };
 		3A283F9F1C724D2800056061 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsManager.h; path = Pulp/classes/SettingsManager.h; sourceTree = "<group>"; };
 		3A283FA01C724D2800056061 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsManager.m; path = Pulp/classes/SettingsManager.m; sourceTree = "<group>"; };
 		3A283FA11C724D2800056061 /* SidebarButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidebarButtonView.h; path = Pulp/classes/SidebarButtonView.h; sourceTree = "<group>"; };
@@ -483,6 +426,8 @@
 		3A40C9521C766C17009B53F0 /* EditCalendarManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCalendarManagementViewController.h; sourceTree = "<group>"; };
 		3A40C9531C766C17009B53F0 /* EditCalendarManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCalendarManagementViewController.m; sourceTree = "<group>"; };
 		3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCalendarManagementViewController.xib; sourceTree = "<group>"; };
+		3A54877C1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerEKEventEditViewController.h; sourceTree = "<group>"; };
+		3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerEKEventEditViewController.m; sourceTree = "<group>"; };
 		3AB577D91C7248FA008FE5C0 /* Pulp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB577DD1C7248FA008FE5C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pulp/AppDelegate.h; sourceTree = "<group>"; };
@@ -496,8 +441,8 @@
 		3ABD612B1C750784006F8FAA /* CalendarDaySelectedOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDaySelectedOverview.m; sourceTree = "<group>"; };
 		3ABD612E1C751165006F8FAA /* CellContainerMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellContainerMapView.h; sourceTree = "<group>"; };
 		3ABD612F1C751165006F8FAA /* CellContainerMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellContainerMapView.m; sourceTree = "<group>"; };
-		3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask.png"; sourceTree = "<group>"; };
-		3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pulp-cal-circle-mask-trans.png"; sourceTree = "<group>"; };
+		3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pulp-cal-circle-mask.png"; path = "../pulp-cal-circle-mask.png"; sourceTree = "<group>"; };
+		3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pulp-cal-circle-mask-trans.png"; path = "../pulp-cal-circle-mask-trans.png"; sourceTree = "<group>"; };
 		3AFEB9411C72728600FA991F /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		3AFEB9421C72728600FA991F /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
 		3AFEB9431C72728600FA991F /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@2x.png"; sourceTree = "<group>"; };
@@ -543,6 +488,21 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		3A0146BF1C7CAD250023D867 /* SortThese */ = {
+			isa = PBXGroup;
+			children = (
+				3A283F591C724D2800056061 /* EventForCalendarDayView.h */,
+				3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */,
+				3A283F521C724D2800056061 /* EventCalendarSelectTableViewCell.h */,
+				3A283F531C724D2800056061 /* EventCalendarSelectTableViewCell.m */,
+				3A283F541C724D2800056061 /* EventCalendarSelectViewController.h */,
+				3A283F551C724D2800056061 /* EventCalendarSelectViewController.m */,
+				3A283F501C724D2800056061 /* EditEventNavigationViewController.h */,
+				3A283F511C724D2800056061 /* EditEventNavigationViewController.m */,
+			);
+			name = SortThese;
+			sourceTree = "<group>";
+		};
 		3A28404E1C72516A00056061 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +524,10 @@
 		3A2840651C7251C800056061 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */,
+				3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */,
+				3ABD61281C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png */,
+				3AFEB9511C72730300FA991F /* Images.xcassets */,
 				3AFEB94F1C72729A00FA991F /* AppIcons */,
 				3AFEB9501C7272A300FA991F /* Etc */,
 			);
@@ -576,8 +540,6 @@
 				3ABD612D1C751157006F8FAA /* Map */,
 				3A2841031C725D3400056061 /* Weather */,
 				3A2841021C725CCA00056061 /* Net */,
-				3A2840FB1C72586B00056061 /* CommonEvents */,
-				3A2840F91C7257BF00056061 /* Helpers */,
 				3A2840F81C72579B00056061 /* Categories-Helpers */,
 				3A283F4D1C724D2800056061 /* Defs.h */,
 				3A283F4E1C724D2800056061 /* Defs.m */,
@@ -590,22 +552,12 @@
 		3A2840F41C72566D00056061 /* OLD */ = {
 			isa = PBXGroup;
 			children = (
-				3A283F0E1C724D2800056061 /* CalendarDragManagerView.h */,
-				3A283F0F1C724D2800056061 /* CalendarDragManagerView.m */,
 				3A283F261C724D2800056061 /* CircleView.h */,
 				3A283F271C724D2800056061 /* CircleView.m */,
 				3A283F7B1C724D2800056061 /* LocationViewController.h */,
 				3A283F7C1C724D2800056061 /* LocationViewController.m */,
 				3A283FB71C724D2800056061 /* TimeView.h */,
 				3A283FB81C724D2800056061 /* TimeView.m */,
-				3A283F961C724D2800056061 /* RadialContainerView.h */,
-				3A283F971C724D2800056061 /* RadialContainerView.m */,
-				3A283F981C724D2800056061 /* RadialEventDateController.h */,
-				3A283F991C724D2800056061 /* RadialEventDateController.m */,
-				3A283F9A1C724D2800056061 /* RadialEventDateController.xib */,
-				3A283EF41C724D2800056061 /* AddEditEventViewController.h */,
-				3A283EF51C724D2800056061 /* AddEditEventViewController.m */,
-				3A283EF61C724D2800056061 /* AddEditEventViewController.xib */,
 			);
 			name = OLD;
 			path = ..;
@@ -671,42 +623,11 @@
 			name = "Categories-Helpers";
 			sourceTree = "<group>";
 		};
-		3A2840F91C7257BF00056061 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Helpers;
-			sourceTree = "<group>";
-		};
 		3A2840FA1C7257D300056061 /* CalManagement */ = {
 			isa = PBXGroup;
 			children = (
-				3A283F1A1C724D2800056061 /* CalendarSelectViewController.h */,
-				3A283F1B1C724D2800056061 /* CalendarSelectViewController.m */,
-				3A283F1C1C724D2800056061 /* CalendarSelectViewController.xib */,
 			);
 			name = CalManagement;
-			sourceTree = "<group>";
-		};
-		3A2840FB1C72586B00056061 /* CommonEvents */ = {
-			isa = PBXGroup;
-			children = (
-				3A283F2A1C724D2800056061 /* CommonEventContainer.h */,
-				3A283F2B1C724D2800056061 /* CommonEventContainer.m */,
-				3A283F2C1C724D2800056061 /* CommonEventsManager.h */,
-				3A283F2D1C724D2800056061 /* CommonEventsManager.m */,
-				3A283F2E1C724D2800056061 /* CommonEventsOrderManager.h */,
-				3A283F2F1C724D2800056061 /* CommonEventsOrderManager.m */,
-				3A283F301C724D2800056061 /* CommonTaskDropdownSubview.h */,
-				3A283F311C724D2800056061 /* CommonTaskDropdownSubview.m */,
-				3A283F321C724D2800056061 /* CommonTaskEventContainer.h */,
-				3A283F331C724D2800056061 /* CommonTaskEventContainer.m */,
-				3A283F341C724D2800056061 /* CommonTaskItem.h */,
-				3A283F351C724D2800056061 /* CommonTaskItem.m */,
-				3A283F361C724D2800056061 /* CommonTasksManager.h */,
-				3A283F371C724D2800056061 /* CommonTasksManager.m */,
-			);
-			name = CommonEvents;
 			sourceTree = "<group>";
 		};
 		3A2840FC1C7258AC00056061 /* Main */ = {
@@ -744,24 +665,9 @@
 		3A2840FE1C725B8A00056061 /* EventVCS */ = {
 			isa = PBXGroup;
 			children = (
-				3A283F591C724D2800056061 /* EventForCalendarDayView.h */,
-				3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */,
-				3A283F641C724D2800056061 /* EventTaskSelectTableViewCell.h */,
-				3A283F651C724D2800056061 /* EventTaskSelectTableViewCell.m */,
-				3A283F661C724D2800056061 /* EventTaskSelectViewController.h */,
-				3A283F671C724D2800056061 /* EventTaskSelectViewController.m */,
-				3A283F521C724D2800056061 /* EventCalendarSelectTableViewCell.h */,
-				3A283F531C724D2800056061 /* EventCalendarSelectTableViewCell.m */,
-				3A283F541C724D2800056061 /* EventCalendarSelectViewController.h */,
-				3A283F551C724D2800056061 /* EventCalendarSelectViewController.m */,
-				3A283F501C724D2800056061 /* EditEventNavigationViewController.h */,
-				3A283F511C724D2800056061 /* EditEventNavigationViewController.m */,
-				3A283F5D1C724D2800056061 /* EventManagerViewController.h */,
-				3A283F5E1C724D2800056061 /* EventManagerViewController.m */,
-				3A283F5F1C724D2800056061 /* EventManagerViewController.xib */,
-				3A283F381C724D2800056061 /* ContainerEventViewController.h */,
-				3A283F391C724D2800056061 /* ContainerEventViewController.m */,
-				3A283F3A1C724D2800056061 /* ContainerEventViewController.xib */,
+				3A0146BF1C7CAD250023D867 /* SortThese */,
+				3A54877C1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.h */,
+				3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */,
 			);
 			name = EventVCS;
 			sourceTree = "<group>";
@@ -1006,9 +912,9 @@
 		3AB577D01C7248FA008FE5C0 = {
 			isa = PBXGroup;
 			children = (
+				3A2840FE1C725B8A00056061 /* EventVCS */,
 				3A2840FC1C7258AC00056061 /* Main */,
 				3A2840FF1C725B9700056061 /* Todos */,
-				3A2840FE1C725B8A00056061 /* EventVCS */,
 				3A2840F71C72577F00056061 /* Full Calendar */,
 				3A2840F61C72575300056061 /* Daily */,
 				3A2840F51C72569100056061 /* Settings */,
@@ -1017,8 +923,6 @@
 				3AB577ED1C7248FA008FE5C0 /* Info.plist */,
 				3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */,
 				3AB577E01C7248FA008FE5C0 /* AppDelegate.m */,
-				3AC2DDD31C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png */,
-				3AC2DDD11C737BAC00AF1D19 /* pulp-cal-circle-mask.png */,
 				3AB577F31C72493B008FE5C0 /* Cruft */,
 			);
 			sourceTree = "<group>";
@@ -1035,10 +939,8 @@
 		3AB577F31C72493B008FE5C0 /* Cruft */ = {
 			isa = PBXGroup;
 			children = (
-				3ABD61281C7505DE006F8FAA /* pulp-cal-circle-mask-trans-smlr.png */,
-				3AFEB9511C72730300FA991F /* Images.xcassets */,
-				3A2840F41C72566D00056061 /* OLD */,
 				3A2840651C7251C800056061 /* Assets */,
+				3A2840F41C72566D00056061 /* OLD */,
 				3A28404E1C72516A00056061 /* Fonts */,
 				02C6D98A8D6F2DC24331FCB7 /* Pods */,
 				2096ACF877E6377D0797711F /* Frameworks */,
@@ -1260,7 +1162,6 @@
 				3AC2DDD41C737C9B00AF1D19 /* pulp-cal-circle-mask-trans.png in Resources */,
 				3A2840E61C72521500056061 /* settings-knockout.png in Resources */,
 				3A2840BE1C72521500056061 /* background_default.png in Resources */,
-				3A2840261C724D2800056061 /* RadialEventDateController.xib in Resources */,
 				3AFEB94C1C72728600FA991F /* Icon-Small.png in Resources */,
 				3A2840AC1C72521500056061 /* add_edit_background.png in Resources */,
 				3A2840EF1C72521500056061 /* todo-uncheckednew@2x.png in Resources */,
@@ -1270,7 +1171,6 @@
 				3A28400F1C724D2800056061 /* FullCalendarViewController.xib in Resources */,
 				3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */,
 				3A2840DD1C72521500056061 /* nothing-today-graphic@2x.png in Resources */,
-				3A283FF61C724D2800056061 /* ContainerEventViewController.xib in Resources */,
 				3A2840EB1C72521500056061 /* todo-addnew@2x.png in Resources */,
 				3A2840E41C72521500056061 /* settings-btn@2x.png in Resources */,
 				3A2840F11C72521500056061 /* Untitled-7.png in Resources */,
@@ -1286,7 +1186,6 @@
 				3A2840D91C72521500056061 /* icn-windy.png in Resources */,
 				3A2840EA1C72521500056061 /* todo-add.png in Resources */,
 				3A2840D51C72521500056061 /* icn-rain.png in Resources */,
-				3A2840081C724D2800056061 /* EventManagerViewController.xib in Resources */,
 				3AFEB94E1C72728600FA991F /* Icon-Small@3x.png in Resources */,
 				3A40C9561C766C17009B53F0 /* EditCalendarManagementViewController.xib in Resources */,
 				3A2840C91C72521500056061 /* delete.png in Resources */,
@@ -1298,7 +1197,6 @@
 				3A2840CE1C72521500056061 /* eventeditcancelbutton.png in Resources */,
 				3AFEB94A1C72728600FA991F /* Icon-Small-40@2x.png in Resources */,
 				3AFEB9561C72732B00FA991F /* splash-2208x1242.png in Resources */,
-				3A283FD01C724D2800056061 /* AddEditEventViewController.xib in Resources */,
 				3A2840E11C72521500056061 /* radio-off.png in Resources */,
 				3A2840DA1C72521500056061 /* iTunesArtwork.png in Resources */,
 				3A2840BF1C72521500056061 /* btnBack.png in Resources */,
@@ -1312,7 +1210,6 @@
 				3A2840D61C72521500056061 /* icn-snow.png in Resources */,
 				3A2840E31C72521500056061 /* settings-btn-green.png in Resources */,
 				3A2840DE1C72521500056061 /* pageEdgeTear.png in Resources */,
-				3A283FE61C724D2800056061 /* CalendarSelectViewController.xib in Resources */,
 				3A2840AF1C72521500056061 /* add-event-plus.png in Resources */,
 				3AFEB9551C72732B00FA991F /* splash-750x1334.png in Resources */,
 				3A2840C61C72521500056061 /* cogwheel.png in Resources */,
@@ -1413,7 +1310,6 @@
 				3A28402A1C724D2800056061 /* SidebarButtonView.m in Sources */,
 				3A2840041C724D2800056061 /* EventCalendarUtils.m in Sources */,
 				3A283FFE1C724D2800056061 /* DailyView.m in Sources */,
-				3A283FDF1C724D2800056061 /* CalendarDragManagerView.m in Sources */,
 				3A283FEB1C724D2800056061 /* Circle.m in Sources */,
 				3A283FED1C724D2800056061 /* ColorSelectView.m in Sources */,
 				3A2840151C724D2800056061 /* ImagesAPIHandler.m in Sources */,
@@ -1421,11 +1317,11 @@
 				3A2840191C724D2800056061 /* MainViewController.m in Sources */,
 				3A2840011C724D2800056061 /* EditEventNavigationViewController.m in Sources */,
 				3A3918121C76AFD300966DDA /* DRColorPickerGridViewController.m in Sources */,
+				3A54877E1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m in Sources */,
 				3A28403A1C724D2800056061 /* TodosViewController.m in Sources */,
 				3A2840361C724D2800056061 /* TimeView.m in Sources */,
 				3A28402B1C724D2800056061 /* SidebarInstanceView.m in Sources */,
 				3A2840411C724D2800056061 /* WeatherView.m in Sources */,
-				3A2840251C724D2800056061 /* RadialEventDateController.m in Sources */,
 				3A2840401C724D2800056061 /* WeatherDataManager.m in Sources */,
 				3A283FE31C724D2800056061 /* CalendarManagementTableViewController.m in Sources */,
 				3A2840471C724E6400056061 /* NSString+FontAwesome.m in Sources */,
@@ -1437,7 +1333,6 @@
 				3A39180E1C76AFD300966DDA /* DRColorPickerColor.m in Sources */,
 				3A283FFA1C724D2800056061 /* DailyIconView.m in Sources */,
 				3A2874A71C7797C0002CEF8B /* EventConverter.m in Sources */,
-				3A283FEF1C724D2800056061 /* CommonEventsManager.m in Sources */,
 				3A28401B1C724D2800056061 /* MaskView.m in Sources */,
 				3A3918111C76AFD300966DDA /* DRColorPickerGridViewCell.m in Sources */,
 				3A39180D1C76AFD300966DDA /* DRColorPickerBaseViewController.m in Sources */,
@@ -1446,12 +1341,9 @@
 				3A3918161C76AFD300966DDA /* DRColorPickerHueView.m in Sources */,
 				3A2840061C724D2800056061 /* EventKitManager.m in Sources */,
 				3A3918131C76AFD300966DDA /* DRColorPickerHomeView.m in Sources */,
-				3A28400C1C724D2800056061 /* EventTaskSelectViewController.m in Sources */,
-				3A2840071C724D2800056061 /* EventManagerViewController.m in Sources */,
 				3A3918141C76AFD300966DDA /* DRColorPickerHomeViewController.m in Sources */,
 				3A2840341C724D2800056061 /* ThemeSelectViewController.m in Sources */,
 				3A283FFF1C724D2800056061 /* DefaultCalendarSelectTableViewController.m in Sources */,
-				3A283FF11C724D2800056061 /* CommonTaskDropdownSubview.m in Sources */,
 				3A28401A1C724D2800056061 /* MapAPIHandler.m in Sources */,
 				3A283FE41C724D2800056061 /* CalendarMonthView.m in Sources */,
 				3A2840381C724D2800056061 /* TodoObject.m in Sources */,
@@ -1464,21 +1356,17 @@
 				3A283FF91C724D2800056061 /* CoverScrollView.m in Sources */,
 				3A39180A1C76AFD300966DDA /* DRColorPicker+UIColor.m in Sources */,
 				3A2840231C724D2800056061 /* PulpMapView.m in Sources */,
-				3A28400B1C724D2800056061 /* EventTaskSelectTableViewCell.m in Sources */,
 				3A283FF71C724D2800056061 /* ContainerTodosViewController.m in Sources */,
 				3A40C9431C764645009B53F0 /* AllCalendarButtonView.m in Sources */,
 				3A39181B1C76AFD300966DDA /* DRColorPickerWheelViewController.m in Sources */,
 				3A283FD21C724D2800056061 /* AlarmNotificationHandler.m in Sources */,
 				3AB577DE1C7248FA008FE5C0 /* main.m in Sources */,
-				3A283FCF1C724D2800056061 /* AddEditEventViewController.m in Sources */,
 				3A2840021C724D2800056061 /* EventCalendarSelectTableViewCell.m in Sources */,
 				3A283FF81C724D2800056061 /* ContentContainerViewController.m in Sources */,
 				3A39181F1C76B10800966DDA /* ColorPickerViewController.m in Sources */,
 				3A28403F1C724D2800056061 /* WeatherAPIHandler.m in Sources */,
 				3A283FFC1C724D2800056061 /* DailyTableViewCell.m in Sources */,
 				3A3918151C76AFD300966DDA /* DRColorPickerHorizontalCollectionViewLayout.m in Sources */,
-				3A283FEE1C724D2800056061 /* CommonEventContainer.m in Sources */,
-				3A283FF51C724D2800056061 /* ContainerEventViewController.m in Sources */,
 				3A283FE21C724D2800056061 /* BAKCalendarManagementTableViewCell.m in Sources */,
 				3A2840001C724D2800056061 /* Defs.m in Sources */,
 				3A3918101C76AFD300966DDA /* DRColorPickerGridView.m in Sources */,
@@ -1486,18 +1374,14 @@
 				3A3918181C76AFD300966DDA /* DRColorPickerStore.m in Sources */,
 				3A28403B1C724D2800056061 /* TodoTableViewCell.m in Sources */,
 				3A40C94D1C765522009B53F0 /* CalendarManagementTableViewCell.m in Sources */,
-				3A283FE51C724D2800056061 /* CalendarSelectViewController.m in Sources */,
 				3A283FDE1C724D2800056061 /* CalendarDoubleDayView.m in Sources */,
 				3A40C9401C764068009B53F0 /* CalendarManagementViewController.m in Sources */,
 				3A39181A1C76AFD300966DDA /* DRColorPickerWheelView.m in Sources */,
 				3ABD612C1C750784006F8FAA /* CalendarDaySelectedOverview.m in Sources */,
-				3A283FF41C724D2800056061 /* CommonTasksManager.m in Sources */,
 				3A2840221C724D2800056061 /* PulpFAImageView.m in Sources */,
 				3A283FD41C724D2800056061 /* AppSettingsViewController.m in Sources */,
 				3A283FEC1C724D2800056061 /* CircleView.m in Sources */,
 				3ABD61271C74F53C006F8FAA /* TodoBubbleView.m in Sources */,
-				3A283FF31C724D2800056061 /* CommonTaskItem.m in Sources */,
-				3A2840241C724D2800056061 /* RadialContainerView.m in Sources */,
 				3A28400E1C724D2800056061 /* FullCalendarViewController.m in Sources */,
 				3A2840321C724D2800056061 /* ThemeManager.m in Sources */,
 				3A2840111C724D2800056061 /* GroupDataManager.m in Sources */,
@@ -1505,9 +1389,7 @@
 				3A2840131C724D2800056061 /* GroupFormatManager.m in Sources */,
 				3A283FDD1C724D2800056061 /* CalendarDayView.m in Sources */,
 				3A39180F1C76AFD300966DDA /* DRColorPickerColorView.m in Sources */,
-				3A283FF21C724D2800056061 /* CommonTaskEventContainer.m in Sources */,
 				3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */,
-				3A283FF01C724D2800056061 /* CommonEventsOrderManager.m in Sources */,
 				3A28400A1C724D2800056061 /* EventStoreChangeThread.m in Sources */,
 				3A28402C1C724D2800056061 /* SidebarView.m in Sources */,
 				3A28404C1C724E8C00056061 /* UIFont+FontAwesome.m in Sources */,

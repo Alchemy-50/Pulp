@@ -8,14 +8,12 @@
 
 #import "FullCalendarViewController.h"
 #import "GroupDataManager.h"
-#import "EventManagerViewController.h"
 #import "AppDelegate.h"
 #import "Defs.h"
 #import "ThemeManager.h"
 #import "AllCalendarButtonView.h"
 #import "CalendarManagementViewController.h"
-
-
+#import "Utils.h"
 
 
 @interface FullCalendarViewController ()
@@ -87,60 +85,10 @@ float theTransitionTime = .22;
 
 -(void) dataChanged
 {
-//    [self.calendarHeaderView loadTitleLabel];
     [[GroupDataManager sharedManager] loadCache];
     [self.contentContainerViewController calendarDataChanged];
 }
 
-
-
-
--(void)createEventExitButtonHitWithController:(EventManagerViewController *)theController withEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction
-{
-
-    if (theAction == EKEventEditViewActionSaved)
-        if (theEvent != nil)
-            if (theEvent.title != nil)
-                [self.contentContainerViewController spoofCalendarDayViewWithEvent:theEvent withAction:theAction];
-    
-    if ([[theController.view superview] isKindOfClass:[UIWindow class]])
-    {    
-        [[MainViewController sharedMainViewController] dismissViewControllerAnimated:YES completion:nil];
-        return;
-    }
-    
-    
-    
-    UIView *spoofView = [[UIView alloc] initWithFrame:theController.view.frame];
-    spoofView.backgroundColor = theController.view.backgroundColor;
-    [self.parentViewController.view addSubview:spoofView];
-    
-    
-    [theController.view removeFromSuperview];
-    
-    [UIView beginAnimations:@"asdf" context:spoofView];
-    [UIView setAnimationDuration:theTransitionTime];
-    [UIView setAnimationDelegate:self];
-    spoofView.frame = theController.startEndRect;
-    [UIView setAnimationDidStopSelector:@selector(createEventViewDidFinish:finished:context:)];
-    [UIView commitAnimations];
-    
-    
-    
-    CGAffineTransform tr = CGAffineTransformIdentity;
-    [UIView animateWithDuration:theTransitionTime delay:0 options:0 animations:^{
-        self.zoomingImageView.transform = tr;
-        self.zoomingImageView.frame = CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height);
-        //        self.zoomingIheImageView.center = CGPointMake(self.view.frame.size.width, 0);
-    } completion:^(BOOL finished) { [self.zoomingImageView removeFromSuperview];}];
-    
-    
-}
-
--(void)createEventViewDidFinish:(id)object finished:(id)finished context:(UIView *)context
-{
-    [context removeFromSuperview];
-}
 
 
 

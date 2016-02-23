@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
+#import "EventKitManager.h"
 #import "TodosViewController.h"
 #import "DailyView.h"
 #import "PositionUpdatedRespondeeProtocol.h"
-#import <EventKit/EventKit.h>
-#import <EventKitUI/EventKitUIDefines.h>
-#import "EventManagerViewController.h"
 #import "SidebarView.h"
 
 

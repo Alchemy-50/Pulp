@@ -7,8 +7,6 @@
 //
 
 #import "EventKitManager.h"
-#import "CommonEventContainer.h"
-#import "CommonEventsManager.h"
 #import "GroupDiskManager.h"
 #import "GroupDataManager.h"
 #import "AppDelegate.h"
@@ -63,16 +61,16 @@ static dispatch_queue_t ekQueue;
          
          switch (status) {
              case EKAuthorizationStatusNotDetermined:
-//                 NSLog(@"EKAuthorizationStatusNotDetermined");
+                 NSLog(@"EKAuthorizationStatusNotDetermined");
                  break;
              case EKAuthorizationStatusRestricted:
-//                 NSLog(@"EKAuthorizationStatusRestricted");
+                 NSLog(@"EKAuthorizationStatusRestricted");
                  break;
              case EKAuthorizationStatusDenied:
-//                 NSLog(@"EKAuthorizationStatusDenied");
+                 NSLog(@"EKAuthorizationStatusDenied");
                  break;
              case EKAuthorizationStatusAuthorized:
-//                 NSLog(@"EKAuthorizationStatusAuthorized");
+                 NSLog(@"EKAuthorizationStatusAuthorized");
 
                  self.queueSet = YES;
                  ekQueue = dispatch_queue_create("com.alchemy.ekqueue", DISPATCH_QUEUE_CONCURRENT);
@@ -98,38 +96,10 @@ static dispatch_queue_t ekQueue;
 
 -(void) initialize
 {
-     
-    EKCalendar *defaultCalendar = [self.eventStore defaultCalendarForNewEvents];
-    BOOL defaultNewFound = NO;
-    NSArray *commonEventsForDefault = [[CommonEventsManager sharedEventsManager] getCommonEventsForCalendar:defaultCalendar];
-    
-    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    for (int i = 0; i < [commonEventsForDefault count]; i++)
-    {
-        
-        CommonEventContainer *container = [commonEventsForDefault objectAtIndex:i];
-        if ([container.commonEventID compare:[standardUserDefaults objectForKey:NEW_COMMON_EVENT_ID]] == NSOrderedSame)
-            defaultNewFound = YES;
-    }
-    
-    if (!defaultNewFound)
-    {
-        CommonEventContainer *commonEventContainer = [[CommonEventContainer alloc] init];
-        commonEventContainer.title = @"NEW";
-        commonEventContainer.referenceCalendarIdentifier = defaultCalendar.calendarIdentifier;
-        [[CommonEventsManager sharedEventsManager] setCommonEvent:commonEventContainer forCalendar:defaultCalendar];
-        
-        
-        [standardUserDefaults setObject:commonEventContainer.commonEventID forKey:NEW_COMMON_EVENT_ID];
-        [standardUserDefaults synchronize];
-        
-    }
-  
-  
     [[GroupDataManager sharedManager] loadCache];
     [[MainViewController sharedMainViewController] dataChanged];
-    
 }
+
 
 
 - (void) remoteRefresh

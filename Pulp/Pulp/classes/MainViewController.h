@@ -7,19 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EventManagerViewController.h"
 #import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
+#import "EventKitManager.h"
+#import "CalendarDayView.h"
+
 
 #define SECONDARY_VIEW_STATE_CALENDAR 0
 #define SECONDARY_VIEW_STATE_TODOS 1
 
-@interface MainViewController : UIViewController <UIScrollViewDelegate>
+
+@interface MainViewController : UIViewController <UIScrollViewDelegate, EKEventEditViewDelegate>
 
 +(MainViewController *)sharedMainViewController;
 -(int)getSecondaryState;
 -(void)dataChanged;
 -(void)dailyViewAddEventButtonHit:(NSDate *)referenceDate;
--(void)createEventExitButtonHitWithController:(EventManagerViewController *)theController withEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
 -(void)dayViewTapped:(CalendarDayView *)tappedDay;
 -(void)presentSettingsViewController;
 -(void)toggleToTodos;

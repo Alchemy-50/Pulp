@@ -18,16 +18,17 @@
 #import "CalendarManagementViewController.h"
 #import "DRColorPickerWheelView.h"
 #import "EventsDigester.h"
+#import "ContainerEKEventEditViewController.h"
+#import "AlarmNotificationHandler.h"
+#import "SettingsManager.h"
 
 
 @interface MainViewController ()
 @property (nonatomic, retain) SidebarView *sidebarView;
 @property (nonatomic, retain) FullCalendarViewController *fullCalendarViewController;
 @property (nonatomic, retain) ContainerTodosViewController *containerTodosViewController;
-
 @property (nonatomic, retain) CoverScrollView *coverScrollView;
 @property (nonatomic, retain) CenterViewController *centerViewController;
-
 @property (nonatomic, assign) BOOL initialized;
 @property (nonatomic, assign) int theSecondaryState;
 @end
@@ -83,14 +84,14 @@ static MainViewController *staticVC;
     else
     {
         
-    self.theSecondaryState = SECONDARY_VIEW_STATE_CALENDAR;
-    
-    [self.containerTodosViewController.view removeFromSuperview];
-    
-    if (self.fullCalendarViewController.view.superview == nil)
-        [self.view insertSubview:self.fullCalendarViewController.view belowSubview:self.coverScrollView];
-    
-    [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        self.theSecondaryState = SECONDARY_VIEW_STATE_CALENDAR;
+        
+        [self.containerTodosViewController.view removeFromSuperview];
+        
+        if (self.fullCalendarViewController.view.superview == nil)
+            [self.view insertSubview:self.fullCalendarViewController.view belowSubview:self.coverScrollView];
+        
+        [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
 }
 
@@ -198,18 +199,6 @@ static MainViewController *staticVC;
 }
 
 
--(void)dailyViewAddEventButtonHit:(NSDate *)referenceDate
-{
-    
-    
-    EventManagerViewController *createEventViewController = [[EventManagerViewController alloc] initWithNibName:@"EventManagerViewController" bundle:nil];
-    createEventViewController.theParentViewController = self;
-    createEventViewController.calendarReferenceDate = referenceDate;
-    [createEventViewController createNewEventWithReferenceDate];
-    
-    [self presentViewController:createEventViewController animated:YES completion:nil];
-    createEventViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
-}
 
 
 - (void) presentSettingsViewController
@@ -227,23 +216,25 @@ static MainViewController *staticVC;
 
 
 
--(void)createEventExitButtonHitWithController:(EventManagerViewController *)theController withEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction
+
+
+-(void)createEventExitButtonHitWithController:(UIViewController *)theController withEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction
 {
     NSLog(@"createEventExitButtonHitWithController");
     
-    if (theAction == EKEventEditViewActionSaved)
-        if (theEvent != nil)
-            if (theEvent.title != nil)
-            {
-                [self.fullCalendarViewController.contentContainerViewController spoofCalendarDayViewWithEvent:theEvent withAction:theAction];
-                [self.centerViewController spoofAddEventWithEvent:theEvent withAction:theAction];
-                [self dataChanged];
-                
-            }
-    
-    [self dismissViewControllerAnimated:YES completion:^(void){
-        
-    }];
+    /*
+     if (theAction == EKEventEditViewActionSaved)
+     if (theEvent != nil)
+     if (theEvent.title != nil)
+     {
+     
+     
+     }
+     
+     [self dismissViewControllerAnimated:YES completion:^(void){
+     
+     }];
+     */
 }
 
 
@@ -252,18 +243,87 @@ static MainViewController *staticVC;
     [self.fullCalendarViewController.contentContainerViewController dayViewSelected:tappedDay];
 }
 
+
+-(void)dailyViewAddEventButtonHit:(NSDate *)referenceDate
+{
+    EKEvent *newEvent = [[EventKitManager sharedManager] getNewEKEvent];
+    
+    NSString *defaultCalendarIdentifier = [[SettingsManager getSharedSettingsManager] getDefaultCalendarID];
+    if (defaultCalendarIdentifier != nil)
+        newEvent.calendar = [[EventKitManager sharedManager] getEKCalendarWithIdentifier:defaultCalendarIdentifier];
+    
+    newEvent.startDate = referenceDate;
+    newEvent.endDate = [newEvent.startDate dateByAddingTimeInterval:60*60];
+
+    
+    ContainerEKEventEditViewController *containerEKEventEditViewController = [[ContainerEKEventEditViewController alloc] initWithNibName:nil bundle:nil];
+    containerEKEventEditViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
+    containerEKEventEditViewController.eventStore = [EventKitManager sharedManager].eventStore;
+    containerEKEventEditViewController.event = newEvent;
+    containerEKEventEditViewController.editViewDelegate = self;
+    [self presentViewController:containerEKEventEditViewController animated:YES completion:nil];
+
+}
+
+
+
 -(void)dailyEventSelected:(EKEvent *)theEvent
 {
     if (theEvent != nil)
     {
-        
-        EventManagerViewController *createEventViewController = [[EventManagerViewController alloc] initWithNibName:@"EventManagerViewController" bundle:nil];
-        createEventViewController.theParentViewController = self;
-        createEventViewController.ekObjectReference = theEvent;
-        [self presentViewController:createEventViewController animated:YES completion: ^(void) {  [createEventViewController displayEvent]; }];
-        
+        ContainerEKEventEditViewController *containerEKEventEditViewController = [[ContainerEKEventEditViewController alloc] initWithNibName:nil bundle:nil];
+        containerEKEventEditViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
+        containerEKEventEditViewController.eventStore = [EventKitManager sharedManager].eventStore;
+        containerEKEventEditViewController.event = theEvent;
+        containerEKEventEditViewController.editViewDelegate = self;
+        [self presentViewController:containerEKEventEditViewController animated:YES completion:nil];
+        //        [[EventManagerViewController alloc];
     }
 }
+
+
+- (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"EKEventEditViewController: %@", controller);
+    NSLog(@"controller.event: %@", controller.event);
+    
+    //     self.denyProcess = YES;
+    
+    switch (action) {
+        case EKEventEditViewActionCanceled:
+            NSLog(@"EKEventEditViewActionCanceled");
+            break;
+            
+        case EKEventEditViewActionSaved:
+            NSLog(@"EKEventEditViewActionSaved");
+            [AlarmNotificationHandler processEventWithCalEvent:controller.event];
+            
+            break;
+            
+        case EKEventEditViewActionDeleted:
+            NSLog(@"EKEventEditViewActionDeleted");
+            break;
+            
+            
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    /*
+    [self.fullCalendarViewController.contentContainerViewController spoofCalendarDayViewWithEvent:theEvent withAction:theAction];
+    [self.centerViewController spoofAddEventWithEvent:theEvent withAction:theAction];
+    [self dataChanged];
+     */
+}
+
+
+// - (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller;
+
+
+
 
 - (BOOL)prefersStatusBarHidden
 {

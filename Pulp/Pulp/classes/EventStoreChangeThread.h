@@ -7,17 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-@class AppViewController;
 
 @interface EventStoreChangeThread : NSThread {
     
-    NSTimer *notificationWatchTimer;
-    
-    int count;
 }
 
-@property (nonatomic, assign) NSTimer *notificationWatchTimer;
-
-@property (nonatomic, assign) int count;
 
 @end
