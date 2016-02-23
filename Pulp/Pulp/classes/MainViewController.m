@@ -290,6 +290,8 @@ static MainViewController *staticVC;
     NSLog(@"%s", __PRETTY_FUNCTION__);
     NSLog(@"EKEventEditViewController: %@", controller);
     NSLog(@"controller.event: %@", controller.event);
+    NSLog(@"controller.event.calendar: %@", controller.event.calendar);
+    NSLog(@"controller.event.calendar.source: %@", controller.event.calendar.source);
     
     //     self.denyProcess = YES;
     
@@ -316,13 +318,6 @@ static MainViewController *staticVC;
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    
-    
-    /*
-    [self.fullCalendarViewController.contentContainerViewController spoofCalendarDayViewWithEvent:theEvent withAction:theAction];
-    [self.centerViewController spoofAddEventWithEvent:theEvent withAction:theAction];
-    [self dataChanged];
-     */
 }
 
 

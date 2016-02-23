@@ -37,8 +37,8 @@ static dispatch_queue_t ekQueue;
     for (EKSource *source in self.eventStore.sources)
         if (source.sourceType == EKSourceTypeCalDAV)
             returnSource = source;
-
-
+    
+    
     return returnSource;
 }
 
@@ -48,13 +48,13 @@ static dispatch_queue_t ekQueue;
     
     self.eventStore = [[EKEventStore alloc] init];
     
-
+    
     [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
      {
-
+         
          if (!granted)
              NSLog(@"Not granted");
-      
+         
          
          
          EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
@@ -71,7 +71,7 @@ static dispatch_queue_t ekQueue;
                  break;
              case EKAuthorizationStatusAuthorized:
                  NSLog(@"EKAuthorizationStatusAuthorized");
-
+                 
                  self.queueSet = YES;
                  ekQueue = dispatch_queue_create("com.alchemy.ekqueue", DISPATCH_QUEUE_CONCURRENT);
                  [self performSelectorOnMainThread:@selector(initialize) withObject:nil waitUntilDone:NO];
@@ -91,7 +91,7 @@ static dispatch_queue_t ekQueue;
 - (NSString *) getNewCommonEventID
 {
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    return [standardUserDefaults objectForKey:NEW_COMMON_EVENT_ID];    
+    return [standardUserDefaults objectForKey:NEW_COMMON_EVENT_ID];
 }
 
 -(void) initialize
@@ -109,7 +109,7 @@ static dispatch_queue_t ekQueue;
 
 - (EKCalendar *) getNewEKCalendar
 {
-//    NSLog(@"self.eventStore: %@", self.eventStore);
+    //    NSLog(@"self.eventStore: %@", self.eventStore);
     return [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:self.eventStore];
 }
 
@@ -170,21 +170,22 @@ static dispatch_queue_t ekQueue;
             
         });
         
-        NSDictionary *dict = [[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
         
-        if (dict == nil)
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:0];
+        NSMutableDictionary *storedDict = [[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
+        if (storedDict != nil)
+            [dict addEntriesFromDictionary:storedDict];
+        
+        //automatically permit new calendars to show
+        for (int i  = 0; i < [calArray count]; i++)
         {
-            NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:0];
+            EKCalendar *calendar = [calArray objectAtIndex:i];
+            if ([dict objectForKey:calendar.calendarIdentifier] == nil)
+                [dict setObject:@"1" forKey:calendar.calendarIdentifier];
             
-            for (int i = 0; i < [calArray count]; i++)
-            {
-                EKCalendar *calendar = [calArray objectAtIndex:i];
-                
-                [dictionary setObject:@"1" forKey:calendar.calendarIdentifier];
-            }
-            
-            [[GroupDiskManager sharedManager] saveDataToDiskWithObject:dictionary withKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
         }
+        [[GroupDiskManager sharedManager] saveDataToDiskWithObject:dict withKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
+        
         
         NSMutableArray *returnArray = [NSMutableArray arrayWithCapacity:0];
         
@@ -247,28 +248,28 @@ static dispatch_queue_t ekQueue;
     }
     else
     {
-//        dispatch_barrier_async(ekQueue, ^{
-            
-            NSError *err = nil;
-            
-            retval = [self.eventStore saveCalendar:calendar commit:YES error:&err];
-            NSLog(@"save calendar.title: %@", calendar.title);
-            NSLog(@"save calendar.source: %@", calendar.source);
+        //        dispatch_barrier_async(ekQueue, ^{
         
-            NSLog(@"err: %@", err);
+        NSError *err = nil;
         
-            if (err) {
-                
+        retval = [self.eventStore saveCalendar:calendar commit:YES error:&err];
+        NSLog(@"save calendar.title: %@", calendar.title);
+        NSLog(@"save calendar.source: %@", calendar.source);
+        
+        NSLog(@"err: %@", err);
+        
+        if (err) {
             
-                NSLog(@"!!!!!!!!!err: %@", err);
-                NSLog(@"saveCalendar8, error: %@", err);
-
-            }
+            
+            NSLog(@"!!!!!!!!!err: %@", err);
+            NSLog(@"saveCalendar8, error: %@", err);
+            
+        }
         else
         {
             [self commit];
         }
-
+        
     }
     
     return retval;
@@ -288,11 +289,11 @@ static dispatch_queue_t ekQueue;
             NSLog(@"saveCalendarWaitForResult, error: %@", err);
             //FIXME:  REimplement alert
             /*
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning7" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
-                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            [alert release];
+             
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning7" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
+             delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+             [alert show];
+             [alert release];
              */
         }
         
@@ -303,13 +304,13 @@ static dispatch_queue_t ekQueue;
 
 -(void) deleteCalendar:(EKCalendar *)calendar
 {
-        NSError *err = nil;
-        [self.eventStore removeCalendar:calendar commit:YES error:&err];
-        if (err) {
-            
-            NSLog(@"deleteCalendar, error: %@", err);
-            
-        }
+    NSError *err = nil;
+    [self.eventStore removeCalendar:calendar commit:YES error:&err];
+    if (err) {
+        
+        NSLog(@"deleteCalendar, error: %@", err);
+        
+    }
 }
 
 -(void) saveCalendarEvent:(EKEvent *)event
@@ -325,10 +326,10 @@ static dispatch_queue_t ekQueue;
             NSLog(@"saveCalendarEvent, error: %@", err);
             //FIXME:  REimplement alert
             /*
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning5" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
-                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            [alert release];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning5" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
+             delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+             [alert show];
+             [alert release];
              */
         }
         else
@@ -346,7 +347,7 @@ static dispatch_queue_t ekQueue;
     if (span)
         theSpan = EKSpanFutureEvents;
     
-
+    
     [self.eventStore removeEvent:event span:theSpan commit:YES error:&err];
     
     if (err) {
@@ -354,17 +355,17 @@ static dispatch_queue_t ekQueue;
         NSLog(@"err: %@", err);
         //FIXME:  REimplement alert
         /*
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning2" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
-                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        [alert release];
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning2" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
+         delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+         [alert show];
+         [alert release];
          */
     }
     
     
-//    [self.eventStore commit:&err];
+    //    [self.eventStore commit:&err];
     
-//    [self saveCalendar:event.calendar];
+    //    [self saveCalendar:event.calendar];
     
 }
 
@@ -382,10 +383,10 @@ static dispatch_queue_t ekQueue;
             NSLog(@"err: %@", err);
             //FIXME:  REimplement alert
             /*
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning1" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
-                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            [alert release];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning1" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
+             delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+             [alert show];
+             [alert release];
              */
         }
     });

@@ -51,7 +51,6 @@
 
 -(void)printSubviews:(UIView *)theView
 {
-//    NSLog(@"theView: %@", theView);
     for (int i = 0; i < [[theView subviews] count]; i++)
     {
         UIView *subview = [[theView subviews] objectAtIndex:i];
@@ -59,11 +58,10 @@
         if ([subview isKindOfClass:[UITableView class]])
             [self.tableViewsArray addObject:subview];
         
-            NSLog(@"TABLE CLASS!: %@", subview);
         if ([subview.subviews count] > 0)
             [self printSubviews:subview];
-//        else
-  //          NSLog(@"subview!: %@", subview);
+
+
         
     }
 }
@@ -89,7 +87,9 @@
     
     NSString *theFirstName = contact.givenName;
     NSString *theLastName = contact.familyName;
+    NSString *name = [NSString stringWithFormat:@"%@ %@", theFirstName, theLastName];
     
+    NSString *theIdentifier = contact.identifier;
     
     NSString *emailAddress = @"";
     for (int i = 0; i < [contact.emailAddresses count]; i++)
@@ -105,17 +105,20 @@
     NSLog(@"emailAddress: %@", emailAddress);
     
     
+    
     NSMutableArray *attendees = [NSMutableArray new];
     
     Class className = NSClassFromString(@"EKAttendee");
     id attendee = [className new];
     
+    [attendee setValue:theIdentifier forKey:@"UUID"];
+    [attendee setValue:name forKey:@"name"];
+    [attendee setValue:emailAddress forKey:@"email"];
+    [attendee setValue:[NSNumber numberWithInteger:EKParticipantStatusPending] forKey:@"status"];
+    [attendee setValue:[NSNumber numberWithInteger:EKParticipantRoleOptional] forKey:@"role"];
+    [attendee setValue:[NSNumber numberWithInteger:EKParticipantTypePerson] forKey:@"type"];
     
-    [attendee setValue:theFirstName forKey:@"firstName"];
-    [attendee setValue:theLastName forKey:@"lastName"];
-    [attendee setValue:emailAddress forKey:@"emailAddress"];
-    [attendees addObject:attendee];
-    
+    NSLog(@"attendee!: %@", attendee);
     [self.event setValue:attendees forKey:@"attendees"];
 
     
@@ -125,6 +128,8 @@
         NSLog(@"THE TABLE VIEW[%d]: %@", i, theTableView);
         [theTableView reloadData];
     }
+    
+    
 }
 
 
