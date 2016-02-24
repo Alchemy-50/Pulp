@@ -194,7 +194,7 @@ static MainViewController *staticVC;
     {
         self.initialized = YES;
         [self.centerViewController processPositioningWithScrollView:self.centerViewController.contentScrollView];
-        [self.fullCalendarViewController.contentContainerViewController navigateToToday];
+        [self.fullCalendarViewController navigateToToday];
         [EventsDigester run];
     }
     
@@ -243,7 +243,7 @@ static MainViewController *staticVC;
 
 - (void) dayViewTapped:(CalendarDayView *)tappedDay
 {
-    [self.fullCalendarViewController.contentContainerViewController dayViewSelected:tappedDay];
+    [self.fullCalendarViewController dayViewSelected:tappedDay];
 }
 
 

@@ -8,7 +8,6 @@
 
 #import "SettingsManager.h"
 #import "AppDelegate.h"
-#import "ContentContainerViewController.h"
 
 
 #define STORED_PROPERTIES_DICTIONARY_KEY @"STORED_PROPERTIES_DICTIONARY_KEY"
@@ -78,8 +77,7 @@ static SettingsManager *theStaticSettingsManager;
     [defaults setObject:[NSNumber numberWithBool:val] forKey:PROPERTY_START_WITH_MONDAY];
     [defaults synchronize];
     
-
-    [[ContentContainerViewController sharedContainerViewController] reloadViews];
+    [[MainViewController sharedMainViewController] dataChanged];
 }
 
 

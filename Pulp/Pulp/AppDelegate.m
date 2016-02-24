@@ -14,10 +14,10 @@
 #import "EventKitManager.h"
 #import "EventStoreChangeThread.h"
 #import "PositionUpdatedRespondeeProtocol.h"
-#import "ContentContainerViewController.h"
 #import "AlarmNotificationHandler.h"
 #import "Utils.h"
 #import <Contacts/Contacts.h>
+#import "FullCalendarViewController.h"
 
 
 #define USER_LAST_ENTERED_APP @"USEfR_LASfT_ENTEfRED_APP2"
@@ -131,7 +131,7 @@
 -(void)appDidEnterForeground
 {
     NSLog(@"do implement appDidEnterForeground");
-    [[ContentContainerViewController sharedContainerViewController] setDailyBorderWithDate:[NSDate date]];
+    [[FullCalendarViewController sharedContainerViewController] setDailyBorderWithDate:[NSDate date]];
     [[MainViewController sharedMainViewController] dataChanged];
     //    self.appController.dailyViewController.hasRunWeather = NO;
 }

@@ -10,18 +10,24 @@
 #import <EventKit/EventKit.h>
 #import <EventKitUI/EventKitUI.h>
 #import "EventKitManager.h"
-#import "ContentContainerViewController.h"
-#import "CalendarManagementTableViewController.h"
+#import "CalendarMonthView.h"
 
 
+@interface FullCalendarViewController : UIViewController <UIScrollViewDelegate>
 
-@interface FullCalendarViewController : UIViewController
 
-- (void) doLoadViews;
++(FullCalendarViewController *)sharedContainerViewController;
 - (void) dataChanged;
+- (void) doLoadViews;
+- (void) calendarShouldScrollToDate:(NSDate *)theDate;
+- (CalendarMonthView *) setDailyBorderWithDate:(NSDate *)theDate;
+- (CalendarMonthView *) setDailyBorderWithDateString:(NSString *)dateString;
+- (void) spoofCalendarDayViewWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
+- (void) dayViewSelected:(CalendarDayView *)theDayView;
+- (void) navigateToToday;
 
 
-@property (nonatomic, retain) ContentContainerViewController *contentContainerViewController;
-@property (nonatomic, retain) UIImageView *zoomingImageView;
-@property (nonatomic, retain) CalendarManagementTableViewController *calendarManagementTableViewController;
+
+
+
 @end

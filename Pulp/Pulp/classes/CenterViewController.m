@@ -14,11 +14,10 @@
 #import "AppDelegate.h"
 #import "WeatherDataManager.h"
 #import <MapKit/MapKit.h>
-
 #import "Defs.h"
 #import "PulpFAImageView.h"
 #import "ThemeManager.h"
-#import "ContentContainerViewController.h"
+#import "FullCalendarViewController.h"
 
 
 @interface CenterViewController ()
@@ -247,7 +246,7 @@ static CenterViewController *globalViewController;
             [dateFormatter setDateFormat:@"yyyy-MM-dd"];
             
             DailyView *theDailyView = [self getVisibleDailyView];
-            [[ContentContainerViewController sharedContainerViewController] setDailyBorderWithDateString:[dateFormatter stringFromDate:theDailyView.dailyViewDate]];
+            [[FullCalendarViewController sharedContainerViewController] setDailyBorderWithDateString:[dateFormatter stringFromDate:theDailyView.dailyViewDate]];
             
             [dateFormatter release];
         }

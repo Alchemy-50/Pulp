@@ -23,7 +23,6 @@
 		3A283FEC1C724D2800056061 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F271C724D2800056061 /* CircleView.m */; };
 		3A283FED1C724D2800056061 /* ColorSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F291C724D2800056061 /* ColorSelectView.m */; };
 		3A283FF71C724D2800056061 /* ContainerTodosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F3C1C724D2800056061 /* ContainerTodosViewController.m */; };
-		3A283FF81C724D2800056061 /* ContentContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F3E1C724D2800056061 /* ContentContainerViewController.m */; };
 		3A283FF91C724D2800056061 /* CoverScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F401C724D2800056061 /* CoverScrollView.m */; };
 		3A283FFA1C724D2800056061 /* DailyIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F421C724D2800056061 /* DailyIconView.m */; };
 		3A283FFB1C724D2800056061 /* DailyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F441C724D2800056061 /* DailyScrollView.m */; };
@@ -216,8 +215,6 @@
 		3A283F291C724D2800056061 /* ColorSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSelectView.m; path = Pulp/classes/ColorSelectView.m; sourceTree = "<group>"; };
 		3A283F3B1C724D2800056061 /* ContainerTodosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerTodosViewController.h; path = Pulp/classes/ContainerTodosViewController.h; sourceTree = "<group>"; };
 		3A283F3C1C724D2800056061 /* ContainerTodosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerTodosViewController.m; path = Pulp/classes/ContainerTodosViewController.m; sourceTree = "<group>"; };
-		3A283F3D1C724D2800056061 /* ContentContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentContainerViewController.h; path = Pulp/classes/ContentContainerViewController.h; sourceTree = "<group>"; };
-		3A283F3E1C724D2800056061 /* ContentContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ContentContainerViewController.m; path = Pulp/classes/ContentContainerViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3A283F3F1C724D2800056061 /* CoverScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoverScrollView.h; path = Pulp/classes/CoverScrollView.h; sourceTree = "<group>"; };
 		3A283F401C724D2800056061 /* CoverScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoverScrollView.m; path = Pulp/classes/CoverScrollView.m; sourceTree = "<group>"; };
 		3A283F411C724D2800056061 /* DailyIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DailyIconView.h; path = Pulp/classes/DailyIconView.h; sourceTree = "<group>"; };
@@ -813,7 +810,6 @@
 		3A40C9441C7646B0009B53F0 /* Months */ = {
 			isa = PBXGroup;
 			children = (
-				3A40C9461C7646D3009B53F0 /* Event */,
 				3A40C9451C7646CE009B53F0 /* Day */,
 				3A283F181C724D2800056061 /* CalendarMonthView.h */,
 				3A283F191C724D2800056061 /* CalendarMonthView.m */,
@@ -838,22 +834,13 @@
 			name = Day;
 			sourceTree = "<group>";
 		};
-		3A40C9461C7646D3009B53F0 /* Event */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Event;
-			sourceTree = "<group>";
-		};
-		3A40C9471C76484D009B53F0 /* Container */ = {
+		3A40C9471C76484D009B53F0 /* Content */ = {
 			isa = PBXGroup;
 			children = (
 				3A40C9481C76485C009B53F0 /* Button */,
 				3A40C9441C7646B0009B53F0 /* Months */,
-				3A283F3D1C724D2800056061 /* ContentContainerViewController.h */,
-				3A283F3E1C724D2800056061 /* ContentContainerViewController.m */,
 			);
-			name = Container;
+			name = Content;
 			sourceTree = "<group>";
 		};
 		3A40C9481C76485C009B53F0 /* Button */ = {
@@ -974,7 +961,7 @@
 		3AFEB9401C726E1800FA991F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A40C9471C76484D009B53F0 /* Container */,
+				3A40C9471C76484D009B53F0 /* Content */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1359,7 +1346,6 @@
 				3A39181B1C76AFD300966DDA /* DRColorPickerWheelViewController.m in Sources */,
 				3A283FD21C724D2800056061 /* AlarmNotificationHandler.m in Sources */,
 				3AB577DE1C7248FA008FE5C0 /* main.m in Sources */,
-				3A283FF81C724D2800056061 /* ContentContainerViewController.m in Sources */,
 				3A39181F1C76B10800966DDA /* ColorPickerViewController.m in Sources */,
 				3A28403F1C724D2800056061 /* WeatherAPIHandler.m in Sources */,
 				3A283FFC1C724D2800056061 /* DailyTableViewCell.m in Sources */,

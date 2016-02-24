@@ -8,7 +8,6 @@
 
 #import "CalendarMonthView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ContentContainerViewController.h"
 #import "GroupFormatManager.h"
 #import "Circle.h"
 #import "Defs.h"
