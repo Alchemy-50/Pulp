@@ -82,10 +82,13 @@ static FullCalendarViewController *staticVC;
     
     self.monthViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     
+  
+    NSLog(@"self.frame!: %@", NSStringFromCGRect(self.view.frame));
     
-    float height = 265 + 40;
+    float circleHeight = self.view.frame.size.width / 7;
+    float height = [Utils getYInFramePerspective:45] + (circleHeight * 5);
     
-    self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, height)];
+    self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,height)];
     self.theScrollView.backgroundColor = [UIColor clearColor];
     self.theScrollView.pagingEnabled = YES;
     self.theScrollView.delegate = self;

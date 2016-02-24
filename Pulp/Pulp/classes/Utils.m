@@ -279,7 +279,7 @@
 {
     float originalHeight = 667;
     float pct = referenceY / originalHeight;
-    return [Utils getScreenWidth] * pct;
+    return [Utils getScreenHeight] * pct;
 }
 
 

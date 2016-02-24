@@ -43,4 +43,5 @@
 + (NSString *)urlencode:(NSString *)theString;
 
 +(float)getXInFramePerspective:(float)referenceX;
++(float)getYInFramePerspective:(float)referenceY;
 @end

@@ -105,14 +105,14 @@ static float insetHeight = 40.0f;
         int rowPosition = 0;
         int iter = 0;
         
-        float y = 65;
+        float y = [Utils getYInFramePerspective:45];
         while (rowPosition < 6)
         {
             
             
             float x = (self.frame.size.width / 7) * iter;
             float width =  (self.frame.size.width / 7);
-            float height = (self.frame.size.height - insetHeight) / 5;
+            float height = width;
             height = width;
             
             CalendarDayView *dayView = [[CalendarDayView alloc] initWithFrame:CGRectMake(x, y, width, height) withParentView:self];
