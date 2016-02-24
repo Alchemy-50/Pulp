@@ -45,13 +45,8 @@ float theTransitionTime = .22;
         [self setNeedsStatusBarAppearanceUpdate];
     
     [[ThemeManager sharedThemeManager] registerPrimaryObject:self];
-    [[ThemeManager sharedThemeManager] registerAdvisoryObject:self];
+    [ThemeManager addCoverViewToView:self.view];
     
-    UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width + 25, self.view.frame.size.height)];
-    coverView.backgroundColor = [UIColor colorWithWhite:0 alpha:.25];
-    [self.view addSubview:coverView];
-
-
 
     self.contentContainerViewController = [[ContentContainerViewController alloc] initWithNibName:nil bundle:nil];
     self.contentContainerViewController.view.backgroundColor = [UIColor clearColor];
@@ -65,20 +60,10 @@ float theTransitionTime = .22;
     
     UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
     calButton.backgroundColor = [UIColor clearColor];
-    [calButton addTarget:self action:@selector(calButtonHit) forControlEvents:UIControlEventTouchUpInside];
+    [calButton addTarget:[CalendarManagementViewController sharedCalendarManagementViewController] action:@selector(doPresent) forControlEvents:UIControlEventTouchUpInside];
     calButton.frame = CGRectMake(sharedButtonView.frame.origin.x, 0, sharedButtonView.frame.size.width, sharedButtonView.frame.origin.y + sharedButtonView.frame.size.height + 5);
     [self.view addSubview:calButton];
     
-}
-
--(void)calButtonHit
-{
-    [[CalendarManagementViewController sharedCalendarManagementViewController] handleDisplay:YES];
-}
-
-
--(void)adviseThemeUpdateWithPrimaryColor:(UIColor *)thePrimaryColor withSecondaryColor:(UIColor *)theSecondaryColor
-{
 }
 
 

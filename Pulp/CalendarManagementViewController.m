@@ -35,14 +35,11 @@ static CalendarManagementViewController *theStaticVC;
     return theStaticVC;
 }
 
--(void)handleDisplay:(BOOL)doPresent
+-(void)doPresent
 {
-    if (doPresent)
-    {
-        [[MainViewController sharedMainViewController] presentViewController:self animated:YES completion:nil];
-    }
-    
+    [[MainViewController sharedMainViewController] presentViewController:self animated:YES completion:nil];
 }
+
 
 -(void)initialize
 {

@@ -205,5 +205,13 @@ static ThemeManager *theStaticManager;
     
 }
 
++(void)addCoverViewToView:(UIView *)theView
+{
+    UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, theView.frame.size.width, theView.frame.size.height)];
+    coverView.backgroundColor = [UIColor colorWithWhite:0 alpha:.25];
+    [theView addSubview:coverView];
+
+}
+
 
 @end

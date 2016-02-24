@@ -18,4 +18,5 @@
 -(void)registerAdvisoryObject:(id)theObj;
 -(void)removeThemeObject:(id)obj;
 -(void)updateThemeColorWithPrimaryColor:(UIColor *)primaryColor withSecondaryColor:(UIColor *)secondaryColor;
++(void)addCoverViewToView:(UIView *)theView;
 @end

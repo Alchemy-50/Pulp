@@ -11,5 +11,5 @@
 @interface CalendarManagementViewController : UIViewController
 
 +(CalendarManagementViewController *)sharedCalendarManagementViewController;
--(void)handleDisplay:(BOOL)doPresent;
+-(void)doPresent;
 @end
