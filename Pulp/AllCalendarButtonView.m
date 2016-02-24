@@ -28,6 +28,7 @@ static AllCalendarButtonView *theStaticView;
 {
     if (theStaticView == nil)
     {
+        NSLog(@"initialize! all calendar button view");
         theStaticView = [[AllCalendarButtonView alloc] initWithFrame:CGRectMake([Utils getXInFramePerspective:253] - [Utils getSidebarWidth], 14, [Utils getXInFramePerspective:189], 15)];
         [theStaticView initialize];
     }

@@ -55,7 +55,7 @@ static FullCalendarViewController *staticVC;
 -(void) dataChanged
 {
     [[GroupDataManager sharedManager] loadCache];
-    [self updateMonthViews];
+    [self updateMonthViews:YES];
     [self.dailyView.theTableView reloadData];
 }
 
@@ -154,7 +154,7 @@ static FullCalendarViewController *staticVC;
     
 }
 
--(void)updateMonthViews
+-(void)updateMonthViews:(BOOL)doRedraw
 {
     int index = [[NSNumber numberWithFloat:self.theScrollView.contentOffset.y / self.theScrollView.frame.size.height] intValue] + 1;
     
@@ -172,7 +172,9 @@ static FullCalendarViewController *staticVC;
         CalendarMonthView *calendarMonthView = [subviewsArray objectAtIndex:i];
         if ([calendarMonthView isKindOfClass:[CalendarMonthView class]])
         {
-            [calendarMonthView cleanUp];
+            if (doRedraw)
+                [calendarMonthView cleanUp];
+            
             if ([presentArray containsObject:calendarMonthView])
             {
                 if ([calendarMonthView drawCalendar])
@@ -211,7 +213,7 @@ static FullCalendarViewController *staticVC;
     NSLog(@"%s", __PRETTY_FUNCTION__);
     
     if (self.initialized)
-        [self updateMonthViews];
+        [self updateMonthViews:NO];
     
     [[AllCalendarButtonView sharedButtonView] performSelectorOnMainThread:@selector(turnOn) withObject:nil waitUntilDone:NO];
 }
@@ -226,7 +228,33 @@ static FullCalendarViewController *staticVC;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 //    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    NSLog(@"scrollview.contentOffset.y: %f", scrollView.contentOffset.y);
+    NSLog(@"scrollView.frame.size.height: %f", scrollView.frame.size.height);
+    float f = scrollView.contentOffset.y / scrollView.frame.size.height;
+    float theRintF = rintf(f);
+    
+    float rem = theRintF - f;
+    rem = fabsf(rem);
+    NSLog(@"f: %f", f);
+    NSLog(@"rintF: %f", theRintF);
+    NSLog(@"rem: %f", rem);
+    NSLog(@" ");
+    NSLog(@" ");
+    
+    if (rem > .001)
+    {
+        if ([AllCalendarButtonView sharedButtonView].alpha == 1)
+            [AllCalendarButtonView sharedButtonView].alpha = 0;
+    }
+    else
+    {
+        if ([AllCalendarButtonView sharedButtonView].alpha == 0)
+            [AllCalendarButtonView sharedButtonView].alpha = 1;
+    }
+        
 
+    
 }
 
 -(void)calendarShouldScrollToDate:(NSDate *)theDate
