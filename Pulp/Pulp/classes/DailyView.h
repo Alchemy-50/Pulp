@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "PulpMapView.h"
 #import <EventKit/EventKit.h>
-
+#import "PulpFAImageView.h"
 
 
 @interface DailyView : UIView <UITableViewDataSource, UITableViewDelegate>
@@ -40,5 +40,8 @@
 @property (nonatomic, retain) UIScrollView *contentScrollView;
 @property (nonatomic, assign) BOOL cellStyleClear;
 @property (nonatomic, assign) BOOL suppressMaps;
+
+@property (nonatomic, retain) PulpFAImageView *closeImageView;
+@property (nonatomic, retain) PulpFAImageView *mapImageView;
 
 @end

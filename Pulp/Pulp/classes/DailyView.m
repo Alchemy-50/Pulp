@@ -14,7 +14,7 @@
 #import "PulpMapView.h"
 #import "MapAPIHandler.h"
 #import "Utils.h"
-
+#import "ThemeManager.h"
 
 
 static float todoHeight = 40;
@@ -286,46 +286,23 @@ static float allDayHeight = 32;
         
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:.33];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDidStopSelector:@selector(mapViewDidExpand)];
         self.expandedMapView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         [CenterViewController sharedCenterViewController].addEventPlusImageView.alpha = 0;
         [UIView commitAnimations];
         
-        UIButton *exitButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        exitButton.frame = CGRectMake(0, 0, 100, 100);
-        exitButton.backgroundColor = [UIColor blackColor];
-        exitButton.alpha = .5;
-        [exitButton setTitle:@"X" forState:UIControlStateNormal];
-        [exitButton addTarget:self action:@selector(mapViewShouldExit:) forControlEvents:UIControlEventTouchUpInside];
-        [self.expandedMapView addSubview:exitButton];
-        
-        UIButton *mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        mapButton.frame = CGRectMake( self.frame.size.width - 100, 0, 100, 100);
-        mapButton.backgroundColor = [UIColor blackColor];
-        mapButton.alpha = .5;
-        [mapButton setTitle:@"MAP" forState:UIControlStateNormal];
-        [mapButton addTarget:self action:@selector(mapButtonHit) forControlEvents:UIControlEventTouchUpInside];
-        [self.expandedMapView addSubview:mapButton];
         
         
         NSDictionary *referenceDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:theEvent]];
-        
-        
-        NSLog(@"referenceDictionary: %@", referenceDictionary);
-        
         NSDictionary *geometryDictionary = [referenceDictionary objectForKey:@"geometry"];
-        NSLog(@"geometryDictionary: %@", geometryDictionary);
-        
-        
-        
         
         CLLocationCoordinate2D center;
         
         NSDictionary *locationDictionary = [geometryDictionary objectForKey:@"location"];
-        NSLog(@"locationDictionary: %@", locationDictionary);
         center.latitude = [[locationDictionary objectForKey:@"lat"] doubleValue];
         center.longitude = [[locationDictionary objectForKey:@"lng"] doubleValue];
 
-        
         
         MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
         myAnnotation.coordinate = center;
@@ -340,6 +317,75 @@ static float allDayHeight = 32;
         
         [self.expandedMapView loadAnnotations];
     }
+}
+
+-(void)mapViewDidExpand
+{
+    float x = [Utils getXInFramePerspective:325] - [Utils getSidebarWidth];
+    float y = [Utils getYInFramePerspective:16];
+    UIView *mapView = [[UIView alloc] initWithFrame:CGRectMake(x, y, [Utils getXInFramePerspective:34], [Utils getXInFramePerspective:34])];
+    mapView.backgroundColor = [UIColor whiteColor];
+    [self.expandedMapView addSubview:mapView];
+    
+    mapView.layer.masksToBounds = NO;
+    mapView.layer.shadowOffset = CGSizeMake(-5, 5);
+    mapView.layer.shadowRadius = 5;
+    mapView.layer.shadowOpacity = 0.05;
+    
+    float desiredHeight = mapView.frame.size.height * .55;
+    NSString *lookupString = @"\uf124";
+    CGSize actualSize = [PulpFAImageView getImageSizeFromString:lookupString withDesiredHeight:desiredHeight];
+    self.mapImageView = [[PulpFAImageView alloc] initWithFrame:CGRectMake(mapView.frame.size.width / 2 - actualSize.width / 2, mapView.frame.size.height / 2 - actualSize.width / 2, actualSize.width, actualSize.height)];
+    self.mapImageView.desiredHeight = desiredHeight;
+    self.mapImageView.referenceString = lookupString;
+    [mapView addSubview:self.mapImageView];
+    [self.mapImageView loadWithColor:[UIColor colorWithRed:155.0f/255.0f green:155.0f/255.0f blue:155.0f/255.0f alpha:1]];
+    
+    UIButton *mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    mapButton.frame = CGRectMake(mapView.frame.origin.x - mapView.frame.size.width / 4, mapView.frame.origin.y - mapView.frame.size.height / 4, mapView.frame.size.width + mapView.frame.size.width / 2, mapView.frame.size.height + mapView.frame.size.height / 2);
+    mapButton.backgroundColor = [UIColor clearColor];
+    [mapButton addTarget:self action:@selector(mapButtonHit) forControlEvents:UIControlEventTouchUpInside];
+    [self.expandedMapView addSubview:mapButton];
+    
+    
+    
+    
+    x = [Utils getXInFramePerspective:75] - [Utils getSidebarWidth];
+    y = [Utils getYInFramePerspective:16];
+    UIView *exitView = [[UIView alloc] initWithFrame:CGRectMake(x, y, [Utils getXInFramePerspective:34], [Utils getXInFramePerspective:34])];
+    exitView.backgroundColor = [UIColor whiteColor];
+    [self.expandedMapView addSubview:exitView];
+    
+    exitView.layer.masksToBounds = NO;
+    exitView.layer.shadowOffset = CGSizeMake(-5, 5);
+    exitView.layer.shadowRadius = 5;
+    exitView.layer.shadowOpacity = 0.05;
+    
+    desiredHeight = exitView.frame.size.height * .55;
+    lookupString = @"\uf00d";
+    actualSize = [PulpFAImageView getImageSizeFromString:lookupString withDesiredHeight:desiredHeight];
+    self.closeImageView = [[PulpFAImageView alloc] initWithFrame:CGRectMake(exitView.frame.size.width / 2 - actualSize.width / 2, exitView.frame.size.height / 2 - actualSize.width / 2, actualSize.width, actualSize.height)];
+    self.closeImageView.desiredHeight = desiredHeight;
+    self.closeImageView.referenceString = lookupString;
+    [exitView addSubview:self.closeImageView];
+    [self.closeImageView loadWithColor:[UIColor colorWithRed:155.0f/255.0f green:155.0f/255.0f blue:155.0f/255.0f alpha:1]];
+    
+    UIButton *exitButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    exitButton.frame = CGRectMake(exitView.frame.origin.x - exitView.frame.size.width / 4, exitView.frame.origin.y - exitView.frame.size.height / 4, exitView.frame.size.width + exitView.frame.size.width / 2, exitView.frame.size.height + exitView.frame.size.height / 2);
+    exitButton.backgroundColor = [UIColor clearColor];
+    [exitButton addTarget:self action:@selector(mapViewShouldExit:) forControlEvents:UIControlEventTouchUpInside];
+    [self.expandedMapView addSubview:exitButton];
+    
+    /*
+    UIButton *mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    mapButton.frame = CGRectMake( self.frame.size.width - 100, 0, 100, 100);
+    mapButton.backgroundColor = [UIColor blackColor];
+    mapButton.alpha = .5;
+    [mapButton setTitle:@"MAP" forState:UIControlStateNormal];
+    [mapButton addTarget:self action:@selector() forControlEvents:UIControlEventTouchUpInside];
+    [self.expandedMapView addSubview:mapButton];
+*/
+    
 }
 
 -(void)pulpMapViewIsInitialized
@@ -359,6 +405,8 @@ static float allDayHeight = 32;
     [UIView setAnimationDuration:.33];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(mapViewDidExit)];
+    self.closeImageView.alpha = 0;
+    self.mapImageView.alpha = 0;
     exitButton.alpha = 0;
     self.expandedMapView.frame = self.referenceMapViewFrame;
     [CenterViewController sharedCenterViewController].addEventPlusImageView.alpha = 1;
@@ -377,10 +425,15 @@ static float allDayHeight = 32;
 
 -(void)mapButtonHit
 {
+    NSString *locationString = [NSString stringWithFormat:@"%@", self.currentReferenceEvent.location];
+    locationString = [locationString stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    locationString = [locationString stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
+    
     NSString *charactersToEscape = @"!*'();:@&=+$,/?%#[]\" ";
     NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
-    NSString *encodedString = [self.currentReferenceEvent.location stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+    NSString *encodedString = [locationString stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
     NSString *urlString = [NSString stringWithFormat:@"%@/?q=%@", @"http://maps.apple.com", encodedString];
+    NSLog(@"urlString: %@", urlString);
     
     [[AppDelegate sharedDelegate] launchExternalURLString:urlString];
 }

@@ -73,17 +73,12 @@ static FullCalendarViewController *staticVC;
     UIView *sharedButtonView = [AllCalendarButtonView sharedButtonView];
     [self.view addSubview:sharedButtonView];
     
-    UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    calButton.backgroundColor = [UIColor clearColor];
-    [calButton addTarget:[CalendarManagementViewController sharedCalendarManagementViewController] action:@selector(doPresent) forControlEvents:UIControlEventTouchUpInside];
-    calButton.frame = CGRectMake(sharedButtonView.frame.origin.x, 0, sharedButtonView.frame.size.width, sharedButtonView.frame.origin.y + sharedButtonView.frame.size.height + 5);
-    [self.view addSubview:calButton];
     
     
     self.monthViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     
     float circleHeight = self.view.frame.size.width / 7;
-    float height = [Utils getYInFramePerspective:45] + (circleHeight * 5);
+    float height = [Utils getYInFramePerspective:60] + (circleHeight * 5);
     
     self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,height)];
     self.theScrollView.backgroundColor = [UIColor clearColor];
@@ -149,6 +144,14 @@ static FullCalendarViewController *staticVC;
     
     self.initialized = YES;
     
+    
+    UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    calButton.backgroundColor = [UIColor clearColor];
+    [calButton addTarget:[CalendarManagementViewController sharedCalendarManagementViewController] action:@selector(doPresent) forControlEvents:UIControlEventTouchUpInside];
+    calButton.frame = CGRectMake(sharedButtonView.frame.origin.x, 0, sharedButtonView.frame.size.width, sharedButtonView.frame.origin.y + sharedButtonView.frame.size.height + 5);
+    [self.view addSubview:calButton];
+
+    
 }
 
 -(void)updateMonthViews:(BOOL)doRedraw
@@ -207,7 +210,7 @@ static FullCalendarViewController *staticVC;
     
     [self setDailyBorderWithDate:referenceDate];
     self.dailyView.dailyViewDate = referenceDate;
-    [self.dailyView loadEvents];    
+    [self.dailyView loadEvents];
 }
 
 

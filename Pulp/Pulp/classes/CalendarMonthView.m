@@ -105,7 +105,7 @@ static float insetHeight = 40.0f;
         int rowPosition = 0;
         int iter = 0;
         
-        float y = [Utils getYInFramePerspective:45];
+        float y = [Utils getYInFramePerspective:60];
         while (rowPosition < 6)
         {
             
