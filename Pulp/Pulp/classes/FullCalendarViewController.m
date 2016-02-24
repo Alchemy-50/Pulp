@@ -188,11 +188,26 @@ static FullCalendarViewController *staticVC;
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
     if (self.initialized)
         [self updateMonthViews:NO];
     
-
+    
+    int index = [[NSNumber numberWithFloat:roundf(self.theScrollView.contentOffset.y / self.theScrollView.frame.size.height)] intValue];
+    NSArray *subviewsArray = [self.theScrollView subviews];
+    CalendarMonthView *calendarMonthView = [subviewsArray objectAtIndex:index];
+    NSDate *referenceDate = calendarMonthView.startDate;
+    NSDate *today = [NSDate date];
+    NSComparisonResult comparisonResult = [calendarMonthView.startDate compare:today];
+    if (comparisonResult == NSOrderedAscending)
+    {
+        comparisonResult = [calendarMonthView.endDate compare:today];
+        if (comparisonResult == NSOrderedDescending)
+            referenceDate = today;
+    }
+    
+    [self setDailyBorderWithDate:referenceDate];
+    self.dailyView.dailyViewDate = referenceDate;
+    [self.dailyView loadEvents];    
 }
 
 
