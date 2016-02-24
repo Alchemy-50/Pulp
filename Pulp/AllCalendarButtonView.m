@@ -63,16 +63,5 @@ static AllCalendarButtonView *theStaticView;
     
 }
 
--(void)turnOn
-{
-    if (self.alpha == 0)
-        self.alpha = 1;
-}
-
--(void)turnOff
-{
-    if (self.alpha == 1)
-        self.alpha = 0;
-}
 
 @end

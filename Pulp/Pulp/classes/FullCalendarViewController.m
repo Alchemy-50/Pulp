@@ -82,9 +82,6 @@ static FullCalendarViewController *staticVC;
     
     self.monthViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     
-  
-    NSLog(@"self.frame!: %@", NSStringFromCGRect(self.view.frame));
-    
     float circleHeight = self.view.frame.size.width / 7;
     float height = [Utils getYInFramePerspective:45] + (circleHeight * 5);
     
@@ -187,60 +184,25 @@ static FullCalendarViewController *staticVC;
     
     
 }
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-//    NSLog(@"%s", __PRETTY_FUNCTION__);
-    [[AllCalendarButtonView sharedButtonView] performSelectorOnMainThread:@selector(turnOff) withObject:nil waitUntilDone:NO];
-}
 
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
-{
-//    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-//    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
-
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
-{
-  //  NSLog(@"%s", __PRETTY_FUNCTION__);
-}
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    
     if (self.initialized)
         [self updateMonthViews:NO];
     
-    [[AllCalendarButtonView sharedButtonView] performSelectorOnMainThread:@selector(turnOn) withObject:nil waitUntilDone:NO];
+
 }
 
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-//    NSLog(@"%s", __PRETTY_FUNCTION__);
-    [[AllCalendarButtonView sharedButtonView] performSelectorOnMainThread:@selector(turnOn) withObject:nil waitUntilDone:NO];
-}
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    NSLog(@"scrollview.contentOffset.y: %f", scrollView.contentOffset.y);
-    NSLog(@"scrollView.frame.size.height: %f", scrollView.frame.size.height);
     float f = scrollView.contentOffset.y / scrollView.frame.size.height;
     float theRintF = rintf(f);
-    
     float rem = theRintF - f;
     rem = fabsf(rem);
-    NSLog(@"f: %f", f);
-    NSLog(@"rintF: %f", theRintF);
-    NSLog(@"rem: %f", rem);
-    NSLog(@" ");
-    NSLog(@" ");
     
     if (rem > .001)
     {
