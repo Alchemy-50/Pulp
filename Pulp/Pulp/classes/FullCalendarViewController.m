@@ -185,21 +185,26 @@ static FullCalendarViewController *staticVC;
     
     
 }
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [[AllCalendarButtonView sharedButtonView] performSelectorOnMainThread:@selector(turnOff) withObject:nil waitUntilDone:NO];
+}
 
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+  //  NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -207,18 +212,21 @@ static FullCalendarViewController *staticVC;
     
     if (self.initialized)
         [self updateMonthViews];
+    
+    [[AllCalendarButtonView sharedButtonView] performSelectorOnMainThread:@selector(turnOn) withObject:nil waitUntilDone:NO];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [[AllCalendarButtonView sharedButtonView] performSelectorOnMainThread:@selector(turnOn) withObject:nil waitUntilDone:NO];
 }
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
-    
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
+
 }
 
 -(void)calendarShouldScrollToDate:(NSDate *)theDate

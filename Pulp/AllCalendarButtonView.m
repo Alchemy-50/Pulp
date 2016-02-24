@@ -28,7 +28,7 @@ static AllCalendarButtonView *theStaticView;
 {
     if (theStaticView == nil)
     {
-        theStaticView = [[AllCalendarButtonView alloc] initWithFrame:CGRectMake(263 - [Utils getSidebarWidth], 14, 169, 15)];
+        theStaticView = [[AllCalendarButtonView alloc] initWithFrame:CGRectMake([Utils getXInFramePerspective:253] - [Utils getSidebarWidth], 14, [Utils getXInFramePerspective:189], 15)];
         [theStaticView initialize];
     }
     
@@ -40,9 +40,9 @@ static AllCalendarButtonView *theStaticView;
 {
     self.backgroundColor = [UIColor clearColor];
     
-    self.calendarsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 85, self.frame.size.height)];
+    self.calendarsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [Utils getXInFramePerspective:85], self.frame.size.height)];
     self.calendarsLabel.backgroundColor = [UIColor clearColor];
-    self.calendarsLabel.textAlignment = NSTextAlignmentLeft;
+    self.calendarsLabel.textAlignment = NSTextAlignmentRight;
     self.calendarsLabel.font = [UIFont fontWithName:@"Lato-Regular" size:14];
     self.calendarsLabel.text = @"All Calendars";
     [self addSubview:self.calendarsLabel];
@@ -54,7 +54,7 @@ static AllCalendarButtonView *theStaticView;
     NSString *lookupString = @"fa-cog";
     CGSize actualSize = [PulpFAImageView getImageSizeFromString:lookupString withDesiredHeight:desiredHeight];
     
-    self.cogImageView = [[PulpFAImageView alloc] initWithFrame:CGRectMake(self.calendarsLabel.frame.origin.x + self.calendarsLabel.frame.size.width + 4, 0, actualSize.width, actualSize.height)];
+    self.cogImageView = [[PulpFAImageView alloc] initWithFrame:CGRectMake(self.calendarsLabel.frame.origin.x + self.calendarsLabel.frame.size.width + 11, 0, actualSize.width, actualSize.height)];
     self.cogImageView.desiredHeight = desiredHeight;
     self.cogImageView.referenceString = lookupString;
     [self addSubview:self.cogImageView];
@@ -62,6 +62,16 @@ static AllCalendarButtonView *theStaticView;
     
 }
 
+-(void)turnOn
+{
+    if (self.alpha == 0)
+        self.alpha = 1;
+}
 
+-(void)turnOff
+{
+    if (self.alpha == 1)
+        self.alpha = 0;
+}
 
 @end

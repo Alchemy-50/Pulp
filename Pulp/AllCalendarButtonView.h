@@ -13,4 +13,6 @@
 
 +(AllCalendarButtonView *)sharedButtonView;
 
+-(void)turnOn;
+-(void)turnOff;
 @end
