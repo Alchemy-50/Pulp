@@ -31,9 +31,6 @@
 		3A283FFE1C724D2800056061 /* DailyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F4A1C724D2800056061 /* DailyView.m */; };
 		3A283FFF1C724D2800056061 /* DefaultCalendarSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F4C1C724D2800056061 /* DefaultCalendarSelectTableViewController.m */; };
 		3A2840001C724D2800056061 /* Defs.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F4E1C724D2800056061 /* Defs.m */; };
-		3A2840011C724D2800056061 /* EditEventNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F511C724D2800056061 /* EditEventNavigationViewController.m */; };
-		3A2840021C724D2800056061 /* EventCalendarSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F531C724D2800056061 /* EventCalendarSelectTableViewCell.m */; };
-		3A2840031C724D2800056061 /* EventCalendarSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F551C724D2800056061 /* EventCalendarSelectViewController.m */; };
 		3A2840041C724D2800056061 /* EventCalendarUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F571C724D2800056061 /* EventCalendarUtils.m */; };
 		3A2840051C724D2800056061 /* EventForCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */; };
 		3A2840061C724D2800056061 /* EventKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F5C1C724D2800056061 /* EventKitManager.m */; };
@@ -165,6 +162,8 @@
 		3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C9531C766C17009B53F0 /* EditCalendarManagementViewController.m */; };
 		3A40C9561C766C17009B53F0 /* EditCalendarManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */; };
 		3A54877E1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */; };
+		3A8640371C7DF2820064FE4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640361C7DF2820064FE4A /* MapKit.framework */; };
+		3A86403A1C7DF3230064FE4A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640391C7DF3230064FE4A /* CloudKit.framework */; };
 		3AB577DE1C7248FA008FE5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577DD1C7248FA008FE5C0 /* main.m */; };
 		3AB577E11C7248FA008FE5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577E01C7248FA008FE5C0 /* AppDelegate.m */; };
 		3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E81C7248FA008FE5C0 /* Assets.xcassets */; };
@@ -233,12 +232,6 @@
 		3A283F4C1C724D2800056061 /* DefaultCalendarSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultCalendarSelectTableViewController.m; path = Pulp/classes/DefaultCalendarSelectTableViewController.m; sourceTree = "<group>"; };
 		3A283F4D1C724D2800056061 /* Defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Defs.h; path = Pulp/classes/Defs.h; sourceTree = "<group>"; };
 		3A283F4E1C724D2800056061 /* Defs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Defs.m; path = Pulp/classes/Defs.m; sourceTree = "<group>"; };
-		3A283F501C724D2800056061 /* EditEventNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditEventNavigationViewController.h; path = Pulp/classes/EditEventNavigationViewController.h; sourceTree = "<group>"; };
-		3A283F511C724D2800056061 /* EditEventNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditEventNavigationViewController.m; path = Pulp/classes/EditEventNavigationViewController.m; sourceTree = "<group>"; };
-		3A283F521C724D2800056061 /* EventCalendarSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventCalendarSelectTableViewCell.h; path = Pulp/classes/EventCalendarSelectTableViewCell.h; sourceTree = "<group>"; };
-		3A283F531C724D2800056061 /* EventCalendarSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventCalendarSelectTableViewCell.m; path = Pulp/classes/EventCalendarSelectTableViewCell.m; sourceTree = "<group>"; };
-		3A283F541C724D2800056061 /* EventCalendarSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventCalendarSelectViewController.h; path = Pulp/classes/EventCalendarSelectViewController.h; sourceTree = "<group>"; };
-		3A283F551C724D2800056061 /* EventCalendarSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventCalendarSelectViewController.m; path = Pulp/classes/EventCalendarSelectViewController.m; sourceTree = "<group>"; };
 		3A283F561C724D2800056061 /* EventCalendarUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventCalendarUtils.h; path = Pulp/classes/EventCalendarUtils.h; sourceTree = "<group>"; };
 		3A283F571C724D2800056061 /* EventCalendarUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = EventCalendarUtils.m; path = Pulp/classes/EventCalendarUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3A283F591C724D2800056061 /* EventForCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventForCalendarDayView.h; path = Pulp/classes/EventForCalendarDayView.h; sourceTree = "<group>"; };
@@ -431,6 +424,9 @@
 		3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCalendarManagementViewController.xib; sourceTree = "<group>"; };
 		3A54877C1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerEKEventEditViewController.h; sourceTree = "<group>"; };
 		3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerEKEventEditViewController.m; sourceTree = "<group>"; };
+		3A8640361C7DF2820064FE4A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3A8640381C7DF3170064FE4A /* Pulp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pulp.entitlements; sourceTree = "<group>"; };
+		3A8640391C7DF3230064FE4A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3AB577D91C7248FA008FE5C0 /* Pulp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB577DD1C7248FA008FE5C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pulp/AppDelegate.h; sourceTree = "<group>"; };
@@ -465,6 +461,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A86403A1C7DF3230064FE4A /* CloudKit.framework in Frameworks */,
+				3A8640371C7DF2820064FE4A /* MapKit.framework in Frameworks */,
 				165B6FF3F86816A6693D0226 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,21 +487,6 @@
 			);
 			name = Frameworks;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		3A0146BF1C7CAD250023D867 /* SortThese */ = {
-			isa = PBXGroup;
-			children = (
-				3A283F591C724D2800056061 /* EventForCalendarDayView.h */,
-				3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */,
-				3A283F521C724D2800056061 /* EventCalendarSelectTableViewCell.h */,
-				3A283F531C724D2800056061 /* EventCalendarSelectTableViewCell.m */,
-				3A283F541C724D2800056061 /* EventCalendarSelectViewController.h */,
-				3A283F551C724D2800056061 /* EventCalendarSelectViewController.m */,
-				3A283F501C724D2800056061 /* EditEventNavigationViewController.h */,
-				3A283F511C724D2800056061 /* EditEventNavigationViewController.m */,
-			);
-			name = SortThese;
 			sourceTree = "<group>";
 		};
 		3A0146C01C7CB7D50023D867 /* Cover */ = {
@@ -670,7 +653,6 @@
 		3A2840FE1C725B8A00056061 /* EventVCS */ = {
 			isa = PBXGroup;
 			children = (
-				3A0146BF1C7CAD250023D867 /* SortThese */,
 				3A54877C1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.h */,
 				3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */,
 			);
@@ -944,6 +926,9 @@
 		3AB577F31C72493B008FE5C0 /* Cruft */ = {
 			isa = PBXGroup;
 			children = (
+				3A8640391C7DF3230064FE4A /* CloudKit.framework */,
+				3A8640381C7DF3170064FE4A /* Pulp.entitlements */,
+				3A8640361C7DF2820064FE4A /* MapKit.framework */,
 				3A2840651C7251C800056061 /* Assets */,
 				3A2840F41C72566D00056061 /* OLD */,
 				3A28404E1C72516A00056061 /* Fonts */,
@@ -1076,6 +1061,8 @@
 		3AFEB9571C72796D00FA991F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A283F591C724D2800056061 /* EventForCalendarDayView.h */,
+				3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */,
 				3A283F411C724D2800056061 /* DailyIconView.h */,
 				3A283F421C724D2800056061 /* DailyIconView.m */,
 				3A283F431C724D2800056061 /* DailyScrollView.h */,
@@ -1125,7 +1112,15 @@
 				TargetAttributes = {
 					3AB577D81C7248FA008FE5C0 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = XHWNS7W3NX;
+						DevelopmentTeam = 3PE378BX7Q;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1320,7 +1315,6 @@
 				3A2840151C724D2800056061 /* ImagesAPIHandler.m in Sources */,
 				3A2840441C724DAA00056061 /* FAImageView.m in Sources */,
 				3A2840191C724D2800056061 /* MainViewController.m in Sources */,
-				3A2840011C724D2800056061 /* EditEventNavigationViewController.m in Sources */,
 				3A3918121C76AFD300966DDA /* DRColorPickerGridViewController.m in Sources */,
 				3A54877E1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m in Sources */,
 				3A28403A1C724D2800056061 /* TodosViewController.m in Sources */,
@@ -1355,7 +1349,6 @@
 				3A2840371C724D2800056061 /* TodoDataManager.m in Sources */,
 				3A39180C1C76AFD300966DDA /* DRColorPicker.m in Sources */,
 				3A3918171C76AFD300966DDA /* DRColorPickerHueViewController.m in Sources */,
-				3A2840031C724D2800056061 /* EventCalendarSelectViewController.m in Sources */,
 				3A283FFB1C724D2800056061 /* DailyScrollView.m in Sources */,
 				3A283FEA1C724D2800056061 /* CenterViewController.m in Sources */,
 				3A283FF91C724D2800056061 /* CoverScrollView.m in Sources */,
@@ -1366,7 +1359,6 @@
 				3A39181B1C76AFD300966DDA /* DRColorPickerWheelViewController.m in Sources */,
 				3A283FD21C724D2800056061 /* AlarmNotificationHandler.m in Sources */,
 				3AB577DE1C7248FA008FE5C0 /* main.m in Sources */,
-				3A2840021C724D2800056061 /* EventCalendarSelectTableViewCell.m in Sources */,
 				3A283FF81C724D2800056061 /* ContentContainerViewController.m in Sources */,
 				3A39181F1C76B10800966DDA /* ColorPickerViewController.m in Sources */,
 				3A28403F1C724D2800056061 /* WeatherAPIHandler.m in Sources */,
@@ -1494,13 +1486,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ENTITLEMENTS = Pulp/Pulp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Pulp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alchemy50.com.Pulp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96aa3c2f-01a4-4335-a014-4b6e63e09545";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1511,13 +1505,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ENTITLEMENTS = Pulp/Pulp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Pulp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = alchemy50.com.Pulp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96aa3c2f-01a4-4335-a014-4b6e63e09545";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

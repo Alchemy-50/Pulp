@@ -42,4 +42,5 @@
 +(float)getSidebarWidth;
 + (NSString *)urlencode:(NSString *)theString;
 
++(float)getXInFramePerspective:(float)referenceX;
 @end

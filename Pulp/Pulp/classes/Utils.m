@@ -263,4 +263,25 @@
 }
 
 
++(float)getXInFramePerspective:(float)referenceX
+{
+    float originalWidth = 375;
+    
+    float pct = referenceX / originalWidth;
+    
+    return [Utils getScreenWidth] * pct;
+    
+    
+}
+
+
++(float)getYInFramePerspective:(float)referenceY
+{
+    float originalHeight = 667;
+    float pct = referenceY / originalHeight;
+    return [Utils getScreenWidth] * pct;
+}
+
+
+
 @end

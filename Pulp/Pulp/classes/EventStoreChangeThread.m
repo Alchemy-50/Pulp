@@ -32,7 +32,42 @@
 
 - (void) notifyRoot:(id)sender
 {
+ /*
     NSLog(@"notifyRoot, sender: %@", sender);
+    NSLog(@"sender.class: %@", [sender class]);
+    
+    id userInfo = [sender userInfo];
+    NSLog(@"userInfo!: %@", userInfo);
+    NSLog(@"userInfo.class: %@", [userInfo class]);
+
+    if ([userInfo isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *dict = (NSDictionary *)userInfo;
+        NSLog(@"dict: %@", dict);
+        NSArray *ar = [dict objectForKey:@"EKEventStoreChangedObjectIDsUserInfoKey"];
+        NSLog(@"ar: %@", ar);
+        for (int i = 0; i < [ar count]; i++)
+        {
+            id obj = [ar objectAtIndex:i];
+            NSLog(@"obj[%d]: %@", i, [ar objectAtIndex:i]);
+            NSLog(@"obj.class: %@", [obj class]);
+            NSString *desc = [obj description];
+            NSLog(@"desc: %@", desc);
+            NSLog(@"desc.class: %@", [desc class]);
+            
+            NSURL *theURL = [NSURL URLWithString:desc];
+            NSError *error = nil;
+            NSData* data = [NSData dataWithContentsOfURL:theURL options:NSDataReadingUncached error:&error];
+            NSLog(@"theURL: %@", theURL);
+            NSLog(@"error: %@", error);
+            NSLog(@"data.length: %lu", (unsigned long)[data length]);
+            
+        }
+    }
+    
+*/
+  
+    
 
     self.count = 0;
     if (self.notificationWatchTimer == nil)

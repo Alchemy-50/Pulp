@@ -89,16 +89,32 @@
             break;
     }
     
-    if (!authorized)
-    {
+//    if (!authorized)
+//    {
         CNContactStore *store =  [[CNContactStore alloc] init];
         [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-           
-            NSLog(@"Granted?: %d", granted);
-            NSLog(@"error: %@", error);
+            
+//            NSLog(@"Granted?: %d", granted);
+  //          NSLog(@"error: %@", error);
+            
+//            NSString *defaultContainerIdentifier = [store defaultContainerIdentifier];
+    //        NSLog(@"defaultContainerIdentifier!: %@", defaultContainerIdentifier);
+    
+      /*
+            NSError* contactError;
+            CNContactStore* addressBook = [[CNContactStore alloc]init];
+            [addressBook containersMatchingPredicate:[CNContainer predicateForContainersWithIdentifiers: @[addressBook.defaultContainerIdentifier]] error:&contactError];
+            NSArray * keysToFetch =@[CNContactEmailAddressesKey, CNContactPhoneNumbersKey, CNContactFamilyNameKey, CNContactGivenNameKey, CNContactPostalAddressesKey];
+            CNContactFetchRequest * request = [[CNContactFetchRequest alloc]initWithKeysToFetch:keysToFetch];
+            BOOL success = [addressBook enumerateContactsWithFetchRequest:request error:&contactError usingBlock:^(CNContact * __nonnull contact, BOOL * __nonnull stop){
+//                [self parseContactWithContact:contact];
+                NSLog(@"contact!: %@", contact);
+            }];
+                   */
+            
         }];
         
-    }
+    //}
     
     
     return YES;

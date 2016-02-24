@@ -95,7 +95,9 @@ static UIFont *theLocationLabelFont;
         [self addSubview:self.stripeView];
         
         
-        self.startTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(6, topInset, self.frame.size.width * .12, 20)];
+        
+        
+        self.startTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake([Utils getXInFramePerspective:6], topInset, self.frame.size.width * .12, 20)];
         self.startTimeLabel.backgroundColor = [UIColor clearColor];
         self.startTimeLabel.textColor = [UIColor blackColor];
         if (self.cellStyleClear)
@@ -465,7 +467,7 @@ static UIFont *theLocationLabelFont;
         height = 18;
     
     height += 2;
-    return CGRectMake(75.0, topInset - 1.5, maxWidth, height);
+    return CGRectMake([Utils getXInFramePerspective:75.0], topInset - 1.5, maxWidth, height);
 }
 
 
