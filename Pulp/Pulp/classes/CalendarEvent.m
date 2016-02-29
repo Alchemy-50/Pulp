@@ -12,7 +12,7 @@
 
 @implementation CalendarEvent
 
-@synthesize ekObject, participants, organizer, fbEventID, validEvent;
+@synthesize ekObject;
 
 
 - (CalendarEvent *) init
@@ -31,9 +31,6 @@
         self.ekObject = (EKEvent *)[[NSMutableArray alloc] initWithObjects:event, nil];
     else 
         self.ekObject = event;
-        
-    self.participants = [[NSMutableArray alloc] initWithCapacity:0];
-    self.validEvent = YES;
     
     return self;
 }
@@ -44,9 +41,6 @@
     
     self.ekObject = event;
     
-    self.participants = [[NSMutableArray alloc] initWithCapacity:0];
-    self.validEvent = YES;
-    
     return self;
 }
 
@@ -54,48 +48,10 @@
     
     self = [super init];
     
-    //self.ekObject = ce.ekObject;
-    
-    if (ce.participants != nil)
-        self.participants = [NSMutableArray arrayWithArray:ce.participants];
-    
-    if (ce.organizer != nil)
-        self.organizer = [NSString stringWithString:ce.organizer];
-    
-    if (ce.fbEventID != nil)
-        self.fbEventID = [NSString  stringWithString:ce.fbEventID];
-    
     
     return self;    
 }
 
-- (void) encodeWithCoder:(NSCoder *)encoder {
-    
-    //[self printCalendarEvent];
-    
-    [encoder encodeObject:self.organizer forKey:@"organizer"];
-    [encoder encodeObject:self.participants forKey:@"participants"];
-    [encoder encodeObject:self.fbEventID forKey:@"fbeventid"];
-    
-    //if (self.commonTaskCalendarID != nil)
-    //{
-        //NSLog(@"begin test");
-        //NSLog(@"commonTaskCalendarID.retainCount: %d", [self.commonTaskCalendarID retainCount]);            
-        //NSLog(@"WTF: %@", self.commonTaskCalendarID);
-        //[encoder encodeObject:self.commonTaskCalendarID  forKey:@"commontaskcalendarid"];
-        
-    //}
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-    
-    self.organizer = [decoder decodeObjectForKey:@"organizer"];
-    self.participants = [decoder decodeObjectForKey:@"participants"];
-    self.fbEventID = [decoder decodeObjectForKey:@"fbeventid"];    
-    //self.commonTaskCalendarID = [decoder decodeObjectForKey:@"commontaskcalendarid"];
-
-    return self;
-}
 
 
 - (void) addEkEvent:(EKEvent *)event
@@ -157,29 +113,6 @@
     
     return nil;
 }
-
-- (void) printCalendarEvent
-{
-    NSLog(@"EK: %@", self.ekObject);
-    //NSLog(@"CT ID: %@", self.commonTaskCalendarID);
-    //NSLog(@"EK: %@", self.calendarEventDictionary);
-    
-    /*
-    id ekObject;
-    
-    NSMutableArray *participants;
-    
-    NSString *organizer;
-    
-    NSString *fbEventID;
-    
-    NSString *commonTaskCalendarID;
-    
-    BOOL validEvent;    
-    */
-    
-}
-
 
 
 

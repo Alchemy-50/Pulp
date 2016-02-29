@@ -137,11 +137,6 @@
 
     CalendarEvent *outCalEvent = [[CalendarEvent alloc] initWithSingleEKEvent:outEKEvent];
     
-    outCalEvent.participants = inCalEvent.participants;
-    outCalEvent.organizer = inCalEvent.organizer;
-    outCalEvent.fbEventID = inCalEvent.fbEventID;
-    outCalEvent.validEvent = inCalEvent.validEvent;
-    
     return outCalEvent;
 }
 
@@ -180,11 +175,6 @@
     }
         
     [copyingEvent setEkObject:copyingEKEvent];
-    
-    copyingEvent.participants = eventToCopy.participants;
-    copyingEvent.organizer = eventToCopy.organizer;
-    copyingEvent.fbEventID = eventToCopy.fbEventID;
-    copyingEvent.validEvent = eventToCopy.validEvent;
     
     return copyingEvent;
 }
