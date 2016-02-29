@@ -426,7 +426,7 @@ static dispatch_queue_t ekQueue;
         if ([ekObject isKindOfClass:[NSArray class]]) {
             for (EKEvent *event in (NSArray *)ekObject)
             {
-                CalendarEvent *ce = [[CalendarEvent alloc] initWithCalendarEvent:calEvent];   //insures no loss
+                CalendarEvent *ce = [[CalendarEvent alloc] init];
                 ce.ekObject = event;
                 
                 retDict = [self loadReturnDictionaryWithRetDict:retDict withEvent:ce withFetchStartDate:startDate withFetchEndDate:endDate];
@@ -453,8 +453,8 @@ static dispatch_queue_t ekQueue;
 
 NSInteger eventSort(id calEvent1, id calEvent2, void *context)
 {
-    EKEvent *ekEvent1 = [((CalendarEvent *)calEvent1) getEkEventWithParameter:nil];
-    EKEvent *ekEvent2 = [((CalendarEvent *)calEvent2) getEkEventWithParameter:nil];
+    EKEvent *ekEvent1 = [((CalendarEvent *)calEvent1) getEkEvent];
+    EKEvent *ekEvent2 = [((CalendarEvent *)calEvent2) getEkEvent];
     
     return [ekEvent1 compareStartDateWithEvent:ekEvent2];
 }

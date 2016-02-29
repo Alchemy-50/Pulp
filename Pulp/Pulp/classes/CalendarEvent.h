@@ -15,9 +15,7 @@
 
 - (CalendarEvent *) init;
 - (CalendarEvent *) initWithEKEvent:(EKEvent *)ekEvent;
-- (void) addEkEvent:(EKEvent *)event;
-- (EKEvent *) getEkEventWithParameter:(id)param;
-- (CalendarEvent *) initWithCalendarEvent:(CalendarEvent *)ce;
+- (EKEvent *) getEkEvent;
 
 
 
