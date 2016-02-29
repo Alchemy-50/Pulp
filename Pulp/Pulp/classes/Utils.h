@@ -29,10 +29,8 @@
 
 @interface Utils : NSObject
 
-+ (CalendarEvent *) copyCalendarEvent:(CalendarEvent *)calEvent;
 
 +(BOOL)isIPad;
-
 +(void) changeColors:(UIView *)theView withTopColor:(UIColor *)topColor withBottomColor:(UIColor *)bottomColor;
 +(CalendarEvent *) partialCopyCalendarEvent:(CalendarEvent *)eventToCopy toCalendarEvent:(CalendarEvent *)copyingEvent;
 +(UIImage*) hueImageWithImage:(UIImage*) source fixedHue:(CGFloat) hue alpha:(CGFloat) alpha withSaturation:(float)theSaturation withBrigtness:(float)theBrightness;
@@ -41,7 +39,6 @@
 +(float)getScreenHeight;
 +(float)getSidebarWidth;
 + (NSString *)urlencode:(NSString *)theString;
-
 +(float)getXInFramePerspective:(float)referenceX;
 +(float)getYInFramePerspective:(float)referenceY;
 @end

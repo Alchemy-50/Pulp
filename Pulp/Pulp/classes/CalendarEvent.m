@@ -35,14 +35,7 @@
     return self;
 }
 
-- (CalendarEvent *) initWithSingleEKEvent:(EKEvent *)event
-{
-    self = [super init];
-    
-    self.ekObject = event;
-    
-    return self;
-}
+
 
 - (CalendarEvent *) initWithCalendarEvent:(CalendarEvent *)ce {
     
