@@ -393,28 +393,8 @@ static dispatch_queue_t ekQueue;
     NSMutableDictionary *retDict = [NSMutableDictionary dictionaryWithCapacity:0];
     NSMutableArray *eventsArray = [NSMutableArray arrayWithCapacity:0];
     
-    EKEvent *festEvent = nil;
     
     NSArray *ar = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:selectedCals];
-    
-    for (int i = 0; i < [ar count]; i++)
-    {
-        EKEvent *theEvent = [ar objectAtIndex:i];
-        if ([theEvent.title rangeOfString:@"fest1"].length > 0)
-        {
-            festEvent = theEvent;
-        }
-        
-    }
-    if (festEvent != nil)
-    {
-        /*        NSLog(@"begin fetchEventsWithStartDate");
-         NSLog(@"startDate: %@", startDate);
-         NSLog(@"endDate: %@", endDate);
-         NSLog(@"festEvent: %@", festEvent);
-         NSLog(@" ");
-         */  }
-    
     for (int i = 0; i < [ar count]; i++)
         [eventsArray addObject:[[CalendarEvent alloc] initWithEKEvent:[ar objectAtIndex:i]]];
     
@@ -422,27 +402,14 @@ static dispatch_queue_t ekQueue;
     for (int i = 0; i < [eventsArray count]; i++)
     {
         CalendarEvent *calEvent = [eventsArray objectAtIndex:i];
-        id ekObject = calEvent.ekObject;
-        if ([ekObject isKindOfClass:[NSArray class]]) {
-            for (EKEvent *event in (NSArray *)ekObject)
-            {
-                CalendarEvent *ce = [[CalendarEvent alloc] init];
-                ce.ekObject = event;
-                
-                retDict = [self loadReturnDictionaryWithRetDict:retDict withEvent:ce withFetchStartDate:startDate withFetchEndDate:endDate];
-            }
-            
-        } else
-            retDict = [self loadReturnDictionaryWithRetDict:retDict withEvent:calEvent withFetchStartDate:startDate withFetchEndDate:endDate];
-        
+        retDict = [self loadReturnDictionaryWithRetDict:retDict withEvent:calEvent withFetchStartDate:startDate withFetchEndDate:endDate];
     }
     
     NSArray *dateKeys = [retDict allKeys];
     for (NSString *dateKey in dateKeys) {
         
         NSArray *eventArray = [retDict objectForKey:dateKey];
-        if ( [eventArray count] > 1 ) {
-            
+        if ( [eventArray count] > 1 ) {            
             eventArray = [eventArray sortedArrayUsingFunction:eventSort context:nil];
             [retDict setObject:eventArray forKey:dateKey];
         }
@@ -461,11 +428,10 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context)
 
 - (NSMutableDictionary *) loadReturnDictionaryWithRetDict:(NSMutableDictionary *)retDict withEvent:(CalendarEvent *)calEvent withFetchStartDate:(NSDate *)startDate withFetchEndDate:(NSDate *)endDate
 {
-    EKEvent *ekEvent = (EKEvent *)calEvent.ekObject;
     
-    NSDate *eventStartDate = ekEvent.startDate;
-    // have to check for multiday events
-    NSDate *eventEndDate = ekEvent.endDate;
+    NSDate *eventStartDate = [calEvent getStartDate];
+    NSDate *eventEndDate = [calEvent getEndDate];
+    
     
     int eventStartDay = [[[DateFormatManager sharedManager].dayFormatter stringFromDate:eventStartDate] intValue];
     int eventStartMonth = [[[DateFormatManager sharedManager].monthFormatter stringFromDate:eventStartDate] intValue];

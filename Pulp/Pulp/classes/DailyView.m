@@ -143,40 +143,6 @@ static float allDayHeight = 32;
 
 
 
--(void)spoofArrayWithEvent:(EKEvent *)theEvent
-{
-    NSLog(@"theEvent.eventIdendifier: %@", theEvent.eventIdentifier);
-    
-    int referenceIndex = -1;
-    for (int i =0 ; i < [self.eventsArray count]; i++)
-    {
-        EKEvent *existingEvent = [self.eventsArray objectAtIndex:i];
-        
-        if ([existingEvent.eventIdentifier compare:theEvent.eventIdentifier] == NSOrderedSame)
-            referenceIndex = i;
-    }
-    
-    if (referenceIndex >= 0)
-        [self.eventsArray replaceObjectAtIndex:referenceIndex withObject:theEvent];
-    else
-        [self.eventsArray addObject:theEvent];
-    
-    
-    
-    NSArray *orderedArray = [self.eventsArray sortedArrayUsingComparator:^NSComparisonResult(EKEvent *a, EKEvent *b) {
-        return  [a compareStartDateWithEvent:b];
-    }];
-    
-    [self.eventsArray removeAllObjects];
-    [self.eventsArray addObjectsFromArray:orderedArray];
-    
-    
-    [self handleEmptyPresentation];
-    [self.theTableView reloadData];
-}
-
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

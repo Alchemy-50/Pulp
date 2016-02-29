@@ -33,21 +33,7 @@
     for (int i = 0; i < [eventsArray count]; i++)
     {
         CalendarEvent *calendarEvent = [eventsArray objectAtIndex:i];
-
-        EKEvent *calendarEKEvent = calendarEvent.ekObject;
-        
-        if ([calendarEvent.ekObject isKindOfClass:[NSArray class]])
-        {
-            NSArray *theArray = (NSArray *)calendarEKEvent;
-            if ([theArray count] > 0)
-                calendarEKEvent = [theArray objectAtIndex:0];
-        }
-        
-        EKCalendar *calendarEKEventCalendar = calendarEKEvent.calendar;
-        
-        UIColor *eventColor = [UIColor colorWithCGColor:calendarEKEventCalendar.CGColor];
-        
-
+        UIColor *eventColor = [[calendarEvent getCalendar] getColor];
 
         float yPos = self.frame.size.height - (([eventsArray count] - i) * height) - 5;                
     

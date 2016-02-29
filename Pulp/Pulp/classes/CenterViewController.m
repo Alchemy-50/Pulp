@@ -343,16 +343,6 @@ static CenterViewController *globalViewController;
 }
 
 
--(void)spoofAddEventWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init ];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *startString = [dateFormatter stringFromDate:theEvent.startDate];
-    DailyView *dailyView = [self.dayDatesDictionary objectForKey:startString];
-    [dailyView spoofArrayWithEvent:theEvent];
-}
-
-
 
 
 

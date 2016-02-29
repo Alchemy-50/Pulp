@@ -7,18 +7,20 @@
 //
 
 #import "CalendarEvent.h"
-
+#import <EventKit/EventKit.h>
 #import "DateFormatManager.h"
+
+@interface CalendarEvent ()
+@property (nonatomic, retain) EKEvent *ekObject;
+@end
 
 @implementation CalendarEvent
 
-@synthesize ekObject;
 
 
 - (CalendarEvent *) init
 {
     [self initWithEKEvent:nil];
-    
     return self;
 }
 
@@ -26,14 +28,10 @@
 - (CalendarEvent *) initWithEKEvent:(EKEvent *)event
 {
     self = [super init];
-        
-    if ([event hasRecurrenceRules])
-        self.ekObject = (EKEvent *)[[NSMutableArray alloc] initWithObjects:event, nil];
-    else 
-        self.ekObject = event;
-    
+    self.ekObject = event;
     return self;
 }
+
 
 
 
@@ -48,7 +46,24 @@
 }
 
 
+- (CalendarRepresentation *)getCalendar
+{
+    CalendarRepresentation *calendarRepresentation = [[CalendarRepresentation alloc] initWithEventObject:self.ekObject];
+    
+    return calendarRepresentation;
+}
 
+
+
+- (NSDate *) getStartDate
+{
+    return self.ekObject.startDate;
+}
+
+- (NSDate *) getEndDate
+{
+    return self.ekObject.endDate;
+}
 
 
 @end

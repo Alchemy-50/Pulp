@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <EventKit/EventKit.h>
+#import "CalendarRepresentation.h"
 
+#import <EventKit/EventKit.h>
 @interface CalendarEvent : NSObject
     
 
@@ -16,10 +17,12 @@
 - (CalendarEvent *) init;
 - (CalendarEvent *) initWithEKEvent:(EKEvent *)ekEvent;
 - (EKEvent *) getEkEvent;
+- (CalendarRepresentation *)getCalendar;
+
+- (NSDate *) getStartDate;
+- (NSDate *) getEndDate;
 
 
-
-@property (nonatomic, retain) EKEvent *ekObject;
 
 
 @end

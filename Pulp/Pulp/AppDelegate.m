@@ -198,20 +198,8 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     NSLog(@"didReceiveLocalNotification, handle implementation");
     
-    /*
-     NSLog(@"notification!: %@", notification);
-     NSLog(@"notification.userInfo: %@", notification.userInfo);
-     
-     NSString *eventIdentifier = [notification.userInfo objectForKey:@"eventIdentifier"];
-     NSLog(@"eventIdentifier!: %@", eventIdentifier);
-     if (eventIdentifier)
-     {
-     EKEvent *referenceEvent = [[EventKitManager sharedManager] getEKEventWithIdentifier:eventIdentifier];
-     NSLog(@"referenceEvent: %@", referenceEvent);
-     if (referenceEvent != nil)
-     [[FlowControlHandler sharedFlowControlHandler] dailyEventSelected:referenceEvent];
-     }
-     */
+ 
+    
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

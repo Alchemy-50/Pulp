@@ -85,11 +85,7 @@
     
     for (CalendarEvent *calEvent in eventsArray)
     {
-        
-        EKEvent *event = calEvent.ekObject;
-		EKCalendar *eCalendar = event.calendar;
-		UIColor *eColor = [UIColor colorWithCGColor:eCalendar.CGColor];        
-        
+        UIColor *eColor = [[calEvent getCalendar] getColor];
         
         Circle *circle = [[Circle alloc] initWithFrame:CGRectMake(xStart, yStart, 10, 10) withUnitArea:1.0 andFillColor:eColor andStrokeColor:eColor withStrokeThickness:0];
         [self addSubview:circle];

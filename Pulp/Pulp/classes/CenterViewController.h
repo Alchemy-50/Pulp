@@ -33,7 +33,6 @@
 - (DailyView *) getVisibleDailyView;
 - (void) presentAndHideDailyViews:(BOOL)forceLoad withIndex:(unsigned long)referenceIndex;
 - (void) processPositioningWithScrollView:(UIScrollView *)scrollView;
-- (void) spoofAddEventWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
 - (void) refreshAllDailyViews;
 - (void) sidebarDidScroll:(float)theOffset;
 

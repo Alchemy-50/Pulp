@@ -23,7 +23,6 @@
 -(void)mapTappedWithMapView:(MKMapView *)tappedMapView withEvent:(EKEvent *)theEvent;
 -(void)pulpMapViewIsInitialized;
 -(void)cellDidReturnWithLocation;
--(void)spoofArrayWithEvent:(EKEvent *)theEvent;
 -(void)cellButtonHitWithIndexPath:(NSIndexPath *)theIndexPath;
 
 
