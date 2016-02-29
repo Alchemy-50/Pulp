@@ -18,7 +18,9 @@
 #import "Utils.h"
 #import <Contacts/Contacts.h>
 #import "FullCalendarViewController.h"
-
+#import "PulpIcloudTest.h"
+#import "PulpCloudKitManager.h"
+#import <CloudKit/CloudKit.h>
 
 #define USER_LAST_ENTERED_APP @"USEfR_LASfT_ENTEfRED_APP2"
 
@@ -116,11 +118,29 @@
         
     //}
     
+//    [PulpCloudKitManager run];
+    //[PulpIcloudTest run];
     
     return YES;
 }
 
-
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"!!!!!");
+    /*
+    CKNotification *ckNotification = [CKNotification notificationFromRemoteNotificationDictionary:userInfo];
+    if (ckNotification.notificationType == CKNotificationTypeQuery) {
+        CKQueryNotification *queryNotification = ckNotification;
+        CKRecordID *recordID = [queryNotification recordID];
+        NSLog(@"recordID: %@", recordID);
+        // ...
+    }
+     */
+    
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

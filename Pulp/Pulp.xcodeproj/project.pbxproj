@@ -160,6 +160,9 @@
 		3A40C94D1C765522009B53F0 /* CalendarManagementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C94C1C765522009B53F0 /* CalendarManagementTableViewCell.m */; };
 		3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C9531C766C17009B53F0 /* EditCalendarManagementViewController.m */; };
 		3A40C9561C766C17009B53F0 /* EditCalendarManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */; };
+		3A50D9471C80E036000211BF /* PulpIcloudTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A50D9461C80E036000211BF /* PulpIcloudTest.m */; };
+		3A50D94B1C80E061000211BF /* PulpTestDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A50D94A1C80E061000211BF /* PulpTestDocument.m */; };
+		3A50D9721C80E8D8000211BF /* PulpCloudKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A50D9711C80E8D8000211BF /* PulpCloudKitManager.m */; };
 		3A54877E1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */; };
 		3A8640371C7DF2820064FE4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640361C7DF2820064FE4A /* MapKit.framework */; };
 		3A86403A1C7DF3230064FE4A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640391C7DF3230064FE4A /* CloudKit.framework */; };
@@ -419,6 +422,12 @@
 		3A40C9521C766C17009B53F0 /* EditCalendarManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCalendarManagementViewController.h; sourceTree = "<group>"; };
 		3A40C9531C766C17009B53F0 /* EditCalendarManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCalendarManagementViewController.m; sourceTree = "<group>"; };
 		3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCalendarManagementViewController.xib; sourceTree = "<group>"; };
+		3A50D9451C80E036000211BF /* PulpIcloudTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulpIcloudTest.h; sourceTree = "<group>"; };
+		3A50D9461C80E036000211BF /* PulpIcloudTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulpIcloudTest.m; sourceTree = "<group>"; };
+		3A50D9491C80E061000211BF /* PulpTestDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulpTestDocument.h; sourceTree = "<group>"; };
+		3A50D94A1C80E061000211BF /* PulpTestDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulpTestDocument.m; sourceTree = "<group>"; };
+		3A50D9701C80E8D8000211BF /* PulpCloudKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulpCloudKitManager.h; sourceTree = "<group>"; };
+		3A50D9711C80E8D8000211BF /* PulpCloudKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulpCloudKitManager.m; sourceTree = "<group>"; };
 		3A54877C1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerEKEventEditViewController.h; sourceTree = "<group>"; };
 		3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerEKEventEditViewController.m; sourceTree = "<group>"; };
 		3A8640361C7DF2820064FE4A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -883,9 +892,39 @@
 			name = Edit;
 			sourceTree = "<group>";
 		};
+		3A50D9441C80E026000211BF /* Icloud */ = {
+			isa = PBXGroup;
+			children = (
+				3A50D9481C80E04A000211BF /* PulpDocument */,
+				3A50D9451C80E036000211BF /* PulpIcloudTest.h */,
+				3A50D9461C80E036000211BF /* PulpIcloudTest.m */,
+			);
+			name = Icloud;
+			sourceTree = "<group>";
+		};
+		3A50D9481C80E04A000211BF /* PulpDocument */ = {
+			isa = PBXGroup;
+			children = (
+				3A50D9491C80E061000211BF /* PulpTestDocument.h */,
+				3A50D94A1C80E061000211BF /* PulpTestDocument.m */,
+			);
+			name = PulpDocument;
+			sourceTree = "<group>";
+		};
+		3A50D96F1C80E8C6000211BF /* cloudkit */ = {
+			isa = PBXGroup;
+			children = (
+				3A50D9701C80E8D8000211BF /* PulpCloudKitManager.h */,
+				3A50D9711C80E8D8000211BF /* PulpCloudKitManager.m */,
+			);
+			name = cloudkit;
+			sourceTree = "<group>";
+		};
 		3AB577D01C7248FA008FE5C0 = {
 			isa = PBXGroup;
 			children = (
+				3A50D96F1C80E8C6000211BF /* cloudkit */,
+				3A50D9441C80E026000211BF /* Icloud */,
 				3A2840FE1C725B8A00056061 /* EventVCS */,
 				3A2840FC1C7258AC00056061 /* Main */,
 				3A2840FF1C725B9700056061 /* Todos */,
@@ -1294,6 +1333,7 @@
 				3A3918191C76AFD300966DDA /* DRColorPickerViewController.m in Sources */,
 				3A2840121C724D2800056061 /* GroupDiskManager.m in Sources */,
 				3A28404D1C724E8C00056061 /* UIImage+FontAwesome.m in Sources */,
+				3A50D9471C80E036000211BF /* PulpIcloudTest.m in Sources */,
 				3A28402A1C724D2800056061 /* SidebarButtonView.m in Sources */,
 				3A2840041C724D2800056061 /* EventCalendarUtils.m in Sources */,
 				3A283FFE1C724D2800056061 /* DailyView.m in Sources */,
@@ -1343,6 +1383,7 @@
 				3A2840231C724D2800056061 /* PulpMapView.m in Sources */,
 				3A283FF71C724D2800056061 /* ContainerTodosViewController.m in Sources */,
 				3A40C9431C764645009B53F0 /* AllCalendarButtonView.m in Sources */,
+				3A50D9721C80E8D8000211BF /* PulpCloudKitManager.m in Sources */,
 				3A39181B1C76AFD300966DDA /* DRColorPickerWheelViewController.m in Sources */,
 				3A283FD21C724D2800056061 /* AlarmNotificationHandler.m in Sources */,
 				3AB577DE1C7248FA008FE5C0 /* main.m in Sources */,
@@ -1367,6 +1408,7 @@
 				3ABD61271C74F53C006F8FAA /* TodoBubbleView.m in Sources */,
 				3A28400E1C724D2800056061 /* FullCalendarViewController.m in Sources */,
 				3A2840321C724D2800056061 /* ThemeManager.m in Sources */,
+				3A50D94B1C80E061000211BF /* PulpTestDocument.m in Sources */,
 				3A2840111C724D2800056061 /* GroupDataManager.m in Sources */,
 				3A2840331C724D2800056061 /* ThemeSelectObject.m in Sources */,
 				3A2840131C724D2800056061 /* GroupFormatManager.m in Sources */,

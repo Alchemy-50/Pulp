@@ -432,7 +432,7 @@ static UIFont *theLocationLabelFont;
     {
         if ([self.theMapView isReferenceDictionaryEqualToDictionary:referenceDictionary])
         {
-            NSLog(@"REMOVE MAP VIEW");
+            //NSLog(@"REMOVE MAP VIEW");
             [self.theMapView removeFromSuperview];
             [self.theMapView release];
             self.theMapView = nil;
