@@ -127,9 +127,8 @@
     
     NSString *theFirstName = contact.givenName;
     NSString *theLastName = contact.familyName;
-    NSString *name = [NSString stringWithFormat:@"%@ %@", theFirstName, theLastName];
-    
-    NSString *theIdentifier = contact.identifier;
+//    NSString *name = [NSString stringWithFormat:@"%@ %@", theFirstName, theLastName];
+//    NSString *theIdentifier = contact.identifier;
     
     NSString *emailAddress = @"";
     for (int i = 0; i < [contact.emailAddresses count]; i++)

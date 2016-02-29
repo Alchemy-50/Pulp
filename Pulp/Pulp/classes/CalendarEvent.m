@@ -7,7 +7,7 @@
 //
 
 #import "CalendarEvent.h"
-#import "GroupDataManager.h"
+
 #import "GroupFormatManager.h"
 
 @implementation CalendarEvent

@@ -7,7 +7,7 @@
 //
 
 #import "FullCalendarViewController.h"
-#import "GroupDataManager.h"
+
 #import "AppDelegate.h"
 #import "Defs.h"
 #import "ThemeManager.h"
@@ -54,7 +54,6 @@ static FullCalendarViewController *staticVC;
 
 -(void) dataChanged
 {
-    [[GroupDataManager sharedManager] loadCache];
     [self updateMonthViews:YES];
     [self.dailyView.theTableView reloadData];
 }

@@ -9,7 +9,7 @@
 #import "CalendarDoubleDayView.h"
 #import "Circle.h"
 #import "CalendarMonthView.h"
-#import "GroupDataManager.h"
+
 #import "GroupFormatManager.h"
 #import "Utils.h"
 #import "AppDelegate.h"

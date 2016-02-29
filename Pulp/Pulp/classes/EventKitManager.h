@@ -16,7 +16,6 @@
 }
 
 +(EventKitManager *)sharedManager;
-- (NSString *) getNewCommonEventID;
 - (EKSource *)getStandardEKSource;
 - (EKCalendar *) getNewEKCalendar;
 - (EKCalendar *) getEKCalendarWithIdentifier:(NSString *)calId;
@@ -32,10 +31,9 @@
 - (NSMutableArray *) getEventsForStartDate:(NSDate *)startDate forEndDate:(NSDate *)endDate withCalendars:(NSArray *)calendars;
 - (void) commit;
 - (void) remoteRefresh;
-
+- (NSMutableDictionary *)fetchEventsWithStartDate:(NSDate *)startDate withEndDate:(NSDate *)endDate withSelectedCalendars:(NSArray *)selectedCals;
+    
 @property (nonatomic, retain) EKEventStore *eventStore;
-
-
 @property (nonatomic, assign) BOOL queueSet;
 
 @end

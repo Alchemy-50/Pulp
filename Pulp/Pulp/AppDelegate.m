@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
-#import "GroupDataManager.h"
 #import "GroupDiskManager.h"
 #import "EventKitManager.h"
 #import "EventStoreChangeThread.h"
@@ -31,7 +30,6 @@
 @implementation AppDelegate
 
 @synthesize window = _window, storeNotificationObserver;
-@synthesize currentSelectedCalendar;
 @synthesize locationManager;
 @synthesize latestLocation;
 @synthesize locationDelegateRespondeesArray;
@@ -373,7 +371,7 @@
         [retView addSubview:theLabel];
         
         
-        NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:[[GroupDataManager sharedManager] getSelectedCalendars]];
+        NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:[[EventKitManager sharedManager] getEKCalendars:YES]];
         for (int j = 0; j < [allEvents count]; j++)
         {
             EKEvent *calendarEKEvent = [allEvents objectAtIndex:j];

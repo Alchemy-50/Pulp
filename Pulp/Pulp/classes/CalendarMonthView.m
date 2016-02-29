@@ -13,8 +13,10 @@
 #import "Defs.h"
 #import "Utils.h"
 #import "SettingsManager.h"
-#import "GroupDataManager.h"
+
 #import "ThemeManager.h"
+#import "EventKitManager.h"
+
 
 @interface CalendarMonthView ()
 @property (nonatomic, retain) UILabel *theHeaderLabel;
@@ -208,8 +210,7 @@ static float insetHeight = 40.0f;
 
 -(void)loadEvents
 {
-    //    NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:self.startDate forEndDate:self.endDate withCalendars:[[EventKitManager sharedManager] getEKCalendars:NO]];
-    NSDictionary *dict = [[GroupDataManager sharedManager] fetchEventsWithStartDate:self.startDate withEndDate:self.endDate withSelectedCalendars:[[GroupDataManager sharedManager] getSelectedCalendars]];
+    NSDictionary *dict = [[EventKitManager sharedManager] fetchEventsWithStartDate:self.startDate withEndDate:self.endDate withSelectedCalendars:[[EventKitManager sharedManager] getEKCalendars:YES]];
     for (id key in dict)
     {
         CalendarDayView *dayView = [self.calendarDayViewDictionary objectForKey:key];

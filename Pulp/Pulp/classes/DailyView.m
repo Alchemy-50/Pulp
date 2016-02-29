@@ -10,7 +10,7 @@
 #import "DailyTableViewCell.h"
 #import "AppDelegate.h"
 #import "CenterViewController.h"
-#import "GroupDataManager.h"
+
 #import "PulpMapView.h"
 #import "MapAPIHandler.h"
 #import "Utils.h"
@@ -114,7 +114,7 @@ static float allDayHeight = 32;
     [components setMinute:58];
     NSDate *endDate = [gregorian dateFromComponents:components];
     
-    NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:[[GroupDataManager sharedManager] getSelectedCalendars]];
+    NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:[[EventKitManager sharedManager] getEKCalendars:YES]];
     
     if (allEvents != nil)
         [self.eventsArray addObjectsFromArray:allEvents];

@@ -27,7 +27,6 @@
 @property (nonatomic, retain) MainViewController *mainViewController;
 
 @property (nonatomic, retain) EventStoreChangeThread *storeNotificationObserver;
-@property (nonatomic, retain) EKCalendar *currentSelectedCalendar;
 @property (nonatomic, retain) CLLocation *latestLocation;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) NSMutableArray *locationDelegateRespondeesArray;

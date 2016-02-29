@@ -30,13 +30,11 @@
 		3A283FFE1C724D2800056061 /* DailyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F4A1C724D2800056061 /* DailyView.m */; };
 		3A283FFF1C724D2800056061 /* DefaultCalendarSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F4C1C724D2800056061 /* DefaultCalendarSelectTableViewController.m */; };
 		3A2840001C724D2800056061 /* Defs.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F4E1C724D2800056061 /* Defs.m */; };
-		3A2840041C724D2800056061 /* EventCalendarUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F571C724D2800056061 /* EventCalendarUtils.m */; };
 		3A2840051C724D2800056061 /* EventForCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */; };
 		3A2840061C724D2800056061 /* EventKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F5C1C724D2800056061 /* EventKitManager.m */; };
 		3A28400A1C724D2800056061 /* EventStoreChangeThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F631C724D2800056061 /* EventStoreChangeThread.m */; };
 		3A28400E1C724D2800056061 /* FullCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F6B1C724D2800056061 /* FullCalendarViewController.m */; };
 		3A28400F1C724D2800056061 /* FullCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */; };
-		3A2840111C724D2800056061 /* GroupDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F701C724D2800056061 /* GroupDataManager.m */; };
 		3A2840121C724D2800056061 /* GroupDiskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F721C724D2800056061 /* GroupDiskManager.m */; };
 		3A2840131C724D2800056061 /* GroupFormatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F741C724D2800056061 /* GroupFormatManager.m */; };
 		3A2840151C724D2800056061 /* ImagesAPIHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F781C724D2800056061 /* ImagesAPIHandler.m */; };
@@ -232,8 +230,6 @@
 		3A283F4C1C724D2800056061 /* DefaultCalendarSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultCalendarSelectTableViewController.m; path = Pulp/classes/DefaultCalendarSelectTableViewController.m; sourceTree = "<group>"; };
 		3A283F4D1C724D2800056061 /* Defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Defs.h; path = Pulp/classes/Defs.h; sourceTree = "<group>"; };
 		3A283F4E1C724D2800056061 /* Defs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Defs.m; path = Pulp/classes/Defs.m; sourceTree = "<group>"; };
-		3A283F561C724D2800056061 /* EventCalendarUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventCalendarUtils.h; path = Pulp/classes/EventCalendarUtils.h; sourceTree = "<group>"; };
-		3A283F571C724D2800056061 /* EventCalendarUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = EventCalendarUtils.m; path = Pulp/classes/EventCalendarUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3A283F591C724D2800056061 /* EventForCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventForCalendarDayView.h; path = Pulp/classes/EventForCalendarDayView.h; sourceTree = "<group>"; };
 		3A283F5A1C724D2800056061 /* EventForCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventForCalendarDayView.m; path = Pulp/classes/EventForCalendarDayView.m; sourceTree = "<group>"; };
 		3A283F5B1C724D2800056061 /* EventKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventKitManager.h; path = Pulp/classes/EventKitManager.h; sourceTree = "<group>"; };
@@ -243,8 +239,6 @@
 		3A283F6A1C724D2800056061 /* FullCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FullCalendarViewController.h; path = Pulp/classes/FullCalendarViewController.h; sourceTree = "<group>"; };
 		3A283F6B1C724D2800056061 /* FullCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FullCalendarViewController.m; path = Pulp/classes/FullCalendarViewController.m; sourceTree = "<group>"; };
 		3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FullCalendarViewController.xib; path = Pulp/classes/FullCalendarViewController.xib; sourceTree = "<group>"; };
-		3A283F6F1C724D2800056061 /* GroupDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupDataManager.h; path = Pulp/classes/GroupDataManager.h; sourceTree = "<group>"; };
-		3A283F701C724D2800056061 /* GroupDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupDataManager.m; path = Pulp/classes/GroupDataManager.m; sourceTree = "<group>"; };
 		3A283F711C724D2800056061 /* GroupDiskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupDiskManager.h; path = Pulp/classes/GroupDiskManager.h; sourceTree = "<group>"; };
 		3A283F721C724D2800056061 /* GroupDiskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupDiskManager.m; path = Pulp/classes/GroupDiskManager.m; sourceTree = "<group>"; };
 		3A283F731C724D2800056061 /* GroupFormatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupFormatManager.h; path = Pulp/classes/GroupFormatManager.h; sourceTree = "<group>"; };
@@ -640,14 +634,10 @@
 			children = (
 				3A2874A41C7797AC002CEF8B /* Digester */,
 				3A2841011C725C7C00056061 /* Disk */,
-				3A283F6F1C724D2800056061 /* GroupDataManager.h */,
-				3A283F701C724D2800056061 /* GroupDataManager.m */,
 				3A283F731C724D2800056061 /* GroupFormatManager.h */,
 				3A283F741C724D2800056061 /* GroupFormatManager.m */,
 				3A283F101C724D2800056061 /* CalendarEvent.h */,
 				3A283F111C724D2800056061 /* CalendarEvent.m */,
-				3A283F561C724D2800056061 /* EventCalendarUtils.h */,
-				3A283F571C724D2800056061 /* EventCalendarUtils.m */,
 				3A283F5B1C724D2800056061 /* EventKitManager.h */,
 				3A283F5C1C724D2800056061 /* EventKitManager.m */,
 				3A283F621C724D2800056061 /* EventStoreChangeThread.h */,
@@ -1335,7 +1325,6 @@
 				3A28404D1C724E8C00056061 /* UIImage+FontAwesome.m in Sources */,
 				3A50D9471C80E036000211BF /* PulpIcloudTest.m in Sources */,
 				3A28402A1C724D2800056061 /* SidebarButtonView.m in Sources */,
-				3A2840041C724D2800056061 /* EventCalendarUtils.m in Sources */,
 				3A283FFE1C724D2800056061 /* DailyView.m in Sources */,
 				3A283FEB1C724D2800056061 /* Circle.m in Sources */,
 				3A283FED1C724D2800056061 /* ColorSelectView.m in Sources */,
@@ -1409,7 +1398,6 @@
 				3A28400E1C724D2800056061 /* FullCalendarViewController.m in Sources */,
 				3A2840321C724D2800056061 /* ThemeManager.m in Sources */,
 				3A50D94B1C80E061000211BF /* PulpTestDocument.m in Sources */,
-				3A2840111C724D2800056061 /* GroupDataManager.m in Sources */,
 				3A2840331C724D2800056061 /* ThemeSelectObject.m in Sources */,
 				3A2840131C724D2800056061 /* GroupFormatManager.m in Sources */,
 				3A283FDD1C724D2800056061 /* CalendarDayView.m in Sources */,
