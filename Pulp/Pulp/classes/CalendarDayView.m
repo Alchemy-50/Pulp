@@ -10,7 +10,7 @@
 #import <EventKit/EventKit.h>
 #import "Circle.h"
 #import "CalendarMonthView.h"
-#import "GroupFormatManager.h"
+#import "DateFormatManager.h"
 #import "Utils.h"
 #import "EventForCalendarDayView.h"
 #import "AppDelegate.h"

@@ -8,7 +8,7 @@
 
 #import "EventKitManager.h"
 #import "GroupDiskManager.h"
-#import "GroupFormatManager.h"
+#import "DateFormatManager.h"
 #import "AppDelegate.h"
 #import "AlarmNotificationHandler.h"
 #import "MainViewController.h"
@@ -467,13 +467,13 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context)
     // have to check for multiday events
     NSDate *eventEndDate = ekEvent.endDate;
     
-    int eventStartDay = [[[GroupFormatManager sharedManager].dayFormatter stringFromDate:eventStartDate] intValue];
-    int eventStartMonth = [[[GroupFormatManager sharedManager].monthFormatter stringFromDate:eventStartDate] intValue];
-    int eventStartYear = [[[GroupFormatManager sharedManager].yearFormatter stringFromDate:eventStartDate] intValue];
+    int eventStartDay = [[[DateFormatManager sharedManager].dayFormatter stringFromDate:eventStartDate] intValue];
+    int eventStartMonth = [[[DateFormatManager sharedManager].monthFormatter stringFromDate:eventStartDate] intValue];
+    int eventStartYear = [[[DateFormatManager sharedManager].yearFormatter stringFromDate:eventStartDate] intValue];
     
-    int eventEndDay = [[[GroupFormatManager sharedManager].dayFormatter stringFromDate:eventEndDate] intValue];
-    int eventEndMonth = [[[GroupFormatManager sharedManager].monthFormatter stringFromDate:eventEndDate] intValue];
-    int eventEndYear = [[[GroupFormatManager sharedManager].yearFormatter stringFromDate:eventEndDate] intValue];
+    int eventEndDay = [[[DateFormatManager sharedManager].dayFormatter stringFromDate:eventEndDate] intValue];
+    int eventEndMonth = [[[DateFormatManager sharedManager].monthFormatter stringFromDate:eventEndDate] intValue];
+    int eventEndYear = [[[DateFormatManager sharedManager].yearFormatter stringFromDate:eventEndDate] intValue];
     
     if ( ( ([eventStartDate earlierDate:startDate] == startDate || [eventStartDate isEqualToDate:startDate]) && [eventStartDate earlierDate:endDate] == eventStartDate) || ([eventEndDate earlierDate:startDate] == startDate && [eventEndDate earlierDate:endDate] == eventStartDate) )
     {
@@ -482,7 +482,7 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context)
         if ([eventStartDate compare:startDate] == NSOrderedDescending || [eventStartDate compare:startDate] == NSOrderedSame)
         {
             // checks if the event starts before this calendar
-            NSString *s = [[GroupFormatManager sharedManager].dateFormatter stringFromDate:eventStartDate];
+            NSString *s = [[DateFormatManager sharedManager].dateFormatter stringFromDate:eventStartDate];
             
             if ([retDict objectForKey:s] == nil)
                 [retDict setObject:[NSMutableArray arrayWithCapacity:0] forKey:s];
@@ -513,7 +513,7 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context)
                     [comps setDay:i];
                     
                     NSDate *eventDate = [gregorian dateByAddingComponents:comps  toDate:eventStartDate options:0];
-                    NSString *eventDateKey = [[GroupFormatManager sharedManager].dateFormatter stringFromDate:eventDate];
+                    NSString *eventDateKey = [[DateFormatManager sharedManager].dateFormatter stringFromDate:eventDate];
                     
                     if ([eventDate compare:startDate] == NSOrderedDescending && [eventDate compare:endDate] == NSOrderedAscending)
                     {
@@ -532,7 +532,7 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context)
             {
                 // Takes care of overnight event or last day of multi-day
                 // checks if the event ends after this calendar
-                NSString *s = [[GroupFormatManager sharedManager].dateFormatter stringFromDate:eventEndDate];
+                NSString *s = [[DateFormatManager sharedManager].dateFormatter stringFromDate:eventEndDate];
                 
                 if ([retDict objectForKey:s] == nil)
                     [retDict setObject:[NSMutableArray arrayWithCapacity:0] forKey:s];

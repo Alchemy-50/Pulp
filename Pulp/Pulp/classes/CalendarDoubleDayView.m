@@ -10,7 +10,7 @@
 #import "Circle.h"
 #import "CalendarMonthView.h"
 
-#import "GroupFormatManager.h"
+#import "DateFormatManager.h"
 #import "Utils.h"
 #import "AppDelegate.h"
 

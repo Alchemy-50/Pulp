@@ -15,7 +15,7 @@
 #import "CalendarManagementViewController.h"
 #import "Utils.h"
 #import "DailyView.h"
-#import "GroupFormatManager.h"
+#import "DateFormatManager.h"
 
 
 
@@ -98,12 +98,12 @@ static FullCalendarViewController *staticVC;
     for (int i = 0; i < 12 * 6; i++)
     {
         NSString *startString = [NSString stringWithFormat:@"%ld-%ld-01 00:00:00", (long)year, (long)month];
-        NSDate *start = [[GroupFormatManager sharedManager].dateTimeFormatter dateFromString:startString];
+        NSDate *start = [[DateFormatManager sharedManager].dateTimeFormatter dateFromString:startString];
         
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         NSRange monthRange = [gregorian rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:start];
         NSString *endString = [NSString stringWithFormat:@"%ld-%ld-%lu 23:59:59", (long)year, (long)month, (unsigned long)monthRange.length];
-        NSDate *end = [[GroupFormatManager sharedManager].dateTimeFormatter dateFromString:endString];
+        NSDate *end = [[DateFormatManager sharedManager].dateTimeFormatter dateFromString:endString];
         
         CalendarMonthView *calendarMonthView = [[CalendarMonthView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self.theScrollView.frame.size.height)];
         calendarMonthView.autoresizesSubviews = NO;

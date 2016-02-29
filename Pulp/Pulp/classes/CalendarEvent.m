@@ -8,7 +8,7 @@
 
 #import "CalendarEvent.h"
 
-#import "GroupFormatManager.h"
+#import "DateFormatManager.h"
 
 @implementation CalendarEvent
 
@@ -142,13 +142,13 @@
         NSString *paramDateString = nil;
              
         if ([param isKindOfClass:[NSDate class]])
-            paramDateString = [[GroupFormatManager sharedManager].dateFormatter stringFromDate:(NSDate *)param];
+            paramDateString = [[DateFormatManager sharedManager].dateFormatter stringFromDate:(NSDate *)param];
         else 
             paramDateString = (NSString *)param;
         
         for (EKEvent *event in (NSMutableArray *)self.ekObject)
         {
-            NSString *eventDateString = [[GroupFormatManager sharedManager].dateFormatter stringFromDate:event.startDate];
+            NSString *eventDateString = [[DateFormatManager sharedManager].dateFormatter stringFromDate:event.startDate];
             
             if ( [eventDateString compare:paramDateString] == NSOrderedSame )
                 return event;

@@ -8,7 +8,7 @@
 
 #import "CalendarMonthView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "GroupFormatManager.h"
+#import "DateFormatManager.h"
 #import "Circle.h"
 #import "Defs.h"
 #import "Utils.h"
@@ -136,7 +136,7 @@ static float insetHeight = 40.0f;
             
             
             if (inScope)
-                [self.calendarDayViewDictionary setObject:dayView forKey:[[GroupFormatManager sharedManager].dateFormatter stringFromDate:dayView.theDate]];
+                [self.calendarDayViewDictionary setObject:dayView forKey:[[DateFormatManager sharedManager].dateFormatter stringFromDate:dayView.theDate]];
             else
             {
                 dayView.dayLabel.font = [UIFont fontWithName:@"Lato-Regular" size:28 / 2];;
@@ -179,7 +179,7 @@ static float insetHeight = 40.0f;
                 [dateComponents setDay: - 7];
                 NSDate *date = [currentCalendar dateByAddingComponents:dateComponents toDate:unusedDay  options:0];
                 
-                CalendarDayView *dayView = [self.calendarDayViewDictionary objectForKey:[[GroupFormatManager sharedManager].dateFormatter stringFromDate:date]];
+                CalendarDayView *dayView = [self.calendarDayViewDictionary objectForKey:[[DateFormatManager sharedManager].dateFormatter stringFromDate:date]];
                 
                 CalendarDoubleDayView *doubleDayView = [[CalendarDoubleDayView alloc] initWithFrame:dayView.frame withParentView:self];
                 doubleDayView.backgroundColor = [UIColor clearColor];;
@@ -190,8 +190,8 @@ static float insetHeight = 40.0f;
                 doubleDayView.theDate2 = unusedDay;
                 
                 
-                [self.calendarDayViewDictionary setObject:doubleDayView forKey:[[GroupFormatManager sharedManager].dateFormatter stringFromDate:dayView.theDate]];
-                [self.calendarDayViewDictionary setObject:doubleDayView forKey:[[GroupFormatManager sharedManager].dateFormatter stringFromDate:unusedDay]];
+                [self.calendarDayViewDictionary setObject:doubleDayView forKey:[[DateFormatManager sharedManager].dateFormatter stringFromDate:dayView.theDate]];
+                [self.calendarDayViewDictionary setObject:doubleDayView forKey:[[DateFormatManager sharedManager].dateFormatter stringFromDate:unusedDay]];
                 
                 
                 [self addSubview:doubleDayView];

@@ -6,24 +6,24 @@
 //  Copyright (c) 2012 A 50. All rights reserved.
 //
 
-#import "GroupFormatManager.h"
+#import "DateFormatManager.h"
 
-@implementation GroupFormatManager
+@implementation DateFormatManager
 
-static GroupFormatManager *theManager;
+static DateFormatManager *theManager;
 
 @synthesize  dayFormatter, monthFormatter, yearFormatter, dateFormatter, dateTimeFormatter, timeFormatter;
 
 
-+(GroupFormatManager *)sharedManager
++(DateFormatManager *)sharedManager
 {
     if (theManager == nil)
-        theManager = [[GroupFormatManager alloc] init];
+        theManager = [[DateFormatManager alloc] init];
     
     return theManager;
 }
 
-- (GroupFormatManager *) init
+- (DateFormatManager *) init
 {
     self = [super init];
     

@@ -36,7 +36,7 @@
 		3A28400E1C724D2800056061 /* FullCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F6B1C724D2800056061 /* FullCalendarViewController.m */; };
 		3A28400F1C724D2800056061 /* FullCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */; };
 		3A2840121C724D2800056061 /* GroupDiskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F721C724D2800056061 /* GroupDiskManager.m */; };
-		3A2840131C724D2800056061 /* GroupFormatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F741C724D2800056061 /* GroupFormatManager.m */; };
+		3A2840131C724D2800056061 /* DateFormatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F741C724D2800056061 /* DateFormatManager.m */; };
 		3A2840151C724D2800056061 /* ImagesAPIHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F781C724D2800056061 /* ImagesAPIHandler.m */; };
 		3A2840171C724D2800056061 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F7C1C724D2800056061 /* LocationViewController.m */; };
 		3A2840191C724D2800056061 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F7F1C724D2800056061 /* MainViewController.m */; };
@@ -241,8 +241,8 @@
 		3A283F6C1C724D2800056061 /* FullCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FullCalendarViewController.xib; path = Pulp/classes/FullCalendarViewController.xib; sourceTree = "<group>"; };
 		3A283F711C724D2800056061 /* GroupDiskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupDiskManager.h; path = Pulp/classes/GroupDiskManager.h; sourceTree = "<group>"; };
 		3A283F721C724D2800056061 /* GroupDiskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupDiskManager.m; path = Pulp/classes/GroupDiskManager.m; sourceTree = "<group>"; };
-		3A283F731C724D2800056061 /* GroupFormatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupFormatManager.h; path = Pulp/classes/GroupFormatManager.h; sourceTree = "<group>"; };
-		3A283F741C724D2800056061 /* GroupFormatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupFormatManager.m; path = Pulp/classes/GroupFormatManager.m; sourceTree = "<group>"; };
+		3A283F731C724D2800056061 /* DateFormatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateFormatManager.h; path = Pulp/classes/DateFormatManager.h; sourceTree = "<group>"; };
+		3A283F741C724D2800056061 /* DateFormatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateFormatManager.m; path = Pulp/classes/DateFormatManager.m; sourceTree = "<group>"; };
 		3A283F771C724D2800056061 /* ImagesAPIHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagesAPIHandler.h; path = Pulp/classes/ImagesAPIHandler.h; sourceTree = "<group>"; };
 		3A283F781C724D2800056061 /* ImagesAPIHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagesAPIHandler.m; path = Pulp/classes/ImagesAPIHandler.m; sourceTree = "<group>"; };
 		3A283F7B1C724D2800056061 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationViewController.h; path = Pulp/classes/LocationViewController.h; sourceTree = "<group>"; };
@@ -536,6 +536,8 @@
 				3A2841031C725D3400056061 /* Weather */,
 				3A2841021C725CCA00056061 /* Net */,
 				3A2840F81C72579B00056061 /* Categories-Helpers */,
+				3A283F731C724D2800056061 /* DateFormatManager.h */,
+				3A283F741C724D2800056061 /* DateFormatManager.m */,
 				3A283F4D1C724D2800056061 /* Defs.h */,
 				3A283F4E1C724D2800056061 /* Defs.m */,
 				3A283FC71C724D2800056061 /* Utils.h */,
@@ -634,8 +636,6 @@
 			children = (
 				3A2874A41C7797AC002CEF8B /* Digester */,
 				3A2841011C725C7C00056061 /* Disk */,
-				3A283F731C724D2800056061 /* GroupFormatManager.h */,
-				3A283F741C724D2800056061 /* GroupFormatManager.m */,
 				3A283F101C724D2800056061 /* CalendarEvent.h */,
 				3A283F111C724D2800056061 /* CalendarEvent.m */,
 				3A283F5B1C724D2800056061 /* EventKitManager.h */,
@@ -1399,7 +1399,7 @@
 				3A2840321C724D2800056061 /* ThemeManager.m in Sources */,
 				3A50D94B1C80E061000211BF /* PulpTestDocument.m in Sources */,
 				3A2840331C724D2800056061 /* ThemeSelectObject.m in Sources */,
-				3A2840131C724D2800056061 /* GroupFormatManager.m in Sources */,
+				3A2840131C724D2800056061 /* DateFormatManager.m in Sources */,
 				3A283FDD1C724D2800056061 /* CalendarDayView.m in Sources */,
 				3A39180F1C76AFD300966DDA /* DRColorPickerColorView.m in Sources */,
 				3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */,
