@@ -7,6 +7,7 @@
 //
 
 #import "EventConverter.h"
+#import <EventKit/EventKit.h>
 
 @implementation EventConverter
 

@@ -11,9 +11,4 @@
 @implementation Defs
 
 
-
-+(UIColor *)getClearColor
-{
-    return [UIColor clearColor];
-}
 @end

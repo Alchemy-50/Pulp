@@ -7,8 +7,8 @@
 //
 
 #import "CalendarEvent.h"
-#import <EventKit/EventKit.h>
 #import "DateFormatManager.h"
+#import <EventKit/EventKit.h>
 
 @interface CalendarEvent ()
 @property (nonatomic, retain) EKEvent *ekObject;
@@ -25,17 +25,17 @@
 }
 
 
-- (CalendarEvent *) initWithEKEvent:(EKEvent *)event
+- (CalendarEvent *) initWithEKEvent:(id)theEKEvent
 {
     self = [super init];
-    self.ekObject = event;
+    self.ekObject = (EKEvent *)theEKEvent;
     return self;
 }
 
 
 
 
-- (EKEvent *) getEkEvent
+- (id) getTheEKEvent
 {
     if ([self.ekObject isKindOfClass:[EKEvent class]])       
          return (EKEvent *)self.ekObject;
@@ -56,7 +56,7 @@
 
 
 - (NSDate *) getStartDate
-{
+{    
     return self.ekObject.startDate;
 }
 
@@ -65,5 +65,64 @@
     return self.ekObject.endDate;
 }
 
+- (BOOL) hasAlarms
+{
+    BOOL retVal = NO;
+    
+    if (self.ekObject != nil)
+        retVal = [self.ekObject hasAlarms];
+    
+    return retVal;
+}
+
+- (NSArray *)getTheAlarms
+{
+    NSArray *retAr = nil;
+    
+    if (self.ekObject != nil)
+        retAr = [[NSArray alloc] initWithArray:self.ekObject.alarms];
+    
+    return retAr;
+}
+
+- (NSString *)getTheEventIdentifier
+{
+    NSString *retString = @"";
+    
+    if (self.ekObject != nil)
+        retString = self.ekObject.eventIdentifier;
+    
+    return retString;
+}
+
+-(NSString *)getTheTitle
+{
+    NSString *retString = @"";
+    
+    if (self.ekObject != nil)
+        retString = self.ekObject.title;
+
+    return retString;
+}
+
+- (BOOL)isAllDay
+{
+    BOOL ret = NO;
+    
+    if (self.ekObject != nil)
+        ret = self.ekObject.allDay;
+    
+    return ret;
+}
+
+- (NSString *)getTheLocation
+{
+    NSString *location = @"";
+    
+    if (self.ekObject != nil)
+        location = self.ekObject.location;
+    
+    return location;
+}
 
 @end

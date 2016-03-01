@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <EventKit/EventKit.h>
+#import "Defs.h"
+#import "CalendarRepresentation.h"
 
 @interface EditCalendarManagementViewController : UIViewController <UITextFieldDelegate>
 
@@ -15,7 +16,7 @@
 @property (nonatomic, retain) id theParentController;
 -(IBAction)cancelButtonHit;
 -(IBAction)doneButtonHit;
--(void)loadWithCalendar:(EKCalendar *)theCalendar;
+-(void)loadWithCalendar:(CalendarRepresentation *)theCalendar;
 -(void)colorPickerSelectedWithColor:(UIColor *)theColor;
 
 @property (nonatomic, retain) IBOutlet UILabel *cancelLabel;

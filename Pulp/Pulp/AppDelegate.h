@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <EventKit/EventKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MainViewController.h"
 

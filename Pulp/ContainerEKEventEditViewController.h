@@ -6,11 +6,19 @@
 //  Copyright © 2016 Josh Klobe. All rights reserved.
 //
 
-#import <EventKitUI/EventKitUI.h>
+#import "Defs.h"
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
+#import "CalendarEvent.h"
+#import <EventKitUI/EventKitUI.h>
+
+@interface ContainerEKEventEditViewController : EKEventEditViewController <CNContactViewControllerDelegate, EKEventEditViewDelegate, CNContactPickerDelegate>
+
+-(void)loadForNewEventWithStartDate:(NSDate *)startDate;
+-(void)loadWithExistingCalendarEvent:(CalendarEvent *)theCalendarEvent;
 
 
-@interface ContainerEKEventEditViewController : EKEventEditViewController <CNContactViewControllerDelegate, CNContactPickerDelegate>
+@property (nonatomic, retain) id containerParentController;
+
 
 @end

@@ -7,17 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <EventKit/EventKit.h>
-#import <EventKitUI/EventKitUI.h>
+#import "Defs.h"
 #import "EventKitManager.h"
 #import "CalendarDayView.h"
-
+#import "CalendarEvent.h"
 
 #define SECONDARY_VIEW_STATE_CALENDAR 0
 #define SECONDARY_VIEW_STATE_TODOS 1
 
 
-@interface MainViewController : UIViewController <UIScrollViewDelegate, EKEventEditViewDelegate>
+@interface MainViewController : UIViewController <UIScrollViewDelegate>
 
 +(MainViewController *)sharedMainViewController;
 
@@ -29,7 +28,7 @@
 -(void)presentSettingsViewController;
 -(void)toggleToTodos;
 -(void)toggleToCalendar;
--(void)dailyEventSelected:(EKEvent *)theEvent;
+-(void)dailyEventSelected:(CalendarEvent *)theEvent;
 -(void)dismissSettingsViewController;
 -(void)resetCoverScrollToDate:(NSDate *)theDate;
 

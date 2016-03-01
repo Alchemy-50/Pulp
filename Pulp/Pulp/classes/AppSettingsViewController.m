@@ -57,8 +57,8 @@
         self.defaultCalendarLabel.text = @"None";
     else
     {
-        EKCalendar *theCalendar = [[EventKitManager sharedManager] getEKCalendarWithIdentifier:defaultCalendarID];
-        self.defaultCalendarLabel.text = theCalendar.title;
+        CalendarRepresentation *theCalendar = [[EventKitManager sharedManager] getEKCalendarWithIdentifier:defaultCalendarID];
+        self.defaultCalendarLabel.text = [theCalendar getTitle];
     }
     
 
@@ -109,12 +109,12 @@
 }
 
 
--(void)defaultCalendarSelected:(EKCalendar *)theSelectedCalendar
+-(void)defaultCalendarSelected:(CalendarRepresentation *)theSelectedCalendar
 {
-    [[SettingsManager getSharedSettingsManager] setDefaultCalendarID:theSelectedCalendar.calendarIdentifier];
+    [[SettingsManager getSharedSettingsManager] setDefaultCalendarID:[theSelectedCalendar getTheCalendarIdentifier]];
     
     NSLog(@"??[[SettingsManager getSharedSettingsManager] getDefaultCalendarID];: %@", [[SettingsManager getSharedSettingsManager] getDefaultCalendarID]);
-    self.defaultCalendarLabel.text = theSelectedCalendar.title;
+    self.defaultCalendarLabel.text = [theSelectedCalendar getTitle];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

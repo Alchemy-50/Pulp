@@ -36,9 +36,9 @@ static MapAPIHandler *theStaticHandler;
     return theStaticHandler;
 }
 
-+(void)getLocationForMapWithEvent:(EKEvent *)referenceEvent withReferenceCell:(DailyTableViewCell *)referenceCell
++(void)getLocationForMapWithEvent:(CalendarEvent *)referenceEvent withReferenceCell:(DailyTableViewCell *)referenceCell
 {
-    NSString *addressString = [Utils urlencode:referenceEvent.location];
+    NSString *addressString = [Utils urlencode:[referenceEvent getTheLocation]];
     NSString *urlString = [NSString stringWithFormat:@"%@%@&key=%@", ROOT_URI, addressString, API_KEY];
     
     
@@ -63,7 +63,7 @@ static MapAPIHandler *theStaticHandler;
                                                                    {
                                                                        NSDictionary *refereceDict = [resultsArray objectAtIndex:0];
                                                                        
-                                                                       [[MapAPIHandler getSharedMapAPIHandler].allLocationDictionary setObject:[NSDictionary dictionaryWithDictionary:refereceDict] forKey:referenceEvent.location];
+                                                                       [[MapAPIHandler getSharedMapAPIHandler].allLocationDictionary setObject:[NSDictionary dictionaryWithDictionary:refereceDict] forKey:[referenceEvent getTheLocation]];
                                                                        [referenceCell eventLocationDataReturned];
                                                                    }
                                                                }
@@ -76,10 +76,10 @@ static MapAPIHandler *theStaticHandler;
 }
 
 
--(NSDictionary *)getLocationDictionaryWithEvent:(EKEvent *)refereneceEvent
+-(NSDictionary *)getLocationDictionaryWithEvent:(CalendarEvent *)refereneceEvent
 {
 //    NSLog(@"!self.allLocationDictionary: %@", self.allLocationDictionary);
-    return [self.allLocationDictionary objectForKey:refereneceEvent.location];
+    return [self.allLocationDictionary objectForKey:[refereneceEvent getTheLocation]];
 }
 
 

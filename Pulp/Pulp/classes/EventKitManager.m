@@ -12,6 +12,13 @@
 #import "AppDelegate.h"
 #import "AlarmNotificationHandler.h"
 #import "MainViewController.h"
+#import <EventKit/EventKit.h>
+
+
+
+@interface EventKitManager ()
+@property (nonatomic, retain) EKEventStore *eventStore;
+@end
 
 @implementation EventKitManager
 
@@ -21,6 +28,8 @@ static dispatch_queue_t ekQueue;
 
 @synthesize  eventStore;
 @synthesize queueSet;
+
+
 +(EventKitManager *)sharedManager
 {
     if (theManager == nil)
@@ -30,24 +39,13 @@ static dispatch_queue_t ekQueue;
 }
 
 
--(EKSource *)getStandardEKSource
-{
-    EKSource *returnSource = nil;
-    for (EKSource *source in self.eventStore.sources)
-        if (source.sourceType == EKSourceTypeCalDAV)
-            returnSource = source;
-    
-    
-    return returnSource;
-}
+
 
 - (EventKitManager *) init
 {
     self = [super init];
     
     self.eventStore = [[EKEventStore alloc] init];
-    
-    
     [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
      {
          
@@ -82,10 +80,14 @@ static dispatch_queue_t ekQueue;
          }
      }];
     
-    
-    
     return self;
 }
+
+-(id)getTheEventStore
+{
+    return self.eventStore;
+}
+
 
 -(void) initialize
 {
@@ -99,35 +101,41 @@ static dispatch_queue_t ekQueue;
     [self.eventStore refreshSourcesIfNecessary];
 }
 
-- (EKCalendar *) getNewEKCalendar
+- (id) getNewEKCalendar
 {
     //    NSLog(@"self.eventStore: %@", self.eventStore);
-    return [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:self.eventStore];
+    
+    EKCalendar *theEKCalendar = [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:self.eventStore];
+    
+    CalendarRepresentation *representation = [[CalendarRepresentation alloc] initWithCalendarObject:theEKCalendar];
+    return representation;
 }
 
-- (EKCalendar *) getEKCalendarWithIdentifier:(NSString *)calId
+- (id) getEKCalendarWithIdentifier:(NSString *)calId
 {
     if (!queueSet)
         return nil;
     else
     {
-        __block EKCalendar *ekCal;
+        __block CalendarRepresentation *representation;
         dispatch_sync(ekQueue, ^{
             
-            ekCal = [self.eventStore calendarWithIdentifier:calId];
+            EKCalendar *ekCal = [self.eventStore calendarWithIdentifier:calId];
+            representation = [[CalendarRepresentation alloc] initWithCalendarObject:ekCal];
             
         });
-        return ekCal;
+        return representation;
     }
 }
 
 
-- (EKEvent *) getNewEKEvent
+- (CalendarEvent *) getNewEKEvent
 {
-    return [EKEvent eventWithEventStore:self.eventStore];
+    CalendarEvent *calendarEvent = [[CalendarEvent alloc] initWithEKEvent:[EKEvent eventWithEventStore:self.eventStore]];
+    return calendarEvent;
 }
 
-- (EKEvent *) getEKEventWithIdentifier:(NSString *)eventId
+- (id) getEKEventWithIdentifier:(NSString *)eventId
 {
     if (!self.queueSet)
     {
@@ -186,16 +194,24 @@ static dispatch_queue_t ekQueue;
             EKCalendar *theCalendar = [calArray objectAtIndex:i];
             if ([dict objectForKey:theCalendar.calendarIdentifier] != nil)
             {
+                if (supressHiddenCalendars)
+                {
                 if ([[dict objectForKey:theCalendar.calendarIdentifier] boolValue])
-                    [returnArray addObject:theCalendar];
+                {
+                    CalendarRepresentation *calendarRepresentation = [[CalendarRepresentation alloc] initWithCalendarObject:theCalendar];
+                    [returnArray addObject:calendarRepresentation];
+                }
+                }
+                else
+                {
+                    CalendarRepresentation *calendarRepresentation = [[CalendarRepresentation alloc] initWithCalendarObject:theCalendar];
+                    [returnArray addObject:calendarRepresentation];
+                }
             }
         }
         
-        if (supressHiddenCalendars)
-            return returnArray;
-        else
-            return calArray;
         
+        return returnArray;
     }
 }
 
@@ -209,103 +225,79 @@ static dispatch_queue_t ekQueue;
     }
     else
     {
-        __block NSMutableArray *eventsArray;
+        
+        NSMutableArray *ekEventCalendars = [NSMutableArray arrayWithCapacity:0];
+        for (int i = 0; i < [calendarsArray count]; i++)
+        {
+            CalendarRepresentation *representation = [calendarsArray objectAtIndex:i];
+            [ekEventCalendars addObject:[representation getEKEventCalendar]];
+        }
+        __block NSMutableArray *calendarEventsArray;
         dispatch_sync(ekQueue, ^{
             
-            eventsArray = [[NSMutableArray arrayWithCapacity:0] retain];
-            NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate endDate:endDate calendars:calendarsArray];
-            [eventsArray addObjectsFromArray:[self.eventStore eventsMatchingPredicate:predicate]];
-            
+            calendarEventsArray = [[NSMutableArray arrayWithCapacity:0] retain];
+
+            NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate endDate:endDate calendars:ekEventCalendars];
+            NSArray *eventsArray = [NSArray arrayWithArray:[self.eventStore eventsMatchingPredicate:predicate]];
+            for (int i = 0; i < [eventsArray count]; i++)
+            {
+                CalendarEvent *calendarEvent = [[CalendarEvent alloc] initWithEKEvent:[eventsArray objectAtIndex:i]];
+                [calendarEventsArray addObject:calendarEvent];
+            }            
         });
-        return [eventsArray autorelease];
+        return [calendarEventsArray autorelease];
     }
 }
 
 
--(BOOL) createAndSaveCalendar:(EKCalendar *)calendar
+- (BOOL) createAndSaveCalendar:(id)calendar
 {
+    NSString *identifier = @"";
+    if ([calendar isKindOfClass:[EKCalendar class]])
+        identifier = ((EKCalendar *)calendar).calendarIdentifier;
+    else if ([calendar isKindOfClass:[CalendarRepresentation class]])
+        identifier = [((CalendarRepresentation *)calendar) getTheCalendarIdentifier];
+    
     NSMutableDictionary *showingStoredCalendarDictionary = [NSMutableDictionary dictionaryWithDictionary:[[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY]];
-    [showingStoredCalendarDictionary setObject:@"1" forKey:calendar.calendarIdentifier];
+    [showingStoredCalendarDictionary setObject:@"1" forKey:identifier];
     [[GroupDiskManager sharedManager] saveDataToDiskWithObject:showingStoredCalendarDictionary withKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
     return [self saveCalendar:calendar];
 }
 
--(BOOL) saveCalendar:(EKCalendar *)calendar
+-(BOOL) saveCalendar:(id)calendar
 {
-    BOOL retval = 1;
-    if (!self.queueSet)
+    BOOL retval = YES;
+    if (self.queueSet)
     {
-        
-        
-    }
-    else
-    {
-        //        dispatch_barrier_async(ekQueue, ^{
-        
         NSError *err = nil;
-        
         retval = [self.eventStore saveCalendar:calendar commit:YES error:&err];
-        NSLog(@"save calendar.title: %@", calendar.title);
-        NSLog(@"save calendar.source: %@", calendar.source);
-        
-        NSLog(@"err: %@", err);
-        
         if (err) {
-            
-            
-            NSLog(@"!!!!!!!!!err: %@", err);
-            NSLog(@"saveCalendar8, error: %@", err);
+            NSLog(@"%s, err: %@", __PRETTY_FUNCTION__, err);
             
         }
         else
         {
             [self commit];
         }
-        
     }
-    
     return retval;
 }
 
--(BOOL) saveCalendarWaitForResult:(EKCalendar *)calendar
-{
-    
-    dispatch_sync(ekQueue, ^{
-        
-        NSError *err = nil;
-        
-        [self.eventStore saveCalendar:calendar commit:YES error:&err];
-        
-        if (err) {
-            
-            NSLog(@"saveCalendarWaitForResult, error: %@", err);
-            //FIXME:  REimplement alert
-            /*
-             
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning7" message:[NSString stringWithFormat:@"%@ %@",@"Error:", err]
-             delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-             [alert show];
-             [alert release];
-             */
-        }
-        
-    });
-    
-    return YES;
-}
 
--(void) deleteCalendar:(EKCalendar *)calendar
+
+- (void) deleteCalendar:(id)calendar
 {
     NSError *err = nil;
     [self.eventStore removeCalendar:calendar commit:YES error:&err];
     if (err) {
-        
-        NSLog(@"deleteCalendar, error: %@", err);
-        
+        NSLog(@"%s, err: %@", __PRETTY_FUNCTION__, err);
     }
 }
 
--(void) saveCalendarEvent:(EKEvent *)event
+
+
+
+- (void) saveCalendarEvent:(id)event
 {
     dispatch_barrier_async(ekQueue, ^{
         
@@ -325,12 +317,15 @@ static dispatch_queue_t ekQueue;
              */
         }
         else
-            [AlarmNotificationHandler processEventWithCalEvent:event];
+        {
+            CalendarEvent *calendarEvent = [[CalendarEvent alloc] initWithEKEvent:event];
+            [AlarmNotificationHandler processEventWithCalEvent:calendarEvent];
+        }
     });
 }
 
 
--(void) deleteCalendarEvent:(EKEvent *)event spanFutureEvents:(BOOL)span
+-(void) deleteCalendarEvent:(id)event spanFutureEvents:(BOOL)span
 {
     NSError *err = nil;
     
@@ -394,10 +389,7 @@ static dispatch_queue_t ekQueue;
     NSMutableArray *eventsArray = [NSMutableArray arrayWithCapacity:0];
     
     
-    NSArray *ar = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:selectedCals];
-    for (int i = 0; i < [ar count]; i++)
-        [eventsArray addObject:[[CalendarEvent alloc] initWithEKEvent:[ar objectAtIndex:i]]];
-    
+    [eventsArray addObjectsFromArray:[[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:selectedCals]];
     
     for (int i = 0; i < [eventsArray count]; i++)
     {
@@ -420,18 +412,16 @@ static dispatch_queue_t ekQueue;
 
 NSInteger eventSort(id calEvent1, id calEvent2, void *context)
 {
-    EKEvent *ekEvent1 = [((CalendarEvent *)calEvent1) getEkEvent];
-    EKEvent *ekEvent2 = [((CalendarEvent *)calEvent2) getEkEvent];
+    CalendarEvent *eventOne = (CalendarEvent *)calEvent1;
+    CalendarEvent *eventTwo = (CalendarEvent *)calEvent2;
     
-    return [ekEvent1 compareStartDateWithEvent:ekEvent2];
+    return [[eventOne getStartDate] compare:[eventTwo getStartDate]];
 }
 
 - (NSMutableDictionary *) loadReturnDictionaryWithRetDict:(NSMutableDictionary *)retDict withEvent:(CalendarEvent *)calEvent withFetchStartDate:(NSDate *)startDate withFetchEndDate:(NSDate *)endDate
 {
-    
     NSDate *eventStartDate = [calEvent getStartDate];
     NSDate *eventEndDate = [calEvent getEndDate];
-    
     
     int eventStartDay = [[[DateFormatManager sharedManager].dayFormatter stringFromDate:eventStartDate] intValue];
     int eventStartMonth = [[[DateFormatManager sharedManager].monthFormatter stringFromDate:eventStartDate] intValue];
@@ -440,11 +430,11 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context)
     int eventEndDay = [[[DateFormatManager sharedManager].dayFormatter stringFromDate:eventEndDate] intValue];
     int eventEndMonth = [[[DateFormatManager sharedManager].monthFormatter stringFromDate:eventEndDate] intValue];
     int eventEndYear = [[[DateFormatManager sharedManager].yearFormatter stringFromDate:eventEndDate] intValue];
-    
+
     if ( ( ([eventStartDate earlierDate:startDate] == startDate || [eventStartDate isEqualToDate:startDate]) && [eventStartDate earlierDate:endDate] == eventStartDate) || ([eventEndDate earlierDate:startDate] == startDate && [eventEndDate earlierDate:endDate] == eventStartDate) )
     {
         //NSLog(@"EKEVENT: %@", ekEvent.startDate);
-        
+    
         if ([eventStartDate compare:startDate] == NSOrderedDescending || [eventStartDate compare:startDate] == NSOrderedSame)
         {
             // checks if the event starts before this calendar

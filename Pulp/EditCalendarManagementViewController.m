@@ -16,7 +16,7 @@
 
 
 @interface EditCalendarManagementViewController ()
-@property (nonatomic,retain) EKCalendar *referenceCalendar;
+@property (nonatomic,retain) CalendarRepresentation *referenceCalendar;
 @end
 
 @implementation EditCalendarManagementViewController
@@ -215,7 +215,7 @@
     
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Delete?"
-                                  message:[NSString stringWithFormat:@"Are you sure you want to delete %@", self.referenceCalendar.title]
+                                  message:[NSString stringWithFormat:@"Are you sure you want to delete %@", [self.referenceCalendar getTitle]]
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -252,13 +252,13 @@
     
 }
 
--(void)loadWithCalendar:(EKCalendar *)theCalendar
+-(void)loadWithCalendar:(CalendarRepresentation *)theCalendar
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     self.referenceCalendar = theCalendar;
     
-    self.nameEntryTextField.text = theCalendar.title;
-    self.displayColorView.backgroundColor = [UIColor colorWithCGColor:theCalendar.CGColor];
+    self.nameEntryTextField.text = [self.referenceCalendar getTitle];
+    self.displayColorView.backgroundColor = [self.referenceCalendar getColor];
 }
 
 
@@ -291,8 +291,8 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [[CalendarManagementViewController sharedCalendarManagementViewController] dismissViewControllerAnimated:YES completion:nil];
     
-    self.referenceCalendar.title = self.nameEntryTextField.text;
-    self.referenceCalendar.CGColor = self.displayColorView.backgroundColor.CGColor;
+    [self.referenceCalendar setTitleWithText:self.nameEntryTextField.text];
+    [self.referenceCalendar setColorWithCGColor:self.displayColorView.backgroundColor.CGColor];    
     [[EventKitManager sharedManager] saveCalendar:self.referenceCalendar];
     
     [self.theParentController calendarContentChanged];

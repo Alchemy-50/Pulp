@@ -15,7 +15,6 @@
 		3A283FDD1C724D2800056061 /* CalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F0B1C724D2800056061 /* CalendarDayView.m */; };
 		3A283FDE1C724D2800056061 /* CalendarDoubleDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F0D1C724D2800056061 /* CalendarDoubleDayView.m */; };
 		3A283FE01C724D2800056061 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F111C724D2800056061 /* CalendarEvent.m */; };
-		3A283FE21C724D2800056061 /* BAKCalendarManagementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F151C724D2800056061 /* BAKCalendarManagementTableViewCell.m */; };
 		3A283FE31C724D2800056061 /* CalendarManagementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F171C724D2800056061 /* CalendarManagementTableViewController.m */; };
 		3A283FE41C724D2800056061 /* CalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F191C724D2800056061 /* CalendarMonthView.m */; };
 		3A283FEA1C724D2800056061 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A283F231C724D2800056061 /* CenterViewController.m */; };
@@ -162,6 +161,7 @@
 		3A50D94B1C80E061000211BF /* PulpTestDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A50D94A1C80E061000211BF /* PulpTestDocument.m */; };
 		3A50D9721C80E8D8000211BF /* PulpCloudKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A50D9711C80E8D8000211BF /* PulpCloudKitManager.m */; };
 		3A54877E1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */; };
+		3A57B0991C85F83800175241 /* SourceRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A57B0981C85F83800175241 /* SourceRepresentation.m */; };
 		3A69C07F1C84F1F200C2A5C0 /* CalendarRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A69C07E1C84F1F200C2A5C0 /* CalendarRepresentation.m */; };
 		3A8640371C7DF2820064FE4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640361C7DF2820064FE4A /* MapKit.framework */; };
 		3A86403A1C7DF3230064FE4A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640391C7DF3230064FE4A /* CloudKit.framework */; };
@@ -201,8 +201,6 @@
 		3A283F0D1C724D2800056061 /* CalendarDoubleDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarDoubleDayView.m; path = Pulp/classes/CalendarDoubleDayView.m; sourceTree = "<group>"; };
 		3A283F101C724D2800056061 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarEvent.h; path = Pulp/classes/CalendarEvent.h; sourceTree = "<group>"; };
 		3A283F111C724D2800056061 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarEvent.m; path = Pulp/classes/CalendarEvent.m; sourceTree = "<group>"; };
-		3A283F141C724D2800056061 /* BAKCalendarManagementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAKCalendarManagementTableViewCell.h; path = Pulp/classes/BAKCalendarManagementTableViewCell.h; sourceTree = "<group>"; };
-		3A283F151C724D2800056061 /* BAKCalendarManagementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BAKCalendarManagementTableViewCell.m; path = Pulp/classes/BAKCalendarManagementTableViewCell.m; sourceTree = "<group>"; };
 		3A283F161C724D2800056061 /* CalendarManagementTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarManagementTableViewController.h; path = Pulp/classes/CalendarManagementTableViewController.h; sourceTree = "<group>"; };
 		3A283F171C724D2800056061 /* CalendarManagementTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarManagementTableViewController.m; path = Pulp/classes/CalendarManagementTableViewController.m; sourceTree = "<group>"; };
 		3A283F181C724D2800056061 /* CalendarMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarMonthView.h; path = Pulp/classes/CalendarMonthView.h; sourceTree = "<group>"; };
@@ -425,6 +423,8 @@
 		3A50D9711C80E8D8000211BF /* PulpCloudKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulpCloudKitManager.m; sourceTree = "<group>"; };
 		3A54877C1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerEKEventEditViewController.h; sourceTree = "<group>"; };
 		3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerEKEventEditViewController.m; sourceTree = "<group>"; };
+		3A57B0971C85F83800175241 /* SourceRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceRepresentation.h; sourceTree = "<group>"; };
+		3A57B0981C85F83800175241 /* SourceRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceRepresentation.m; sourceTree = "<group>"; };
 		3A69C07D1C84F1F200C2A5C0 /* CalendarRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarRepresentation.h; sourceTree = "<group>"; };
 		3A69C07E1C84F1F200C2A5C0 /* CalendarRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarRepresentation.m; sourceTree = "<group>"; };
 		3A8640361C7DF2820064FE4A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -647,6 +647,8 @@
 				3A283F5C1C724D2800056061 /* EventKitManager.m */,
 				3A283F621C724D2800056061 /* EventStoreChangeThread.h */,
 				3A283F631C724D2800056061 /* EventStoreChangeThread.m */,
+				3A57B0971C85F83800175241 /* SourceRepresentation.h */,
+				3A57B0981C85F83800175241 /* SourceRepresentation.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -856,19 +858,9 @@
 			name = Button;
 			sourceTree = "<group>";
 		};
-		3A40C9491C765501009B53F0 /* BAK */ = {
-			isa = PBXGroup;
-			children = (
-				3A283F141C724D2800056061 /* BAKCalendarManagementTableViewCell.h */,
-				3A283F151C724D2800056061 /* BAKCalendarManagementTableViewCell.m */,
-			);
-			name = BAK;
-			sourceTree = "<group>";
-		};
 		3A40C94A1C765507009B53F0 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				3A40C9491C765501009B53F0 /* BAK */,
 				3A283F161C724D2800056061 /* CalendarManagementTableViewController.h */,
 				3A283F171C724D2800056061 /* CalendarManagementTableViewController.m */,
 				3A40C94B1C765522009B53F0 /* CalendarManagementTableViewCell.h */,
@@ -1342,6 +1334,7 @@
 				3A2840361C724D2800056061 /* TimeView.m in Sources */,
 				3A28402B1C724D2800056061 /* SidebarInstanceView.m in Sources */,
 				3A2840411C724D2800056061 /* WeatherView.m in Sources */,
+				3A57B0991C85F83800175241 /* SourceRepresentation.m in Sources */,
 				3A2840401C724D2800056061 /* WeatherDataManager.m in Sources */,
 				3A283FE31C724D2800056061 /* CalendarManagementTableViewController.m in Sources */,
 				3A2840471C724E6400056061 /* NSString+FontAwesome.m in Sources */,
@@ -1385,7 +1378,6 @@
 				3A28403F1C724D2800056061 /* WeatherAPIHandler.m in Sources */,
 				3A283FFC1C724D2800056061 /* DailyTableViewCell.m in Sources */,
 				3A3918151C76AFD300966DDA /* DRColorPickerHorizontalCollectionViewLayout.m in Sources */,
-				3A283FE21C724D2800056061 /* BAKCalendarManagementTableViewCell.m in Sources */,
 				3A2840001C724D2800056061 /* Defs.m in Sources */,
 				3A3918101C76AFD300966DDA /* DRColorPickerGridView.m in Sources */,
 				3ABD61301C751165006F8FAA /* CellContainerMapView.m in Sources */,

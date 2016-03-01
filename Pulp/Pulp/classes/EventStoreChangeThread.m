@@ -9,6 +9,7 @@
 #import "EventStoreChangeThread.h"
 #import "EventKitManager.h"
 #import "MainViewController.h"
+#import <EventKit/EventKit.h>
 
 @interface EventStoreChangeThread ()
 @property (nonatomic, assign) NSTimer *notificationWatchTimer;
@@ -24,7 +25,7 @@
 {
     if ((self = [super init])) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyRoot:)
-                                                     name:EKEventStoreChangedNotification object:[EventKitManager sharedManager].eventStore];
+                                                     name:EKEventStoreChangedNotification object:[[EventKitManager sharedManager] getTheEventStore]];
     }
     return self;
 }

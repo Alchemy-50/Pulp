@@ -9,20 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "CalendarRepresentation.h"
 
-#import <EventKit/EventKit.h>
+
 @interface CalendarEvent : NSObject
     
 
 
 - (CalendarEvent *) init;
-- (CalendarEvent *) initWithEKEvent:(EKEvent *)ekEvent;
-- (EKEvent *) getEkEvent;
+- (CalendarEvent *) initWithEKEvent:(id)theEKEvent;
+- (id) getTheEKEvent;
 - (CalendarRepresentation *)getCalendar;
 
 - (NSDate *) getStartDate;
 - (NSDate *) getEndDate;
-
-
-
-
+- (BOOL) hasAlarms;
+- (NSArray *) getTheAlarms;
+- (NSString *) getTheEventIdentifier;
+- (NSString *) getTheTitle;
+- (BOOL) isAllDay;
+- (NSString *) getTheLocation;
 @end

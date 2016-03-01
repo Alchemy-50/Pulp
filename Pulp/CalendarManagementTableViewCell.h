@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <EventKit/EventKit.h>
+#import "Defs.h"
+#import "SourceRepresentation.h"
+#import "CalendarRepresentation.h"
 
 @interface CalendarManagementTableViewCell : UITableViewCell
 
 -(void) initialize;
 -(void) cleanViews;
--(void) loadWithSource:(EKSource *)theSource;
--(void) loadWithCalendar:(EKCalendar *)theCalendar;
+-(void) loadWithSource:(SourceRepresentation *)theSource;
+-(void) loadWithCalendar:(CalendarRepresentation *)theCalendar;
 
 
 

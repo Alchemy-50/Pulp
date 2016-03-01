@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <EventKit/EventKit.h>
-#import <EventKitUI/EventKitUI.h>
+#import "Defs.h"
+#import "Defs.h"
 #import "EventKitManager.h"
 #import "CalendarMonthView.h"
 

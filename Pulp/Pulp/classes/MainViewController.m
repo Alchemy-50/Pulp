@@ -219,28 +219,6 @@ static MainViewController *staticVC;
 
 
 
-
-
--(void)createEventExitButtonHitWithController:(UIViewController *)theController withEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction
-{
-    NSLog(@"createEventExitButtonHitWithController");
-    
-    /*
-     if (theAction == EKEventEditViewActionSaved)
-     if (theEvent != nil)
-     if (theEvent.title != nil)
-     {
-     
-     
-     }
-     
-     [self dismissViewControllerAnimated:YES completion:^(void){
-     
-     }];
-     */
-}
-
-
 - (void) dayViewTapped:(CalendarDayView *)tappedDay
 {
     [self.fullCalendarViewController dayViewSelected:tappedDay];
@@ -249,79 +227,29 @@ static MainViewController *staticVC;
 
 -(void)dailyViewAddEventButtonHit:(NSDate *)referenceDate
 {
-    EKEvent *newEvent = [[EventKitManager sharedManager] getNewEKEvent];
-    
-    NSString *defaultCalendarIdentifier = [[SettingsManager getSharedSettingsManager] getDefaultCalendarID];
-    if (defaultCalendarIdentifier != nil)
-        newEvent.calendar = [[EventKitManager sharedManager] getEKCalendarWithIdentifier:defaultCalendarIdentifier];
-    
-    newEvent.startDate = referenceDate;
-    newEvent.endDate = [newEvent.startDate dateByAddingTimeInterval:60*60];
-
-    
+        
     ContainerEKEventEditViewController *containerEKEventEditViewController = [[ContainerEKEventEditViewController alloc] initWithNibName:nil bundle:nil];
+    containerEKEventEditViewController.containerParentController = self;
+    [containerEKEventEditViewController loadForNewEventWithStartDate:referenceDate];
     containerEKEventEditViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
-    containerEKEventEditViewController.eventStore = [EventKitManager sharedManager].eventStore;
-    containerEKEventEditViewController.event = newEvent;
-    containerEKEventEditViewController.editViewDelegate = self;
     [self presentViewController:containerEKEventEditViewController animated:YES completion:nil];
 
 }
 
 
 
--(void)dailyEventSelected:(EKEvent *)theEvent
+-(void)dailyEventSelected:(CalendarEvent *)theEvent
 {
     if (theEvent != nil)
     {
         ContainerEKEventEditViewController *containerEKEventEditViewController = [[ContainerEKEventEditViewController alloc] initWithNibName:nil bundle:nil];
+        containerEKEventEditViewController.containerParentController = self;
+        [containerEKEventEditViewController loadWithExistingCalendarEvent:theEvent];
         containerEKEventEditViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
-        containerEKEventEditViewController.eventStore = [EventKitManager sharedManager].eventStore;
-        containerEKEventEditViewController.event = theEvent;
-        containerEKEventEditViewController.editViewDelegate = self;
         [self presentViewController:containerEKEventEditViewController animated:YES completion:nil];
-        //        [[EventManagerViewController alloc];
     }
 }
 
-
-- (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    NSLog(@"EKEventEditViewController: %@", controller);
-    NSLog(@"controller.event: %@", controller.event);
-    NSLog(@"controller.event.calendar: %@", controller.event.calendar);
-    NSLog(@"controller.event.calendar.source: %@", controller.event.calendar.source);
-    
-    //     self.denyProcess = YES;
-    
-    switch (action) {
-        case EKEventEditViewActionCanceled:
-            NSLog(@"EKEventEditViewActionCanceled");
-            break;
-            
-        case EKEventEditViewActionSaved:
-            NSLog(@"EKEventEditViewActionSaved");
-            [AlarmNotificationHandler processEventWithCalEvent:controller.event];
-            [self launchUpdatingCoverView];
-            break;
-            
-        case EKEventEditViewActionDeleted:
-            NSLog(@"EKEventEditViewActionDeleted");
-            [self launchUpdatingCoverView];
-            break;
-            
-            
-        default:
-            break;
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-
-// - (EKCalendar *)eventEditViewControllerDefaultCalendarForNewEvents:(EKEventEditViewController *)controller;
 
 
 

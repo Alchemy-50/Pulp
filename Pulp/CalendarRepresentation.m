@@ -7,10 +7,12 @@
 //
 
 #import "CalendarRepresentation.h"
+#import "Defs.h"
 #import <EventKit/EventKit.h>
 
 @interface CalendarRepresentation ()
 @property (nonatomic, retain) EKEvent *referenceEvent;
+@property (nonatomic, retain) EKCalendar *referenceCalendar;
 @end
 
 
@@ -25,6 +27,27 @@
     
     return self;
 }
+
+-(id)initWithCalendarObject:(id)calendarObject
+{
+    self = [super init];
+    if ([calendarObject isKindOfClass:[EKCalendar class]])
+        self.referenceCalendar = calendarObject;
+    
+    return self;
+}
+
+-(SourceRepresentation *)getSource
+{
+    SourceRepresentation *representation = [[SourceRepresentation alloc] initWithSource:self.referenceCalendar.source];
+    return representation;
+}
+
+-(id)getEKEventCalendar
+{
+    return self.referenceCalendar;
+}
+
 
 -(UIColor *)getColor
 {
@@ -44,6 +67,26 @@
         retString = self.referenceEvent.calendar.title;
     
     return retString;
+}
+
+
+-(NSString *)getTheCalendarIdentifier
+{
+    NSString *retString = @"";
+    if (self.referenceEvent != nil)
+        retString = self.referenceEvent.calendar.calendarIdentifier;
+    
+    return retString;
+}
+
+-(void)setTitleWithText:(NSString *)theTitleText;
+{
+    self.referenceCalendar.title = theTitleText;
+}
+
+-(void)setColorWithCGColor:(CGColorRef)theColorRef
+{
+    self.referenceCalendar.CGColor = theColorRef;
 }
 
 @end

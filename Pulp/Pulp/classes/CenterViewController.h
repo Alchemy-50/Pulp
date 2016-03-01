@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import <EventKit/EventKit.h>
-#import <EventKitUI/EventKitUI.h>
+#import "Defs.h"
+#import "Defs.h"
 #import "EventKitManager.h"
 #import "TodosViewController.h"
 #import "DailyView.h"

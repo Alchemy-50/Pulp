@@ -8,11 +8,14 @@
 
 #import "ContainerEKEventEditViewController.h"
 #import "MainViewController.h"
+#import "SettingsManager.h"
+#import "AlarmNotificationHandler.h"
 #import <objc/runtime.h>
 
 
 @interface ContainerEKEventEditViewController ()
 @property (nonatomic, retain) NSMutableArray *tableViewsArray;
+@property (nonatomic, retain) CalendarEvent *calendarEvent;
 @end
 
 @implementation ContainerEKEventEditViewController
@@ -20,10 +23,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.eventStore = [[EventKitManager sharedManager] getTheEventStore];
+    self.editViewDelegate = self;
+
+    
+}
+
+-(void)loadForNewEventWithStartDate:(NSDate *)startDate
+{
+    CalendarEvent *newEvent = [[EventKitManager sharedManager] getNewEKEvent];
+
+    self.event = [newEvent getTheEKEvent];
+    
+    NSString *defaultCalendarIdentifier = [[SettingsManager getSharedSettingsManager] getDefaultCalendarID];
+    if (defaultCalendarIdentifier != nil)
+        self.event.calendar = [[EventKitManager sharedManager] getEKCalendarWithIdentifier:defaultCalendarIdentifier];
+    
+    self.event.startDate = startDate;
+    self.event.endDate = [self.event.startDate dateByAddingTimeInterval:60*60];
 }
 
 
-
+-(void)loadWithExistingCalendarEvent:(CalendarEvent *)theCalendarEvent
+{
+    self.calendarEvent = theCalendarEvent;
+    self.event = [theCalendarEvent getTheEKEvent];
+}
 
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^ __nullable)(void))completion NS_AVAILABLE_IOS(5_0);
 {
@@ -86,25 +112,46 @@
     
 }
 
--(void)printSubviews:(UIView *)theView
+
+
+
+- (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action
 {
-    NSLog(@"theView: %@", theView);
-    NSLog(@" ");
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"EKEventEditViewController: %@", controller);
+    NSLog(@"controller.event: %@", controller.event);
+    NSLog(@"controller.event.calendar: %@", controller.event.calendar);
+    NSLog(@"controller.event.calendar.source: %@", controller.event.calendar.source);
     
-    for (int i = 0; i < [[theView subviews] count]; i++)
-    {
-        UIView *subview = [[theView subviews] objectAtIndex:i];
-        
-//        if ([subview isKindOfClass:[UITableView class]])
-//            [self.tableViewsArray addObject:subview];
-        
-        if ([subview.subviews count] > 0)
-            [self printSubviews:subview];
-
-
-        
+    //     self.denyProcess = YES;
+    
+    switch (action) {
+        case EKEventEditViewActionCanceled:
+            NSLog(@"EKEventEditViewActionCanceled");
+            break;
+            
+        case EKEventEditViewActionSaved:
+            NSLog(@"EKEventEditViewActionSaved");
+            CalendarEvent *calendarEvent = [[CalendarEvent alloc] initWithEKEvent:controller.event];
+            [AlarmNotificationHandler processEventWithCalEvent:calendarEvent];
+            [self.containerParentController launchUpdatingCoverView];
+            break;
+            
+        case EKEventEditViewActionDeleted:
+            NSLog(@"EKEventEditViewActionDeleted");
+            [self.containerParentController launchUpdatingCoverView];
+            break;
+            
+            
+        default:
+            break;
     }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
+
+
 
 
 - (void)contactViewController:(CNContactViewController *)viewController didCompleteWithContact:(nullable CNContact *)contact
@@ -122,13 +169,14 @@
 
 - (void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact
 {
+    /*
     NSLog(@"%s", __PRETTY_FUNCTION__);
     NSLog(@"contact: %@", contact);
     
     NSString *theFirstName = contact.givenName;
     NSString *theLastName = contact.familyName;
-//    NSString *name = [NSString stringWithFormat:@"%@ %@", theFirstName, theLastName];
-//    NSString *theIdentifier = contact.identifier;
+    NSString *name = [NSString stringWithFormat:@"%@ %@", theFirstName, theLastName];
+    NSString *theIdentifier = contact.identifier;
     
     NSString *emailAddress = @"";
     for (int i = 0; i < [contact.emailAddresses count]; i++)
@@ -166,7 +214,6 @@
     NSLog(@"attendee3: %@", attendee);
     [attendees addObject:attendee];
     
-    /*
     
     Class className = NSClassFromString(@"EKAttendee");
     id attendee = [className new];
@@ -181,6 +228,7 @@
     NSLog(@"attendee!: %@", attendee);
      */
     
+    /*
     [self.event setValue:attendees forKey:@"attendees"];
 
     
@@ -190,6 +238,8 @@
         NSLog(@"THE TABLE VIEW[%d]: %@", i, theTableView);
         [theTableView reloadData];
     }
+     
+     */
     
     
 }
@@ -217,6 +267,33 @@
 }
 
  */
+
+
+
+
+
+
+-(void)printSubviews:(UIView *)theView
+{
+    NSLog(@"theView: %@", theView);
+    NSLog(@" ");
+    
+    for (int i = 0; i < [[theView subviews] count]; i++)
+    {
+        UIView *subview = [[theView subviews] objectAtIndex:i];
+        
+        //        if ([subview isKindOfClass:[UITableView class]])
+        //            [self.tableViewsArray addObject:subview];
+        
+        if ([subview.subviews count] > 0)
+            [self printSubviews:subview];
+        
+        
+        
+    }
+}
+
+
 
 
 

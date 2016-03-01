@@ -306,6 +306,38 @@
     });
 }
 
+
+
+
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    /*
+    UIImage *theImage = [self imageFromUIView:[self getViewWithDictionary:userInfo]];
+    NSData *theImageData = UIImagePNGRepresentation(theImage);
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
+    [dict setObject:theImageData forKey:@"theImageData"];
+    [dict setObject:@"labelText4" forKey:@"theLabelKey"];
+    
+    
+    reply(dict);
+     */
+    
+}
+
+
+- (UIImage *) imageFromUIView:(UIView*)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+/*
 -(UIView *)getViewWithDictionary:(NSDictionary *)dict
 {
     UIView *retView = [[UIView alloc] initWithFrame:CGRectMake(0,0,136, 141)];
@@ -376,34 +408,6 @@
     return retView;
 }
 
-
-- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    UIImage *theImage = [self imageFromUIView:[self getViewWithDictionary:userInfo]];
-    NSData *theImageData = UIImagePNGRepresentation(theImage);
-    
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
-    [dict setObject:theImageData forKey:@"theImageData"];
-    [dict setObject:@"labelText4" forKey:@"theLabelKey"];
-    
-    
-    reply(dict);
-    
-}
-
-
-- (UIImage *) imageFromUIView:(UIView*)view
-{
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
-    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
-
-
-
+*/
 
 @end

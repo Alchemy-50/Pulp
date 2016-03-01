@@ -11,6 +11,7 @@
 #import "DailyIconView.h"
 #import "CellContainerMapView.h"
 #import <MapKit/MapKit.h>
+#import "CalendarEvent.h"
 
 
 @class DailyView;
@@ -20,10 +21,10 @@
     
 }
 
-+ (float) getDesiredCellHeightWithEvent:(EKEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath withSuppressMaps:(BOOL)doSuppressMaps;
++ (float) getDesiredCellHeightWithEvent:(CalendarEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath withSuppressMaps:(BOOL)doSuppressMaps;
 - (void) loadViews;
-- (void) loadWithEvent:(EKEvent *)theEvent;
-- (void) setFieldsWithEvent:(EKEvent *)theEvent;
+- (void) loadWithEvent:(CalendarEvent *)theEvent;
+- (void) setFieldsWithEvent:(CalendarEvent *)theEvent;
 - (void) eventLocationDataReturned;
 - (void) setLastRowStyle:(BOOL)isLastRow;
 - (void) loadCoverButton;
@@ -48,7 +49,7 @@
 @property (nonatomic, retain) NSCalendar *referenceCalendar;
 @property (nonatomic, assign) float insetValue;
 
-@property (nonatomic, retain) EKEvent *referenceEvent;
+@property (nonatomic, retain) CalendarEvent *referenceEvent;
 
 @property (nonatomic, retain) CellContainerMapView *theMapView;
 

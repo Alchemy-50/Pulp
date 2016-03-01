@@ -10,6 +10,8 @@
 #import "EventKitManager.h"
 #import "SettingsManager.h"
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
+
 
 @implementation AlarmNotificationHandler
 
@@ -25,15 +27,12 @@
     
     for (int i = 0; i < [allEvents count]; i++)
     {
-        EKEvent *calEvent = [allEvents objectAtIndex:i];
-        [self processEventWithCalEvent:calEvent];
-        
-        
+        [self processEventWithCalEvent:[allEvents objectAtIndex:i]];
         
     }
 }
 
-+(void)processEventWithCalEvent:(EKEvent *)calEvent
++(void)processEventWithCalEvent:(CalendarEvent *)calEvent
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -48,17 +47,18 @@
         else
             [timeFormat setDateFormat:@"h:mm a"];
         
-        for (int i = 0; i < [calEvent.alarms count]; i++)
+        NSArray *alarms = [calEvent getTheAlarms];
+        for (int i = 0; i < [alarms count]; i++)
         {
-            EKAlarm *theAlarm = [calEvent.alarms objectAtIndex:i];
+            EKAlarm *theAlarm = [alarms objectAtIndex:i];
             
             NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
-            [dict setObject:calEvent.calendar.calendarIdentifier forKey:@"calendarIdentifier"];
-            [dict setObject:calEvent.eventIdentifier forKey:@"eventIdentifier"];
+            [dict setObject:[[calEvent getCalendar] getTheCalendarIdentifier] forKey:@"calendarIdentifier"];
+            [dict setObject:[calEvent getTheEventIdentifier] forKey:@"eventIdentifier"];
             
             UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-            localNotification.fireDate = [calEvent.startDate dateByAddingTimeInterval:theAlarm.relativeOffset];
-            localNotification.alertBody = [NSString stringWithFormat:@"%@ @ %@", calEvent.title, [timeFormat stringFromDate:calEvent.startDate]];
+            localNotification.fireDate = [[calEvent getStartDate] dateByAddingTimeInterval:theAlarm.relativeOffset];
+            localNotification.alertBody = [NSString stringWithFormat:@"%@ @ %@", [calEvent getTheTitle], [timeFormat stringFromDate:[calEvent getStartDate]]];
             
             localNotification.userInfo = [NSDictionary dictionaryWithDictionary:dict];
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -68,7 +68,7 @@
         }
         
         
-        [defaults setObject:scheduledLocalNotificationsArray forKey:calEvent.eventIdentifier];
+        [defaults setObject:scheduledLocalNotificationsArray forKey:[calEvent getTheEventIdentifier]];
         [defaults synchronize];
         
     }

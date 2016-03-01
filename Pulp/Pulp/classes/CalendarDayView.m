@@ -7,7 +7,7 @@
 //
 
 #import "CalendarDayView.h"
-#import <EventKit/EventKit.h>
+#import "Defs.h"
 #import "Circle.h"
 #import "CalendarMonthView.h"
 #import "DateFormatManager.h"

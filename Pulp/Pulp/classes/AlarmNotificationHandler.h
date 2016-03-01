@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <EventKit/EventKit.h>
+#import "CalendarEvent.h"
+
+
+
 @interface AlarmNotificationHandler : NSObject
 
 +(void)runScheduler;
-+(void)processEventWithCalEvent:(EKEvent *)calEvent;
++(void)processEventWithCalEvent:(CalendarEvent *)calEvent;
 
 @end

@@ -10,7 +10,6 @@
 #import "DailyTableViewCell.h"
 #import "AppDelegate.h"
 #import "CenterViewController.h"
-
 #import "PulpMapView.h"
 #import "MapAPIHandler.h"
 #import "Utils.h"
@@ -125,8 +124,12 @@ static float allDayHeight = 32;
     
     NSMutableArray *allDayEvents = [NSMutableArray arrayWithCapacity:0];
     for (int i = 0; i < [self.eventsArray count]; i++)
-        if (((EKEvent *)[self.eventsArray objectAtIndex:i]).allDay)
+    {
+        CalendarEvent *calendarEvent = [self.eventsArray objectAtIndex:i];
+        if ([calendarEvent isAllDay])
             [allDayEvents addObject:[self.eventsArray objectAtIndex:i]];
+    }
+    
     
     for (int i = 0; i < [allDayEvents count]; i++)
     {
@@ -177,11 +180,11 @@ static float allDayHeight = 32;
     cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, tableView.frame.size.width, [self tableView:tableView heightForRowAtIndexPath:indexPath]);
     
     
-    EKEvent *theEvent = [self.eventsArray objectAtIndex:indexPath.row];
-    [cell loadWithEvent:theEvent];
+    CalendarEvent *calendarEvent = [self.eventsArray objectAtIndex:indexPath.row];
+    [cell loadWithEvent:calendarEvent];
     
-    if (!theEvent.allDay && ([theEvent.calendar.title compare:@"TODO"] == NSOrderedSame))
-        [cell setFieldsWithEvent:theEvent];
+    if (![calendarEvent isAllDay] && ([[[calendarEvent getCalendar] getTitle] compare:@"TODO"] == NSOrderedSame))
+        [cell setFieldsWithEvent:calendarEvent];
 
     
     cell.dividerView.frame = CGRectMake(0, cell.frame.size.height - 1, cell.frame.size.width, 1);
@@ -199,13 +202,13 @@ static float allDayHeight = 32;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EKEvent *theEvent = [self.eventsArray objectAtIndex:indexPath.row];
+    CalendarEvent *theEvent = [self.eventsArray objectAtIndex:indexPath.row];
     
     float height = 0;
     
-    if (theEvent.allDay)
+    if ([theEvent isAllDay])
          height = allDayHeight;
-    else if ([theEvent.calendar.title compare:@"TODO"] == NSOrderedSame)
+    else if ([[[theEvent getCalendar] getTitle] compare:@"TODO"] == NSOrderedSame)
         height = todoHeight;
     else
         height = [DailyTableViewCell getDesiredCellHeightWithEvent:theEvent withIndexPath:indexPath withSuppressMaps:self.suppressMaps];
@@ -226,7 +229,7 @@ static float allDayHeight = 32;
 }
 
 
--(void)mapTappedWithMapView:(MKMapView *)tappedMapView withEvent:(EKEvent *)theEvent
+-(void)mapTappedWithMapView:(MKMapView *)tappedMapView withEvent:(CalendarEvent *)theEvent
 {
     if (self.expandedMapView == nil)
     {
@@ -241,8 +244,8 @@ static float allDayHeight = 32;
         [self addSubview:self.expandedMapView];
         
         self.expandedMapView.desiredLocationCoordinate = tappedMapView.centerCoordinate;
-        self.expandedMapView.destinationTitle = theEvent.title;
-        self.expandedMapView.destinationSubtitle = theEvent.location;
+        self.expandedMapView.destinationTitle = [theEvent getTheTitle];
+        self.expandedMapView.destinationSubtitle = [theEvent getTheLocation];
         
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         [appDelegate registerAsLocationUpdateRespondee:self.expandedMapView];
@@ -391,7 +394,7 @@ static float allDayHeight = 32;
 
 -(void)mapButtonHit
 {
-    NSString *locationString = [NSString stringWithFormat:@"%@", self.currentReferenceEvent.location];
+    NSString *locationString = [NSString stringWithFormat:@"%@", [self.currentReferenceEvent getTheLocation]];
     locationString = [locationString stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     locationString = [locationString stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
     

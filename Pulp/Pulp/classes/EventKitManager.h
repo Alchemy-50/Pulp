@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <EventKit/EventKit.h>
+#import "CalendarEvent.h"
 
 #define STORED_CALENDARS_SHOWING_DICTIONARY_KEY @"STORED_CALEfNDARS_SHOWING_DICTIONARY_KEY"
 
@@ -16,24 +16,23 @@
 }
 
 +(EventKitManager *)sharedManager;
-- (EKSource *)getStandardEKSource;
-- (EKCalendar *) getNewEKCalendar;
-- (EKCalendar *) getEKCalendarWithIdentifier:(NSString *)calId;
+- (id) getNewEKCalendar;
+- (id) getEKCalendarWithIdentifier:(NSString *)calId;
 - (NSArray *) getEKCalendars:(BOOL)supressHiddenCalendars;
-- (EKEvent *) getNewEKEvent;
-- (EKEvent *) getEKEventWithIdentifier:(NSString *)eventId;
-- (BOOL) saveCalendar:(EKCalendar *)calendar;
-- (BOOL) saveCalendarWaitForResult:(EKCalendar *)calendar;
-- (void) deleteCalendar:(EKCalendar *)calendar;
-- (BOOL) createAndSaveCalendar:(EKCalendar *)calendar;
-- (void) saveCalendarEvent:(EKEvent *)calendarEvent;
-- (void) deleteCalendarEvent:(EKEvent *)event spanFutureEvents:(BOOL)span;
-- (NSMutableArray *) getEventsForStartDate:(NSDate *)startDate forEndDate:(NSDate *)endDate withCalendars:(NSArray *)calendars;
+- (CalendarEvent *) getNewEKEvent;
+- (id) getEKEventWithIdentifier:(NSString *)eventId;
+- (id) getTheEventStore;
+- (BOOL) saveCalendar:(id)calendar;
+- (void) deleteCalendar:(id)calendar;
+- (BOOL) createAndSaveCalendar:(id)calendar;
+- (void) saveCalendarEvent:(id)calendarEvent;
+- (void) deleteCalendarEvent:(id)event spanFutureEvents:(BOOL)span;
 - (void) commit;
 - (void) remoteRefresh;
+- (NSMutableArray *) getEventsForStartDate:(NSDate *)startDate forEndDate:(NSDate *)endDate withCalendars:(NSArray *)calendars;
 - (NSMutableDictionary *)fetchEventsWithStartDate:(NSDate *)startDate withEndDate:(NSDate *)endDate withSelectedCalendars:(NSArray *)selectedCals;
     
-@property (nonatomic, retain) EKEventStore *eventStore;
+
 @property (nonatomic, assign) BOOL queueSet;
 
 @end

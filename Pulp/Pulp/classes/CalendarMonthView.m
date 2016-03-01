@@ -49,7 +49,7 @@ static float insetHeight = 40.0f;
         
         self.calendarDayViewDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
         self.presented = YES;
-        self.backgroundColor = [Defs getClearColor];
+        self.backgroundColor = [UIColor clearColor];
         UIColor *dayViewBackgroundColor = [UIColor colorWithWhite:1 alpha:.15];
         
         UIView *subheaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, insetHeight)];

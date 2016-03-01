@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "SourceRepresentation.h"
 
 @interface CalendarRepresentation : NSObject
 
 -(id)initWithEventObject:(id)eventObject;
+-(id)initWithCalendarObject:(id)calendarObject;
+-(SourceRepresentation *)getSource;
+-(id)getEKEventCalendar;
 -(UIColor *)getColor;
 -(NSString *)getTitle;
+-(NSString *)getTheCalendarIdentifier;
+
+-(void)setTitleWithText:(NSString *)theTitleText;
+-(void)setColorWithCGColor:(CGColorRef)theColorRef;
 @end
