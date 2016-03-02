@@ -20,10 +20,6 @@
 @implementation AppSettingsViewController
 
 
-@synthesize twelveTwentyfourSwitch;
-@synthesize mondaySwitch;
-@synthesize celciusSwitch;
-@synthesize defaultCalendarLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,10 +44,6 @@
     
     // Do any additional setup after loading the view from its nib.
     
-    self.twelveTwentyfourSwitch.on = [[SettingsManager getSharedSettingsManager] startTimeInTwentyFour];
-    self.mondaySwitch.on = [[SettingsManager getSharedSettingsManager] startWithMonday];
-    self.celciusSwitch.on = [[SettingsManager getSharedSettingsManager] tempInCelcius];
-
     NSString *defaultCalendarID = [[SettingsManager getSharedSettingsManager] getDefaultCalendarID];
     if (defaultCalendarID == nil)
         self.defaultCalendarLabel.text = @"None";
@@ -64,7 +56,6 @@
 
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:[MainViewController sharedMainViewController]  action:@selector(dismissSettingsViewController)];
     self.navigationItem.rightBarButtonItem = anotherButton;
-    [anotherButton release];
     
     UIColor *labelColor = [UIColor whiteColor];
     
@@ -81,24 +72,6 @@
     
 }
 
-
-
-
--(IBAction)switchValueChanged:(UISwitch *)theSwitch
-{
-    if (theSwitch == self.twelveTwentyfourSwitch)
-    {
-        [[SettingsManager getSharedSettingsManager] setTimeInTwentyFour:self.twelveTwentyfourSwitch.on];
-        
-        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        [appDelegate runBackgroundTasks];
-    }
-    else if (theSwitch == self.mondaySwitch)
-        [[SettingsManager getSharedSettingsManager] setStartWithMonday:self.mondaySwitch.on];
-    else if (theSwitch == self.celciusSwitch)
-        [[SettingsManager getSharedSettingsManager] setTempInCelcius:self.celciusSwitch.on];
-    
-}
 
 -(IBAction)defaultCalendarButtonHit
 {
@@ -124,7 +97,7 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     NSLog(@"self.navigatonController: %@", self.navigationController);
     
-    ThemeSelectViewController *themeSelectViewController = [[ThemeSelectViewController alloc] initWithNibName:@"ThemeSelectViewController" bundle:nil];
+    ThemeSelectViewController *themeSelectViewController = [[ThemeSelectViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:themeSelectViewController animated:YES];
     
 }

@@ -52,7 +52,6 @@
     {
         UIView *subview = [subviewsArray objectAtIndex:i];
             [subview removeFromSuperview];
-            [subview release];
             subview = nil;
     }
 }

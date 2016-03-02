@@ -7,7 +7,7 @@
 //
 
 #import "MapAPIHandler.h"
-#import <MapKit/MapKit.h>
+
 #import "Utils.h"
 
 #define API_KEY @"AIzaSyBm6NB4P0jnH8TTskQCILjrCvJ97y0X6xw"

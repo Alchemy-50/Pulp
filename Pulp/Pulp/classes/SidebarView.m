@@ -63,7 +63,6 @@ static SidebarView *theStaticSidebarView;
 {
     self.containerScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     self.containerScrollView.backgroundColor = [UIColor clearColor];
-    self.containerScrollView.pagingEnabled = YES;
     self.containerScrollView.delegate = self;
     self.containerScrollView.scrollEnabled = NO;
     [self addSubview:self.containerScrollView];

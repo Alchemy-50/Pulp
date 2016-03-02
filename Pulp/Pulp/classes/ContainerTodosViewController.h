@@ -25,7 +25,7 @@
 @property (nonatomic, retain) TodosViewController *todosViewController;
 @property (nonatomic, retain) UILabel *addTodoLabel;
 @property (nonatomic, assign) float xInset;
-@property (nonatomic, assign) UITextField *textEntryField;
+@property (nonatomic, retain) UITextField *textEntryField;
 @property (nonatomic, retain) TodoTableViewCell *editingCell;
 @property (nonatomic, assign) int timerCounter;
 @property (nonatomic, assign) NSTimer *handlerTimer;

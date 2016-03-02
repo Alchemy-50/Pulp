@@ -49,18 +49,6 @@ static DateFormatManager *theManager;
     return self;
 }
 
-- (void)dealloc {
-    
-    NSLog(@"DEALLOC");
-    [self.dayFormatter release];
-    [self.monthFormatter release];
-    [self.yearFormatter release];
-    [self.dateFormatter release];
-    [self.dateTimeFormatter release];
-	[self.timeFormatter release];
-    
-    [super dealloc];
-}
 
 
 @end

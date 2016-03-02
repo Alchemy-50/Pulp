@@ -166,9 +166,7 @@
     self.publicSublabelTwo.text = @"Allow anyone to subscribe to a read-only version";
     self.publicSublabelTwo.font = [UIFont fontWithName:@"Lato-Regular" size:11.0f];
     
-    
-    [[ThemeManager sharedThemeManager] registerSecondaryObject:self.publicSwitch];
-    [[ThemeManager sharedThemeManager] registerSecondaryObject:self.notificationsSwitch];
+
     
   
     

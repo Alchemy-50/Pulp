@@ -7,10 +7,9 @@
 //
 
 #import "SourceRepresentation.h"
-#import <EventKit/EventKit.h>
 
 @interface SourceRepresentation ()
-@property (nonatomic, retain) EKSource *referenceSource;
+@property (nonatomic, retain) id referenceSource;
 @end
 
 @implementation SourceRepresentation
@@ -25,12 +24,7 @@
 
 -(NSString *)getTitle
 {
-    NSString *ret = @"";
-    
-    if ([self.referenceSource isKindOfClass:[EKSource class]])
-    {
-        ret = self.referenceSource.title;
-    }
+    NSString *ret = @"";    
     return ret;
 }
 

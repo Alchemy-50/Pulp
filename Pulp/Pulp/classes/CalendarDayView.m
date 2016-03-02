@@ -44,13 +44,13 @@
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureFired)];
         singleTap.numberOfTapsRequired = 1;
         [self addGestureRecognizer:singleTap];
-        [singleTap release];
+       
         
         
         UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapGestureFired)];
         doubleTap.numberOfTapsRequired = 2;
         [self addGestureRecognizer:doubleTap];
-        [doubleTap release];
+       
         
         UILongPressGestureRecognizer *touchAndHoldRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureFired:)];
         touchAndHoldRecognizer.minimumPressDuration = 0.45;
@@ -136,7 +136,6 @@
     if (self.eventForCalendarDayView != nil)
     {
         [self.eventForCalendarDayView removeFromSuperview];
-        [self.eventForCalendarDayView release];
         self.eventForCalendarDayView = nil;
     }
     
@@ -181,12 +180,10 @@
         if (self.calendarDaySelectedOverview != nil)
         {
             [self.calendarDaySelectedOverview removeFromSuperview];
-            [self.calendarDaySelectedOverview release];
             self.calendarDaySelectedOverview = nil;
         }
     }
     
-    [dateFormatter release];
     
 }
 
@@ -228,24 +225,16 @@
 
 -(void)destroyViews
 {
-    [self.theDate release];
-    [self.dayLabel release];
-    
     if (self.theMaskView != nil)
     {
         [self.theMaskView destroyViews];
         [self.theMaskView removeFromSuperview];
-        [self.theMaskView release];
+
         self.theMaskView = nil;
     }
     
 }
 
-- (void)dealloc {
-    
-    
-    [super dealloc];
-}
 
 
 @end

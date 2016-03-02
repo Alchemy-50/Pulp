@@ -8,10 +8,9 @@
 
 #import "CalendarEvent.h"
 #import "DateFormatManager.h"
-#import <EventKit/EventKit.h>
 
 @interface CalendarEvent ()
-@property (nonatomic, retain) EKEvent *ekObject;
+@property (nonatomic, retain) id ekObject;
 @end
 
 @implementation CalendarEvent
@@ -20,7 +19,7 @@
 
 - (CalendarEvent *) init
 {
-    [self initWithEKEvent:nil];
+    self = [self initWithEKEvent:nil];
     return self;
 }
 
@@ -28,7 +27,6 @@
 - (CalendarEvent *) initWithEKEvent:(id)theEKEvent
 {
     self = [super init];
-    self.ekObject = (EKEvent *)theEKEvent;
     return self;
 }
 
@@ -37,11 +35,7 @@
 
 - (id) getTheEKEvent
 {
-    if ([self.ekObject isKindOfClass:[EKEvent class]])       
-         return (EKEvent *)self.ekObject;
-    else if ([self.ekObject isKindOfClass:[NSArray class]])
-        return [((NSMutableArray *)self.ekObject) objectAtIndex:0];
-    else
+
         return nil;
 }
 
@@ -57,12 +51,13 @@
 
 - (NSDate *) getStartDate
 {    
-    return self.ekObject.startDate;
+    return nil;
+    
 }
 
 - (NSDate *) getEndDate
 {
-    return self.ekObject.endDate;
+    return nil;
 }
 
 - (BOOL) hasAlarms
@@ -79,9 +74,6 @@
 {
     NSArray *retAr = nil;
     
-    if (self.ekObject != nil)
-        retAr = [[NSArray alloc] initWithArray:self.ekObject.alarms];
-    
     return retAr;
 }
 
@@ -89,8 +81,6 @@
 {
     NSString *retString = @"";
     
-    if (self.ekObject != nil)
-        retString = self.ekObject.eventIdentifier;
     
     return retString;
 }
@@ -99,29 +89,21 @@
 {
     NSString *retString = @"";
     
-    if (self.ekObject != nil)
-        retString = self.ekObject.title;
-
+    
     return retString;
 }
 
 - (BOOL)isAllDay
 {
     BOOL ret = NO;
-    
-    if (self.ekObject != nil)
-        ret = self.ekObject.allDay;
-    
+
     return ret;
 }
 
 - (NSString *)getTheLocation
 {
     NSString *location = @"";
-    
-    if (self.ekObject != nil)
-        location = self.ekObject.location;
-    
+        
     return location;
 }
 

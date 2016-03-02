@@ -8,11 +8,14 @@
 
 #import "CalendarRepresentation.h"
 #import "Defs.h"
-#import <EventKit/EventKit.h>
+
 
 @interface CalendarRepresentation ()
-@property (nonatomic, retain) EKEvent *referenceEvent;
-@property (nonatomic, retain) EKCalendar *referenceCalendar;
+//@property (nonatomic, retain) EKEvent *referenceEvent;
+//@property (nonatomic, retain) EKCalendar *referenceCalendar;
+@property (nonatomic, retain) id referenceEvent;
+@property (nonatomic, retain) id referenceCalendar;
+
 @end
 
 
@@ -22,8 +25,7 @@
 -(id)initWithEventObject:(id)eventObject
 {
     self = [super init];
-    if ([eventObject isKindOfClass:[EKEvent class]])
-        self.referenceEvent = eventObject;
+    self.referenceEvent = eventObject;
     
     return self;
 }
@@ -31,16 +33,17 @@
 -(id)initWithCalendarObject:(id)calendarObject
 {
     self = [super init];
-    if ([calendarObject isKindOfClass:[EKCalendar class]])
-        self.referenceCalendar = calendarObject;
+    self.referenceCalendar = calendarObject;
     
     return self;
 }
 
 -(SourceRepresentation *)getSource
 {
-    SourceRepresentation *representation = [[SourceRepresentation alloc] initWithSource:self.referenceCalendar.source];
-    return representation;
+//    SourceRepresentation *representation = [[SourceRepresentation alloc] initWithSource:self.referenceCalendar.source];
+  //  return representation;
+    return nil;
+    
 }
 
 -(id)getEKEventCalendar
@@ -53,8 +56,6 @@
 {
     UIColor *retColor = [UIColor redColor];
     
-    if (self.referenceEvent != nil)
-        retColor = [UIColor colorWithCGColor:self.referenceEvent.calendar.CGColor];
     
     return retColor;
 }
@@ -63,8 +64,6 @@
 {
     NSString *retString = @"null?";
     
-    if (self.referenceEvent != nil)
-        retString = self.referenceEvent.calendar.title;
     
     return retString;
 }
@@ -73,20 +72,18 @@
 -(NSString *)getTheCalendarIdentifier
 {
     NSString *retString = @"";
-    if (self.referenceEvent != nil)
-        retString = self.referenceEvent.calendar.calendarIdentifier;
     
     return retString;
 }
 
 -(void)setTitleWithText:(NSString *)theTitleText;
 {
-    self.referenceCalendar.title = theTitleText;
+//    self.referenceCalendar.title = theTitleText;
 }
 
 -(void)setColorWithCGColor:(CGColorRef)theColorRef
 {
-    self.referenceCalendar.CGColor = theColorRef;
+//    self.referenceCalendar.CGColor = theColorRef;
 }
 
 @end

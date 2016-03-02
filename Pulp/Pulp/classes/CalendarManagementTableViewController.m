@@ -35,7 +35,6 @@
     
     self.theTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.theTableView.backgroundColor = [UIColor clearColor];
-    self.theTableView.separatorColor = [UIColor clearColor];
     self.theTableView.delegate = self;
     self.theTableView.dataSource = self;
     [self.view addSubview:self.theTableView];
@@ -111,7 +110,7 @@
     
     CalendarManagementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[CalendarManagementTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[CalendarManagementTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, self.view.frame.size.width, cell.frame.size.height);//[self tableView:tableView heightForRowAtIndexPath:indexPath]);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = @"";

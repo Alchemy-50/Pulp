@@ -111,12 +111,7 @@ static ThemeManager *theStaticManager;
     UIColor *theColor = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
     
     
-    if ([obj isKindOfClass:[UISwitch class]])
-    {
-        UISwitch *theSwitch = (UISwitch *)obj;
-        [theSwitch setOnTintColor:theColor];
-    }
-    else if ([obj isKindOfClass:[UIViewController class]])
+    if ([obj isKindOfClass:[UIViewController class]])
     {
         UIViewController *vc = (UIViewController *)obj;
         vc.view.backgroundColor = theColor;

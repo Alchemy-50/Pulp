@@ -16,7 +16,7 @@
 #import "DailyView.h"
 #import "WeatherDataManager.h"
 #import "SettingsManager.h"
-#import <MapKit/MapKit.h>
+
 #import <CoreLocation/CoreLocation.h>
 #import "MapAPIHandler.h"
 #import "AppDelegate.h"
@@ -36,7 +36,6 @@
 @synthesize referenceEvent;
 @synthesize parentView;
 @synthesize allDayBackgroundView;
-@synthesize theMapView;
 @synthesize dateFormatter;
 @synthesize referenceCalendar;
 
@@ -188,7 +187,6 @@ static UIFont *theLocationLabelFont;
 
 -(void)mapTapped
 {
-    [self.parentView mapTappedWithMapView:self.theMapView withEvent:self.referenceEvent];
 }
 
 -(void)touchAndHoldRecognizerFired
@@ -318,7 +316,7 @@ static UIFont *theLocationLabelFont;
             self.amPMLabel.alpha = 0;
             
             
-            NSCalendar *calendar = [[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian] autorelease];
+            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
             NSDateComponents *components = [calendar components:NSUIntegerMax fromDate:[self.referenceEvent getStartDate] toDate:[self.referenceEvent getEndDate] options:0];
             
             [self.dateFormatter setDateFormat:@"HH:mm"];
@@ -378,8 +376,7 @@ static UIFont *theLocationLabelFont;
     float maxHeight = 0;
     maxHeight = self.locationLabel.frame.origin.y + self.locationLabel.frame.size.height + 10;
     
-    if (self.theMapView != nil)
-        maxHeight = self.theMapView.frame.origin.y + self.theMapView.frame.size.height;
+
     
     self.dividerView.frame  = CGRectMake(self.dividerView.frame.origin.x, maxHeight, self.frame.size.width, self.dividerView.frame.size.height);
     
@@ -426,26 +423,7 @@ static UIFont *theLocationLabelFont;
 
 -(void)loadMapData
 {
-    NSDictionary *referenceDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:self.referenceEvent]];
-    
-    if (self.theMapView != nil)
-    {
-        if ([self.theMapView isReferenceDictionaryEqualToDictionary:referenceDictionary])
-        {
-            //NSLog(@"REMOVE MAP VIEW");
-            [self.theMapView removeFromSuperview];
-            [self.theMapView release];
-            self.theMapView = nil;
-        }
-    }
-    
-    if (self.theMapView == nil)
-    {
-        self.theMapView = [[CellContainerMapView alloc]  initWithFrame:CGRectMake(self.theMapView.frame.origin.x, self.locationLabel.frame.origin.y + self.locationLabel.frame.size.height + 10, self.frame.size.width, mapHeight)];
-        self.theMapView.parentCell = self;
-        [self addSubview:self.theMapView];
-        [self.theMapView loadWithDictionary:referenceDictionary];
-    }
+  
 }
 
 

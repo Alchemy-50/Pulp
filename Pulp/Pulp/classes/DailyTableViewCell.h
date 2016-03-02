@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "EventKitManager.h"
 #import "DailyIconView.h"
-#import "CellContainerMapView.h"
-#import <MapKit/MapKit.h>
 #import "CalendarEvent.h"
 
 
@@ -51,7 +49,6 @@
 
 @property (nonatomic, retain) CalendarEvent *referenceEvent;
 
-@property (nonatomic, retain) CellContainerMapView *theMapView;
 
 @property (nonatomic, retain) UIButton *mapViewButton;
 

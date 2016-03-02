@@ -34,8 +34,8 @@
 static float insetHeight = 40.0f;
 
 - (id)initWithFrame:(CGRect)frame {
-	
-	self = [super initWithFrame:frame];
+    
+    self = [super initWithFrame:frame];
     
     
     return self;
@@ -55,7 +55,7 @@ static float insetHeight = 40.0f;
         UIView *subheaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, insetHeight)];
         subheaderView.backgroundColor = [UIColor clearColor];
         [self addSubview:subheaderView];
-                        
+        
         [self setHeads];
         
         NSMutableArray *daysToShowArray = [NSMutableArray arrayWithCapacity:0];
@@ -80,7 +80,7 @@ static float insetHeight = 40.0f;
             [daysToShowArray addObject:date];
         }
         
-        NSDateFormatter *weekdayFormatter = [[[NSDateFormatter alloc] init] autorelease];
+        NSDateFormatter *weekdayFormatter = [[NSDateFormatter alloc] init];
         [weekdayFormatter setDateFormat: @"c"];
         
         
@@ -142,7 +142,7 @@ static float insetHeight = 40.0f;
                 dayView.dayLabel.font = [UIFont fontWithName:@"Lato-Regular" size:28 / 2];;
                 dayView.dayLabel.textColor = [UIColor blackColor];
                 dayView.backgroundColor = [UIColor colorWithWhite:1 alpha:.05];
-//                dayView.backgroundColor = [UIColor clearColor];
+                //                dayView.backgroundColor = [UIColor clearColor];
             }
             
             
@@ -161,7 +161,7 @@ static float insetHeight = 40.0f;
         
         
         
-//        asdf
+        //        asdf
         
         
         for (int i = 0; i < 7; i++)
@@ -227,12 +227,9 @@ static float insetHeight = 40.0f;
     if (self.theHeaderLabel != nil)
     {
         [self.theHeaderLabel removeFromSuperview];
-        [self.theHeaderLabel release];
         self.theHeaderLabel = nil;
-        
-        
     }
-
+    
     self.theHeaderLabel = [[UILabel alloc] initWithFrame:CGRectMake(7,9, self.frame.size.width - 20, 24)];
     self.theHeaderLabel.backgroundColor = [UIColor clearColor];
     self.theHeaderLabel.textColor = [UIColor whiteColor];
@@ -240,12 +237,10 @@ static float insetHeight = 40.0f;
     self.theHeaderLabel.font = [UIFont fontWithName:@"Lato-Bold" size:20];
     [self addSubview:self.theHeaderLabel];
     
-
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMMM yyyy"];
     self.theHeaderLabel.text = [[dateFormatter stringFromDate:self.startDate] uppercaseString];
-    [dateFormatter release];
-    
     [self getSubheaderViewWithY:41];
     
     
@@ -263,9 +258,8 @@ static float insetHeight = 40.0f;
         if (labelView != nil)
             if (labelView.superview != nil)
             {
-        [labelView removeFromSuperview];
-        [labelView release];
-        labelView = nil;
+                [labelView removeFromSuperview];
+                labelView = nil;
             }
         
     }
@@ -311,20 +305,15 @@ static float insetHeight = 40.0f;
                 [calendarDayView destroyViews];
                 
             }
-
-
+            
+            
             [theView removeFromSuperview];
-            [theView release];
             theView = nil;
-
+            
         }
     }
 }
 
-- (void)dealloc {
-    
-    [super dealloc];
-}
 
 
 @end

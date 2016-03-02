@@ -47,7 +47,7 @@
     
 
     
-    self.checkButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+    self.checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.checkButton.frame = CGRectMake(0, 0, self.checkBoxImageView.frame.origin.x + self.checkBoxImageView.frame.size.width + 3, self.frame.size.height);
     [self.checkButton addTarget:self action:@selector(checkButtonHit) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.checkButton];

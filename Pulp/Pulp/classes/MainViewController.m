@@ -16,9 +16,7 @@
 #import "ContainerTodosViewController.h"
 #import "SidebarButtonView.h"
 #import "CalendarManagementViewController.h"
-#import "DRColorPickerWheelView.h"
 #import "EventsDigester.h"
-#import "ContainerEKEventEditViewController.h"
 #import "AlarmNotificationHandler.h"
 #import "SettingsManager.h"
 #import "UpdatingCoverView.h"
@@ -112,7 +110,7 @@ static MainViewController *staticVC;
     [self.view addSubview:self.sidebarView];
     
     
-    self.fullCalendarViewController = [[FullCalendarViewController alloc] initWithNibName:@"FullCalendarViewController" bundle:nil];
+    self.fullCalendarViewController = [[FullCalendarViewController alloc] initWithNibName:nil bundle:nil];
     [self.view addSubview:self.fullCalendarViewController.view];
     self.fullCalendarViewController.view.frame = CGRectMake([Utils getSidebarWidth], 0, [Utils getScreenWidth] - [Utils getSidebarWidth], [Utils getScreenHeight]);
     [self.fullCalendarViewController doLoadViews];
@@ -206,7 +204,7 @@ static MainViewController *staticVC;
 
 - (void) presentSettingsViewController
 {
-    AppSettingsViewController *appSettingsViewController = [[AppSettingsViewController alloc] initWithNibName:@"AppSettingsViewController" bundle:nil];
+    AppSettingsViewController *appSettingsViewController = [[AppSettingsViewController alloc] initWithNibName:nil bundle:nil];
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:appSettingsViewController] animated:YES completion:nil];
 }
 
@@ -227,19 +225,20 @@ static MainViewController *staticVC;
 
 -(void)dailyViewAddEventButtonHit:(NSDate *)referenceDate
 {
-        
+/*
     ContainerEKEventEditViewController *containerEKEventEditViewController = [[ContainerEKEventEditViewController alloc] initWithNibName:nil bundle:nil];
     containerEKEventEditViewController.containerParentController = self;
     [containerEKEventEditViewController loadForNewEventWithStartDate:referenceDate];
     containerEKEventEditViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
     [self presentViewController:containerEKEventEditViewController animated:YES completion:nil];
-
+*/
 }
 
 
 
 -(void)dailyEventSelected:(CalendarEvent *)theEvent
 {
+    /*
     if (theEvent != nil)
     {
         ContainerEKEventEditViewController *containerEKEventEditViewController = [[ContainerEKEventEditViewController alloc] initWithNibName:nil bundle:nil];
@@ -248,6 +247,7 @@ static MainViewController *staticVC;
         containerEKEventEditViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
         [self presentViewController:containerEKEventEditViewController animated:YES completion:nil];
     }
+     */
 }
 
 
@@ -293,7 +293,6 @@ static MainViewController *staticVC;
     if (self.updatingCoverView != nil)
     {
         [self.updatingCoverView removeFromSuperview];
-        [self.updatingCoverView release];
         self.updatingCoverView = nil;
     }
 }

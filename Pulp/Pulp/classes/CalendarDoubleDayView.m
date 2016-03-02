@@ -37,14 +37,12 @@
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureFired)];
         singleTap.numberOfTapsRequired = 1;
         [self addGestureRecognizer:singleTap];
-        [singleTap release];
         
         
         UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapGestureFired)];
         doubleTap.numberOfTapsRequired = 2;
         [self addGestureRecognizer:doubleTap];
-        [doubleTap release];
-        
+                
         [singleTap requireGestureRecognizerToFail:doubleTap];
         
         

@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-#import "PulpMapView.h"
 #import "Defs.h"
 #import "PulpFAImageView.h"
 #import "CalendarEvent.h"
@@ -20,7 +18,6 @@
 
 -(void)loadEvents;
 -(void)unloadEvents;
--(void)mapTappedWithMapView:(MKMapView *)tappedMapView withEvent:(CalendarEvent *)theEvent;
 -(void)pulpMapViewIsInitialized;
 -(void)cellDidReturnWithLocation;
 -(void)cellButtonHitWithIndexPath:(NSIndexPath *)theIndexPath;
@@ -33,7 +30,6 @@
 @property (nonatomic, assign) BOOL eventsLoaded;
 @property (nonatomic, retain) UIView *testView;
 
-@property (nonatomic, retain) PulpMapView *expandedMapView;
 @property (nonatomic, assign) CGRect referenceMapViewFrame;
 @property (nonatomic, retain) CalendarEvent *currentReferenceEvent;
 @property (nonatomic, retain) UIScrollView *contentScrollView;

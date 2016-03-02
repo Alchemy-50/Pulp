@@ -62,8 +62,7 @@ static FullCalendarViewController *staticVC;
 
 -(void)doLoadViews
 {
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
-        [self setNeedsStatusBarAppearanceUpdate];
+
     
     [[ThemeManager sharedThemeManager] registerPrimaryObject:self];
     [ThemeManager addCoverViewToView:self.view];
@@ -81,7 +80,6 @@ static FullCalendarViewController *staticVC;
     
     self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,height)];
     self.theScrollView.backgroundColor = [UIColor clearColor];
-    self.theScrollView.pagingEnabled = YES;
     self.theScrollView.delegate = self;
     [self.view addSubview:self.theScrollView];
     
@@ -288,7 +286,6 @@ static FullCalendarViewController *staticVC;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init ];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     id ret = [self setDailyBorderWithDateString:[dateFormatter stringFromDate:theDate]];
-    [dateFormatter release];
     
     return ret;
 }
