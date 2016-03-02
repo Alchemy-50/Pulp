@@ -14,5 +14,7 @@
 @interface EventConverter : NSObject
 
 
-+(NSDictionary *)getEventDictionaryFromEvent:(EKEvent *)theEvent;
++(NSDictionary *)loadWithEvent:(EKEvent *)theEvent;
++(EKEvent *)loadWithDictionary:(id)theDictionary;
+
 @end

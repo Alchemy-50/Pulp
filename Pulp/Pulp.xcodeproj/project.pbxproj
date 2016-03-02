@@ -160,6 +160,7 @@
 		3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40C9531C766C17009B53F0 /* EditCalendarManagementViewController.m */; };
 		3A40C9561C766C17009B53F0 /* EditCalendarManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */; };
 		3A54877E1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */; };
+		3A6A72981C875E2E0098A0A6 /* EKEventContainerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A72971C875E2E0098A0A6 /* EKEventContainerObject.m */; };
 		3A8640371C7DF2820064FE4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640361C7DF2820064FE4A /* MapKit.framework */; };
 		3A86403A1C7DF3230064FE4A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640391C7DF3230064FE4A /* CloudKit.framework */; };
 		3AB577DE1C7248FA008FE5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577DD1C7248FA008FE5C0 /* main.m */; };
@@ -419,6 +420,8 @@
 		3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCalendarManagementViewController.xib; sourceTree = "<group>"; };
 		3A54877C1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerEKEventEditViewController.h; sourceTree = "<group>"; };
 		3A54877D1C7BA6CC00AC5FB1 /* ContainerEKEventEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerEKEventEditViewController.m; sourceTree = "<group>"; };
+		3A6A72961C875E2E0098A0A6 /* EKEventContainerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKEventContainerObject.h; sourceTree = "<group>"; };
+		3A6A72971C875E2E0098A0A6 /* EKEventContainerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKEventContainerObject.m; sourceTree = "<group>"; };
 		3A8640361C7DF2820064FE4A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3A8640381C7DF3170064FE4A /* Pulp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pulp.entitlements; sourceTree = "<group>"; };
 		3A8640391C7DF3230064FE4A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -737,6 +740,8 @@
 				3A2874A21C77959B002CEF8B /* EventsDigester.m */,
 				3A2874A51C7797C0002CEF8B /* EventConverter.h */,
 				3A2874A61C7797C0002CEF8B /* EventConverter.m */,
+				3A6A72961C875E2E0098A0A6 /* EKEventContainerObject.h */,
+				3A6A72971C875E2E0098A0A6 /* EKEventContainerObject.m */,
 			);
 			name = Digester;
 			sourceTree = "<group>";
@@ -1369,6 +1374,7 @@
 				3A283FDD1C724D2800056061 /* CalendarDayView.m in Sources */,
 				3A39180F1C76AFD300966DDA /* DRColorPickerColorView.m in Sources */,
 				3A40C9551C766C17009B53F0 /* EditCalendarManagementViewController.m in Sources */,
+				3A6A72981C875E2E0098A0A6 /* EKEventContainerObject.m in Sources */,
 				3A28400A1C724D2800056061 /* EventStoreChangeThread.m in Sources */,
 				3A28402C1C724D2800056061 /* SidebarView.m in Sources */,
 				3A0146C31C7CB8A40023D867 /* UpdatingCoverView.m in Sources */,

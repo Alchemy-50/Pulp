@@ -7,10 +7,12 @@
 //
 
 #import "EventConverter.h"
+#import "EventKitManager.h"
 
 @implementation EventConverter
 
-+(NSDictionary *)getEventDictionaryFromEvent:(EKEvent *)theEvent
+
++(NSDictionary *)loadWithEvent:(EKEvent *)theEvent
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
     
@@ -75,5 +77,55 @@
     
     return dict;
 }
+
+
++(EKEvent *)loadWithDictionary:(id)theDictionary
+{
+    EKEvent *theEvent = [[EventKitManager sharedManager] getEKEventWithIdentifier:[theDictionary objectForKey:@"eventIdentifier"]];
+    if (theEvent == nil)
+        theEvent = [[EventKitManager sharedManager] getNewEKEvent];
+    
+    
+    theEvent.allDay = [[theDictionary objectForKey:@"allDay"] boolValue];
+    theEvent.startDate = [theDictionary objectForKey:@"startDate"];
+    theEvent.endDate = [theDictionary objectForKey:@"endDate"];
+    theEvent.title = [theDictionary objectForKey:@"title"];
+    theEvent.location = [theDictionary objectForKey:@"location"];
+    theEvent.notes = [theDictionary objectForKey:@"notes"];
+    theEvent.URL = [theDictionary objectForKey:@"URL"];
+    
+    
+    //theEvent.calendarItemIdentifier = [theDictionary objectForKey:@"calendarItemIdentifier"];
+    //theEvent.calendarItemExternalIdentifier = [theDictionary objectForKey:@"calendarItemExternalIdentifier"];
+    //theEvent.creationDate = [theDictionary objectForKey:@"creationDate"];
+    //theEvent.lastModifiedDate = [theDictionary objectForKey:@"lastModifiedDate"];
+    
+    return theEvent;
+}
+
+
+
+/*
+- (NSDictionary *) dictionaryWithPropertiesOfObject:(id)obj withClass:(Class)theClass
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    unsigned count;
+    objc_property_t *properties = class_copyPropertyList(theClass, &count);
+    
+    for (int i = 0; i < count; i++) {
+        NSString *key = [NSString stringWithUTF8String:property_getName(properties[i])];
+        id theObjToSet = [obj valueForKey:key];
+        if (theObjToSet != nil)
+            [dict setObject:theObjToSet forKey:key];
+    }
+    
+    free(properties);
+    
+    return [NSDictionary dictionaryWithDictionary:dict];
+}
+*/
+
+
 @end
 

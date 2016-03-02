@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MainViewController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+
+
+
+
++ (AppDelegate *)sharedDelegate;
+
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, retain) MainViewController *mainViewController;
+@property (nonatomic, retain) NSMutableArray *locationDelegateRespondeesArray;
+@property (nonatomic, assign) BOOL locationHasSucceeded;
+
 
 
 @end

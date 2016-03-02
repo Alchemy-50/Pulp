@@ -22,6 +22,9 @@
 #import "AlarmNotificationHandler.h"
 #import "SettingsManager.h"
 #import "UpdatingCoverView.h"
+#import <objc/runtime.h>
+#import "EventConverter.h"
+
 
 
 @interface MainViewController ()
@@ -269,9 +272,19 @@ static MainViewController *staticVC;
 }
 
 
-
 -(void)dailyEventSelected:(EKEvent *)theEvent
 {
+    NSLog(@"theEvent!: %@", theEvent);
+    
+    NSDictionary *dict = [EventConverter loadWithEvent:theEvent];
+    NSLog(@"dict: %@", dict);
+    
+    EKEvent *dictEvent = [EventConverter loadWithDictionary:dict];
+    
+    NSLog(@"dictEvent: %@", dictEvent);
+    
+    
+    /*
     if (theEvent != nil)
     {
         ContainerEKEventEditViewController *containerEKEventEditViewController = [[ContainerEKEventEditViewController alloc] initWithNibName:nil bundle:nil];
@@ -282,6 +295,7 @@ static MainViewController *staticVC;
         [self presentViewController:containerEKEventEditViewController animated:YES completion:nil];
         //        [[EventManagerViewController alloc];
     }
+     */
 }
 
 
