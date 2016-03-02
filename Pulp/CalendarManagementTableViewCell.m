@@ -24,7 +24,7 @@
 @property (nonatomic, retain) PulpFAImageView *cogImageView;
 @property (nonatomic, retain) UIView *strokeView;
 
-@property (nonatomic, retain) CalendarRepresentation *referenceCalendar;
+@property (nonatomic, retain) EKCalendar *referenceCalendar;
 
 @end
 
@@ -47,7 +47,7 @@
     
 
     
-    self.checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.checkButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     self.checkButton.frame = CGRectMake(0, 0, self.checkBoxImageView.frame.origin.x + self.checkBoxImageView.frame.size.width + 3, self.frame.size.height);
     [self.checkButton addTarget:self action:@selector(checkButtonHit) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.checkButton];
@@ -107,13 +107,13 @@
     self.checkBoxImageView.alpha = 0;
 }
 
--(void) loadWithSource:(SourceRepresentation *)theSource
+-(void) loadWithSource:(EKSource *)theSource
 {
-    self.sourceLabel.text = [theSource getTitle];
+    self.sourceLabel.text = [theSource.title uppercaseString];
 
 }
 
--(void) loadWithCalendar:(CalendarRepresentation *)theCalendar
+-(void) loadWithCalendar:(EKCalendar *)theCalendar
 {
     self.referenceCalendar = theCalendar;
     
@@ -121,8 +121,10 @@
     self.cogImageView.alpha = 1;
     self.checkBoxImageView.alpha = 1;
     
-    self.calendarNameLabel.text = [theCalendar getTitle];
-    self.stripeView.backgroundColor = [theCalendar getColor];
+    self.calendarNameLabel.text = theCalendar.title;
+
+    self.stripeView.backgroundColor = [UIColor colorWithCGColor:theCalendar.CGColor];
+    
     
     [self setCheckBoxImageViewState];
 }
@@ -131,10 +133,10 @@
 -(void)checkButtonHit
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY]];
-    BOOL val = [[dict objectForKey:[self.referenceCalendar getTheCalendarIdentifier]] boolValue];
+    BOOL val = [[dict objectForKey:self.referenceCalendar.calendarIdentifier] boolValue];
     val = !val;
     
-    [dict setObject:[NSNumber numberWithBool:val] forKey:[self.referenceCalendar getTheCalendarIdentifier]];
+    [dict setObject:[NSNumber numberWithBool:val] forKey:self.referenceCalendar.calendarIdentifier];
     [[GroupDiskManager sharedManager] saveDataToDiskWithObject:dict withKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
     
     [self setCheckBoxImageViewState];
@@ -145,7 +147,7 @@
 -(void)setCheckBoxImageViewState
 {    
     NSDictionary *dict = [[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
-    if ([[dict objectForKey:[self.referenceCalendar getTheCalendarIdentifier]] boolValue])
+    if ([[dict objectForKey:self.referenceCalendar.calendarIdentifier] boolValue])
     {
         self.checkBoxImageView.referenceString = @"fa-eye";
     }

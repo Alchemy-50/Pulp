@@ -8,15 +8,13 @@
 
 #import "EventConverter.h"
 
-
 @implementation EventConverter
 
-+(NSDictionary *)getEventDictionaryFromEvent:(id)theEvent
++(NSDictionary *)getEventDictionaryFromEvent:(EKEvent *)theEvent
 {
-    
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
     
- /*
+ 
     
     if (theEvent.eventIdentifier != nil)
         [dict setObject:theEvent.eventIdentifier forKey:@"eventIdentifier"];
@@ -52,8 +50,7 @@
     
     if (theEvent.creationDate != nil)
         [dict setObject:theEvent.creationDate forKey:@"creationDate"];
-*/
-    
+
  
     //@property(nonatomic, strong) EKCalendar *calendar;
     /*

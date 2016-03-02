@@ -7,18 +7,16 @@
 //
 
 
-
-#import "Defs.h"
+#import <MapKit/MapKit.h>
+#import <EventKit/EventKit.h>
 #import "DailyTableViewCell.h"
-#import "CalendarEvent.h"
-
 
 @interface MapAPIHandler : NSObject
 
 
-+(void)getLocationForMapWithEvent:(CalendarEvent *)referenceEvent withReferenceCell:(DailyTableViewCell *)referenceCell;
++(void)getLocationForMapWithEvent:(EKEvent *)referenceEvent withReferenceCell:(DailyTableViewCell *)referenceCell;
 +(MapAPIHandler *)getSharedMapAPIHandler;
--(NSDictionary *)getLocationDictionaryWithEvent:(CalendarEvent *)refereneceEvent;
+-(NSDictionary *)getLocationDictionaryWithEvent:(EKEvent *)refereneceEvent;
 
 @property (nonatomic, retain) NSMutableDictionary *allLocationDictionary;
 @end

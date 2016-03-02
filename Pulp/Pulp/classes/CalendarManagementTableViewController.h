@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CalendarManagementTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface CalendarManagementTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, retain) id theParentController;
 

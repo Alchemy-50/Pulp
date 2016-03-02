@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "Defs.h"
-#import "Defs.h"
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
 #import "EventKitManager.h"
 #import "TodosViewController.h"
 #import "DailyView.h"
@@ -33,6 +33,7 @@
 - (DailyView *) getVisibleDailyView;
 - (void) presentAndHideDailyViews:(BOOL)forceLoad withIndex:(unsigned long)referenceIndex;
 - (void) processPositioningWithScrollView:(UIScrollView *)scrollView;
+- (void) spoofAddEventWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
 - (void) refreshAllDailyViews;
 - (void) sidebarDidScroll:(float)theOffset;
 

@@ -10,7 +10,6 @@
 #import "EventKitManager.h"
 #import "MainViewController.h"
 
-
 @interface EventStoreChangeThread ()
 @property (nonatomic, assign) NSTimer *notificationWatchTimer;
 @property (nonatomic, assign) int count;
@@ -24,8 +23,8 @@
 - (id)init
 {
     if ((self = [super init])) {
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyRoot:)
-  //                                                   name:EKEventStoreChangedNotification object:[[EventKitManager sharedManager] getTheEventStore]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyRoot:)
+                                                     name:EKEventStoreChangedNotification object:[EventKitManager sharedManager].eventStore];
     }
     return self;
 }
@@ -73,7 +72,7 @@
     self.count = 0;
     if (self.notificationWatchTimer == nil)
     {
-        self.notificationWatchTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired) userInfo:nil repeats:YES];
+        self.notificationWatchTimer = [[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired) userInfo:nil repeats:YES] retain];
         [self.notificationWatchTimer fire];
         
         

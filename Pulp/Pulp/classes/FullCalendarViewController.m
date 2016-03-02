@@ -7,7 +7,7 @@
 //
 
 #import "FullCalendarViewController.h"
-
+#import "GroupDataManager.h"
 #import "AppDelegate.h"
 #import "Defs.h"
 #import "ThemeManager.h"
@@ -15,7 +15,7 @@
 #import "CalendarManagementViewController.h"
 #import "Utils.h"
 #import "DailyView.h"
-#import "DateFormatManager.h"
+#import "GroupFormatManager.h"
 
 
 
@@ -54,6 +54,7 @@ static FullCalendarViewController *staticVC;
 
 -(void) dataChanged
 {
+    [[GroupDataManager sharedManager] loadCache];
     [self updateMonthViews:YES];
     [self.dailyView.theTableView reloadData];
 }
@@ -62,7 +63,8 @@ static FullCalendarViewController *staticVC;
 
 -(void)doLoadViews
 {
-
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
+        [self setNeedsStatusBarAppearanceUpdate];
     
     [[ThemeManager sharedThemeManager] registerPrimaryObject:self];
     [ThemeManager addCoverViewToView:self.view];
@@ -71,15 +73,21 @@ static FullCalendarViewController *staticVC;
     UIView *sharedButtonView = [AllCalendarButtonView sharedButtonView];
     [self.view addSubview:sharedButtonView];
     
+    UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    calButton.backgroundColor = [UIColor clearColor];
+    [calButton addTarget:[CalendarManagementViewController sharedCalendarManagementViewController] action:@selector(doPresent) forControlEvents:UIControlEventTouchUpInside];
+    calButton.frame = CGRectMake(sharedButtonView.frame.origin.x, 0, sharedButtonView.frame.size.width, sharedButtonView.frame.origin.y + sharedButtonView.frame.size.height + 5);
+    [self.view addSubview:calButton];
     
     
     self.monthViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     
     float circleHeight = self.view.frame.size.width / 7;
-    float height = [Utils getYInFramePerspective:60] + (circleHeight * 5);
+    float height = [Utils getYInFramePerspective:45] + (circleHeight * 5);
     
     self.theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,height)];
     self.theScrollView.backgroundColor = [UIColor clearColor];
+    self.theScrollView.pagingEnabled = YES;
     self.theScrollView.delegate = self;
     [self.view addSubview:self.theScrollView];
     
@@ -96,12 +104,12 @@ static FullCalendarViewController *staticVC;
     for (int i = 0; i < 12 * 6; i++)
     {
         NSString *startString = [NSString stringWithFormat:@"%ld-%ld-01 00:00:00", (long)year, (long)month];
-        NSDate *start = [[DateFormatManager sharedManager].dateTimeFormatter dateFromString:startString];
+        NSDate *start = [[GroupFormatManager sharedManager].dateTimeFormatter dateFromString:startString];
         
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         NSRange monthRange = [gregorian rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:start];
         NSString *endString = [NSString stringWithFormat:@"%ld-%ld-%lu 23:59:59", (long)year, (long)month, (unsigned long)monthRange.length];
-        NSDate *end = [[DateFormatManager sharedManager].dateTimeFormatter dateFromString:endString];
+        NSDate *end = [[GroupFormatManager sharedManager].dateTimeFormatter dateFromString:endString];
         
         CalendarMonthView *calendarMonthView = [[CalendarMonthView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self.theScrollView.frame.size.height)];
         calendarMonthView.autoresizesSubviews = NO;
@@ -140,14 +148,6 @@ static FullCalendarViewController *staticVC;
     
     
     self.initialized = YES;
-    
-    
-    UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    calButton.backgroundColor = [UIColor clearColor];
-    [calButton addTarget:[CalendarManagementViewController sharedCalendarManagementViewController] action:@selector(doPresent) forControlEvents:UIControlEventTouchUpInside];
-    calButton.frame = CGRectMake(sharedButtonView.frame.origin.x, 0, sharedButtonView.frame.size.width, sharedButtonView.frame.origin.y + sharedButtonView.frame.size.height + 5);
-    [self.view addSubview:calButton];
-
     
 }
 
@@ -188,26 +188,11 @@ static FullCalendarViewController *staticVC;
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     if (self.initialized)
         [self updateMonthViews:NO];
     
-    
-    int index = [[NSNumber numberWithFloat:roundf(self.theScrollView.contentOffset.y / self.theScrollView.frame.size.height)] intValue];
-    NSArray *subviewsArray = [self.theScrollView subviews];
-    CalendarMonthView *calendarMonthView = [subviewsArray objectAtIndex:index];
-    NSDate *referenceDate = calendarMonthView.startDate;
-    NSDate *today = [NSDate date];
-    NSComparisonResult comparisonResult = [calendarMonthView.startDate compare:today];
-    if (comparisonResult == NSOrderedAscending)
-    {
-        comparisonResult = [calendarMonthView.endDate compare:today];
-        if (comparisonResult == NSOrderedDescending)
-            referenceDate = today;
-    }
-    
-    [self setDailyBorderWithDate:referenceDate];
-    self.dailyView.dailyViewDate = referenceDate;
-    [self.dailyView loadEvents];
+
 }
 
 
@@ -286,6 +271,7 @@ static FullCalendarViewController *staticVC;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init ];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     id ret = [self setDailyBorderWithDateString:[dateFormatter stringFromDate:theDate]];
+    [dateFormatter release];
     
     return ret;
 }
@@ -325,6 +311,72 @@ static FullCalendarViewController *staticVC;
     }
     return ret;
 }
+
+
+
+
+
+
+
+-(void)spoofCalendarDayViewWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    CalendarMonthView *monthView = nil;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-01 00:00:00"];
+    NSString *monthLookupString = [dateFormatter stringFromDate:theEvent.startDate];
+    NSDate *monthDate = [dateFormatter dateFromString:monthLookupString];
+    
+    
+    for (id key in self.monthViewLookupDictionary)
+    {
+        NSDate *keyDate = [dateFormatter dateFromString:key];
+        if ([keyDate compare:monthDate] == NSOrderedSame)
+            monthView = [self.monthViewLookupDictionary objectForKey:key];
+        
+    }
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    if (monthView != nil)
+    {
+        
+        
+        NSMutableArray *events = [NSMutableArray arrayWithCapacity:0];
+        if ([monthView.dateStringForEventDictionary objectForKey:[dateFormatter stringFromDate:theEvent.startDate]] != nil)
+            [events addObjectsFromArray:[monthView.dateStringForEventDictionary objectForKey:[dateFormatter stringFromDate:theEvent.startDate]]];
+        
+        
+        CalendarDayView *theDayView = [monthView.calendarDayViewDictionary objectForKey:[dateFormatter stringFromDate:theEvent.startDate]];
+        
+        if (theAction == EKEventEditViewActionSaved)
+        {
+            CalendarEvent *theCalendarEvent = [[CalendarEvent alloc] initWithEKEvent:theEvent];
+            [events addObject:theCalendarEvent];
+        }
+        else if (theAction == EKEventEditViewActionDeleted)
+        {
+            CalendarEvent *eventToRemove = nil;
+            for (int i = 0; i < [events count]; i++)
+            {
+                CalendarEvent *calendarEvent = [events objectAtIndex:i];
+                if ([theEvent.title compare:calendarEvent.ekObject.title] == NSOrderedSame)
+                    eventToRemove = calendarEvent;
+            }
+            
+            if (eventToRemove != nil)
+                [events removeObject:eventToRemove];
+        }
+        
+        [theDayView loadEvents:events];
+    }
+    
+    [self.dailyView loadEvents];
+}
+
+
+
 
 
 

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Defs.h"
-#import "PulpFAImageView.h"
-#import "CalendarEvent.h"
+#import <MapKit/MapKit.h>
+#import "PulpMapView.h"
+#import <EventKit/EventKit.h>
+
+
 
 @interface DailyView : UIView <UITableViewDataSource, UITableViewDelegate>
 {
@@ -18,8 +20,10 @@
 
 -(void)loadEvents;
 -(void)unloadEvents;
+-(void)mapTappedWithMapView:(MKMapView *)tappedMapView withEvent:(EKEvent *)theEvent;
 -(void)pulpMapViewIsInitialized;
 -(void)cellDidReturnWithLocation;
+-(void)spoofArrayWithEvent:(EKEvent *)theEvent;
 -(void)cellButtonHitWithIndexPath:(NSIndexPath *)theIndexPath;
 
 
@@ -30,13 +34,11 @@
 @property (nonatomic, assign) BOOL eventsLoaded;
 @property (nonatomic, retain) UIView *testView;
 
+@property (nonatomic, retain) PulpMapView *expandedMapView;
 @property (nonatomic, assign) CGRect referenceMapViewFrame;
-@property (nonatomic, retain) CalendarEvent *currentReferenceEvent;
+@property (nonatomic, retain) EKEvent *currentReferenceEvent;
 @property (nonatomic, retain) UIScrollView *contentScrollView;
 @property (nonatomic, assign) BOOL cellStyleClear;
 @property (nonatomic, assign) BOOL suppressMaps;
-
-@property (nonatomic, retain) PulpFAImageView *closeImageView;
-@property (nonatomic, retain) PulpFAImageView *mapImageView;
 
 @end

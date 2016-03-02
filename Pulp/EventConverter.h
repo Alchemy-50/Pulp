@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "EventKitManager.h"
+#import "GroupDataManager.h"
 
 
 @interface EventConverter : NSObject
 
 
-+(NSDictionary *)getEventDictionaryFromEvent:(id)theEvent;
++(NSDictionary *)getEventDictionaryFromEvent:(EKEvent *)theEvent;
 @end

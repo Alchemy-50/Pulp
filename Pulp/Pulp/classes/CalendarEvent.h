@@ -7,24 +7,46 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CalendarRepresentation.h"
+#import <EventKit/EventKit.h>
 
-
-@interface CalendarEvent : NSObject
+@interface CalendarEvent : NSObject <NSCoding> {
     
-
+    /*  EKEvent is the base class
+        The following members of EKEvent/EKCalendarItem will be used;
+     
+        - title
+        - calendar 
+        - location
+        - startDate
+        - endDate
+    */
+    EKEvent *ekObject;
+    
+    NSMutableArray *participants;
+    
+    NSString *organizer;
+    
+    NSString *fbEventID;
+    
+    //NSString *commonTaskCalendarID;
+    
+    BOOL validEvent;
+}
 
 - (CalendarEvent *) init;
-- (CalendarEvent *) initWithEKEvent:(id)theEKEvent;
-- (id) getTheEKEvent;
-- (CalendarRepresentation *)getCalendar;
+- (CalendarEvent *) initWithEKEvent:(EKEvent *)ekEvent;
+- (CalendarEvent *) initWithSingleEKEvent:(EKEvent *)event;
+- (void) addEkEvent:(EKEvent *)event;
+- (EKEvent *) getEkEventWithParameter:(id)param;
 
-- (NSDate *) getStartDate;
-- (NSDate *) getEndDate;
-- (BOOL) hasAlarms;
-- (NSArray *) getTheAlarms;
-- (NSString *) getTheEventIdentifier;
-- (NSString *) getTheTitle;
-- (BOOL) isAllDay;
-- (NSString *) getTheLocation;
+- (CalendarEvent *) initWithCalendarEvent:(CalendarEvent *)ce;
+
+- (void) printCalendarEvent;
+
+@property (nonatomic, retain) EKEvent *ekObject;
+@property (nonatomic, retain) NSMutableArray *participants;
+@property (nonatomic, retain) NSString *organizer;
+@property (nonatomic, retain) NSString *fbEventID;
+@property (nonatomic, assign) BOOL validEvent;
+//@property (nonatomic, retain) NSString *commonTaskCalendarID;
 @end

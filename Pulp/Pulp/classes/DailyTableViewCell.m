@@ -16,7 +16,7 @@
 #import "DailyView.h"
 #import "WeatherDataManager.h"
 #import "SettingsManager.h"
-
+#import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MapAPIHandler.h"
 #import "AppDelegate.h"
@@ -36,6 +36,7 @@
 @synthesize referenceEvent;
 @synthesize parentView;
 @synthesize allDayBackgroundView;
+@synthesize theMapView;
 @synthesize dateFormatter;
 @synthesize referenceCalendar;
 
@@ -187,6 +188,7 @@ static UIFont *theLocationLabelFont;
 
 -(void)mapTapped
 {
+    [self.parentView mapTappedWithMapView:self.theMapView withEvent:self.referenceEvent];
 }
 
 -(void)touchAndHoldRecognizerFired
@@ -215,7 +217,7 @@ static UIFont *theLocationLabelFont;
     self.lastRowView.alpha = isLastRow;
 }
 
--(void)loadWithEvent:(CalendarEvent *)theEvent
+-(void)loadWithEvent:(EKEvent *)theEvent
 {
     [self loadViews];
     
@@ -229,7 +231,7 @@ static UIFont *theLocationLabelFont;
     self.locationLabel.text = @"";
     
     
-    if ([self.referenceEvent isAllDay])
+    if (theEvent.allDay)
     {
         self.locationLabel.alpha = 0;
         self.dividerView.alpha = 0;
@@ -258,22 +260,22 @@ static UIFont *theLocationLabelFont;
     self.dividerView.alpha = 1;
     
 
-    self.stripeView.backgroundColor = [[self.referenceEvent getCalendar] getColor];
+    self.stripeView.backgroundColor = [UIColor colorWithCGColor:theEvent.calendar.CGColor];
     
-    if ([self.referenceEvent isAllDay])
+    if (theEvent.allDay)
         self.dividerView.alpha = 0;
     
     
     self.eventTitleLabel.frame = [DailyTableViewCell getTitleLabelRectWithEvent:theEvent];
-    self.eventTitleLabel.text = [self.referenceEvent getTheTitle];
+    self.eventTitleLabel.text = theEvent.title;
     
     self.locationLabel.frame = [DailyTableViewCell getLocationLabelRectWithEvent:theEvent withTitleRect:self.eventTitleLabel.frame];
-    self.locationLabel.text = [self.referenceEvent getTheLocation];
+    self.locationLabel.text = theEvent.location;
     
     
     //    NSLog(@"THEEVENT.LOCATION: %@", theEvent.location);
 
-    if ([[self.referenceEvent getTheLocation] length] > 0 && !self.suppressMaps)
+    if ([theEvent.location length] > 0 && !self.suppressMaps)
     {
         NSDictionary *dict = [[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:self.referenceEvent];
         //        NSLog(@"dict!!: %@", dict);
@@ -284,13 +286,13 @@ static UIFont *theLocationLabelFont;
     }
     
     
-    if ([self.referenceEvent isAllDay])
+    if (theEvent.allDay)
     {
         self.allDayLabel.alpha = 1;
-        self.allDayLabel.text = [self.referenceEvent getTheTitle];
+        self.allDayLabel.text = theEvent.title;
         
         self.stripeView.alpha = 0;
-        self.allDayBackgroundView.backgroundColor = [[self.referenceEvent getCalendar] getColor];
+        self.allDayBackgroundView.backgroundColor = [UIColor colorWithCGColor:theEvent.calendar.CGColor];
         self.allDayBackgroundView.alpha = 1;
         
         
@@ -311,72 +313,73 @@ static UIFont *theLocationLabelFont;
         if ([[SettingsManager getSharedSettingsManager] startTimeInTwentyFour])
         {
             [self.dateFormatter setDateFormat:@"HH:mm"];
-            self.startTimeLabel.text = [self.dateFormatter stringFromDate:[self.referenceEvent getStartDate]];
+            self.startTimeLabel.text = [self.dateFormatter stringFromDate:theEvent.startDate];
             
             self.amPMLabel.alpha = 0;
             
             
-            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-            NSDateComponents *components = [calendar components:NSUIntegerMax fromDate:[self.referenceEvent getStartDate] toDate:[self.referenceEvent getEndDate] options:0];
+            NSCalendar *calendar = [[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian] autorelease];
+            NSDateComponents *components = [calendar components:NSUIntegerMax fromDate:theEvent.startDate toDate:theEvent.endDate options:0];
             
             [self.dateFormatter setDateFormat:@"HH:mm"];
             
             if ([components day] > 0)
             {
-                NSDateComponents *nowComponents = [calendar components:NSUIntegerMax fromDate:self.parentView.dailyViewDate toDate:[self.referenceEvent getEndDate] options:0];
+                NSDateComponents *nowComponents = [calendar components:NSUIntegerMax fromDate:self.parentView.dailyViewDate toDate:theEvent.endDate options:0];
                 if ([nowComponents day] > 0)
                     [self.dateFormatter setDateFormat:@"HH:mm EEE"];
                 
             }
             
-            self.durationLabel.text = [self.dateFormatter stringFromDate:[self.referenceEvent getEndDate]];
+            self.durationLabel.text = [self.dateFormatter stringFromDate:theEvent.endDate];
             
         }
         else
         {
             [self.dateFormatter setDateFormat:@"h:mm"];
-            self.startTimeLabel.text = [self.dateFormatter stringFromDate:[self.referenceEvent getStartDate]];
+            self.startTimeLabel.text = [self.dateFormatter stringFromDate:theEvent.startDate];
             
             self.amPMLabel.alpha = 1;
             [self.dateFormatter setDateFormat:@"a"];
-            self.amPMLabel.text = [self.dateFormatter stringFromDate:[self.referenceEvent getStartDate]];
+            self.amPMLabel.text = [self.dateFormatter stringFromDate:theEvent.startDate];
             
             
             
-            NSDateComponents *components = [self.referenceCalendar components:NSUIntegerMax fromDate:[self.referenceEvent getStartDate] toDate:[self.referenceEvent getEndDate] options:0];
+            NSDateComponents *components = [self.referenceCalendar components:NSUIntegerMax fromDate:theEvent.startDate toDate:theEvent.endDate options:0];
             
             [self.dateFormatter setDateFormat:@"h:mm a"];
             
             if ([components day] > 0)
             {
-                NSDateComponents *nowComponents = [self.referenceCalendar components:NSUIntegerMax fromDate:self.parentView.dailyViewDate toDate:[self.referenceEvent getEndDate] options:0];
+                NSDateComponents *nowComponents = [self.referenceCalendar components:NSUIntegerMax fromDate:self.parentView.dailyViewDate toDate:theEvent.endDate options:0];
                 if ([nowComponents day] > 0)
                     [self.dateFormatter setDateFormat:@"h:mm a EEE"];
                 
             }
             
-            self.durationLabel.text = [self.dateFormatter stringFromDate:[self.referenceEvent getEndDate]];
+            self.durationLabel.text = [self.dateFormatter stringFromDate:theEvent.endDate];
             
         }
     }
 }
 
 
--(void) setFieldsWithEvent:(CalendarEvent *)theEvent
+-(void) setFieldsWithEvent:(EKEvent *)theEvent
 {
     
     self.eventTitleLabel.frame = [DailyTableViewCell getTitleLabelRectWithEvent:theEvent];
-    self.eventTitleLabel.text = [theEvent getTheTitle];
+    self.eventTitleLabel.text = theEvent.title;
     
     self.locationLabel.frame = [DailyTableViewCell getLocationLabelRectWithEvent:theEvent withTitleRect:self.eventTitleLabel.frame];
-    self.locationLabel.text = [theEvent getTheLocation];
+    self.locationLabel.text = theEvent.location;
     
     
     
     float maxHeight = 0;
     maxHeight = self.locationLabel.frame.origin.y + self.locationLabel.frame.size.height + 10;
     
-
+    if (self.theMapView != nil)
+        maxHeight = self.theMapView.frame.origin.y + self.theMapView.frame.size.height;
     
     self.dividerView.frame  = CGRectMake(self.dividerView.frame.origin.x, maxHeight, self.frame.size.width, self.dividerView.frame.size.height);
     
@@ -411,7 +414,7 @@ static UIFont *theLocationLabelFont;
 
 -(void)loadWeatherData
 {
-    NSString *degrees = [[WeatherDataManager getSharedWeatherDataManager] getHourlyDegreesWithDate:[self.referenceEvent getStartDate]];
+    NSString *degrees = [[WeatherDataManager getSharedWeatherDataManager] getHourlyDegreesWithDate:self.referenceEvent.startDate];
     if (degrees == nil)
         self.weatherLabel.text = @"";
     else
@@ -423,15 +426,34 @@ static UIFont *theLocationLabelFont;
 
 -(void)loadMapData
 {
-  
+    NSDictionary *referenceDictionary = [NSDictionary dictionaryWithDictionary:[[MapAPIHandler getSharedMapAPIHandler] getLocationDictionaryWithEvent:self.referenceEvent]];
+    
+    if (self.theMapView != nil)
+    {
+        if ([self.theMapView isReferenceDictionaryEqualToDictionary:referenceDictionary])
+        {
+            NSLog(@"REMOVE MAP VIEW");
+            [self.theMapView removeFromSuperview];
+            [self.theMapView release];
+            self.theMapView = nil;
+        }
+    }
+    
+    if (self.theMapView == nil)
+    {
+        self.theMapView = [[CellContainerMapView alloc]  initWithFrame:CGRectMake(self.theMapView.frame.origin.x, self.locationLabel.frame.origin.y + self.locationLabel.frame.size.height + 10, self.frame.size.width, mapHeight)];
+        self.theMapView.parentCell = self;
+        [self addSubview:self.theMapView];
+        [self.theMapView loadWithDictionary:referenceDictionary];
+    }
 }
 
 
-+(CGRect)getTitleLabelRectWithEvent:(CalendarEvent *)theEvent
++(CGRect)getTitleLabelRectWithEvent:(EKEvent *)theEvent
 {
     NSString *theString = @"";
     if (theEvent != nil)
-        theString = [theEvent getTheTitle];
+        theString = theEvent.title;
 
 
     float maxWidth = [Utils getScreenWidth] * .54;
@@ -449,11 +471,11 @@ static UIFont *theLocationLabelFont;
 }
 
 
-+(CGRect)getLocationLabelRectWithEvent:(CalendarEvent *)theEvent withTitleRect:(CGRect)titleRect
++(CGRect)getLocationLabelRectWithEvent:(EKEvent *)theEvent withTitleRect:(CGRect)titleRect
 {
     NSString *theString = @"";
     if (theEvent != nil)
-        theString = [theEvent getTheLocation];
+        theString = theEvent.location;
     
     float height = [theString boundingRectWithSize:CGSizeMake(titleRect.size.width, MAXFLOAT)
                                                    options:NSStringDrawingUsesLineFragmentOrigin
@@ -473,11 +495,11 @@ static UIFont *theLocationLabelFont;
 
 
 
-+ (float) getDesiredCellHeightWithEvent:(CalendarEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath withSuppressMaps:(BOOL)doSuppressMaps
++ (float) getDesiredCellHeightWithEvent:(EKEvent *)theEvent withIndexPath:(NSIndexPath *)indexPath withSuppressMaps:(BOOL)doSuppressMaps
 {
     [DailyTableViewCell loadFonts];
     
-    if ([theEvent isAllDay])
+    if (theEvent.allDay)
         return 30;
     else
     {

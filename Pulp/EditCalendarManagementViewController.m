@@ -16,7 +16,7 @@
 
 
 @interface EditCalendarManagementViewController ()
-@property (nonatomic,retain) CalendarRepresentation *referenceCalendar;
+@property (nonatomic,retain) EKCalendar *referenceCalendar;
 @end
 
 @implementation EditCalendarManagementViewController
@@ -166,7 +166,9 @@
     self.publicSublabelTwo.text = @"Allow anyone to subscribe to a read-only version";
     self.publicSublabelTwo.font = [UIFont fontWithName:@"Lato-Regular" size:11.0f];
     
-
+    
+    [[ThemeManager sharedThemeManager] registerSecondaryObject:self.publicSwitch];
+    [[ThemeManager sharedThemeManager] registerSecondaryObject:self.notificationsSwitch];
     
   
     
@@ -213,7 +215,7 @@
     
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Delete?"
-                                  message:[NSString stringWithFormat:@"Are you sure you want to delete %@", [self.referenceCalendar getTitle]]
+                                  message:[NSString stringWithFormat:@"Are you sure you want to delete %@", self.referenceCalendar.title]
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -250,13 +252,13 @@
     
 }
 
--(void)loadWithCalendar:(CalendarRepresentation *)theCalendar
+-(void)loadWithCalendar:(EKCalendar *)theCalendar
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     self.referenceCalendar = theCalendar;
     
-    self.nameEntryTextField.text = [self.referenceCalendar getTitle];
-    self.displayColorView.backgroundColor = [self.referenceCalendar getColor];
+    self.nameEntryTextField.text = theCalendar.title;
+    self.displayColorView.backgroundColor = [UIColor colorWithCGColor:theCalendar.CGColor];
 }
 
 
@@ -289,8 +291,8 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [[CalendarManagementViewController sharedCalendarManagementViewController] dismissViewControllerAnimated:YES completion:nil];
     
-    [self.referenceCalendar setTitleWithText:self.nameEntryTextField.text];
-    [self.referenceCalendar setColorWithCGColor:self.displayColorView.backgroundColor.CGColor];    
+    self.referenceCalendar.title = self.nameEntryTextField.text;
+    self.referenceCalendar.CGColor = self.displayColorView.backgroundColor.CGColor;
     [[EventKitManager sharedManager] saveCalendar:self.referenceCalendar];
     
     [self.theParentController calendarContentChanged];

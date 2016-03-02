@@ -16,7 +16,6 @@
 #import "EditCalendarManagementViewController.h"
 #import "CalendarManagementViewController.h"
 #import "Utils.h"
-#import "CalendarRepresentation.h"
 
 @interface CalendarManagementTableViewController ()
 
@@ -35,6 +34,7 @@
     
     self.theTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.theTableView.backgroundColor = [UIColor clearColor];
+    self.theTableView.separatorColor = [UIColor clearColor];
     self.theTableView.delegate = self;
     self.theTableView.dataSource = self;
     [self.view addSubview:self.theTableView];
@@ -59,18 +59,16 @@
     NSArray *ar = [[EventKitManager sharedManager] getEKCalendars:NO];
     for (int i = 0; i < [ar count]; i++)
     {
-        CalendarRepresentation *theCalendar = [ar objectAtIndex:i];
-        if ([[[theCalendar getTitle] lowercaseString] compare:@"todo"] != NSOrderedSame && [[[theCalendar getTitle] lowercaseString] compare:@"birthdays"] != NSOrderedSame)
+        EKCalendar *theCalendar = [ar objectAtIndex:i];
+        if ([[theCalendar.title lowercaseString] compare:@"todo"] != NSOrderedSame && [[theCalendar.title lowercaseString] compare:@"birthdays"] != NSOrderedSame)
         {
-            SourceRepresentation *sourceRepresentation = [theCalendar getSource];
-            
-            NSMutableArray *ar = [calendarsBySourceDictionary objectForKey:[sourceRepresentation getTitle]];
+            NSMutableArray *ar = [calendarsBySourceDictionary objectForKey:theCalendar.source.title];
             if (ar == nil)
                 ar = [[NSMutableArray alloc] initWithCapacity:0];
             
             [ar addObject:theCalendar];
             
-            [calendarsBySourceDictionary setObject:ar forKey:[sourceRepresentation getTitle]];
+            [calendarsBySourceDictionary setObject:ar forKey:theCalendar.source.title];
         }
         
     }
@@ -79,8 +77,8 @@
     {
         NSArray *ar = [calendarsBySourceDictionary objectForKey:key];
         
-        CalendarRepresentation *theCalendar = [ar objectAtIndex:0];
-        SourceRepresentation *theSource = [theCalendar getSource];
+        EKCalendar *cal = [ar objectAtIndex:0];
+        EKSource *theSource = cal.source;
         [self.contentArray addObject:theSource];
         
         for (int i = 0; i < [ar count]; i++)
@@ -110,7 +108,7 @@
     
     CalendarManagementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[CalendarManagementTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[CalendarManagementTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, self.view.frame.size.width, cell.frame.size.height);//[self tableView:tableView heightForRowAtIndexPath:indexPath]);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = @"";
@@ -124,10 +122,10 @@
     id obj = [self.contentArray objectAtIndex:indexPath.row];
     
     
-    if ([obj isKindOfClass:[SourceRepresentation class]])
+    if ([obj isKindOfClass:[EKSource class]])
         [cell loadWithSource:obj];
     
-    else if ([obj isKindOfClass:[CalendarRepresentation class]])
+    else if ([obj isKindOfClass:[EKCalendar class]])
         [cell loadWithCalendar:obj];
     
     
@@ -143,14 +141,14 @@
     
     for (int i = 0; i < [self.contentArray count]; i++)
     {
-        CalendarRepresentation *referenceCalendar = [self.contentArray objectAtIndex:i];
-        if ([referenceCalendar isKindOfClass:[CalendarRepresentation class]])
+        EKCalendar *referenceCalendar = [self.contentArray objectAtIndex:i];
+        if ([referenceCalendar isKindOfClass:[EKCalendar class]])
         {
             NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[[GroupDiskManager sharedManager] loadDataFromDiskWithKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY]];
-            BOOL val = [[dict objectForKey:[referenceCalendar getTheCalendarIdentifier]] boolValue];
+            BOOL val = [[dict objectForKey:referenceCalendar.calendarIdentifier] boolValue];
             val = YES;
             
-            [dict setObject:[NSNumber numberWithBool:val] forKey:[referenceCalendar getTheCalendarIdentifier]];
+            [dict setObject:[NSNumber numberWithBool:val] forKey:referenceCalendar.calendarIdentifier];
             [[GroupDiskManager sharedManager] saveDataToDiskWithObject:dict withKey:STORED_CALENDARS_SHOWING_DICTIONARY_KEY];
         }
     }
@@ -168,8 +166,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CalendarRepresentation *theCalendar = [self.contentArray objectAtIndex:indexPath.row];
-    if ([theCalendar isKindOfClass:[CalendarRepresentation class]])
+    EKCalendar *theCalendar = [self.contentArray objectAtIndex:indexPath.row];
+    if ([theCalendar isKindOfClass:[EKCalendar class]])
     {
         
         
@@ -181,7 +179,40 @@
         [editCalendarViewController loadWithCalendar:theCalendar];
         
     }
-   
+    
+    /*
+     if (indexPath.row ==  0)
+     {
+     [self.parentFullCalendarViewController topCalButtonHit:YES];
+     }
+     
+     
+     AppDelegate *theDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+     
+     
+     if (indexPath.row == [self.calendarsArray count] + 1)
+     {
+     [self calendarDropdownAddCalendarSelected];
+     }
+     else if (indexPath.row ==  0)
+     {
+     theDelegate.currentSelectedCalendar = nil;
+     [self.parentFullCalendarViewController topCalButtonHit:YES];
+     }
+     else
+     {
+     EKCalendar *calendar = [calendarsArray objectAtIndex:indexPath.row - 1];
+     
+     if (calendar == theDelegate.currentSelectedCalendar)
+     theDelegate.currentSelectedCalendar = nil;
+     else
+     theDelegate.currentSelectedCalendar = calendar;
+     
+     [self.parentFullCalendarViewController topCalButtonHit:YES];
+     
+     }
+     */
+    
 }
 
 

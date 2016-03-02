@@ -8,7 +8,7 @@
 
 #import "EventsDigester.h"
 #import "EventKitManager.h"
-
+#import "GroupDataManager.h"
 #import "EventConverter.h"
 
 @implementation EventsDigester
@@ -90,7 +90,7 @@
     
     
     
-    NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:[[EventKitManager sharedManager] getEKCalendars:YES]];
+    NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:[[GroupDataManager sharedManager] getSelectedCalendars]];
 
     NSLog(@"allEvents: %@", allEvents);
     

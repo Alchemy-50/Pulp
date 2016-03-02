@@ -13,7 +13,7 @@
 #import "WeatherAPIHandler.h"
 #import "AppDelegate.h"
 #import "WeatherDataManager.h"
-
+#import <MapKit/MapKit.h>
 #import "Defs.h"
 #import "PulpFAImageView.h"
 #import "ThemeManager.h"
@@ -49,6 +49,9 @@ static CenterViewController *globalViewController;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
+        [self setNeedsStatusBarAppearanceUpdate];
 }
 
 -(void)loadViews
@@ -77,6 +80,7 @@ static CenterViewController *globalViewController;
     self.contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.contentScrollView.delegate = self;
     self.contentScrollView.backgroundColor = [UIColor redColor];
+    self.contentScrollView.pagingEnabled = YES;
     self.contentScrollView.autoresizesSubviews = NO;
     [self.view addSubview:self.contentScrollView];
     
@@ -244,6 +248,7 @@ static CenterViewController *globalViewController;
             DailyView *theDailyView = [self getVisibleDailyView];
             [[FullCalendarViewController sharedContainerViewController] setDailyBorderWithDateString:[dateFormatter stringFromDate:theDailyView.dailyViewDate]];
             
+            [dateFormatter release];
         }
     }
 }
@@ -335,6 +340,28 @@ static CenterViewController *globalViewController;
 -(void) handleHourlyWeatherDataWithDictionary:(NSDictionary *)theDict
 {
     [[WeatherDataManager getSharedWeatherDataManager] populateHourlyForecastWithDictionary:theDict];
+}
+
+
+-(void)spoofAddEventWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init ];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *startString = [dateFormatter stringFromDate:theEvent.startDate];
+    DailyView *dailyView = [self.dayDatesDictionary objectForKey:startString];
+    [dailyView spoofArrayWithEvent:theEvent];
+}
+
+
+
+
+
+
+-(void)dealloc
+{
+    NSLog(@"DEALLOC: %@", self);
+    [super dealloc];
+    
 }
 
 

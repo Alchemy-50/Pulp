@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "GroupDataManager.h"
 #import "GroupDiskManager.h"
 #import "EventKitManager.h"
 #import "EventStoreChangeThread.h"
@@ -17,9 +18,7 @@
 #import "Utils.h"
 #import <Contacts/Contacts.h>
 #import "FullCalendarViewController.h"
-#import "PulpIcloudTest.h"
-#import "PulpCloudKitManager.h"
-#import <CloudKit/CloudKit.h>
+
 
 #define USER_LAST_ENTERED_APP @"USEfR_LASfT_ENTEfRED_APP2"
 
@@ -30,6 +29,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window, storeNotificationObserver;
+@synthesize currentSelectedCalendar;
 @synthesize locationManager;
 @synthesize latestLocation;
 @synthesize locationDelegateRespondeesArray;
@@ -116,29 +116,11 @@
         
     //}
     
-//    [PulpCloudKitManager run];
-    //[PulpIcloudTest run];
     
     return YES;
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
-    
-    
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    NSLog(@"!!!!!");
-    /*
-    CKNotification *ckNotification = [CKNotification notificationFromRemoteNotificationDictionary:userInfo];
-    if (ckNotification.notificationType == CKNotificationTypeQuery) {
-        CKQueryNotification *queryNotification = ckNotification;
-        CKRecordID *recordID = [queryNotification recordID];
-        NSLog(@"recordID: %@", recordID);
-        // ...
-    }
-     */
-    
-    
-}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -198,8 +180,20 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     NSLog(@"didReceiveLocalNotification, handle implementation");
     
- 
-    
+    /*
+     NSLog(@"notification!: %@", notification);
+     NSLog(@"notification.userInfo: %@", notification.userInfo);
+     
+     NSString *eventIdentifier = [notification.userInfo objectForKey:@"eventIdentifier"];
+     NSLog(@"eventIdentifier!: %@", eventIdentifier);
+     if (eventIdentifier)
+     {
+     EKEvent *referenceEvent = [[EventKitManager sharedManager] getEKEventWithIdentifier:eventIdentifier];
+     NSLog(@"referenceEvent: %@", referenceEvent);
+     if (referenceEvent != nil)
+     [[FlowControlHandler sharedFlowControlHandler] dailyEventSelected:referenceEvent];
+     }
+     */
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
@@ -306,38 +300,6 @@
     });
 }
 
-
-
-
-- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
-    /*
-    UIImage *theImage = [self imageFromUIView:[self getViewWithDictionary:userInfo]];
-    NSData *theImageData = UIImagePNGRepresentation(theImage);
-    
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
-    [dict setObject:theImageData forKey:@"theImageData"];
-    [dict setObject:@"labelText4" forKey:@"theLabelKey"];
-    
-    
-    reply(dict);
-     */
-    
-}
-
-
-- (UIImage *) imageFromUIView:(UIView*)view
-{
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
-    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
-
-/*
 -(UIView *)getViewWithDictionary:(NSDictionary *)dict
 {
     UIView *retView = [[UIView alloc] initWithFrame:CGRectMake(0,0,136, 141)];
@@ -391,7 +353,7 @@
         [retView addSubview:theLabel];
         
         
-        NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:[[EventKitManager sharedManager] getEKCalendars:YES]];
+        NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:[[GroupDataManager sharedManager] getSelectedCalendars]];
         for (int j = 0; j < [allEvents count]; j++)
         {
             EKEvent *calendarEKEvent = [allEvents objectAtIndex:j];
@@ -408,6 +370,34 @@
     return retView;
 }
 
-*/
+
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    UIImage *theImage = [self imageFromUIView:[self getViewWithDictionary:userInfo]];
+    NSData *theImageData = UIImagePNGRepresentation(theImage);
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
+    [dict setObject:theImageData forKey:@"theImageData"];
+    [dict setObject:@"labelText4" forKey:@"theLabelKey"];
+    
+    
+    reply(dict);
+    
+}
+
+
+- (UIImage *) imageFromUIView:(UIView*)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+
+
 
 @end

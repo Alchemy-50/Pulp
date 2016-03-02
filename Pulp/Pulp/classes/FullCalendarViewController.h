@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Defs.h"
-#import "Defs.h"
+#import <EventKit/EventKit.h>
+#import <EventKitUI/EventKitUI.h>
 #import "EventKitManager.h"
 #import "CalendarMonthView.h"
 
@@ -22,6 +22,7 @@
 - (void) calendarShouldScrollToDate:(NSDate *)theDate;
 - (CalendarMonthView *) setDailyBorderWithDate:(NSDate *)theDate;
 - (CalendarMonthView *) setDailyBorderWithDateString:(NSString *)dateString;
+- (void) spoofCalendarDayViewWithEvent:(EKEvent *)theEvent withAction:(EKEventEditViewAction)theAction;
 - (void) dayViewSelected:(CalendarDayView *)theDayView;
 - (void) navigateToToday;
 

@@ -43,6 +43,9 @@
 
 - (void)viewDidLoad
 {
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1)
+        [self setNeedsStatusBarAppearanceUpdate];
+    
     [super viewDidLoad];
     
     [[ThemeManager sharedThemeManager] registerPrimaryObject:self];
@@ -119,7 +122,7 @@
     [theHeaderView addSubview:addButton];
     
 
-    self.exitButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.exitButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     self.exitButton.frame = CGRectMake(0, self.todosViewController.view.frame.origin.y, self.todosViewController.tableView.frame.size.width, 528);
     self.exitButton.backgroundColor = [UIColor clearColor];
     [self.exitButton addTarget:self action:@selector(escapeButtonHit) forControlEvents:UIControlEventTouchUpInside];

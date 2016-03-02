@@ -8,15 +8,13 @@
 
 #import "CalendarMonthView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "DateFormatManager.h"
+#import "GroupFormatManager.h"
 #import "Circle.h"
 #import "Defs.h"
 #import "Utils.h"
 #import "SettingsManager.h"
-
+#import "GroupDataManager.h"
 #import "ThemeManager.h"
-#import "EventKitManager.h"
-
 
 @interface CalendarMonthView ()
 @property (nonatomic, retain) UILabel *theHeaderLabel;
@@ -34,8 +32,8 @@
 static float insetHeight = 40.0f;
 
 - (id)initWithFrame:(CGRect)frame {
-    
-    self = [super initWithFrame:frame];
+	
+	self = [super initWithFrame:frame];
     
     
     return self;
@@ -49,13 +47,13 @@ static float insetHeight = 40.0f;
         
         self.calendarDayViewDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
         self.presented = YES;
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [Defs getClearColor];
         UIColor *dayViewBackgroundColor = [UIColor colorWithWhite:1 alpha:.15];
         
         UIView *subheaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, insetHeight)];
         subheaderView.backgroundColor = [UIColor clearColor];
         [self addSubview:subheaderView];
-        
+                        
         [self setHeads];
         
         NSMutableArray *daysToShowArray = [NSMutableArray arrayWithCapacity:0];
@@ -80,7 +78,7 @@ static float insetHeight = 40.0f;
             [daysToShowArray addObject:date];
         }
         
-        NSDateFormatter *weekdayFormatter = [[NSDateFormatter alloc] init];
+        NSDateFormatter *weekdayFormatter = [[[NSDateFormatter alloc] init] autorelease];
         [weekdayFormatter setDateFormat: @"c"];
         
         
@@ -107,7 +105,7 @@ static float insetHeight = 40.0f;
         int rowPosition = 0;
         int iter = 0;
         
-        float y = [Utils getYInFramePerspective:60];
+        float y = [Utils getYInFramePerspective:45];
         while (rowPosition < 6)
         {
             
@@ -136,13 +134,13 @@ static float insetHeight = 40.0f;
             
             
             if (inScope)
-                [self.calendarDayViewDictionary setObject:dayView forKey:[[DateFormatManager sharedManager].dateFormatter stringFromDate:dayView.theDate]];
+                [self.calendarDayViewDictionary setObject:dayView forKey:[[GroupFormatManager sharedManager].dateFormatter stringFromDate:dayView.theDate]];
             else
             {
                 dayView.dayLabel.font = [UIFont fontWithName:@"Lato-Regular" size:28 / 2];;
                 dayView.dayLabel.textColor = [UIColor blackColor];
                 dayView.backgroundColor = [UIColor colorWithWhite:1 alpha:.05];
-                //                dayView.backgroundColor = [UIColor clearColor];
+//                dayView.backgroundColor = [UIColor clearColor];
             }
             
             
@@ -161,7 +159,7 @@ static float insetHeight = 40.0f;
         
         
         
-        //        asdf
+//        asdf
         
         
         for (int i = 0; i < 7; i++)
@@ -179,7 +177,7 @@ static float insetHeight = 40.0f;
                 [dateComponents setDay: - 7];
                 NSDate *date = [currentCalendar dateByAddingComponents:dateComponents toDate:unusedDay  options:0];
                 
-                CalendarDayView *dayView = [self.calendarDayViewDictionary objectForKey:[[DateFormatManager sharedManager].dateFormatter stringFromDate:date]];
+                CalendarDayView *dayView = [self.calendarDayViewDictionary objectForKey:[[GroupFormatManager sharedManager].dateFormatter stringFromDate:date]];
                 
                 CalendarDoubleDayView *doubleDayView = [[CalendarDoubleDayView alloc] initWithFrame:dayView.frame withParentView:self];
                 doubleDayView.backgroundColor = [UIColor clearColor];;
@@ -190,8 +188,8 @@ static float insetHeight = 40.0f;
                 doubleDayView.theDate2 = unusedDay;
                 
                 
-                [self.calendarDayViewDictionary setObject:doubleDayView forKey:[[DateFormatManager sharedManager].dateFormatter stringFromDate:dayView.theDate]];
-                [self.calendarDayViewDictionary setObject:doubleDayView forKey:[[DateFormatManager sharedManager].dateFormatter stringFromDate:unusedDay]];
+                [self.calendarDayViewDictionary setObject:doubleDayView forKey:[[GroupFormatManager sharedManager].dateFormatter stringFromDate:dayView.theDate]];
+                [self.calendarDayViewDictionary setObject:doubleDayView forKey:[[GroupFormatManager sharedManager].dateFormatter stringFromDate:unusedDay]];
                 
                 
                 [self addSubview:doubleDayView];
@@ -210,7 +208,8 @@ static float insetHeight = 40.0f;
 
 -(void)loadEvents
 {
-    NSDictionary *dict = [[EventKitManager sharedManager] fetchEventsWithStartDate:self.startDate withEndDate:self.endDate withSelectedCalendars:[[EventKitManager sharedManager] getEKCalendars:YES]];
+    //    NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:self.startDate forEndDate:self.endDate withCalendars:[[EventKitManager sharedManager] getEKCalendars:NO]];
+    NSDictionary *dict = [[GroupDataManager sharedManager] fetchEventsWithStartDate:self.startDate withEndDate:self.endDate withSelectedCalendars:[[GroupDataManager sharedManager] getSelectedCalendars]];
     for (id key in dict)
     {
         CalendarDayView *dayView = [self.calendarDayViewDictionary objectForKey:key];
@@ -227,9 +226,12 @@ static float insetHeight = 40.0f;
     if (self.theHeaderLabel != nil)
     {
         [self.theHeaderLabel removeFromSuperview];
+        [self.theHeaderLabel release];
         self.theHeaderLabel = nil;
+        
+        
     }
-    
+
     self.theHeaderLabel = [[UILabel alloc] initWithFrame:CGRectMake(7,9, self.frame.size.width - 20, 24)];
     self.theHeaderLabel.backgroundColor = [UIColor clearColor];
     self.theHeaderLabel.textColor = [UIColor whiteColor];
@@ -237,10 +239,12 @@ static float insetHeight = 40.0f;
     self.theHeaderLabel.font = [UIFont fontWithName:@"Lato-Bold" size:20];
     [self addSubview:self.theHeaderLabel];
     
-    
+
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMMM yyyy"];
     self.theHeaderLabel.text = [[dateFormatter stringFromDate:self.startDate] uppercaseString];
+    [dateFormatter release];
+    
     [self getSubheaderViewWithY:41];
     
     
@@ -258,8 +262,9 @@ static float insetHeight = 40.0f;
         if (labelView != nil)
             if (labelView.superview != nil)
             {
-                [labelView removeFromSuperview];
-                labelView = nil;
+        [labelView removeFromSuperview];
+        [labelView release];
+        labelView = nil;
             }
         
     }
@@ -305,15 +310,20 @@ static float insetHeight = 40.0f;
                 [calendarDayView destroyViews];
                 
             }
-            
-            
+
+
             [theView removeFromSuperview];
+            [theView release];
             theView = nil;
-            
+
         }
     }
 }
 
+- (void)dealloc {
+    
+    [super dealloc];
+}
 
 
 @end

@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-
-
 #define DRAWER_WIDTH 340.0f
 #define HEADER_HEIGHT 50.0f
 @interface Defs : NSObject
 
 
 
++(UIColor *)getClearColor;
 @end

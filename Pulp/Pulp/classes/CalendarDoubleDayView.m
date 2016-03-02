@@ -9,8 +9,8 @@
 #import "CalendarDoubleDayView.h"
 #import "Circle.h"
 #import "CalendarMonthView.h"
-
-#import "DateFormatManager.h"
+#import "GroupDataManager.h"
+#import "GroupFormatManager.h"
 #import "Utils.h"
 #import "AppDelegate.h"
 
@@ -37,12 +37,14 @@
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureFired)];
         singleTap.numberOfTapsRequired = 1;
         [self addGestureRecognizer:singleTap];
+        [singleTap release];
         
         
         UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapGestureFired)];
         doubleTap.numberOfTapsRequired = 2;
         [self addGestureRecognizer:doubleTap];
-                
+        [doubleTap release];
+        
         [singleTap requireGestureRecognizerToFail:doubleTap];
         
         
@@ -83,7 +85,11 @@
     
     for (CalendarEvent *calEvent in eventsArray)
     {
-        UIColor *eColor = [[calEvent getCalendar] getColor];
+        
+        EKEvent *event = calEvent.ekObject;
+		EKCalendar *eCalendar = event.calendar;
+		UIColor *eColor = [UIColor colorWithCGColor:eCalendar.CGColor];        
+        
         
         Circle *circle = [[Circle alloc] initWithFrame:CGRectMake(xStart, yStart, 10, 10) withUnitArea:1.0 andFillColor:eColor andStrokeColor:eColor withStrokeThickness:0];
         [self addSubview:circle];

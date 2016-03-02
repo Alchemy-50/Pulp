@@ -34,7 +34,6 @@
 }
 
 
-
 +(CGSize)getImageSizeFromString:(NSString *)iconString withDesiredHeight:(float)desiredHeight
 {
     CGSize theSize = [UIImage imageWithIcon:iconString backgroundColor:[UIColor clearColor] iconColor:[UIColor blackColor] fontSize:desiredHeight].size;

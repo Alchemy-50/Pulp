@@ -59,6 +59,8 @@
 
 - (void)viewDidLoad
 {
+    
+    self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.todosArray = [[NSMutableArray alloc] initWithCapacity:0];
     
@@ -95,7 +97,7 @@
     
     TodoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[TodoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[TodoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.todosViewController = self;
 //        cell.insetValue = self.cellXInset;

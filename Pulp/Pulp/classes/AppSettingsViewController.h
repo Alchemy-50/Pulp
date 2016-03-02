@@ -12,12 +12,15 @@
 @class EKCalendar;
 @interface AppSettingsViewController : UIViewController
 
-
+-(IBAction)switchValueChanged:(UISwitch *)theSwitch;
 -(IBAction)defaultCalendarButtonHit;
 -(IBAction)themeColorButtonHit;
 -(void)defaultCalendarSelected:(EKCalendar *)theSelectedCalendar;
 
 
+@property (nonatomic, retain) IBOutlet UISwitch *twelveTwentyfourSwitch;
+@property (nonatomic, retain) IBOutlet UISwitch *mondaySwitch;
+@property (nonatomic, retain) IBOutlet UISwitch *celciusSwitch;
 @property (nonatomic, retain) IBOutlet UILabel *defaultCalendarLabel;
 @property (nonatomic, retain) IBOutlet UILabel *defaultCalendarKeyLabel;
 

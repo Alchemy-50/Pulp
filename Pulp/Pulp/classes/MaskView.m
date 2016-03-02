@@ -61,6 +61,7 @@
     {
         self.theImageView.image = nil;
         [self.theImageView removeFromSuperview];
+        [self.theImageView release];
         self.theImageView = nil;
     }
     
@@ -68,6 +69,7 @@
     {
         self.coverImageView.image = nil;
         [self.coverImageView removeFromSuperview];
+        [self.coverImageView release];
         self.coverImageView = nil;
     }
     

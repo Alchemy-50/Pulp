@@ -28,9 +28,8 @@
     self.calendars = [[NSMutableArray alloc] initWithCapacity:0];
     for (int i = 0; i < [calsArray count]; i++)
     {
-        CalendarRepresentation *theCalendar = [calsArray objectAtIndex:i];
-        
-        if ([[[theCalendar getTitle] uppercaseString] compare:@"TODO"] != NSOrderedSame)
+        EKCalendar *theCalendar = [calsArray objectAtIndex:i];
+        if ([[theCalendar.title uppercaseString] compare:@"TODO"] != NSOrderedSame)
             [self.calendars addObject:theCalendar];
     }
 
@@ -64,11 +63,12 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    CalendarRepresentation *theCalendar = [self.calendars objectAtIndex:indexPath.row];
-    cell.textLabel.text = [theCalendar getTitle];    
+    EKCalendar *theCalendar = [self.calendars objectAtIndex:indexPath.row];
+    cell.textLabel.text = theCalendar.title;
+    
 //    cell.textLabel.text = obj.objectTitle;
     
     

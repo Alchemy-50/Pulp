@@ -7,7 +7,7 @@
 //
 
 #import "MapAPIHandler.h"
-
+#import <MapKit/MapKit.h>
 #import "Utils.h"
 
 #define API_KEY @"AIzaSyBm6NB4P0jnH8TTskQCILjrCvJ97y0X6xw"
@@ -36,9 +36,9 @@ static MapAPIHandler *theStaticHandler;
     return theStaticHandler;
 }
 
-+(void)getLocationForMapWithEvent:(CalendarEvent *)referenceEvent withReferenceCell:(DailyTableViewCell *)referenceCell
++(void)getLocationForMapWithEvent:(EKEvent *)referenceEvent withReferenceCell:(DailyTableViewCell *)referenceCell
 {
-    NSString *addressString = [Utils urlencode:[referenceEvent getTheLocation]];
+    NSString *addressString = [Utils urlencode:referenceEvent.location];
     NSString *urlString = [NSString stringWithFormat:@"%@%@&key=%@", ROOT_URI, addressString, API_KEY];
     
     
@@ -63,7 +63,7 @@ static MapAPIHandler *theStaticHandler;
                                                                    {
                                                                        NSDictionary *refereceDict = [resultsArray objectAtIndex:0];
                                                                        
-                                                                       [[MapAPIHandler getSharedMapAPIHandler].allLocationDictionary setObject:[NSDictionary dictionaryWithDictionary:refereceDict] forKey:[referenceEvent getTheLocation]];
+                                                                       [[MapAPIHandler getSharedMapAPIHandler].allLocationDictionary setObject:[NSDictionary dictionaryWithDictionary:refereceDict] forKey:referenceEvent.location];
                                                                        [referenceCell eventLocationDataReturned];
                                                                    }
                                                                }
@@ -76,10 +76,10 @@ static MapAPIHandler *theStaticHandler;
 }
 
 
--(NSDictionary *)getLocationDictionaryWithEvent:(CalendarEvent *)refereneceEvent
+-(NSDictionary *)getLocationDictionaryWithEvent:(EKEvent *)refereneceEvent
 {
 //    NSLog(@"!self.allLocationDictionary: %@", self.allLocationDictionary);
-    return [self.allLocationDictionary objectForKey:[refereneceEvent getTheLocation]];
+    return [self.allLocationDictionary objectForKey:refereneceEvent.location];
 }
 
 

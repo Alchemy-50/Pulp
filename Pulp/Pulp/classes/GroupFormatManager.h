@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DateFormatManager : NSObject {
+@interface GroupFormatManager : NSObject {
     
     NSDateFormatter *dayFormatter;
     NSDateFormatter *monthFormatter;      
@@ -18,7 +18,7 @@
     NSDateFormatter *timeFormatter;
 }
 
-+(DateFormatManager *)sharedManager;
++(GroupFormatManager *)sharedManager;
 
 @property (nonatomic, retain) NSDateFormatter *dayFormatter;
 @property (nonatomic, retain) NSDateFormatter *monthFormatter;      

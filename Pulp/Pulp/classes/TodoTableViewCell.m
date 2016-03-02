@@ -78,7 +78,7 @@
         [self addSubview:self.theBackgroundView];
         
         
-        self.todoCheckButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.todoCheckButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         self.todoCheckButton.backgroundColor = [UIColor clearColor];
         self.todoCheckButton.frame = CGRectMake(0, 0, self.todoTitleLabel.frame.origin.x, self.frame.size.height);
         [self.todoCheckButton addTarget:self action:@selector(todoCheckButtonHit) forControlEvents:UIControlEventTouchUpInside];
@@ -159,6 +159,7 @@
     if (self.todoEditTextField != nil)
     {
         [self.todoEditTextField removeFromSuperview];
+        [self.todoEditTextField release];
         self.todoEditTextField = nil;
     }
     
@@ -175,6 +176,7 @@
     if (self.todoEditTextField != nil)
     {
         [self.todoEditTextField removeFromSuperview];
+        [self.todoEditTextField release];
         self.todoEditTextField = nil;
     }
     
