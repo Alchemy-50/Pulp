@@ -1,0 +1,297 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A8D32D01C8743DF00AA610C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32CF1C8743DF00AA610C /* main.m */; };
+		3A8D32D31C8743DF00AA610C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32D21C8743DF00AA610C /* AppDelegate.m */; };
+		3A8D32D61C8743DF00AA610C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32D51C8743DF00AA610C /* ViewController.m */; };
+		3A8D32D91C8743DF00AA610C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D32D71C8743DF00AA610C /* Main.storyboard */; };
+		3A8D32DB1C8743DF00AA610C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D32DA1C8743DF00AA610C /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A8D32CB1C8743DF00AA610C /* Pulp_TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp_TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A8D32CF1C8743DF00AA610C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A8D32D11C8743DF00AA610C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3A8D32D21C8743DF00AA610C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3A8D32D41C8743DF00AA610C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3A8D32D51C8743DF00AA610C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3A8D32D81C8743DF00AA610C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A8D32DA1C8743DF00AA610C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A8D32DC1C8743DF00AA610C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A8D32C81C8743DF00AA610C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A8D32C21C8743DF00AA610C = {
+			isa = PBXGroup;
+			children = (
+				3A8D32CD1C8743DF00AA610C /* Pulp_TV */,
+				3A8D32CC1C8743DF00AA610C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A8D32CC1C8743DF00AA610C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D32CB1C8743DF00AA610C /* Pulp_TV.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A8D32CD1C8743DF00AA610C /* Pulp_TV */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D32D11C8743DF00AA610C /* AppDelegate.h */,
+				3A8D32D21C8743DF00AA610C /* AppDelegate.m */,
+				3A8D32D41C8743DF00AA610C /* ViewController.h */,
+				3A8D32D51C8743DF00AA610C /* ViewController.m */,
+				3A8D32D71C8743DF00AA610C /* Main.storyboard */,
+				3A8D32DA1C8743DF00AA610C /* Assets.xcassets */,
+				3A8D32DC1C8743DF00AA610C /* Info.plist */,
+				3A8D32CE1C8743DF00AA610C /* Supporting Files */,
+			);
+			path = Pulp_TV;
+			sourceTree = "<group>";
+		};
+		3A8D32CE1C8743DF00AA610C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D32CF1C8743DF00AA610C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A8D32CA1C8743DF00AA610C /* Pulp_TV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A8D32DF1C8743DF00AA610C /* Build configuration list for PBXNativeTarget "Pulp_TV" */;
+			buildPhases = (
+				3A8D32C71C8743DF00AA610C /* Sources */,
+				3A8D32C81C8743DF00AA610C /* Frameworks */,
+				3A8D32C91C8743DF00AA610C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pulp_TV;
+			productName = Pulp_TV;
+			productReference = 3A8D32CB1C8743DF00AA610C /* Pulp_TV.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A8D32C31C8743DF00AA610C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Josh Klobe";
+				TargetAttributes = {
+					3A8D32CA1C8743DF00AA610C = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 3A8D32C61C8743DF00AA610C /* Build configuration list for PBXProject "Pulp_TV" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A8D32C21C8743DF00AA610C;
+			productRefGroup = 3A8D32CC1C8743DF00AA610C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A8D32CA1C8743DF00AA610C /* Pulp_TV */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A8D32C91C8743DF00AA610C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A8D32DB1C8743DF00AA610C /* Assets.xcassets in Resources */,
+				3A8D32D91C8743DF00AA610C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A8D32C71C8743DF00AA610C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A8D32D61C8743DF00AA610C /* ViewController.m in Sources */,
+				3A8D32D31C8743DF00AA610C /* AppDelegate.m in Sources */,
+				3A8D32D01C8743DF00AA610C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3A8D32D71C8743DF00AA610C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A8D32D81C8743DF00AA610C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A8D32DD1C8743DF00AA610C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		3A8D32DE1C8743DF00AA610C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A8D32E01C8743DF00AA610C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Pulp_TV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "alchemy50.com.Pulp-TV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3A8D32E11C8743DF00AA610C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Pulp_TV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "alchemy50.com.Pulp-TV";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A8D32C61C8743DF00AA610C /* Build configuration list for PBXProject "Pulp_TV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A8D32DD1C8743DF00AA610C /* Debug */,
+				3A8D32DE1C8743DF00AA610C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A8D32DF1C8743DF00AA610C /* Build configuration list for PBXNativeTarget "Pulp_TV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A8D32E01C8743DF00AA610C /* Debug */,
+				3A8D32E11C8743DF00AA610C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A8D32C31C8743DF00AA610C /* Project object */;
+}
