@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Utils.h"
 #import "FullCalendarViewController.h"
+#import "EventsRequestor.h"
 @interface AppDelegate ()
 
 @end
@@ -34,6 +35,7 @@
     [self.window setRootViewController:self.mainViewController];
     [self.window makeKeyAndVisible];
     
+    [EventsRequestor makeTheGetRequest];
    
     return YES;
 }

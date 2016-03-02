@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A55488C1C87973E0099043A /* EventsRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A55488B1C87973E0099043A /* EventsRequestor.m */; };
 		3A8D32D01C8743DF00AA610C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32CF1C8743DF00AA610C /* main.m */; };
 		3A8D32D31C8743DF00AA610C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32D21C8743DF00AA610C /* AppDelegate.m */; };
 		3A8D32D61C8743DF00AA610C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32D51C8743DF00AA610C /* ViewController.m */; };
@@ -92,6 +93,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A55488A1C87973E0099043A /* EventsRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsRequestor.h; sourceTree = "<group>"; };
+		3A55488B1C87973E0099043A /* EventsRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsRequestor.m; sourceTree = "<group>"; };
 		3A8D32CB1C8743DF00AA610C /* Pulp_TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp_TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8D32CF1C8743DF00AA610C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A8D32D11C8743DF00AA610C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -255,6 +258,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A5548891C87972A0099043A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D32E91C8744B500AA610C /* CalendarEvent.h */,
+				3A8D32EA1C8744B500AA610C /* CalendarEvent.m */,
+				3A8D33041C8744B500AA610C /* EventKitManager.h */,
+				3A8D33051C8744B500AA610C /* EventKitManager.m */,
+				3A55488A1C87973E0099043A /* EventsRequestor.h */,
+				3A55488B1C87973E0099043A /* EventsRequestor.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		3A8D32C21C8743DF00AA610C = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +290,7 @@
 		3A8D32CD1C8743DF00AA610C /* Pulp_TV */ = {
 			isa = PBXGroup;
 			children = (
+				3A5548891C87972A0099043A /* Data */,
 				3AC29E7A1C877FBB00BE50BE /* Assets */,
 				3A8D32E21C8744AA00AA610C /* Classes */,
 				3A8D32D11C8743DF00AA610C /* AppDelegate.h */,
@@ -305,8 +322,6 @@
 				3A8D32E61C8744B500AA610C /* AppSettingsViewController.m */,
 				3A8D32E71C8744B500AA610C /* CalendarDayView.m */,
 				3A8D32E81C8744B500AA610C /* CalendarDoubleDayView.m */,
-				3A8D32E91C8744B500AA610C /* CalendarEvent.h */,
-				3A8D32EA1C8744B500AA610C /* CalendarEvent.m */,
 				3A8D32EB1C8744B500AA610C /* CalendarManagementTableViewCell.h */,
 				3A8D32EC1C8744B500AA610C /* CalendarManagementTableViewCell.m */,
 				3A8D32ED1C8744B500AA610C /* CalendarManagementTableViewController.h */,
@@ -332,8 +347,6 @@
 				3A8D33011C8744B500AA610C /* EventConverter.h */,
 				3A8D33021C8744B500AA610C /* EventConverter.m */,
 				3A8D33031C8744B500AA610C /* EventForCalendarDayView.m */,
-				3A8D33041C8744B500AA610C /* EventKitManager.h */,
-				3A8D33051C8744B500AA610C /* EventKitManager.m */,
 				3A8D33061C8744B500AA610C /* EventsDigester.m */,
 				3A8D33071C8744B500AA610C /* EventStoreChangeThread.m */,
 				3A8D33081C8744B500AA610C /* FullCalendarViewController.h */,
@@ -585,6 +598,7 @@
 				3A8D33AB1C8744B500AA610C /* UIImage+FontAwesome.m in Sources */,
 				3A8D33A61C8744B500AA610C /* TimeView.m in Sources */,
 				3A8D33A91C8744B500AA610C /* TodoObject.m in Sources */,
+				3A55488C1C87973E0099043A /* EventsRequestor.m in Sources */,
 				3A8D33A81C8744B500AA610C /* TodoDataManager.m in Sources */,
 				3A8D33A11C8744B500AA610C /* SidebarButtonView.m in Sources */,
 				3A8D33AD1C8744B500AA610C /* WeatherAPIHandler.m in Sources */,

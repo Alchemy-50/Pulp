@@ -19,39 +19,39 @@
  
     
     if (theEvent.eventIdentifier != nil)
-        [dict setObject:theEvent.eventIdentifier forKey:@"eventIdentifier"];
+        [dict setObject:[theEvent.eventIdentifier description] forKey:@"eventIdentifier"];
     
         [dict setObject:[NSNumber numberWithBool:theEvent.allDay] forKey:@"allDay"];
     
     if (theEvent.startDate != nil)
-        [dict setObject:theEvent.startDate forKey:@"startDate"];
+        [dict setObject:[theEvent.startDate description] forKey:@"startDate"];
     
     if (theEvent.endDate != nil)
-        [dict setObject:theEvent.endDate forKey:@"endDate"];
+        [dict setObject:[theEvent.endDate description] forKey:@"endDate"];
     
     if (theEvent.calendarItemIdentifier != nil)
-        [dict setObject:theEvent.calendarItemIdentifier forKey:@"calendarItemIdentifier"];
+        [dict setObject:[theEvent.calendarItemIdentifier description] forKey:@"calendarItemIdentifier"];
     
     if (theEvent.calendarItemExternalIdentifier != nil)
-        [dict setObject:theEvent.calendarItemExternalIdentifier forKey:@"calendarItemExternalIdentifier"];
+        [dict setObject:[theEvent.calendarItemExternalIdentifier description] forKey:@"calendarItemExternalIdentifier"];
     
     if (theEvent.title != nil)
-        [dict setObject:theEvent.title forKey:@"title"];
+        [dict setObject:[theEvent.title description] forKey:@"title"];
     
     if (theEvent.location != nil)
-        [dict setObject:theEvent.location forKey:@"location"];
+        [dict setObject:[theEvent.location description] forKey:@"location"];
     
     if (theEvent.notes != nil)
-        [dict setObject:theEvent.notes forKey:@"notes"];
+        [dict setObject:[theEvent.notes description] forKey:@"notes"];
     
     if (theEvent.URL != nil)
-        [dict setObject:theEvent.URL forKey:@"URL"];
+        [dict setObject:[theEvent.URL description] forKey:@"URL"];
     
     if (theEvent.lastModifiedDate != nil)
-        [dict setObject:theEvent.lastModifiedDate forKey:@"lastModifiedDate"];
+        [dict setObject:[theEvent.lastModifiedDate description] forKey:@"lastModifiedDate"];
     
     if (theEvent.creationDate != nil)
-        [dict setObject:theEvent.creationDate forKey:@"creationDate"];
+        [dict setObject:[theEvent.creationDate description] forKey:@"creationDate"];
 
  
     //@property(nonatomic, strong) EKCalendar *calendar;
