@@ -10,7 +10,8 @@
 #import "CalendarDayView.h"
 #import "CalendarDoubleDayView.h"
 
-@class ContentContainerViewController, CalendarMonthScrollViewController;
+
+@class FullCalendarViewController;
 
 @interface CalendarMonthView : UIView {
 }
@@ -27,5 +28,7 @@
 @property (nonatomic, retain) NSDate *startDate;
 @property (nonatomic, retain) NSDate *endDate;
 @property (nonatomic, assign) BOOL presented;
+@property (nonatomic, retain) FullCalendarViewController *theParentController;
+          
 
 @end

@@ -241,6 +241,7 @@
 		3A8D336A1C8744B500AA610C /* WeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherView.m; path = classes/WeatherView.m; sourceTree = "<group>"; };
 		3AA0D7161C88629F00F3F170 /* DataSyncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSyncher.h; sourceTree = "<group>"; };
 		3AA0D7171C88629F00F3F170 /* DataSyncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSyncher.m; sourceTree = "<group>"; };
+		3AB0297F1C8E087300039683 /* FocusHandlerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusHandlerProtocol.h; sourceTree = "<group>"; };
 		3AC29E7B1C877FE500BE50BE /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		3AC29E7C1C877FE500BE50BE /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		3AC29E7D1C877FE500BE50BE /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -311,6 +312,7 @@
 				3A8D32E21C8744AA00AA610C /* Classes */,
 				3A2557911C8B999E0064BDED /* UIFocusButton.h */,
 				3A2557921C8B999E0064BDED /* UIFocusButton.m */,
+				3AB0297F1C8E087300039683 /* FocusHandlerProtocol.h */,
 				3A434DB51C88A06A0000AC09 /* VCS */,
 				3A8D32D11C8743DF00AA610C /* AppDelegate.h */,
 				3A8D32D21C8743DF00AA610C /* AppDelegate.m */,

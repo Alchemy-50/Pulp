@@ -157,37 +157,6 @@
     
 }
 
--(void) handleButtonPresentation:(BOOL)doEnableButton
-{
-    if (doEnableButton)
-    {
-        if (self.focusButton == nil)
-        {
-            self.focusButton = [[UIFocusButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-            self.focusButton.referenceParentView = self;
-            self.focusButton.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-            [self addSubview:self.focusButton];
-        }
-    }
-    else
-    {
-        if (self.focusButton != nil)
-        {
-            [self.focusButton removeFromSuperview];
-            self.focusButton = nil;            
-        }
-    }
-}
-
--(void)focusChanged:(BOOL)didFocusTo
-{
-    NSLog(@"%s, focusChanged: %d", __PRETTY_FUNCTION__, didFocusTo);
-    if (didFocusTo)
-        [self setSelected];
-    else
-        [self setUnselected];
-    
-}
 
 
 -(void)clearEvents

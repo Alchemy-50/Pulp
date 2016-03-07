@@ -13,7 +13,7 @@
 #import "Defs.h"
 #import "Utils.h"
 #import "SettingsManager.h"
-
+#import "FullCalendarViewController.h"
 #import "ThemeManager.h"
 #import "EventKitManager.h"
 
@@ -21,6 +21,8 @@
 @interface CalendarMonthView ()
 @property (nonatomic, retain) UILabel *theHeaderLabel;
 @property (nonatomic, retain) NSMutableArray *daysLabelsArray;
+
+@property (nonatomic, retain) UIFocusButton *topButton;
 @end
 
 @implementation CalendarMonthView
@@ -36,17 +38,13 @@ static float insetHeight = 40.0f;
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
-    
-    
     return self;
 }
 
 -(BOOL) drawCalendar
 {
-    
     if (!self.presented)
     {
-        
         self.calendarDayViewDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
         self.presented = YES;
         self.backgroundColor = [UIColor clearColor];
@@ -210,16 +208,11 @@ static float insetHeight = 40.0f;
 
 -(void)loadEvents
 {
-    
-    
     NSDictionary *dict = [[EventKitManager sharedManager] fetchEventsWithStartDate:self.startDate withEndDate:self.endDate withSelectedCalendars:[[EventKitManager sharedManager] getEKCalendars:YES]];
-    
-
     for (id key in dict)
     {
         CalendarDayView *dayView = [self.calendarDayViewDictionary objectForKey:key];
         [dayView loadEvents:[dict objectForKey:key]];
-        
     }
 }
 
@@ -227,7 +220,6 @@ static float insetHeight = 40.0f;
 
 -(void)setHeads
 {
-    
     if (self.theHeaderLabel != nil)
     {
         [self.theHeaderLabel removeFromSuperview];
@@ -246,9 +238,8 @@ static float insetHeight = 40.0f;
     [dateFormatter setDateFormat:@"MMMM yyyy"];
     self.theHeaderLabel.text = [[dateFormatter stringFromDate:self.startDate] uppercaseString];
     [self getSubheaderViewWithY:41];
-    
-    
 }
+
 
 -(void)getSubheaderViewWithY:(float)y
 {
@@ -309,24 +300,78 @@ static float insetHeight = 40.0f;
                 [calendarDayView destroyViews];
                 
             }
-            
-            
             [theView removeFromSuperview];
             theView = nil;
-            
         }
     }
 }
 
 
+
+-(void)focusChanged:(BOOL)didFocusTo withReferenceObject:(id)theReferenceObject
+{
+    NSLog(@"%s, didFocusTo: %d, theReferenceObject: %@", __PRETTY_FUNCTION__, didFocusTo, theReferenceObject);
+    
+    if ([theReferenceObject isKindOfClass:[CalendarDayView class]])
+    {
+        CalendarDayView *theView = (CalendarDayView *)theReferenceObject;
+        if (didFocusTo)
+            [theView setSelected];
+        else
+            [theView setUnselected];
+    }
+    
+    if (theReferenceObject == self.topButton)
+    {
+        NSLog(@"TOP BUTTON");
+        [self.theParentController scrollUp];
+    }
+    /*
+    if (didFocusTo)
+        [self setSelected];
+    else
+        [self setUnselected];
+    */
+    
+}
+
+
+
+
+
 -(void) handleFocusButtonPresentation:(BOOL)doEnableButtons
 {
+    if (doEnableButtons)
+    {
+        self.topButton = [[UIFocusButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 10)];
+        self.topButton.backgroundColor = [UIColor redColor];
+        self.topButton.focusDelegate = self;
+        self.topButton.referenceObject = self.topButton;
+        [self addSubview:self.topButton];
+    }
+    else
+    {
+        [self.topButton removeFromSuperview];
+        self.topButton = nil;
+        
+    }
+    
+    
     for (id key in self.calendarDayViewDictionary)
     {
         CalendarDayView *theDayView = [self.calendarDayViewDictionary objectForKey:key];
-        [theDayView handleButtonPresentation:doEnableButtons];
-            
+        
+        UIFocusButton *focusButton = [[UIFocusButton alloc] initWithFrame:theDayView.frame];
+        focusButton.backgroundColor = [UIColor clearColor];
+        focusButton.focusDelegate = self;
+        focusButton.referenceObject = theDayView;
+        [self addSubview:focusButton];
+        
     }
+    
+    
+    
+    
     
     
 }

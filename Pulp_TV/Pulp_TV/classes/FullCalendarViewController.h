@@ -11,9 +11,9 @@
 #import "Defs.h"
 #import "EventKitManager.h"
 #import "CalendarMonthView.h"
+#import "FocusHandlerProtocol.h"
 
-
-@interface FullCalendarViewController : UIViewController <UIScrollViewDelegate>
+@interface FullCalendarViewController : UIViewController <UIScrollViewDelegate, FocusHandlerProtocol>
 
 
 +(FullCalendarViewController *)sharedContainerViewController;
@@ -25,6 +25,7 @@
 - (void) dayViewSelected:(CalendarDayView *)theDayView;
 - (void) navigateToToday;
 
+- (void) scrollUp;
 
 
 

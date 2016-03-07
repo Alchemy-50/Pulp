@@ -50,22 +50,23 @@ static CalendarTVViewController *staticVC;
     
     /*
     UIFocusButton *testButton = [[UIFocusButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width * (3.0f/4.0f) - 100, 200, 100, 100)];
+    testButton.focusDelegate = self;
+    testButton.referenceObject = testButton;
     testButton.backgroundColor = [UIColor blueColor];
     [self.contentView addSubview:testButton];
     
     UIFocusButton *testButtonTwo = [[UIFocusButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width * (3.3f/4.0f) - 100, 200, 100, 100)];
+    testButtonTwo.focusDelegate = self;
+    testButtonTwo.referenceObject = testButton;
     testButtonTwo.backgroundColor = [UIColor blueColor];
     [self.contentView addSubview:testButtonTwo];
-    */
-        
+ */       
 }
 
-- (void)didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator
+-(void)focusChanged:(BOOL)didFocusTo withReferenceObject:(id)theReferenceObject
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"%s, didFocusTo: %d, theReferenceObject: %@", __PRETTY_FUNCTION__, didFocusTo, theReferenceObject);
 }
-
-
 
 
 

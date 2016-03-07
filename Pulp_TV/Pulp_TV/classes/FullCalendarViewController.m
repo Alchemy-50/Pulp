@@ -67,11 +67,6 @@ static FullCalendarViewController *staticVC;
     [ThemeManager addCoverViewToView:self.view];
     
     
-//    UIView *sharedButtonView = [AllCalendarButtonView sharedButtonView];
-//    [self.view addSubview:sharedButtonView];
-    
-    
-    
     self.monthViewLookupDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     
     float circleHeight = self.view.frame.size.width / 7;
@@ -79,6 +74,7 @@ static FullCalendarViewController *staticVC;
     
     
     self.theScrollView = [[FullCalendarScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,height)];
+    self.theScrollView.scrollEnabled = NO;
     self.theScrollView.backgroundColor = [UIColor clearColor];
     self.theScrollView.delegate = self;
     [self.view addSubview:self.theScrollView];
@@ -105,6 +101,7 @@ static FullCalendarViewController *staticVC;
         NSDate *end = [[DateFormatManager sharedManager].dateTimeFormatter dateFromString:endString];
         
         CalendarMonthView *calendarMonthView = [[CalendarMonthView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, self.theScrollView.frame.size.height)];
+        calendarMonthView.theParentController = self;
         calendarMonthView.autoresizesSubviews = NO;
         calendarMonthView.backgroundColor = [UIColor clearColor];
         calendarMonthView.startDate = start;
@@ -155,7 +152,7 @@ static FullCalendarViewController *staticVC;
     
     CalendarMonthView *viewInScope = nil;
     
-    for (int i = index - 2; i < index+2; i++)
+    for (int i = index - 1; i < index+1; i++)
     {
         if (i == index)
             viewInScope = [subviewsArray objectAtIndex:i];
@@ -186,16 +183,29 @@ static FullCalendarViewController *staticVC;
         }
     }
     
-    NSLog(@"view in scope: %@", viewInScope);
-    NSLog(@"view in scope.class: %@", [[viewInScope class] description]);
-    NSLog(@"view in scope startDate: %@", viewInScope.startDate);
-    NSLog(@" ");
-    NSLog(@" ");
-    
     [viewInScope handleFocusButtonPresentation:YES];
     [viewInScope setNeedsFocusUpdate];
     [viewInScope updateFocusIfNeeded];
     
+}
+
+- (void) scrollUp
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.theScrollView setContentOffset:CGPointMake(0, self.theScrollView.contentOffset.y - self.theScrollView.frame.size.height) animated:YES];
+    
+}
+
+-(void)focusChanged:(BOOL)didFocusTo withReferenceObject:(id)theReferenceObject
+{
+    NSLog(@"%s, didFocusTo: %d, theReferenceObject: %@", __PRETTY_FUNCTION__, didFocusTo, theReferenceObject);
+    
+}
+
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self updateMonthViews:NO];
 }
 
 

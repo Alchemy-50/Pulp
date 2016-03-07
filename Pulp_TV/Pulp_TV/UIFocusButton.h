@@ -10,5 +10,6 @@
 
 @interface UIFocusButton : UIButton
 
-@property (nonatomic, retain) id referenceParentView; 
+@property (nonatomic, retain) id focusDelegate;
+@property (nonatomic, retain) id referenceObject;
 @end
