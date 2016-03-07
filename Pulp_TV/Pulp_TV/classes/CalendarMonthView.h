@@ -19,6 +19,8 @@
 -(void) loadEvents;
 -(void) cleanUp;
 
+-(void) handleFocusButtonPresentation:(BOOL)doEnableButtons;
+
 
 @property (nonatomic, retain) NSMutableDictionary *calendarDayViewDictionary;
 @property (nonatomic, retain) NSDictionary *dateStringForEventDictionary;

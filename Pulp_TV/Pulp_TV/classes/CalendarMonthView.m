@@ -319,5 +319,19 @@ static float insetHeight = 40.0f;
 }
 
 
+-(void) handleFocusButtonPresentation:(BOOL)doEnableButtons
+{
+    for (id key in self.calendarDayViewDictionary)
+    {
+        CalendarDayView *theDayView = [self.calendarDayViewDictionary objectForKey:key];
+        [theDayView handleButtonPresentation:doEnableButtons];
+            
+    }
+    
+    
+}
+
+
+
 
 @end

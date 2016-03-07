@@ -44,58 +44,6 @@ static MainViewController *staticVC;
     return staticVC;
 }
 
--(int)getSecondaryState
-{
-    return self.theSecondaryState;
-}
-
--(void)toggleToTodos
-{
-    if (self.theSecondaryState == SECONDARY_VIEW_STATE_TODOS)
-    {
-        if (self.coverScrollView.contentOffset.x == 0)
-            [self.coverScrollView setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
-        else
-            [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-        
-    }
-    
-    
-    self.theSecondaryState = SECONDARY_VIEW_STATE_TODOS;
-        [self.fullCalendarViewController.view removeFromSuperview];
-        
-        if (self.containerTodosViewController.view.superview == nil)
-            [self.view insertSubview:self.containerTodosViewController.view belowSubview:self.coverScrollView];
-        
-        [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-
-}
-
-
--(void)toggleToCalendar
-{
-    if (self.theSecondaryState == SECONDARY_VIEW_STATE_CALENDAR)
-    {
-        if (self.coverScrollView.contentOffset.x == 0)
-            [self.coverScrollView setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
-        else
-            [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-        
-    }
-    else
-    {
-        
-        self.theSecondaryState = SECONDARY_VIEW_STATE_CALENDAR;
-        
-        [self.containerTodosViewController.view removeFromSuperview];
-        
-        if (self.fullCalendarViewController.view.superview == nil)
-            [self.view insertSubview:self.fullCalendarViewController.view belowSubview:self.coverScrollView];
-        
-        [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-    }
-}
-
 
 
 - (void)viewDidLoad {
@@ -141,10 +89,7 @@ static MainViewController *staticVC;
     self.coverScrollView.contentSize = CGSizeMake(self.centerViewController.view.frame.size.width * 2, 0);
     [self.coverScrollView setContentOffset:CGPointMake(self.centerViewController.view.frame.origin.x, 0) animated:NO];
     
-    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestureRecognizerTriggered)];
-    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.coverScrollView addGestureRecognizer:swipeGestureRecognizer];
-    [self.view addGestureRecognizer:swipeGestureRecognizer];
+
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -301,6 +246,64 @@ static MainViewController *staticVC;
 {
     return YES;
 }
+
+
+-(int)getSecondaryState
+{
+    return self.theSecondaryState;
+}
+
+-(void)toggleToTodos
+{
+    if (self.theSecondaryState == SECONDARY_VIEW_STATE_TODOS)
+    {
+        if (self.coverScrollView.contentOffset.x == 0)
+            [self.coverScrollView setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
+        else
+            [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        
+    }
+    
+    
+    self.theSecondaryState = SECONDARY_VIEW_STATE_TODOS;
+    [self.fullCalendarViewController.view removeFromSuperview];
+    
+    if (self.containerTodosViewController.view.superview == nil)
+        [self.view insertSubview:self.containerTodosViewController.view belowSubview:self.coverScrollView];
+    
+    [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    
+}
+
+
+-(void)toggleToCalendar
+{
+    if (self.theSecondaryState == SECONDARY_VIEW_STATE_CALENDAR)
+    {
+        if (self.coverScrollView.contentOffset.x == 0)
+            [self.coverScrollView setContentOffset:CGPointMake(self.view.frame.size.width, 0) animated:YES];
+        else
+            [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        
+    }
+    else
+    {
+        
+        self.theSecondaryState = SECONDARY_VIEW_STATE_CALENDAR;
+        
+        [self.containerTodosViewController.view removeFromSuperview];
+        
+        if (self.fullCalendarViewController.view.superview == nil)
+            [self.view insertSubview:self.fullCalendarViewController.view belowSubview:self.coverScrollView];
+        
+        [self.coverScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
+}
+
+
+
+
+
 
 
 @end

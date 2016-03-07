@@ -7,6 +7,7 @@
 //
 
 #import "UIFocusButton.h"
+#import "CalendarDayView.h"
 
 @implementation UIFocusButton
 
@@ -17,5 +18,34 @@
     // Drawing code
 }
 */
+
+
+- (void)didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"self: %@", self);
+    NSLog(@"context.previousFocusView: %@", context.previouslyFocusedView);
+    NSLog(@"context.nextFocusView: %@", context.nextFocusedView);
+    
+    if (self == context.nextFocusedView)
+    {
+        if (self.referenceParentView != nil)
+            [self.referenceParentView focusChanged:YES];
+    }
+    else
+    {
+        if (self.referenceParentView != nil)
+            [self.referenceParentView focusChanged:NO];
+    }
+    
+    
+    NSLog(@" ");
+    NSLog(@" ");
+    NSLog(@" ");
+    
+    
+}
+
+
 
 @end

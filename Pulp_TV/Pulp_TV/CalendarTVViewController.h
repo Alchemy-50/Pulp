@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CalendarTVViewController : UIViewController
+@interface CalendarTVViewController : UIViewController <UIFocusEnvironment>
 
 +(CalendarTVViewController *) sharedController;
 -(void) dataChanged;

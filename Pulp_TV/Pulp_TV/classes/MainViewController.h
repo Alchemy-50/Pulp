@@ -16,7 +16,7 @@
 #define SECONDARY_VIEW_STATE_TODOS 1
 
 
-@interface MainViewController : UIViewController <UIScrollViewDelegate>
+@interface MainViewController : UIViewController <UIScrollViewDelegate, UIFocusEnvironment>
 
 +(MainViewController *)sharedMainViewController;
 

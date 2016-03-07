@@ -154,11 +154,40 @@
     [self bringSubviewToFront:self.theMaskView];
     [self bringSubviewToFront:self.dayLabel];
     
-    self.focusButtton = [[UIFocusButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    //self.
+    
 }
 
+-(void) handleButtonPresentation:(BOOL)doEnableButton
+{
+    if (doEnableButton)
+    {
+        if (self.focusButton == nil)
+        {
+            self.focusButton = [[UIFocusButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+            self.focusButton.referenceParentView = self;
+            self.focusButton.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+            [self addSubview:self.focusButton];
+        }
+    }
+    else
+    {
+        if (self.focusButton != nil)
+        {
+            [self.focusButton removeFromSuperview];
+            self.focusButton = nil;            
+        }
+    }
+}
 
+-(void)focusChanged:(BOOL)didFocusTo
+{
+    NSLog(@"%s, focusChanged: %d", __PRETTY_FUNCTION__, didFocusTo);
+    if (didFocusTo)
+        [self setSelected];
+    else
+        [self setUnselected];
+    
+}
 
 
 -(void)clearEvents
@@ -170,6 +199,13 @@
 
 -(void) setUnselected
 {
+    if (self.calendarDaySelectedOverview != nil)
+    {
+        [self.calendarDaySelectedOverview removeFromSuperview];
+        self.calendarDaySelectedOverview = nil;
+    }
+    
+    /*
     NSDate *today = [NSDate date];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init ];
@@ -185,6 +221,8 @@
             self.calendarDaySelectedOverview = nil;
         }
     }
+     */
+    
     
     
 }
@@ -235,6 +273,12 @@
         self.theMaskView = nil;
     }
     
+    if (self.focusButton != nil)
+    {
+        [self.focusButton removeFromSuperview];
+        self.focusButton = nil;
+    }
+        
 }
 
 

@@ -25,6 +25,8 @@
 -(void) setSelected;
 -(void) setUnselected;
 -(void) destroyViews;
+-(void) handleButtonPresentation:(BOOL)doEnableButton;
+-(void) focusChanged:(BOOL)didFocusTo;
 
 @property (nonatomic, retain) CalendarMonthView *parentView;
 @property (nonatomic, retain) EventForCalendarDayView *eventForCalendarDayView;

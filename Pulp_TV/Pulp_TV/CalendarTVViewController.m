@@ -8,6 +8,8 @@
 
 #import "CalendarTVViewController.h"
 #import "FullCalendarViewController.h"
+#import "UIFocusButton.h"
+
 
 @interface CalendarTVViewController ()
 @property (nonatomic, retain) UIView *contentView;
@@ -46,12 +48,30 @@ static CalendarTVViewController *staticVC;
     self.fullCalendarViewController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width / 2, self.contentView.frame.size.height);
     [self.fullCalendarViewController doLoadViews];
     
+    /*
+    UIFocusButton *testButton = [[UIFocusButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width * (3.0f/4.0f) - 100, 200, 100, 100)];
+    testButton.backgroundColor = [UIColor blueColor];
+    [self.contentView addSubview:testButton];
+    
+    UIFocusButton *testButtonTwo = [[UIFocusButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width * (3.3f/4.0f) - 100, 200, 100, 100)];
+    testButtonTwo.backgroundColor = [UIColor blueColor];
+    [self.contentView addSubview:testButtonTwo];
+    */
+        
 }
+
+- (void)didUpdateFocusInContext:(UIFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+
+
 
 
 -(void) dataChanged
 {
-    [self.fullCalendarViewController dataChanged];
+    [self.fullCalendarViewController dataChanged];        
 }
 
 

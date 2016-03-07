@@ -56,21 +56,19 @@ static FullCalendarViewController *staticVC;
 -(void) dataChanged
 {
     [self updateMonthViews:YES];
-    [self.dailyView.theTableView reloadData];
+    [self.dailyView.theTableView reloadData];        
 }
 
 
 
 -(void)doLoadViews
 {
-
-    
     [[ThemeManager sharedThemeManager] registerPrimaryObject:self];
     [ThemeManager addCoverViewToView:self.view];
     
     
-    UIView *sharedButtonView = [AllCalendarButtonView sharedButtonView];
-    [self.view addSubview:sharedButtonView];
+//    UIView *sharedButtonView = [AllCalendarButtonView sharedButtonView];
+//    [self.view addSubview:sharedButtonView];
     
     
     
@@ -85,6 +83,7 @@ static FullCalendarViewController *staticVC;
     self.theScrollView.delegate = self;
     [self.view addSubview:self.theScrollView];
     
+    NSLog(@"theScrollView!!!: %@", self.theScrollView);
     
     unsigned flags = NSCalendarUnitYear;
     NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -144,13 +143,6 @@ static FullCalendarViewController *staticVC;
     self.initialized = YES;
     
     
-    UIButton *calButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    calButton.backgroundColor = [UIColor clearColor];
-    [calButton addTarget:[CalendarManagementViewController sharedCalendarManagementViewController] action:@selector(doPresent) forControlEvents:UIControlEventTouchUpInside];
-    calButton.frame = CGRectMake(sharedButtonView.frame.origin.x, 0, sharedButtonView.frame.size.width, sharedButtonView.frame.origin.y + sharedButtonView.frame.size.height + 5);
-    [self.view addSubview:calButton];
-
-    
 }
 
 -(void)updateMonthViews:(BOOL)doRedraw
@@ -161,9 +153,16 @@ static FullCalendarViewController *staticVC;
     
     NSMutableArray *presentArray = [NSMutableArray arrayWithCapacity:0];
     
+    CalendarMonthView *viewInScope = nil;
+    
     for (int i = index - 2; i < index+2; i++)
+    {
+        if (i == index)
+            viewInScope = [subviewsArray objectAtIndex:i];
+        
         if (i > 0 && i < [subviewsArray count])
             [presentArray addObject:[subviewsArray objectAtIndex:i]];
+    }
     
     
     for (int i =0; i < [subviewsArray count]; i++)
@@ -171,6 +170,9 @@ static FullCalendarViewController *staticVC;
         CalendarMonthView *calendarMonthView = [subviewsArray objectAtIndex:i];
         if ([calendarMonthView isKindOfClass:[CalendarMonthView class]])
         {
+            
+            [calendarMonthView handleFocusButtonPresentation:NO];
+            
             if (doRedraw)
                 [calendarMonthView cleanUp];
             
@@ -184,12 +186,22 @@ static FullCalendarViewController *staticVC;
         }
     }
     
+    NSLog(@"view in scope: %@", viewInScope);
+    NSLog(@"view in scope.class: %@", [[viewInScope class] description]);
+    NSLog(@"view in scope startDate: %@", viewInScope.startDate);
+    NSLog(@" ");
+    NSLog(@" ");
+    
+    [viewInScope handleFocusButtonPresentation:YES];
+    [viewInScope setNeedsFocusUpdate];
+    [viewInScope updateFocusIfNeeded];
     
 }
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    
     if (self.initialized)
         [self updateMonthViews:NO];
     

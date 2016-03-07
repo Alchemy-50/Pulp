@@ -13,8 +13,6 @@
 		3A83261B1C8B8660003CFD59 /* FullCalendarScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A83261A1C8B8660003CFD59 /* FullCalendarScrollView.m */; };
 		3A8D32D01C8743DF00AA610C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32CF1C8743DF00AA610C /* main.m */; };
 		3A8D32D31C8743DF00AA610C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32D21C8743DF00AA610C /* AppDelegate.m */; };
-		3A8D32D61C8743DF00AA610C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32D51C8743DF00AA610C /* ViewController.m */; };
-		3A8D32D91C8743DF00AA610C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D32D71C8743DF00AA610C /* Main.storyboard */; };
 		3A8D32DB1C8743DF00AA610C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D32DA1C8743DF00AA610C /* Assets.xcassets */; };
 		3A8D336B1C8744B500AA610C /* AlarmNotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32E41C8744B500AA610C /* AlarmNotificationHandler.m */; };
 		3A8D336C1C8744B500AA610C /* AppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32E61C8744B500AA610C /* AppSettingsViewController.m */; };
@@ -97,8 +95,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A2557911C8B999E0064BDED /* UIFocusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFocusButton.h; sourceTree = "<group>"; };
-		3A2557921C8B999E0064BDED /* UIFocusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFocusButton.m; sourceTree = "<group>"; };
+		3A2557911C8B999E0064BDED /* UIFocusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIFocusButton.h; path = Pulp_TV/UIFocusButton.h; sourceTree = "<group>"; };
+		3A2557921C8B999E0064BDED /* UIFocusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIFocusButton.m; path = Pulp_TV/UIFocusButton.m; sourceTree = "<group>"; };
 		3A434DB21C889B5C0000AC09 /* CalendarTVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTVViewController.h; sourceTree = "<group>"; };
 		3A434DB31C889B5C0000AC09 /* CalendarTVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTVViewController.m; sourceTree = "<group>"; };
 		3A55488A1C87973E0099043A /* EventsRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsRequestor.h; sourceTree = "<group>"; };
@@ -106,14 +104,11 @@
 		3A8326191C8B8660003CFD59 /* FullCalendarScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullCalendarScrollView.h; sourceTree = "<group>"; };
 		3A83261A1C8B8660003CFD59 /* FullCalendarScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullCalendarScrollView.m; sourceTree = "<group>"; };
 		3A8D32CB1C8743DF00AA610C /* Pulp_TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp_TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A8D32CF1C8743DF00AA610C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3A8D32D11C8743DF00AA610C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3A8D32D21C8743DF00AA610C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A8D32D41C8743DF00AA610C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3A8D32D51C8743DF00AA610C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3A8D32D81C8743DF00AA610C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3A8D32DA1C8743DF00AA610C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A8D32DC1C8743DF00AA610C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A8D32CF1C8743DF00AA610C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Pulp_TV/main.m; sourceTree = "<group>"; };
+		3A8D32D11C8743DF00AA610C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pulp_TV/AppDelegate.h; sourceTree = "<group>"; };
+		3A8D32D21C8743DF00AA610C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Pulp_TV/AppDelegate.m; sourceTree = "<group>"; };
+		3A8D32DA1C8743DF00AA610C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Pulp_TV/Assets.xcassets; sourceTree = "<group>"; };
+		3A8D32DC1C8743DF00AA610C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Pulp_TV/Info.plist; sourceTree = "<group>"; };
 		3A8D32E31C8744B500AA610C /* AlarmNotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmNotificationHandler.h; path = classes/AlarmNotificationHandler.h; sourceTree = "<group>"; };
 		3A8D32E41C8744B500AA610C /* AlarmNotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmNotificationHandler.m; path = classes/AlarmNotificationHandler.m; sourceTree = "<group>"; };
 		3A8D32E51C8744B500AA610C /* AppSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppSettingsViewController.h; path = classes/AppSettingsViewController.h; sourceTree = "<group>"; };
@@ -274,12 +269,11 @@
 			isa = PBXGroup;
 			children = (
 				3A434DB61C88A0740000AC09 /* FullCal */,
-				3A8D330A1C8744B500AA610C /* MainViewController.h */,
-				3A8D330B1C8744B500AA610C /* MainViewController.m */,
 				3A434DB21C889B5C0000AC09 /* CalendarTVViewController.h */,
 				3A434DB31C889B5C0000AC09 /* CalendarTVViewController.m */,
 			);
 			name = VCS;
+			path = Pulp_TV;
 			sourceTree = "<group>";
 		};
 		3A434DB61C88A0740000AC09 /* FullCal */ = {
@@ -289,6 +283,10 @@
 				3A8D33091C8744B500AA610C /* FullCalendarViewController.m */,
 				3A8326191C8B8660003CFD59 /* FullCalendarScrollView.h */,
 				3A83261A1C8B8660003CFD59 /* FullCalendarScrollView.m */,
+				3A8D331E1C8744B500AA610C /* CalendarMonthView.h */,
+				3A8D32EF1C8744B500AA610C /* CalendarMonthView.m */,
+				3A8D331A1C8744B500AA610C /* CalendarDayView.h */,
+				3A8D32E71C8744B500AA610C /* CalendarDayView.m */,
 			);
 			name = FullCal;
 			sourceTree = "<group>";
@@ -304,13 +302,21 @@
 				3A55488B1C87973E0099043A /* EventsRequestor.m */,
 			);
 			name = Data;
+			path = Pulp_TV;
 			sourceTree = "<group>";
 		};
 		3A8D32C21C8743DF00AA610C = {
 			isa = PBXGroup;
 			children = (
-				3A8D32CD1C8743DF00AA610C /* Stuff */,
-				3A8D32CC1C8743DF00AA610C /* Products */,
+				3A8D32E21C8744AA00AA610C /* Classes */,
+				3A2557911C8B999E0064BDED /* UIFocusButton.h */,
+				3A2557921C8B999E0064BDED /* UIFocusButton.m */,
+				3A434DB51C88A06A0000AC09 /* VCS */,
+				3A8D32D11C8743DF00AA610C /* AppDelegate.h */,
+				3A8D32D21C8743DF00AA610C /* AppDelegate.m */,
+				3AA0D7151C88626F00F3F170 /* sync */,
+				3A5548891C87972A0099043A /* Data */,
+				3AB0297D1C8DEABF00039683 /* Cruft */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,35 +328,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3A8D32CD1C8743DF00AA610C /* Stuff */ = {
-			isa = PBXGroup;
-			children = (
-				3A434DB51C88A06A0000AC09 /* VCS */,
-				3A8D32D11C8743DF00AA610C /* AppDelegate.h */,
-				3A8D32D21C8743DF00AA610C /* AppDelegate.m */,
-				3AA0D7151C88626F00F3F170 /* sync */,
-				3A5548891C87972A0099043A /* Data */,
-				3AC29E7A1C877FBB00BE50BE /* Assets */,
-				3A8D32E21C8744AA00AA610C /* Classes */,
-				3A8D32D41C8743DF00AA610C /* ViewController.h */,
-				3A8D32D51C8743DF00AA610C /* ViewController.m */,
-				3A8D32D71C8743DF00AA610C /* Main.storyboard */,
-				3A8D32DA1C8743DF00AA610C /* Assets.xcassets */,
-				3A8D32DC1C8743DF00AA610C /* Info.plist */,
-				3A8D32CE1C8743DF00AA610C /* Supporting Files */,
-				3A2557911C8B999E0064BDED /* UIFocusButton.h */,
-				3A2557921C8B999E0064BDED /* UIFocusButton.m */,
-			);
-			name = Stuff;
-			path = Pulp_TV;
-			sourceTree = "<group>";
-		};
 		3A8D32CE1C8743DF00AA610C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3A8D32CF1C8743DF00AA610C /* main.m */,
 			);
 			name = "Supporting Files";
+			path = Pulp_TV;
 			sourceTree = "<group>";
 		};
 		3A8D32E21C8744AA00AA610C /* Classes */ = {
@@ -364,8 +347,6 @@
 				3A8D32E61C8744B500AA610C /* AppSettingsViewController.m */,
 				3A8D33181C8744B500AA610C /* CalendarDaySelectedOverview.h */,
 				3A8D33191C8744B500AA610C /* CalendarDaySelectedOverview.m */,
-				3A8D331A1C8744B500AA610C /* CalendarDayView.h */,
-				3A8D32E71C8744B500AA610C /* CalendarDayView.m */,
 				3A8D331B1C8744B500AA610C /* CalendarDoubleDayView.h */,
 				3A8D32E81C8744B500AA610C /* CalendarDoubleDayView.m */,
 				3A8D32EB1C8744B500AA610C /* CalendarManagementTableViewCell.h */,
@@ -374,8 +355,6 @@
 				3A8D32EE1C8744B500AA610C /* CalendarManagementTableViewController.m */,
 				3A8D331C1C8744B500AA610C /* CalendarManagementViewController.h */,
 				3A8D331D1C8744B500AA610C /* CalendarManagementViewController.m */,
-				3A8D331E1C8744B500AA610C /* CalendarMonthView.h */,
-				3A8D32EF1C8744B500AA610C /* CalendarMonthView.m */,
 				3A8D331F1C8744B500AA610C /* CalendarRepresentation.h */,
 				3A8D33201C8744B500AA610C /* CalendarRepresentation.m */,
 				3A8D32F01C8744B500AA610C /* CenterViewController.h */,
@@ -480,6 +459,7 @@
 				3A8D336A1C8744B500AA610C /* WeatherView.m */,
 			);
 			name = Classes;
+			path = Pulp_TV;
 			sourceTree = "<group>";
 		};
 		3AA0D7151C88626F00F3F170 /* sync */ = {
@@ -489,6 +469,31 @@
 				3AA0D7171C88629F00F3F170 /* DataSyncher.m */,
 			);
 			name = sync;
+			path = Pulp_TV;
+			sourceTree = "<group>";
+		};
+		3AB0297C1C8DE7EB00039683 /* OLD */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D330A1C8744B500AA610C /* MainViewController.h */,
+				3A8D330B1C8744B500AA610C /* MainViewController.m */,
+			);
+			name = OLD;
+			path = Pulp_TV;
+			sourceTree = "<group>";
+		};
+		3AB0297D1C8DEABF00039683 /* Cruft */ = {
+			isa = PBXGroup;
+			children = (
+				3AB0297C1C8DE7EB00039683 /* OLD */,
+				3AC29E7A1C877FBB00BE50BE /* Assets */,
+				3A8D32DC1C8743DF00AA610C /* Info.plist */,
+				3A8D32CE1C8743DF00AA610C /* Supporting Files */,
+				3A8D32CF1C8743DF00AA610C /* main.m */,
+				3A8D32CC1C8743DF00AA610C /* Products */,
+				3A8D32DA1C8743DF00AA610C /* Assets.xcassets */,
+			);
+			name = Cruft;
 			sourceTree = "<group>";
 		};
 		3AC29E7A1C877FBB00BE50BE /* Assets */ = {
@@ -507,6 +512,7 @@
 				3AC29E851C877FE500BE50BE /* Lato-Regular.ttf */,
 			);
 			name = Assets;
+			path = Pulp_TV;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -577,7 +583,6 @@
 				3A8D339C1C8744B500AA610C /* pulp-cal-circle-mask.png in Resources */,
 				3A8D32DB1C8743DF00AA610C /* Assets.xcassets in Resources */,
 				3AC29E861C877FE500BE50BE /* fontawesome-webfont.ttf in Resources */,
-				3A8D32D91C8743DF00AA610C /* Main.storyboard in Resources */,
 				3AC29E901C877FE500BE50BE /* Lato-Regular.ttf in Resources */,
 				3AC29E891C877FE500BE50BE /* Lato-Bold.ttf in Resources */,
 				3A8D339A1C8744B500AA610C /* pulp-cal-circle-mask-trans-smlr.png in Resources */,
@@ -594,7 +599,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8D33811C8744B500AA610C /* EventStoreChangeThread.m in Sources */,
-				3A8D32D61C8743DF00AA610C /* ViewController.m in Sources */,
 				3A8D32D31C8743DF00AA610C /* AppDelegate.m in Sources */,
 				3A8D33721C8744B500AA610C /* CalendarMonthView.m in Sources */,
 				3A8D338D1C8744B500AA610C /* CalendarDaySelectedOverview.m in Sources */,
@@ -668,17 +672,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		3A8D32D71C8743DF00AA610C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A8D32D81C8743DF00AA610C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3A8D32DD1C8743DF00AA610C /* Debug */ = {
