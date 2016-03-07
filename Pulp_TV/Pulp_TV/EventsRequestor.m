@@ -9,6 +9,8 @@
 #import "EventsRequestor.h"
 #import "CalendarEvent.h"
 #import "EventKitManager.h"
+#import "CalendarTVViewController.h"
+
 @implementation EventsRequestor
 
 
@@ -48,11 +50,26 @@
                                                            NSLog(@" ");
                                                            NSLog(@"json: %@", json);
                                                            */
-                                                           [EventsRequestor parseEventsArray:[json objectForKey:@"events"]];
+                                                           
+                                                           EventsRequestor *er = [[EventsRequestor alloc] init];
+                                                           
+                                                           [er performSelectorOnMainThread:@selector(parseDict:) withObject:json waitUntilDone:NO];
+                                                           
+                                                           
+                                                           //[[EventsRequestor alloc]
                                                            
                                                        }];
     
     [dataTask resume];
+    
+}
+
+-(void)parseDict:(NSDictionary *)json
+{
+    [EventsRequestor parseEventsArray:[json objectForKey:@"events"]];
+    [EventsRequestor parseCalendarsDictionary:[json objectForKey:@"calendars"]];
+    
+    [[CalendarTVViewController sharedController] dataChanged];
     
 }
 
@@ -63,13 +80,19 @@
     for (int i = 0; i < [theEventsArray count]; i++)
     {
         CalendarEvent *calendarEvent = [[CalendarEvent alloc] initWithDictionary:[theEventsArray objectAtIndex:i]];
-        NSLog(@"calendarEvent[%d]: %@", i, calendarEvent);
+        //NSLog(@"calendarEvent[%d]: %@", i, calendarEvent);
         NSDate *startDate = [calendarEvent getStartDate];
-        NSLog(@"startDate: %@", startDate);
+        //NSLog(@"startDate: %@", startDate);
         [ar addObject:calendarEvent];
     }
     
     [[EventKitManager sharedManager] loadEvents:ar];
+}
+
++(void)parseCalendarsDictionary:(NSDictionary *)calendarsDictionary
+{
+//    NSLog(@"%s, calendarsDictionary: %@", __PRETTY_FUNCTION__, calendarsDictionary);
+    [[EventKitManager sharedManager] loadCalendars:calendarsDictionary];
 }
 
 

@@ -10,7 +10,9 @@
 #import "Utils.h"
 #import "FullCalendarViewController.h"
 #import "EventsRequestor.h"
+#import "CalendarTVViewController.h"
 @interface AppDelegate ()
+
 
 @end
 
@@ -30,9 +32,11 @@
     self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
     self.mainViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
     
+    self.theVC = [[CalendarTVViewController alloc] initWithNibName:nil bundle:nil];
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.window setRootViewController:self.mainViewController];
+    [self.window setRootViewController:self.theVC];
     [self.window makeKeyAndVisible];
     
     [EventsRequestor makeTheGetRequest];

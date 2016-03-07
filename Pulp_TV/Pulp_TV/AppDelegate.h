@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MainViewController.h"
+#import "CalendarTVViewController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 
@@ -20,7 +21,7 @@
 @property (nonatomic, retain) MainViewController *mainViewController;
 @property (nonatomic, retain) NSMutableArray *locationDelegateRespondeesArray;
 @property (nonatomic, assign) BOOL locationHasSucceeded;
-
+@property (nonatomic, retain) CalendarTVViewController *theVC;
 
 
 @end

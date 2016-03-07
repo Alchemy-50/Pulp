@@ -35,6 +35,9 @@
     if (theEvent.calendarItemExternalIdentifier != nil)
         [dict setObject:[theEvent.calendarItemExternalIdentifier description] forKey:@"calendarItemExternalIdentifier"];
     
+    if (theEvent.calendar != nil)
+        [dict setObject:[theEvent.calendar.calendarIdentifier description] forKey:@"eventCalendarIdentifier"];
+    
     if (theEvent.title != nil)
         [dict setObject:[theEvent.title description] forKey:@"title"];
     

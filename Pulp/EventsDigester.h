@@ -11,5 +11,5 @@
 @interface EventsDigester : NSObject
 
 +(void)run;
-
++(NSDictionary *)getDigestDictionary;
 @end

@@ -163,6 +163,8 @@
 		3A6A72981C875E2E0098A0A6 /* EKEventContainerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A72971C875E2E0098A0A6 /* EKEventContainerObject.m */; };
 		3A8640371C7DF2820064FE4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640361C7DF2820064FE4A /* MapKit.framework */; };
 		3A86403A1C7DF3230064FE4A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8640391C7DF3230064FE4A /* CloudKit.framework */; };
+		3AA0D71C1C8866D200F3F170 /* SynchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0D71B1C8866D200F3F170 /* SynchManager.m */; };
+		3AA0D71F1C88727000F3F170 /* CalendarConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0D71E1C88727000F3F170 /* CalendarConverter.m */; };
 		3AB577DE1C7248FA008FE5C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577DD1C7248FA008FE5C0 /* main.m */; };
 		3AB577E11C7248FA008FE5C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB577E01C7248FA008FE5C0 /* AppDelegate.m */; };
 		3AB577E91C7248FA008FE5C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB577E81C7248FA008FE5C0 /* Assets.xcassets */; };
@@ -425,6 +427,10 @@
 		3A8640361C7DF2820064FE4A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3A8640381C7DF3170064FE4A /* Pulp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pulp.entitlements; sourceTree = "<group>"; };
 		3A8640391C7DF3230064FE4A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		3AA0D71A1C8866D200F3F170 /* SynchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchManager.h; sourceTree = "<group>"; };
+		3AA0D71B1C8866D200F3F170 /* SynchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchManager.m; sourceTree = "<group>"; };
+		3AA0D71D1C88727000F3F170 /* CalendarConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarConverter.h; sourceTree = "<group>"; };
+		3AA0D71E1C88727000F3F170 /* CalendarConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarConverter.m; sourceTree = "<group>"; };
 		3AB577D91C7248FA008FE5C0 /* Pulp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB577DD1C7248FA008FE5C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AB577DF1C7248FA008FE5C0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Pulp/AppDelegate.h; sourceTree = "<group>"; };
@@ -630,6 +636,7 @@
 		3A2840FD1C7258E900056061 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3AA0D7191C8866C100F3F170 /* Sync */,
 				3A2874A41C7797AC002CEF8B /* Digester */,
 				3A2841011C725C7C00056061 /* Disk */,
 				3A283F6F1C724D2800056061 /* GroupDataManager.h */,
@@ -742,6 +749,8 @@
 				3A2874A61C7797C0002CEF8B /* EventConverter.m */,
 				3A6A72961C875E2E0098A0A6 /* EKEventContainerObject.h */,
 				3A6A72971C875E2E0098A0A6 /* EKEventContainerObject.m */,
+				3AA0D71D1C88727000F3F170 /* CalendarConverter.h */,
+				3AA0D71E1C88727000F3F170 /* CalendarConverter.m */,
 			);
 			name = Digester;
 			sourceTree = "<group>";
@@ -883,6 +892,15 @@
 				3A40C9541C766C17009B53F0 /* EditCalendarManagementViewController.xib */,
 			);
 			name = Edit;
+			sourceTree = "<group>";
+		};
+		3AA0D7191C8866C100F3F170 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				3AA0D71A1C8866D200F3F170 /* SynchManager.h */,
+				3AA0D71B1C8866D200F3F170 /* SynchManager.m */,
+			);
+			name = Sync;
 			sourceTree = "<group>";
 		};
 		3AB577D01C7248FA008FE5C0 = {
@@ -1310,6 +1328,7 @@
 				3A28402B1C724D2800056061 /* SidebarInstanceView.m in Sources */,
 				3A2840411C724D2800056061 /* WeatherView.m in Sources */,
 				3A2840401C724D2800056061 /* WeatherDataManager.m in Sources */,
+				3AA0D71F1C88727000F3F170 /* CalendarConverter.m in Sources */,
 				3A283FE31C724D2800056061 /* CalendarManagementTableViewController.m in Sources */,
 				3A2840471C724E6400056061 /* NSString+FontAwesome.m in Sources */,
 				3A2840051C724D2800056061 /* EventForCalendarDayView.m in Sources */,
@@ -1341,6 +1360,7 @@
 				3A283FEA1C724D2800056061 /* CenterViewController.m in Sources */,
 				3A283FF91C724D2800056061 /* CoverScrollView.m in Sources */,
 				3A39180A1C76AFD300966DDA /* DRColorPicker+UIColor.m in Sources */,
+				3AA0D71C1C8866D200F3F170 /* SynchManager.m in Sources */,
 				3A2840231C724D2800056061 /* PulpMapView.m in Sources */,
 				3A283FF71C724D2800056061 /* ContainerTodosViewController.m in Sources */,
 				3A40C9431C764645009B53F0 /* AllCalendarButtonView.m in Sources */,

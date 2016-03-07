@@ -24,6 +24,7 @@
 #import "UpdatingCoverView.h"
 #import <objc/runtime.h>
 #import "EventConverter.h"
+#import "SynchManager.h"
 
 
 
@@ -199,6 +200,7 @@ static MainViewController *staticVC;
         [self.centerViewController processPositioningWithScrollView:self.centerViewController.contentScrollView];
         [self.fullCalendarViewController navigateToToday];
         [EventsDigester run];
+        //[SynchManager runUpdate];
     }
     
     [self dismissUpdatingCoverView];

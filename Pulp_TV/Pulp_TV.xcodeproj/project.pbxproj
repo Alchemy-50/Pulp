@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2557931C8B999E0064BDED /* UIFocusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2557921C8B999E0064BDED /* UIFocusButton.m */; };
+		3A434DB41C889B5C0000AC09 /* CalendarTVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A434DB31C889B5C0000AC09 /* CalendarTVViewController.m */; };
 		3A55488C1C87973E0099043A /* EventsRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A55488B1C87973E0099043A /* EventsRequestor.m */; };
+		3A83261B1C8B8660003CFD59 /* FullCalendarScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A83261A1C8B8660003CFD59 /* FullCalendarScrollView.m */; };
 		3A8D32D01C8743DF00AA610C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32CF1C8743DF00AA610C /* main.m */; };
 		3A8D32D31C8743DF00AA610C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32D21C8743DF00AA610C /* AppDelegate.m */; };
 		3A8D32D61C8743DF00AA610C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32D51C8743DF00AA610C /* ViewController.m */; };
@@ -79,6 +82,7 @@
 		3A8D33AD1C8744B500AA610C /* WeatherAPIHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D33661C8744B500AA610C /* WeatherAPIHandler.m */; };
 		3A8D33AE1C8744B500AA610C /* WeatherDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D33681C8744B500AA610C /* WeatherDataManager.m */; };
 		3A8D33AF1C8744B500AA610C /* WeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D336A1C8744B500AA610C /* WeatherView.m */; };
+		3AA0D7181C88629F00F3F170 /* DataSyncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA0D7171C88629F00F3F170 /* DataSyncher.m */; };
 		3AC29E861C877FE500BE50BE /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC29E7B1C877FE500BE50BE /* fontawesome-webfont.ttf */; };
 		3AC29E871C877FE500BE50BE /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC29E7C1C877FE500BE50BE /* Lato-Black.ttf */; };
 		3AC29E881C877FE500BE50BE /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC29E7D1C877FE500BE50BE /* Lato-BlackItalic.ttf */; };
@@ -93,8 +97,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A2557911C8B999E0064BDED /* UIFocusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFocusButton.h; sourceTree = "<group>"; };
+		3A2557921C8B999E0064BDED /* UIFocusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFocusButton.m; sourceTree = "<group>"; };
+		3A434DB21C889B5C0000AC09 /* CalendarTVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTVViewController.h; sourceTree = "<group>"; };
+		3A434DB31C889B5C0000AC09 /* CalendarTVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTVViewController.m; sourceTree = "<group>"; };
 		3A55488A1C87973E0099043A /* EventsRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsRequestor.h; sourceTree = "<group>"; };
 		3A55488B1C87973E0099043A /* EventsRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsRequestor.m; sourceTree = "<group>"; };
+		3A8326191C8B8660003CFD59 /* FullCalendarScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullCalendarScrollView.h; sourceTree = "<group>"; };
+		3A83261A1C8B8660003CFD59 /* FullCalendarScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullCalendarScrollView.m; sourceTree = "<group>"; };
 		3A8D32CB1C8743DF00AA610C /* Pulp_TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulp_TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8D32CF1C8743DF00AA610C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A8D32D11C8743DF00AA610C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -234,6 +244,8 @@
 		3A8D33681C8744B500AA610C /* WeatherDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherDataManager.m; path = classes/WeatherDataManager.m; sourceTree = "<group>"; };
 		3A8D33691C8744B500AA610C /* WeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherView.h; path = classes/WeatherView.h; sourceTree = "<group>"; };
 		3A8D336A1C8744B500AA610C /* WeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherView.m; path = classes/WeatherView.m; sourceTree = "<group>"; };
+		3AA0D7161C88629F00F3F170 /* DataSyncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSyncher.h; sourceTree = "<group>"; };
+		3AA0D7171C88629F00F3F170 /* DataSyncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSyncher.m; sourceTree = "<group>"; };
 		3AC29E7B1C877FE500BE50BE /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		3AC29E7C1C877FE500BE50BE /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		3AC29E7D1C877FE500BE50BE /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -258,6 +270,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A434DB51C88A06A0000AC09 /* VCS */ = {
+			isa = PBXGroup;
+			children = (
+				3A434DB61C88A0740000AC09 /* FullCal */,
+				3A8D330A1C8744B500AA610C /* MainViewController.h */,
+				3A8D330B1C8744B500AA610C /* MainViewController.m */,
+				3A434DB21C889B5C0000AC09 /* CalendarTVViewController.h */,
+				3A434DB31C889B5C0000AC09 /* CalendarTVViewController.m */,
+			);
+			name = VCS;
+			sourceTree = "<group>";
+		};
+		3A434DB61C88A0740000AC09 /* FullCal */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D33081C8744B500AA610C /* FullCalendarViewController.h */,
+				3A8D33091C8744B500AA610C /* FullCalendarViewController.m */,
+				3A8326191C8B8660003CFD59 /* FullCalendarScrollView.h */,
+				3A83261A1C8B8660003CFD59 /* FullCalendarScrollView.m */,
+			);
+			name = FullCal;
+			sourceTree = "<group>";
+		};
 		3A5548891C87972A0099043A /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +309,7 @@
 		3A8D32C21C8743DF00AA610C = {
 			isa = PBXGroup;
 			children = (
-				3A8D32CD1C8743DF00AA610C /* Pulp_TV */,
+				3A8D32CD1C8743DF00AA610C /* Stuff */,
 				3A8D32CC1C8743DF00AA610C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -287,21 +322,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3A8D32CD1C8743DF00AA610C /* Pulp_TV */ = {
+		3A8D32CD1C8743DF00AA610C /* Stuff */ = {
 			isa = PBXGroup;
 			children = (
+				3A434DB51C88A06A0000AC09 /* VCS */,
+				3A8D32D11C8743DF00AA610C /* AppDelegate.h */,
+				3A8D32D21C8743DF00AA610C /* AppDelegate.m */,
+				3AA0D7151C88626F00F3F170 /* sync */,
 				3A5548891C87972A0099043A /* Data */,
 				3AC29E7A1C877FBB00BE50BE /* Assets */,
 				3A8D32E21C8744AA00AA610C /* Classes */,
-				3A8D32D11C8743DF00AA610C /* AppDelegate.h */,
-				3A8D32D21C8743DF00AA610C /* AppDelegate.m */,
 				3A8D32D41C8743DF00AA610C /* ViewController.h */,
 				3A8D32D51C8743DF00AA610C /* ViewController.m */,
 				3A8D32D71C8743DF00AA610C /* Main.storyboard */,
 				3A8D32DA1C8743DF00AA610C /* Assets.xcassets */,
 				3A8D32DC1C8743DF00AA610C /* Info.plist */,
 				3A8D32CE1C8743DF00AA610C /* Supporting Files */,
+				3A2557911C8B999E0064BDED /* UIFocusButton.h */,
+				3A2557921C8B999E0064BDED /* UIFocusButton.m */,
 			);
+			name = Stuff;
 			path = Pulp_TV;
 			sourceTree = "<group>";
 		};
@@ -318,27 +358,51 @@
 			children = (
 				3A8D32E31C8744B500AA610C /* AlarmNotificationHandler.h */,
 				3A8D32E41C8744B500AA610C /* AlarmNotificationHandler.m */,
+				3A8D33161C8744B500AA610C /* AllCalendarButtonView.h */,
+				3A8D33171C8744B500AA610C /* AllCalendarButtonView.m */,
 				3A8D32E51C8744B500AA610C /* AppSettingsViewController.h */,
 				3A8D32E61C8744B500AA610C /* AppSettingsViewController.m */,
+				3A8D33181C8744B500AA610C /* CalendarDaySelectedOverview.h */,
+				3A8D33191C8744B500AA610C /* CalendarDaySelectedOverview.m */,
+				3A8D331A1C8744B500AA610C /* CalendarDayView.h */,
 				3A8D32E71C8744B500AA610C /* CalendarDayView.m */,
+				3A8D331B1C8744B500AA610C /* CalendarDoubleDayView.h */,
 				3A8D32E81C8744B500AA610C /* CalendarDoubleDayView.m */,
 				3A8D32EB1C8744B500AA610C /* CalendarManagementTableViewCell.h */,
 				3A8D32EC1C8744B500AA610C /* CalendarManagementTableViewCell.m */,
 				3A8D32ED1C8744B500AA610C /* CalendarManagementTableViewController.h */,
 				3A8D32EE1C8744B500AA610C /* CalendarManagementTableViewController.m */,
+				3A8D331C1C8744B500AA610C /* CalendarManagementViewController.h */,
+				3A8D331D1C8744B500AA610C /* CalendarManagementViewController.m */,
+				3A8D331E1C8744B500AA610C /* CalendarMonthView.h */,
 				3A8D32EF1C8744B500AA610C /* CalendarMonthView.m */,
+				3A8D331F1C8744B500AA610C /* CalendarRepresentation.h */,
+				3A8D33201C8744B500AA610C /* CalendarRepresentation.m */,
 				3A8D32F01C8744B500AA610C /* CenterViewController.h */,
 				3A8D32F11C8744B500AA610C /* CenterViewController.m */,
+				3A8D33211C8744B500AA610C /* Circle.h */,
 				3A8D32F21C8744B500AA610C /* Circle.m */,
+				3A8D33221C8744B500AA610C /* CircleView.h */,
+				3A8D33231C8744B500AA610C /* CircleView.m */,
+				3A8D33241C8744B500AA610C /* ColorPickerViewController.h */,
 				3A8D32F31C8744B500AA610C /* ColorPickerViewController.m */,
+				3A8D33251C8744B500AA610C /* ColorSelectView.h */,
+				3A8D33261C8744B500AA610C /* ColorSelectView.m */,
 				3A8D32F41C8744B500AA610C /* ContainerTodosViewController.h */,
 				3A8D32F51C8744B500AA610C /* ContainerTodosViewController.m */,
+				3A8D33271C8744B500AA610C /* CoverScrollView.h */,
+				3A8D33281C8744B500AA610C /* CoverScrollView.m */,
+				3A8D33291C8744B500AA610C /* DailyIconView.h */,
+				3A8D332A1C8744B500AA610C /* DailyIconView.m */,
+				3A8D332B1C8744B500AA610C /* DailyScrollView.h */,
+				3A8D332C1C8744B500AA610C /* DailyScrollView.m */,
 				3A8D32F61C8744B500AA610C /* DailyTableViewCell.h */,
 				3A8D32F71C8744B500AA610C /* DailyTableViewCell.m */,
 				3A8D32F81C8744B500AA610C /* DailyView.h */,
 				3A8D32F91C8744B500AA610C /* DailyView.m */,
 				3A8D32FA1C8744B500AA610C /* DateFormatManager.h */,
 				3A8D32FB1C8744B500AA610C /* DateFormatManager.m */,
+				3A8D332D1C8744B500AA610C /* DefaultCalendarSelectTableViewController.h */,
 				3A8D32FC1C8744B500AA610C /* DefaultCalendarSelectTableViewController.m */,
 				3A8D32FD1C8744B500AA610C /* Defs.h */,
 				3A8D32FE1C8744B500AA610C /* Defs.m */,
@@ -346,50 +410,12 @@
 				3A8D33001C8744B500AA610C /* EditCalendarManagementViewController.m */,
 				3A8D33011C8744B500AA610C /* EventConverter.h */,
 				3A8D33021C8744B500AA610C /* EventConverter.m */,
-				3A8D33031C8744B500AA610C /* EventForCalendarDayView.m */,
-				3A8D33061C8744B500AA610C /* EventsDigester.m */,
-				3A8D33071C8744B500AA610C /* EventStoreChangeThread.m */,
-				3A8D33081C8744B500AA610C /* FullCalendarViewController.h */,
-				3A8D33091C8744B500AA610C /* FullCalendarViewController.m */,
-				3A8D330A1C8744B500AA610C /* MainViewController.h */,
-				3A8D330B1C8744B500AA610C /* MainViewController.m */,
-				3A8D330C1C8744B500AA610C /* MapAPIHandler.h */,
-				3A8D330D1C8744B500AA610C /* MapAPIHandler.m */,
-				3A8D330E1C8744B500AA610C /* MaskView.m */,
-				3A8D330F1C8744B500AA610C /* PulpFAImageView.m */,
-				3A8D33101C8744B500AA610C /* SidebarView.m */,
-				3A8D33111C8744B500AA610C /* ThemeManager.m */,
-				3A8D33121C8744B500AA610C /* TodosViewController.m */,
-				3A8D33131C8744B500AA610C /* TodoTableViewCell.m */,
-				3A8D33141C8744B500AA610C /* Utils.h */,
-				3A8D33151C8744B500AA610C /* Utils.m */,
-				3A8D33161C8744B500AA610C /* AllCalendarButtonView.h */,
-				3A8D33171C8744B500AA610C /* AllCalendarButtonView.m */,
-				3A8D33181C8744B500AA610C /* CalendarDaySelectedOverview.h */,
-				3A8D33191C8744B500AA610C /* CalendarDaySelectedOverview.m */,
-				3A8D331A1C8744B500AA610C /* CalendarDayView.h */,
-				3A8D331B1C8744B500AA610C /* CalendarDoubleDayView.h */,
-				3A8D331C1C8744B500AA610C /* CalendarManagementViewController.h */,
-				3A8D331D1C8744B500AA610C /* CalendarManagementViewController.m */,
-				3A8D331E1C8744B500AA610C /* CalendarMonthView.h */,
-				3A8D331F1C8744B500AA610C /* CalendarRepresentation.h */,
-				3A8D33201C8744B500AA610C /* CalendarRepresentation.m */,
-				3A8D33211C8744B500AA610C /* Circle.h */,
-				3A8D33221C8744B500AA610C /* CircleView.h */,
-				3A8D33231C8744B500AA610C /* CircleView.m */,
-				3A8D33241C8744B500AA610C /* ColorPickerViewController.h */,
-				3A8D33251C8744B500AA610C /* ColorSelectView.h */,
-				3A8D33261C8744B500AA610C /* ColorSelectView.m */,
-				3A8D33271C8744B500AA610C /* CoverScrollView.h */,
-				3A8D33281C8744B500AA610C /* CoverScrollView.m */,
-				3A8D33291C8744B500AA610C /* DailyIconView.h */,
-				3A8D332A1C8744B500AA610C /* DailyIconView.m */,
-				3A8D332B1C8744B500AA610C /* DailyScrollView.h */,
-				3A8D332C1C8744B500AA610C /* DailyScrollView.m */,
-				3A8D332D1C8744B500AA610C /* DefaultCalendarSelectTableViewController.h */,
 				3A8D332E1C8744B500AA610C /* EventForCalendarDayView.h */,
+				3A8D33031C8744B500AA610C /* EventForCalendarDayView.m */,
 				3A8D332F1C8744B500AA610C /* EventsDigester.h */,
+				3A8D33061C8744B500AA610C /* EventsDigester.m */,
 				3A8D33301C8744B500AA610C /* EventStoreChangeThread.h */,
+				3A8D33071C8744B500AA610C /* EventStoreChangeThread.m */,
 				3A8D33311C8744B500AA610C /* FAImageView.h */,
 				3A8D33321C8744B500AA610C /* FAImageView.m */,
 				3A8D33331C8744B500AA610C /* GroupDiskManager.h */,
@@ -398,7 +424,10 @@
 				3A8D33361C8744B500AA610C /* ImagesAPIHandler.m */,
 				3A8D33371C8744B500AA610C /* LocationViewController.h */,
 				3A8D33381C8744B500AA610C /* LocationViewController.m */,
+				3A8D330C1C8744B500AA610C /* MapAPIHandler.h */,
+				3A8D330D1C8744B500AA610C /* MapAPIHandler.m */,
 				3A8D33391C8744B500AA610C /* MaskView.h */,
+				3A8D330E1C8744B500AA610C /* MaskView.m */,
 				3A8D333A1C8744B500AA610C /* NSString+FontAwesome.h */,
 				3A8D333B1C8744B500AA610C /* NSString+FontAwesome.m */,
 				3A8D333C1C8744B500AA610C /* PositionUpdatedRespondeeProtocol.h */,
@@ -406,6 +435,7 @@
 				3A8D333E1C8744B500AA610C /* pulp-cal-circle-mask-trans.png */,
 				3A8D333F1C8744B500AA610C /* pulp-cal-circle-mask.png */,
 				3A8D33421C8744B500AA610C /* PulpFAImageView.h */,
+				3A8D330F1C8744B500AA610C /* PulpFAImageView.m */,
 				3A8D33471C8744B500AA610C /* SettingsManager.h */,
 				3A8D33481C8744B500AA610C /* SettingsManager.m */,
 				3A8D33491C8744B500AA610C /* SidebarButtonView.h */,
@@ -413,9 +443,11 @@
 				3A8D334B1C8744B500AA610C /* SidebarInstanceView.h */,
 				3A8D334C1C8744B500AA610C /* SidebarInstanceView.m */,
 				3A8D334D1C8744B500AA610C /* SidebarView.h */,
+				3A8D33101C8744B500AA610C /* SidebarView.m */,
 				3A8D334E1C8744B500AA610C /* SourceRepresentation.h */,
 				3A8D334F1C8744B500AA610C /* SourceRepresentation.m */,
 				3A8D33501C8744B500AA610C /* ThemeManager.h */,
+				3A8D33111C8744B500AA610C /* ThemeManager.m */,
 				3A8D33511C8744B500AA610C /* ThemeSelectObject.h */,
 				3A8D33521C8744B500AA610C /* ThemeSelectObject.m */,
 				3A8D33531C8744B500AA610C /* ThemeSelectViewController.h */,
@@ -429,13 +461,17 @@
 				3A8D335B1C8744B500AA610C /* TodoObject.h */,
 				3A8D335C1C8744B500AA610C /* TodoObject.m */,
 				3A8D335D1C8744B500AA610C /* TodosViewController.h */,
+				3A8D33121C8744B500AA610C /* TodosViewController.m */,
 				3A8D335E1C8744B500AA610C /* TodoTableViewCell.h */,
+				3A8D33131C8744B500AA610C /* TodoTableViewCell.m */,
 				3A8D335F1C8744B500AA610C /* UIFont+FontAwesome.h */,
 				3A8D33601C8744B500AA610C /* UIFont+FontAwesome.m */,
 				3A8D33611C8744B500AA610C /* UIImage+FontAwesome.h */,
 				3A8D33621C8744B500AA610C /* UIImage+FontAwesome.m */,
 				3A8D33631C8744B500AA610C /* UpdatingCoverView.h */,
 				3A8D33641C8744B500AA610C /* UpdatingCoverView.m */,
+				3A8D33141C8744B500AA610C /* Utils.h */,
+				3A8D33151C8744B500AA610C /* Utils.m */,
 				3A8D33651C8744B500AA610C /* WeatherAPIHandler.h */,
 				3A8D33661C8744B500AA610C /* WeatherAPIHandler.m */,
 				3A8D33671C8744B500AA610C /* WeatherDataManager.h */,
@@ -444,6 +480,15 @@
 				3A8D336A1C8744B500AA610C /* WeatherView.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		3AA0D7151C88626F00F3F170 /* sync */ = {
+			isa = PBXGroup;
+			children = (
+				3AA0D7161C88629F00F3F170 /* DataSyncher.h */,
+				3AA0D7171C88629F00F3F170 /* DataSyncher.m */,
+			);
+			name = sync;
 			sourceTree = "<group>";
 		};
 		3AC29E7A1C877FBB00BE50BE /* Assets */ = {
@@ -495,6 +540,7 @@
 				TargetAttributes = {
 					3A8D32CA1C8743DF00AA610C = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = XHWNS7W3NX;
 					};
 				};
 			};
@@ -577,6 +623,7 @@
 				3A8D33891C8744B500AA610C /* TodosViewController.m in Sources */,
 				3A8D33831C8744B500AA610C /* MainViewController.m in Sources */,
 				3A8D33701C8744B500AA610C /* CalendarManagementTableViewCell.m in Sources */,
+				3AA0D7181C88629F00F3F170 /* DataSyncher.m in Sources */,
 				3A8D33A21C8744B500AA610C /* SidebarInstanceView.m in Sources */,
 				3A8D33751C8744B500AA610C /* ColorPickerViewController.m in Sources */,
 				3A8D33AF1C8744B500AA610C /* WeatherView.m in Sources */,
@@ -584,10 +631,12 @@
 				3A8D33A01C8744B500AA610C /* SettingsManager.m in Sources */,
 				3A8D336E1C8744B500AA610C /* CalendarDoubleDayView.m in Sources */,
 				3A8D33971C8744B500AA610C /* ImagesAPIHandler.m in Sources */,
+				3A2557931C8B999E0064BDED /* UIFocusButton.m in Sources */,
 				3A8D336B1C8744B500AA610C /* AlarmNotificationHandler.m in Sources */,
 				3A8D33881C8744B500AA610C /* ThemeManager.m in Sources */,
 				3A8D33991C8744B500AA610C /* NSString+FontAwesome.m in Sources */,
 				3A8D336C1C8744B500AA610C /* AppSettingsViewController.m in Sources */,
+				3A434DB41C889B5C0000AC09 /* CalendarTVViewController.m in Sources */,
 				3A8D337A1C8744B500AA610C /* DefaultCalendarSelectTableViewController.m in Sources */,
 				3A8D33931C8744B500AA610C /* DailyIconView.m in Sources */,
 				3A8D33901C8744B500AA610C /* CircleView.m in Sources */,
@@ -595,6 +644,7 @@
 				3A8D337F1C8744B500AA610C /* EventKitManager.m in Sources */,
 				3A8D338B1C8744B500AA610C /* Utils.m in Sources */,
 				3A8D336F1C8744B500AA610C /* CalendarEvent.m in Sources */,
+				3A83261B1C8B8660003CFD59 /* FullCalendarScrollView.m in Sources */,
 				3A8D33AB1C8744B500AA610C /* UIImage+FontAwesome.m in Sources */,
 				3A8D33A61C8744B500AA610C /* TimeView.m in Sources */,
 				3A8D33A91C8744B500AA610C /* TodoObject.m in Sources */,
@@ -718,10 +768,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Pulp_TV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "alchemy50.com.Pulp-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Debug;
 		};
@@ -730,10 +784,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Pulp_TV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "alchemy50.com.Pulp-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Release;
 		};

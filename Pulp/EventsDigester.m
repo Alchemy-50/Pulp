@@ -10,15 +10,11 @@
 #import "EventKitManager.h"
 #import "GroupDataManager.h"
 #import "EventConverter.h"
-
+#import "CalendarConverter.h"
 @implementation EventsDigester
 
-
-+(void)run
++(NSDictionary *)getDigestDictionary
 {
-    
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
     
     unsigned flags = NSCalendarUnitYear | NSCalendarUnitDay | NSCalendarUnitMonth;
     NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -63,6 +59,28 @@
     
     NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     [jsonDictionary setObject:ar forKey:@"events"];
+    
+    
+    NSMutableDictionary *calDictionaryDictionary = [NSMutableDictionary dictionaryWithCapacity:0];
+    NSArray *calendarsArray = [[EventKitManager sharedManager] getEKCalendars:NO];
+    for (int i = 0; i < [calendarsArray count]; i++)
+    {
+        NSDictionary *calendarDictionary = [CalendarConverter loadWithCalendar:[calendarsArray objectAtIndex:i]];
+        //NSLog(@"calendarDictionary[%d]: %@", i, calendarDictionary);
+        [calDictionaryDictionary setObject:calendarDictionary forKey:[calendarDictionary objectForKey:@"calendarIdentifier"]];
+        
+    }
+    [jsonDictionary setObject:calDictionaryDictionary forKey:@"calendars"];
+    
+    return jsonDictionary;
+}
+
++(void)run
+{
+    
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    NSDictionary *jsonDictionary = [EventsDigester getDigestDictionary];
     
     NSLog(@"jsonDictionary: %@", jsonDictionary);
     
