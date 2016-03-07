@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 #import "SidebarView.h"
-#import "CenterViewController.h"
+#import "DailyViewController.h"
 #import "FullCalendarViewController.h"
 #import "Utils.h"
 #import "CoverScrollView.h"
@@ -27,7 +27,7 @@
 @property (nonatomic, retain) FullCalendarViewController *fullCalendarViewController;
 @property (nonatomic, retain) ContainerTodosViewController *containerTodosViewController;
 @property (nonatomic, retain) CoverScrollView *coverScrollView;
-@property (nonatomic, retain) CenterViewController *centerViewController;
+@property (nonatomic, retain) DailyViewController *centerViewController;
 @property (nonatomic, assign) BOOL initialized;
 @property (nonatomic, assign) int theSecondaryState;
 
@@ -80,7 +80,7 @@ static MainViewController *staticVC;
     
     float width =  [Utils getScreenWidth] - self.sidebarView.frame.size.width;
     
-    self.centerViewController = [[CenterViewController alloc] initWithNibName:nil bundle:nil];
+    self.centerViewController = [[DailyViewController alloc] initWithNibName:nil bundle:nil];
     self.centerViewController.centerSidebarView = self.sidebarView;
     self.centerViewController.view.frame = CGRectMake(width, 0, width, self.view.frame.size.height);
     [self.coverScrollView addSubview:self.centerViewController.view];

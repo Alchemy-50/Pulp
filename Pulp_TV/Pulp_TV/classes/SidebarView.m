@@ -14,7 +14,7 @@
 
 #import "AppSettingsViewController.h"
 #import "SidebarButtonView.h"
-#import "CenterViewController.h"
+#import "DailyViewController.h"
 
 
 @interface SidebarView ()
@@ -132,7 +132,7 @@ static SidebarView *theStaticSidebarView;
 -(void)chevronButtonHit
 {
     NSLog(@"chevronButtonHit");
-    [[CenterViewController sharedCenterViewController] scrollToDate:[NSDate date]];
+//    [[DailyViewController sharedCenterViewController] scrollToDate:[NSDate date]];
 }
 
 
@@ -163,7 +163,7 @@ static SidebarView *theStaticSidebarView;
     
     if (self.isDraggingHere)
     {
-        [[CenterViewController sharedCenterViewController] sidebarDidScroll:scrollView.contentOffset.y / scrollView.contentSize.height];
+    //    [[CenterViewController sharedCenterViewController] sidebarDidScroll:scrollView.contentOffset.y / scrollView.contentSize.height];
     }
     
     

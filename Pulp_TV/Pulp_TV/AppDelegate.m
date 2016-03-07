@@ -27,11 +27,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.locationDelegateRespondeesArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    
-    self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
-    self.mainViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
-    
+        
     self.theVC = [[CalendarTVViewController alloc] initWithNibName:nil bundle:nil];
     
     

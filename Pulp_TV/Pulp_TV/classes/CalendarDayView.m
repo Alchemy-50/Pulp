@@ -215,6 +215,7 @@
 
 - (void)drawRect:(CGRect)rect
 {
+
     CGContextRef currentContext = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(currentContext, 1);
     //    CGContextSetRGBStrokeColor(currentContext, 19.0f/255.0f,103.0f/255.0f,88.0f/255.0f, 1.0f);

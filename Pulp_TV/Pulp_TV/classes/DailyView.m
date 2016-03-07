@@ -9,7 +9,7 @@
 #import "DailyView.h"
 #import "DailyTableViewCell.h"
 #import "AppDelegate.h"
-#import "CenterViewController.h"
+#import "DailyViewController.h"
 #import "MapAPIHandler.h"
 #import "Utils.h"
 #import "ThemeManager.h"
@@ -84,6 +84,7 @@ static float allDayHeight = 32;
 
 -(void)loadEvents
 {
+    NSLog(@"LOAD EVENTS!");
     
     
     if (self.theTableView == nil)

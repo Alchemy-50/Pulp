@@ -29,8 +29,7 @@
 -(void)removeFromSuperview
 {
     [super removeFromSuperview];
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 

@@ -14,7 +14,6 @@
 #import "AllCalendarButtonView.h"
 #import "CalendarManagementViewController.h"
 #import "Utils.h"
-#import "DailyView.h"
 #import "DateFormatManager.h"
 #import "FullCalendarScrollView.h"
 
@@ -25,7 +24,6 @@
 @property (nonatomic, retain) FullCalendarScrollView *theScrollView;
 @property (nonatomic, retain) NSMutableDictionary *monthViewLookupDictionary;
 @property (nonatomic, retain) CalendarDayView *highlightedDayView;
-@property (nonatomic, retain) DailyView *dailyView;
 @property (nonatomic, assign) BOOL initialized;
 
 @end
@@ -56,7 +54,6 @@ static FullCalendarViewController *staticVC;
 -(void) dataChanged
 {
     [self updateMonthViews:YES];
-    [self.dailyView.theTableView reloadData];        
 }
 
 
@@ -124,69 +121,58 @@ static FullCalendarViewController *staticVC;
         self.theScrollView.contentSize = CGSizeMake(0,y);
     }
     
-    self.dailyView = [[DailyView alloc] initWithFrame:CGRectMake(0, self.theScrollView.frame.size.height, self.theScrollView.frame.size.width, self.view.frame.size.height - self.theScrollView.frame.size.height)];
-    self.dailyView.suppressMaps = YES;
-    self.dailyView.backgroundColor = [UIColor clearColor];
-    self.dailyView.cellStyleClear = YES;
-    [self.view addSubview:self.dailyView];
-    
     [self calendarShouldScrollToDate:[NSDate date]];
-    
-    [self setDailyBorderWithDate:[NSDate date]];
-    self.dailyView.dailyViewDate = [NSDate date];
-    [self.dailyView loadEvents];
-    
-    
     self.initialized = YES;
-    
-    
 }
 
 -(void)updateMonthViews:(BOOL)doRedraw
 {
-    int index = [[NSNumber numberWithFloat:self.theScrollView.contentOffset.y / self.theScrollView.frame.size.height] intValue] + 1;
+    int index = [[NSNumber numberWithFloat:roundf(self.theScrollView.contentOffset.y / self.theScrollView.frame.size.height)] intValue];
+    //NSLog(@"updateMonthViews, index: %d", index);
     
-    NSArray *subviewsArray = [self.theScrollView subviews];
-    
-    NSMutableArray *presentArray = [NSMutableArray arrayWithCapacity:0];
-    
-    CalendarMonthView *viewInScope = nil;
-    
-    for (int i = index - 1; i < index+1; i++)
+    if (index > 0 && index < [[self.theScrollView subviews] count])
     {
-        if (i == index)
-            viewInScope = [subviewsArray objectAtIndex:i];
+        NSArray *subviewsArray = [self.theScrollView subviews];
         
-        if (i > 0 && i < [subviewsArray count])
-            [presentArray addObject:[subviewsArray objectAtIndex:i]];
-    }
-    
-    
-    for (int i =0; i < [subviewsArray count]; i++)
-    {
-        CalendarMonthView *calendarMonthView = [subviewsArray objectAtIndex:i];
-        if ([calendarMonthView isKindOfClass:[CalendarMonthView class]])
+        NSMutableArray *presentArray = [NSMutableArray arrayWithCapacity:0];
+        
+        CalendarMonthView *viewInScope = nil;
+        
+        for (int i = index - 1; i < index+1; i++)
         {
+            if (i == index)
+                viewInScope = [subviewsArray objectAtIndex:i];
             
-            [calendarMonthView handleFocusButtonPresentation:NO];
-            
-            if (doRedraw)
-                [calendarMonthView cleanUp];
-            
-            if ([presentArray containsObject:calendarMonthView])
-            {
-                if ([calendarMonthView drawCalendar])
-                    [calendarMonthView loadEvents];
-            }
-            else
-                [calendarMonthView cleanUp];
+            if (i > 0 && i < [subviewsArray count])
+                [presentArray addObject:[subviewsArray objectAtIndex:i]];
         }
+        
+        
+        for (int i =0; i < [subviewsArray count]; i++)
+        {
+            CalendarMonthView *calendarMonthView = [subviewsArray objectAtIndex:i];
+            if ([calendarMonthView isKindOfClass:[CalendarMonthView class]])
+            {
+                
+                [calendarMonthView handleFocusButtonPresentation:NO];
+                
+                if (doRedraw)
+                    [calendarMonthView cleanUp];
+                
+                if ([presentArray containsObject:calendarMonthView])
+                {
+                    if ([calendarMonthView drawCalendar])
+                        [calendarMonthView loadEvents];
+                }
+                else
+                    [calendarMonthView cleanUp];
+            }
+        }
+        
+        [viewInScope handleFocusButtonPresentation:YES];
+        [viewInScope setNeedsFocusUpdate];
+        [viewInScope updateFocusIfNeeded];
     }
-    
-    [viewInScope handleFocusButtonPresentation:YES];
-    [viewInScope setNeedsFocusUpdate];
-    [viewInScope updateFocusIfNeeded];
-    
 }
 
 - (void) scrollUp
@@ -230,8 +216,6 @@ static FullCalendarViewController *staticVC;
     }
     
     [self setDailyBorderWithDate:referenceDate];
-    self.dailyView.dailyViewDate = referenceDate;
-    [self.dailyView loadEvents];
 }
 
 
@@ -253,8 +237,8 @@ static FullCalendarViewController *staticVC;
         if ([AllCalendarButtonView sharedButtonView].alpha == 0)
             [AllCalendarButtonView sharedButtonView].alpha = 1;
     }
-        
-
+    
+    
     
 }
 
@@ -299,8 +283,6 @@ static FullCalendarViewController *staticVC;
 - (void) dayViewSelected:(CalendarDayView *)theDayView
 {
     [self setDailyBorderWithDate:theDayView.theDate];
-    self.dailyView.dailyViewDate = theDayView.theDate;
-    [self.dailyView loadEvents];
 }
 
 

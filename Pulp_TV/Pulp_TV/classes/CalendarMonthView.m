@@ -21,8 +21,10 @@
 @interface CalendarMonthView ()
 @property (nonatomic, retain) UILabel *theHeaderLabel;
 @property (nonatomic, retain) NSMutableArray *daysLabelsArray;
-
+@property (nonatomic, retain) NSMutableArray *buttonContainersArray;
 @property (nonatomic, retain) UIFocusButton *topButton;
+@property (nonatomic, retain) UIFocusButton *bottomButton;
+
 @end
 
 @implementation CalendarMonthView
@@ -45,6 +47,7 @@ static float insetHeight = 40.0f;
 {
     if (!self.presented)
     {
+        self.buttonContainersArray = [[NSMutableArray alloc] initWithCapacity:0];
         self.calendarDayViewDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
         self.presented = YES;
         self.backgroundColor = [UIColor clearColor];
@@ -310,7 +313,7 @@ static float insetHeight = 40.0f;
 
 -(void)focusChanged:(BOOL)didFocusTo withReferenceObject:(id)theReferenceObject
 {
-    NSLog(@"%s, didFocusTo: %d, theReferenceObject: %@", __PRETTY_FUNCTION__, didFocusTo, theReferenceObject);
+    //NSLog(@"%s, didFocusTo: %d, theReferenceObject: %@", __PRETTY_FUNCTION__, didFocusTo, theReferenceObject);
     
     if ([theReferenceObject isKindOfClass:[CalendarDayView class]])
     {
@@ -323,15 +326,14 @@ static float insetHeight = 40.0f;
     
     if (theReferenceObject == self.topButton)
     {
-        NSLog(@"TOP BUTTON");
+//        NSLog(@"TOP BUTTON");
         [self.theParentController scrollUp];
     }
-    /*
-    if (didFocusTo)
-        [self setSelected];
-    else
-        [self setUnselected];
-    */
+    else if (theReferenceObject == self.bottomButton)
+    {
+//        NSLog(@"SCROLL DOWN!");
+    }
+    
     
 }
 
@@ -348,26 +350,43 @@ static float insetHeight = 40.0f;
         self.topButton.focusDelegate = self;
         self.topButton.referenceObject = self.topButton;
         [self addSubview:self.topButton];
+        
+        self.bottomButton = [[UIFocusButton alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 5, self.frame.size.width, 5)];
+        self.bottomButton.backgroundColor = [UIColor blueColor];
+        self.bottomButton.focusDelegate = self;
+        self.bottomButton.referenceObject = self.bottomButton;
+        //[self addSubview:self.bottomButton];
+        
+        for (id key in self.calendarDayViewDictionary)
+        {
+            CalendarDayView *theDayView = [self.calendarDayViewDictionary objectForKey:key];
+            
+            UIFocusButton *focusButton = [[UIFocusButton alloc] initWithFrame:theDayView.frame];
+            focusButton.backgroundColor = [UIColor clearColor];
+            focusButton.focusDelegate = self;
+            focusButton.referenceObject = theDayView;
+            [self addSubview:focusButton];
+            [self.buttonContainersArray addObject:focusButton];
+        }
     }
     else
     {
         [self.topButton removeFromSuperview];
         self.topButton = nil;
         
+        for (int i = 0; i < [self.buttonContainersArray count]; i++)
+        {
+            UIFocusButton *theButton = [self.buttonContainersArray objectAtIndex:i];
+            [theButton removeFromSuperview];
+            theButton = nil;
+        }
+        
+        [self.buttonContainersArray removeAllObjects];
+        
     }
     
     
-    for (id key in self.calendarDayViewDictionary)
-    {
-        CalendarDayView *theDayView = [self.calendarDayViewDictionary objectForKey:key];
-        
-        UIFocusButton *focusButton = [[UIFocusButton alloc] initWithFrame:theDayView.frame];
-        focusButton.backgroundColor = [UIColor clearColor];
-        focusButton.focusDelegate = self;
-        focusButton.referenceObject = theDayView;
-        [self addSubview:focusButton];
-        
-    }
+    
     
     
     

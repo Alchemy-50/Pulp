@@ -8,7 +8,7 @@
 
 #import "WeatherAPIHandler.h"
 #import <CoreLocation/CoreLocation.h>
-#import "CenterViewController.h"
+#import "DailyViewController.h"
 
 
 //a494ddf4e080c52e

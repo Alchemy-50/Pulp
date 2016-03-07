@@ -17,10 +17,10 @@
 #import "SidebarView.h"
 
 
-@interface CenterViewController : UIViewController <UIScrollViewDelegate, PositionUpdatedRespondeeProtocol>
+@interface DailyViewController : UIViewController <UIScrollViewDelegate, PositionUpdatedRespondeeProtocol>
 
 
-+ (CenterViewController *)sharedCenterViewController;
++ (DailyViewController *)sharedDailyViewController;
 
 -(void)loadViews;
 - (void) scrollToDate:(NSDate *)theDate;

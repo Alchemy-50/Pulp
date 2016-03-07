@@ -9,11 +9,12 @@
 #import "CalendarTVViewController.h"
 #import "FullCalendarViewController.h"
 #import "UIFocusButton.h"
-
+#import "DailyViewController.h"
 
 @interface CalendarTVViewController ()
 @property (nonatomic, retain) UIView *contentView;
 @property (nonatomic, retain) FullCalendarViewController *fullCalendarViewController;
+@property (nonatomic, retain) DailyViewController *dailyViewController;
 @end
 
 @implementation CalendarTVViewController
@@ -49,18 +50,14 @@ static CalendarTVViewController *staticVC;
     [self.fullCalendarViewController doLoadViews];
     
     /*
-    UIFocusButton *testButton = [[UIFocusButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width * (3.0f/4.0f) - 100, 200, 100, 100)];
-    testButton.focusDelegate = self;
-    testButton.referenceObject = testButton;
-    testButton.backgroundColor = [UIColor blueColor];
-    [self.contentView addSubview:testButton];
+    self.dailyViewController = [[DailyViewController alloc] initWithNibName:nil bundle:nil];
+    self.dailyViewController.view.frame = CGRectMake(self.fullCalendarViewController.view.frame.size.width, 0, self.contentView.frame.size.width - self.fullCalendarViewController.view.frame.size.width, self.contentView.frame.size.height);
+    [self.contentView addSubview:self.dailyViewController.view];
+    [self.dailyViewController loadViews];
     
-    UIFocusButton *testButtonTwo = [[UIFocusButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width * (3.3f/4.0f) - 100, 200, 100, 100)];
-    testButtonTwo.focusDelegate = self;
-    testButtonTwo.referenceObject = testButton;
-    testButtonTwo.backgroundColor = [UIColor blueColor];
-    [self.contentView addSubview:testButtonTwo];
- */       
+    [[DailyViewController sharedCenterViewController] scrollToDate:[NSDate date]];
+    
+     */
 }
 
 -(void)focusChanged:(BOOL)didFocusTo withReferenceObject:(id)theReferenceObject

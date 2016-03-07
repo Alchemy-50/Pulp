@@ -22,7 +22,7 @@
 		3A8D33701C8744B500AA610C /* CalendarManagementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32EC1C8744B500AA610C /* CalendarManagementTableViewCell.m */; };
 		3A8D33711C8744B500AA610C /* CalendarManagementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32EE1C8744B500AA610C /* CalendarManagementTableViewController.m */; };
 		3A8D33721C8744B500AA610C /* CalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32EF1C8744B500AA610C /* CalendarMonthView.m */; };
-		3A8D33731C8744B500AA610C /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32F11C8744B500AA610C /* CenterViewController.m */; };
+		3A8D33731C8744B500AA610C /* DailyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32F11C8744B500AA610C /* DailyViewController.m */; };
 		3A8D33741C8744B500AA610C /* Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32F21C8744B500AA610C /* Circle.m */; };
 		3A8D33751C8744B500AA610C /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32F31C8744B500AA610C /* ColorPickerViewController.m */; };
 		3A8D33761C8744B500AA610C /* ContainerTodosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D32F51C8744B500AA610C /* ContainerTodosViewController.m */; };
@@ -122,8 +122,8 @@
 		3A8D32ED1C8744B500AA610C /* CalendarManagementTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarManagementTableViewController.h; path = classes/CalendarManagementTableViewController.h; sourceTree = "<group>"; };
 		3A8D32EE1C8744B500AA610C /* CalendarManagementTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarManagementTableViewController.m; path = classes/CalendarManagementTableViewController.m; sourceTree = "<group>"; };
 		3A8D32EF1C8744B500AA610C /* CalendarMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarMonthView.m; path = classes/CalendarMonthView.m; sourceTree = "<group>"; };
-		3A8D32F01C8744B500AA610C /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterViewController.h; path = classes/CenterViewController.h; sourceTree = "<group>"; };
-		3A8D32F11C8744B500AA610C /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterViewController.m; path = classes/CenterViewController.m; sourceTree = "<group>"; };
+		3A8D32F01C8744B500AA610C /* DailyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DailyViewController.h; path = classes/DailyViewController.h; sourceTree = "<group>"; };
+		3A8D32F11C8744B500AA610C /* DailyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DailyViewController.m; path = classes/DailyViewController.m; sourceTree = "<group>"; };
 		3A8D32F21C8744B500AA610C /* Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Circle.m; path = classes/Circle.m; sourceTree = "<group>"; };
 		3A8D32F31C8744B500AA610C /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPickerViewController.m; path = classes/ColorPickerViewController.m; sourceTree = "<group>"; };
 		3A8D32F41C8744B500AA610C /* ContainerTodosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerTodosViewController.h; path = classes/ContainerTodosViewController.h; sourceTree = "<group>"; };
@@ -269,6 +269,7 @@
 		3A434DB51C88A06A0000AC09 /* VCS */ = {
 			isa = PBXGroup;
 			children = (
+				3AB029801C8E170200039683 /* Daily */,
 				3A434DB61C88A0740000AC09 /* FullCal */,
 				3A434DB21C889B5C0000AC09 /* CalendarTVViewController.h */,
 				3A434DB31C889B5C0000AC09 /* CalendarTVViewController.m */,
@@ -359,8 +360,6 @@
 				3A8D331D1C8744B500AA610C /* CalendarManagementViewController.m */,
 				3A8D331F1C8744B500AA610C /* CalendarRepresentation.h */,
 				3A8D33201C8744B500AA610C /* CalendarRepresentation.m */,
-				3A8D32F01C8744B500AA610C /* CenterViewController.h */,
-				3A8D32F11C8744B500AA610C /* CenterViewController.m */,
 				3A8D33211C8744B500AA610C /* Circle.h */,
 				3A8D32F21C8744B500AA610C /* Circle.m */,
 				3A8D33221C8744B500AA610C /* CircleView.h */,
@@ -373,14 +372,6 @@
 				3A8D32F51C8744B500AA610C /* ContainerTodosViewController.m */,
 				3A8D33271C8744B500AA610C /* CoverScrollView.h */,
 				3A8D33281C8744B500AA610C /* CoverScrollView.m */,
-				3A8D33291C8744B500AA610C /* DailyIconView.h */,
-				3A8D332A1C8744B500AA610C /* DailyIconView.m */,
-				3A8D332B1C8744B500AA610C /* DailyScrollView.h */,
-				3A8D332C1C8744B500AA610C /* DailyScrollView.m */,
-				3A8D32F61C8744B500AA610C /* DailyTableViewCell.h */,
-				3A8D32F71C8744B500AA610C /* DailyTableViewCell.m */,
-				3A8D32F81C8744B500AA610C /* DailyView.h */,
-				3A8D32F91C8744B500AA610C /* DailyView.m */,
 				3A8D32FA1C8744B500AA610C /* DateFormatManager.h */,
 				3A8D32FB1C8744B500AA610C /* DateFormatManager.m */,
 				3A8D332D1C8744B500AA610C /* DefaultCalendarSelectTableViewController.h */,
@@ -496,6 +487,23 @@
 				3A8D32DA1C8743DF00AA610C /* Assets.xcassets */,
 			);
 			name = Cruft;
+			sourceTree = "<group>";
+		};
+		3AB029801C8E170200039683 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D32F01C8744B500AA610C /* DailyViewController.h */,
+				3A8D32F11C8744B500AA610C /* DailyViewController.m */,
+				3A8D33291C8744B500AA610C /* DailyIconView.h */,
+				3A8D332A1C8744B500AA610C /* DailyIconView.m */,
+				3A8D332B1C8744B500AA610C /* DailyScrollView.h */,
+				3A8D332C1C8744B500AA610C /* DailyScrollView.m */,
+				3A8D32F61C8744B500AA610C /* DailyTableViewCell.h */,
+				3A8D32F71C8744B500AA610C /* DailyTableViewCell.m */,
+				3A8D32F81C8744B500AA610C /* DailyView.h */,
+				3A8D32F91C8744B500AA610C /* DailyView.m */,
+			);
+			name = Daily;
 			sourceTree = "<group>";
 		};
 		3AC29E7A1C877FBB00BE50BE /* Assets */ = {
@@ -619,7 +627,7 @@
 				3A8D33951C8744B500AA610C /* FAImageView.m in Sources */,
 				3A8D33A41C8744B500AA610C /* ThemeSelectObject.m in Sources */,
 				3A8D33741C8744B500AA610C /* Circle.m in Sources */,
-				3A8D33731C8744B500AA610C /* CenterViewController.m in Sources */,
+				3A8D33731C8744B500AA610C /* DailyViewController.m in Sources */,
 				3A8D33961C8744B500AA610C /* GroupDiskManager.m in Sources */,
 				3A8D33A71C8744B500AA610C /* TodoBubbleView.m in Sources */,
 				3A8D337C1C8744B500AA610C /* EditCalendarManagementViewController.m in Sources */,

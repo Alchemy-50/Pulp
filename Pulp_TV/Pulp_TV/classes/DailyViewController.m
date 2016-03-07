@@ -6,7 +6,7 @@
 //
 //
 
-#import "CenterViewController.h"
+#import "DailyViewController.h"
 #import "DailyTableViewCell.h"
 #import "EventKitManager.h"
 #import "DailyView.h"
@@ -20,16 +20,16 @@
 #import "FullCalendarViewController.h"
 
 
-@interface CenterViewController ()
+@interface DailyViewController ()
 
 @end
 
-@implementation CenterViewController
+@implementation DailyViewController
 
 
-static CenterViewController *globalViewController;
+static DailyViewController *globalViewController;
 
-+(CenterViewController *)sharedCenterViewController{
++(DailyViewController *)sharedDailyViewController{
     
     return globalViewController;
 }
@@ -64,7 +64,8 @@ static CenterViewController *globalViewController;
 
     
     globalViewController = self;
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    
     
 
     
@@ -175,13 +176,6 @@ static CenterViewController *globalViewController;
 - (void) presentAndHideDailyViews:(BOOL)forceLoad withIndex:(unsigned long)referenceIndex
 {
     
-    if (![self.dayDatesArray containsObject:[self getVisibleDailyView]])
-        return;
-    
-    //    int index = [self.dayDatesArray indexOfObject:[self getVisibleDailyView]];
-    //NSLog(@"index: %d", index);
-    
-    
     NSMutableArray *viewsToLoadArray = [NSMutableArray arrayWithCapacity:0];
     [viewsToLoadArray addObject:[self.dayDatesArray objectAtIndex:referenceIndex]];
     
@@ -226,12 +220,14 @@ static CenterViewController *globalViewController;
 
 -(void) processPositioningWithScrollView:(UIScrollView *)scrollView
 {
+    NSLog(@"processPositioningWithScrollView");
     float indexFloat = scrollView.contentOffset.y / self.contentScrollView.frame.size.height;
     float rounded = floorf(indexFloat);
     
     
     if (indexFloat == rounded)
     {
+        NSLog(@"HERE!");
         
         if (self.currentVisibleIndex != [[NSNumber numberWithFloat:indexFloat] intValue])
         {
@@ -242,7 +238,10 @@ static CenterViewController *globalViewController;
             [dateFormatter setDateFormat:@"yyyy-MM-dd"];
             
             DailyView *theDailyView = [self getVisibleDailyView];
-            [[FullCalendarViewController sharedContainerViewController] setDailyBorderWithDateString:[dateFormatter stringFromDate:theDailyView.dailyViewDate]];
+            NSLog(@"theDailyView!: %@", theDailyView);
+            NSLog(@"theDailyView.date: %@", theDailyView.dailyViewDate);
+            
+         
             
         }
     }
