@@ -16,6 +16,8 @@
 #import "FullCalendarViewController.h"
 #import "ThemeManager.h"
 #import "EventKitManager.h"
+#import "DailyViewController.h"
+
 
 
 @interface CalendarMonthView ()
@@ -322,6 +324,9 @@ static float insetHeight = 40.0f;
             [theView setSelected];
         else
             [theView setUnselected];
+        
+        
+        [[DailyViewController sharedDailyViewController] scrollToDate:theView.theDate];
     }
     
     if (theReferenceObject == self.topButton)

@@ -31,10 +31,9 @@
 - (void) addButtonHit;
 - (void) addButtonHeld;
 - (DailyView *) getVisibleDailyView;
-- (void) presentAndHideDailyViews:(BOOL)forceLoad withIndex:(unsigned long)referenceIndex;
-- (void) processPositioningWithScrollView:(UIScrollView *)scrollView;
-- (void) refreshAllDailyViews;
-- (void) sidebarDidScroll:(float)theOffset;
+
+
+
 
 @property (nonatomic, retain) PulpFAImageView *addEventPlusImageView;
 @property (nonatomic, retain) UIScrollView *contentScrollView;

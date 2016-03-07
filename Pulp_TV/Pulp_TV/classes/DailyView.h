@@ -18,6 +18,7 @@
 
 -(void)loadEvents;
 -(void)unloadEvents;
+-(void)refreshEvents;
 -(void)pulpMapViewIsInitialized;
 -(void)cellDidReturnWithLocation;
 -(void)cellButtonHitWithIndexPath:(NSIndexPath *)theIndexPath;

@@ -18,6 +18,11 @@
 static float todoHeight = 40;
 static float allDayHeight = 32;
 
+@interface DailyView ()
+@property (nonatomic, retain) UILabel *testLabel;
+@end
+
+
 @implementation DailyView
 
 @synthesize eventsArray;
@@ -44,52 +49,24 @@ static float allDayHeight = 32;
     return self;
 }
 
-- (void) handleEmptyPresentation
-{
-    if ([self.eventsArray count] == 0)
-    {
-        if (self.emptyCountView == nil)
-            if ([self.emptyCountView superview] == nil)
-            {
-                UIImage *nothingImage = [UIImage imageNamed:@"nothing-today-graphic.png"];
-                
-                self.emptyCountView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width / 2 - nothingImage.size.width / 2, self.frame.size.height / 2 - nothingImage.size.height / 2, nothingImage.size.width, nothingImage.size.height)];
-                self.emptyCountView.image = nothingImage;
-                [self addSubview:self.emptyCountView];
-            }
-    }
-    else
-    {
-        if (self.emptyCountView != nil)
-            if ([self.emptyCountView superview] != nil)
-            {
-                [self.emptyCountView removeFromSuperview];
-                self.emptyCountView = nil;
-            }
-    }
-    
-    
-    
-}
-
--(void)unloadEvents
-{
-    [self.eventsArray removeAllObjects];
-    [self.theTableView reloadData];
-    
-    self.eventsLoaded = NO;
-}
-
-
 
 -(void)loadEvents
 {
-    NSLog(@"LOAD EVENTS!");
+    NSLog(@"LOAD EVENTS: %@", self.dailyViewDate);
     
+    if (self.testLabel == nil)
+    {
+    self.testLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, 0, self.frame.size.width - 25, 20)];
+    self.testLabel.backgroundColor = [UIColor clearColor];
+    self.testLabel.textAlignment = NSTextAlignmentLeft;
+    self.testLabel.textColor = [UIColor redColor];
+    [self addSubview:self.testLabel];
+    self.testLabel.text = [self.dailyViewDate description];
+    }
     
     if (self.theTableView == nil)
     {
-        self.theTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        self.theTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, self.frame.size.width, self.frame.size.height - 20)];
         self.theTableView.backgroundColor = [UIColor clearColor];
         self.theTableView.delegate = self;
         self.theTableView.dataSource = self;
@@ -97,6 +74,15 @@ static float allDayHeight = 32;
         
     }
         
+    [self refreshEvents];
+    
+}
+
+-(void)refreshEvents
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"startDate: %@", self.dailyViewDate);
+    
     [self.eventsArray removeAllObjects];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
@@ -111,6 +97,7 @@ static float allDayHeight = 32;
     NSDate *endDate = [gregorian dateFromComponents:components];
     
     NSArray *allEvents = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:[[EventKitManager sharedManager] getEKCalendars:YES]];
+    NSLog(@"allEvents: %@", allEvents);
     
     if (allEvents != nil)
         [self.eventsArray addObjectsFromArray:allEvents];
@@ -137,10 +124,11 @@ static float allDayHeight = 32;
         [self.eventsArray insertObject:[allDayEvents objectAtIndex:i] atIndex:0];
     
     
-   [self.theTableView reloadData];
     
+    NSLog(@"eventsArray[%@]: %@", self.testLabel.text, self.eventsArray);
+    
+    [self.theTableView reloadData];
 }
-
 
 
 #pragma mark - Table view data source
@@ -224,6 +212,44 @@ static float allDayHeight = 32;
 {
     [[MainViewController sharedMainViewController] dailyEventSelected:[self.eventsArray objectAtIndex:theIndexPath.row]];
 }
+
+
+
+
+- (void) handleEmptyPresentation
+{
+    if ([self.eventsArray count] == 0)
+    {
+        if (self.emptyCountView == nil)
+            if ([self.emptyCountView superview] == nil)
+            {
+                UIImage *nothingImage = [UIImage imageNamed:@"nothing-today-graphic.png"];
+                
+                self.emptyCountView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width / 2 - nothingImage.size.width / 2, self.frame.size.height / 2 - nothingImage.size.height / 2, nothingImage.size.width, nothingImage.size.height)];
+                self.emptyCountView.image = nothingImage;
+                [self addSubview:self.emptyCountView];
+            }
+    }
+    else
+    {
+        if (self.emptyCountView != nil)
+            if ([self.emptyCountView superview] != nil)
+            {
+                [self.emptyCountView removeFromSuperview];
+                self.emptyCountView = nil;
+            }
+    }
+}
+
+-(void)unloadEvents
+{
+    [self.eventsArray removeAllObjects];
+    [self.theTableView reloadData];
+    
+    self.eventsLoaded = NO;
+}
+
+
 
 
 -(void)pulpMapViewIsInitialized

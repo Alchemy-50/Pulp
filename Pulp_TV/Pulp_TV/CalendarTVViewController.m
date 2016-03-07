@@ -49,15 +49,15 @@ static CalendarTVViewController *staticVC;
     self.fullCalendarViewController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width / 2, self.contentView.frame.size.height);
     [self.fullCalendarViewController doLoadViews];
     
-    /*
+
     self.dailyViewController = [[DailyViewController alloc] initWithNibName:nil bundle:nil];
     self.dailyViewController.view.frame = CGRectMake(self.fullCalendarViewController.view.frame.size.width, 0, self.contentView.frame.size.width - self.fullCalendarViewController.view.frame.size.width, self.contentView.frame.size.height);
     [self.contentView addSubview:self.dailyViewController.view];
     [self.dailyViewController loadViews];
     
-    [[DailyViewController sharedCenterViewController] scrollToDate:[NSDate date]];
+    [[DailyViewController sharedDailyViewController] scrollToDate:[NSDate date]];
     
-     */
+
 }
 
 -(void)focusChanged:(BOOL)didFocusTo withReferenceObject:(id)theReferenceObject

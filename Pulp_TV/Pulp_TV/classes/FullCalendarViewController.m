@@ -153,7 +153,6 @@ static FullCalendarViewController *staticVC;
             CalendarMonthView *calendarMonthView = [subviewsArray objectAtIndex:i];
             if ([calendarMonthView isKindOfClass:[CalendarMonthView class]])
             {
-                
                 [calendarMonthView handleFocusButtonPresentation:NO];
                 
                 if (doRedraw)
