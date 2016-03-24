@@ -199,7 +199,7 @@ static MainViewController *staticVC;
         self.initialized = YES;
         [self.centerViewController processPositioningWithScrollView:self.centerViewController.contentScrollView];
         [self.fullCalendarViewController navigateToToday];
-        [EventsDigester run];
+//        [EventsDigester run];
         //[SynchManager runUpdate];
     }
     
@@ -274,31 +274,26 @@ static MainViewController *staticVC;
 }
 
 
+
+
+
+
 -(void)dailyEventSelected:(EKEvent *)theEvent
 {
-    NSLog(@"theEvent!: %@", theEvent);
-    
     NSDictionary *dict = [EventConverter loadWithEvent:theEvent];
-    NSLog(@"dict: %@", dict);
-    
     EKEvent *dictEvent = [EventConverter loadWithDictionary:dict];
     
-    NSLog(@"dictEvent: %@", dictEvent);
-    
-    
-    /*
     if (theEvent != nil)
     {
         ContainerEKEventEditViewController *containerEKEventEditViewController = [[ContainerEKEventEditViewController alloc] initWithNibName:nil bundle:nil];
         containerEKEventEditViewController.view.frame = CGRectMake(0, 0, [Utils getScreenWidth], [Utils getScreenHeight]);
         containerEKEventEditViewController.eventStore = [EventKitManager sharedManager].eventStore;
-        containerEKEventEditViewController.event = theEvent;
+        containerEKEventEditViewController.event = dictEvent;
         containerEKEventEditViewController.editViewDelegate = self;
         [self presentViewController:containerEKEventEditViewController animated:YES completion:nil];
-        //        [[EventManagerViewController alloc];
     }
-     */
 }
+
 
 
 - (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action

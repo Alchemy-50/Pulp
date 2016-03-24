@@ -256,7 +256,7 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context)
         }
     }
     
-    NSLog(@"retDict: %@", retDict);
+//    NSLog(@"retDict: %@", retDict);
     return retDict;
     
 }

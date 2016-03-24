@@ -9,10 +9,12 @@
 #import "ContainerEKEventEditViewController.h"
 #import "MainViewController.h"
 #import <objc/runtime.h>
+#import "TestIntercepter.h"
 
 
 @interface ContainerEKEventEditViewController ()
 @property (nonatomic, retain) NSMutableArray *tableViewsArray;
+@property (nonatomic, retain) id<UITextViewDelegate> expectedTextViewDelegate;
 @end
 
 @implementation ContainerEKEventEditViewController
@@ -29,16 +31,17 @@
 {
     NSLog(@"completion: %@", completion);
     
-    [super presentViewController:viewControllerToPresent animated:YES completion:completion];
+    //    [super presentViewController:viewControllerToPresent animated:YES completion:completion];
     
-    /*
+    
     NSLog(@"viewControllerToPresent: %@", viewControllerToPresent);
     [self printSubviews:viewControllerToPresent.view];
     
+    
     NSLog(@" ");
     NSLog(@" ");
     NSLog(@" ");
-//    EKEventAttendeesEditViewController *vc;
+    //    EKEventAttendeesEditViewController *vc;
     
     
     if ([viewControllerToPresent isKindOfClass:[UINavigationController class]])
@@ -47,8 +50,18 @@
         for (int i = 0; i < [navController.viewControllers count]; i++)
         {
             UIViewController *subViewController = [navController.viewControllers objectAtIndex:i];
+            [subViewController performSelectorOnMainThread:@selector(setEditDelegate:) withObject:self waitUntilDone:YES];
+            
+            /*
+             if ([subViewController isKindOfClass:[EKEventAttendeesEditViewController class]])
+             {
+             
+             }
+             */
+            
             NSLog(@"subViewController[%d]: %@", i, subViewController);
             [self printSubviews:subViewController.view];
+            [subViewController.view removeFromSuperview];
             NSLog(@" ");
             NSLog(@" ");
             NSLog(@" ");
@@ -56,7 +69,7 @@
         
     }
     
-
+    
     
     [super presentViewController:viewControllerToPresent animated:flag completion:nil];
     
@@ -72,19 +85,21 @@
         NSLog(@"navController.viewControllers: %@", navController.viewControllers);
         
     }
-  
+    
     
     CNContactPickerViewController *vc = [[CNContactPickerViewController alloc] initWithNibName:nil bundle:nil];
     vc.delegate = self;
     [super presentViewController:vc animated:YES completion:nil];
     
-
-//    NSLog(@"self.view: %@", self.view);
-    [self printSubviews:self.view];
-        
-     */
     
+    //    NSLog(@"self.view: %@", self.view);
+    [self printSubviews:self.view];
 }
+
+
+
+
+
 
 -(void)printSubviews:(UIView *)theView
 {
@@ -95,16 +110,187 @@
     {
         UIView *subview = [[theView subviews] objectAtIndex:i];
         
-//        if ([subview isKindOfClass:[UITableView class]])
-//            [self.tableViewsArray addObject:subview];
+        if ([subview isKindOfClass:[UITableView class]])
+        {
+            UITableView *theTableView = (UITableView *)subview;
+            NSLog(@"theTableView.datasource: %@", theTableView.dataSource);
+            NSLog(@"theTableView.delegate: %@", theTableView.delegate);
+        }
+        //            [self.tableViewsArray addObject:subview];
+        
+        if ([subview isKindOfClass:[UITextView class]])
+        {
+            /*
+            NSLog(@"------");
+            NSLog(@"subview is a text view");
+            NSLog(@"the text view: %@", subview);
+            
+            
+            [self dumpInfoWithObject:subview];
+            [self printObjectProperties:subview];
+            NSLog(@"----");
+            [self dumpInfoWithObject:((UITextView *)subview).delegate];
+            [self printObjectProperties:((UITextView *)subview).delegate];
+            */
+            
+            
+            
+//            self.expectedTextViewDelegate = ((UITextView *)subview).delegate;
+//            ((UITextView *)subview).delegate = self;
+            
+            /*
+            id textViewDelegate = ((UITextView *)subview).delegate;
+            [self printObjectProperties:textViewDelegate];
+            [self dumpInfoWithObject:textViewDelegate];
+            
+            id subDelegate = ((UITextView *)textViewDelegate).delegate;
+            [self printObjectProperties:subDelegate];
+            [self dumpInfoWithObject:subDelegate];
+            */
+        }
         
         if ([subview.subviews count] > 0)
             [self printSubviews:subview];
-
-
+        
+        
         
     }
 }
+
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+//    [self.expectedTextViewDelegate performSelectorOnMainThread:@selector(textViewShoul) withObject:<#(nullable id)#> waitUntilDone:<#(BOOL)#>
+    [self.expectedTextViewDelegate textViewShouldBeginEditing:textView];
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.expectedTextViewDelegate textViewShouldEndEditing:textView];
+    return YES;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.expectedTextViewDelegate textViewDidBeginEditing:textView];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.expectedTextViewDelegate textViewDidEndEditing:textView];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.expectedTextViewDelegate textView:textView shouldChangeTextInRange:range replacementText:text];
+    return YES;
+}
+
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.expectedTextViewDelegate textViewDidChange:textView];
+}
+
+
+- (void)textViewDidChangeSelection:(UITextView *)textView
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.expectedTextViewDelegate textViewDidChangeSelection:textView];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange NS_AVAILABLE_IOS(7_0)
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange NS_AVAILABLE_IOS(7_0)
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return YES;
+}
+
+
+
+
+-(void)printObjectProperties:(id)obj
+{
+    NSLog(@"printObjectProperties: %@", obj);
+    
+    unsigned int outCount, i;
+    objc_property_t *properties = class_copyPropertyList([obj class], &outCount);
+    for(i = 0; i < outCount; i++) {
+        objc_property_t property = properties[i];
+        const char *propName = property_getName(property);
+        if(propName) {
+            const char *propType = getPropertyType(property);
+            NSString *propertyName = [NSString stringWithCString:propName
+                                                        encoding:[NSString defaultCStringEncoding]];
+            NSString *propertyType = [NSString stringWithCString:propType
+                                                        encoding:[NSString defaultCStringEncoding]];
+            
+            NSLog(@"propertyName: %@", propertyName);
+            NSLog(@"propertyType: %@", propertyType);
+            NSLog(@" ");
+            NSLog(@" ");
+            NSLog(@" ");
+            
+        }
+    }
+    
+    
+}
+
+static const char *getPropertyType(objc_property_t property) {
+    const char *attributes = property_getAttributes(property);
+    char buffer[1 + strlen(attributes)];
+    strcpy(buffer, attributes);
+    char *state = buffer, *attribute;
+    while ((attribute = strsep(&state, ",")) != NULL) {
+        if (attribute[0] == 'T') {
+            if (strlen(attribute) <= 4) {
+                break;
+            }
+            return (const char *)[[NSData dataWithBytes:(attribute + 3) length:strlen(attribute) - 4] bytes];
+        }
+    }
+    return "@";
+}
+
+
+-(BOOL)editItemViewControllerCommit:(id)arg1
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return YES;
+}
+
+-(void)editItemViewControllerWantsKeyboardPinned:(BOOL)arg1
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+
+-(void)editItemViewController:(id)arg1 didCompleteWithAction:(int)arg2
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+-(BOOL)editItemViewControllerShouldShowDetachAlert
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return YES;
+}
+
+
+
 
 
 - (void)contactViewController:(CNContactViewController *)viewController didCompleteWithContact:(nullable CNContact *)contact
@@ -144,7 +330,7 @@
     NSLog(@"theLastName: %@", theLastName);
     NSLog(@"emailAddress: %@", emailAddress);
     
-
+    
     
     NSMutableArray *attendees = [NSMutableArray new];
     Class className = NSClassFromString(@"EKAttendee");
@@ -168,22 +354,22 @@
     [attendees addObject:attendee];
     
     /*
-    
-    Class className = NSClassFromString(@"EKAttendee");
-    id attendee = [className new];
-    
-    [attendee setValue:theIdentifier forKey:@"UUID"];
-    [attendee setValue:name forKey:@"name"];
-    [attendee setValue:emailAddress forKey:@"email"];
-    [attendee setValue:[NSNumber numberWithInteger:EKParticipantStatusPending] forKey:@"status"];
-    [attendee setValue:[NSNumber numberWithInteger:EKParticipantRoleOptional] forKey:@"role"];
-    [attendee setValue:[NSNumber numberWithInteger:EKParticipantTypePerson] forKey:@"type"];
-    
-    NSLog(@"attendee!: %@", attendee);
+     
+     Class className = NSClassFromString(@"EKAttendee");
+     id attendee = [className new];
+     
+     [attendee setValue:theIdentifier forKey:@"UUID"];
+     [attendee setValue:name forKey:@"name"];
+     [attendee setValue:emailAddress forKey:@"email"];
+     [attendee setValue:[NSNumber numberWithInteger:EKParticipantStatusPending] forKey:@"status"];
+     [attendee setValue:[NSNumber numberWithInteger:EKParticipantRoleOptional] forKey:@"role"];
+     [attendee setValue:[NSNumber numberWithInteger:EKParticipantTypePerson] forKey:@"type"];
+     
+     NSLog(@"attendee!: %@", attendee);
      */
     
     [self.event setValue:attendees forKey:@"attendees"];
-
+    
     
     for (int i = 0; i < [self.tableViewsArray count]; i++)
     {
@@ -206,23 +392,25 @@
 
 /*
  
-- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContacts:(NSArray<CNContact*> *)contacts
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
-
-
-- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContactProperties:(NSArray<CNContactProperty*> *)contactProperties
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
-
+ - (void)contactPicker:(CNContactPickerViewController *)picker didSelectContacts:(NSArray<CNContact*> *)contacts
+ {
+ NSLog(@"%s", __PRETTY_FUNCTION__);
+ }
+ 
+ 
+ - (void)contactPicker:(CNContactPickerViewController *)picker didSelectContactProperties:(NSArray<CNContactProperty*> *)contactProperties
+ {
+ NSLog(@"%s", __PRETTY_FUNCTION__);
+ }
+ 
  */
 
 
 
 -(void)dumpInfoWithObject:(id)obj
 {
+    NSLog(@"dumpInfoWithObject: %@", obj);
+    
     Class clazz = [obj class];
     u_int count;
     

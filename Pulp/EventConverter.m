@@ -84,19 +84,42 @@
 
 +(EKEvent *)loadWithDictionary:(id)theDictionary
 {
+    NSDateFormatter *aDateFormatter = [[NSDateFormatter alloc] init];
+    aDateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
+    
+    
     EKEvent *theEvent = [[EventKitManager sharedManager] getEKEventWithIdentifier:[theDictionary objectForKey:@"eventIdentifier"]];
     if (theEvent == nil)
         theEvent = [[EventKitManager sharedManager] getNewEKEvent];
     
     
+    
     theEvent.allDay = [[theDictionary objectForKey:@"allDay"] boolValue];
-    theEvent.startDate = [theDictionary objectForKey:@"startDate"];
-    theEvent.endDate = [theDictionary objectForKey:@"endDate"];
+    
+    
+    if ([[theDictionary objectForKey:@"startDate"] isKindOfClass:[NSDate class]])
+        theEvent.startDate = [theDictionary objectForKey:@"startDate"];
+    else if ([[theDictionary objectForKey:@"startDate"] isKindOfClass:[NSString class]])
+    {
+        NSDate *theDate = [aDateFormatter dateFromString:[theDictionary objectForKey:@"startDate"]];
+        theEvent.startDate = theDate;
+    }
+    
+    
+    if ([[theDictionary objectForKey:@"endDate"] isKindOfClass:[NSDate class]])
+        theEvent.endDate = [theDictionary objectForKey:@"endDate"];
+    else if ([[theDictionary objectForKey:@"endDate"] isKindOfClass:[NSString class]])
+    {
+        NSDate *theDate = [aDateFormatter dateFromString:[theDictionary objectForKey:@"endDate"]];
+        theEvent.endDate = theDate;
+    }
+    
+        
     theEvent.title = [theDictionary objectForKey:@"title"];
     theEvent.location = [theDictionary objectForKey:@"location"];
     theEvent.notes = [theDictionary objectForKey:@"notes"];
     theEvent.URL = [theDictionary objectForKey:@"URL"];
-    
+
     
     //theEvent.calendarItemIdentifier = [theDictionary objectForKey:@"calendarItemIdentifier"];
     //theEvent.calendarItemExternalIdentifier = [theDictionary objectForKey:@"calendarItemExternalIdentifier"];
