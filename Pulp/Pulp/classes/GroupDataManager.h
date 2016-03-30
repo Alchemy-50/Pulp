@@ -26,7 +26,6 @@
 
 @property (nonatomic, retain) NSArray *colours;
 @property (nonatomic, retain) NSMutableArray *contactsArray;
-@property (nonatomic, retain) NSMutableDictionary *fbContactsDictionary;;
 @property (nonatomic, retain) NSString *fbEventsCalendarID;
 
 

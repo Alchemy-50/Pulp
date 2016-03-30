@@ -29,9 +29,9 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context);
 static GroupDataManager *theManager;
 static dispatch_queue_t cacheQueue;
 
-@synthesize  contactsArray, fbContactsDictionary;
-
+@synthesize  contactsArray;
 @synthesize  fbEventsCalendarID;
+
 
 +(GroupDataManager *)sharedManager
 {
@@ -48,10 +48,6 @@ static dispatch_queue_t cacheQueue;
     cacheQueue = dispatch_queue_create("com.alchemy.cachequeue", DISPATCH_QUEUE_CONCURRENT);
     self.contactsArray = [[NSMutableArray alloc] initWithCapacity:0];
     
-
-    self.fbContactsDictionary = (NSMutableDictionary *)[[GroupDiskManager sharedManager] loadDataFromDiskWithKey:@"fbcontacts"];
-    if (self.fbContactsDictionary == nil)
-        self.fbContactsDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
     return self;
 }
 
@@ -68,7 +64,7 @@ static dispatch_queue_t cacheQueue;
     else
         [ar addObjectsFromArray:[[EventKitManager sharedManager] getEKCalendars:YES]];
 
-//    NSLog(@"getSelectedCalendars: %@", ar);
+    NSLog(@"getSelectedCalendars: %@", ar);
     
     return ar;
 }
@@ -81,27 +77,9 @@ static dispatch_queue_t cacheQueue;
     NSMutableDictionary *retDict = [NSMutableDictionary dictionaryWithCapacity:0];
     NSMutableArray *eventsArray = [NSMutableArray arrayWithCapacity:0];
     
-    EKEvent *festEvent = nil;
     
     NSArray *ar = [[EventKitManager sharedManager] getEventsForStartDate:startDate forEndDate:endDate withCalendars:selectedCals];
     
-    for (int i = 0; i < [ar count]; i++)
-    {
-        EKEvent *theEvent = [ar objectAtIndex:i];
-        if ([theEvent.title rangeOfString:@"fest1"].length > 0)
-        {
-            festEvent = theEvent;
-        }
-        
-    }
-    if (festEvent != nil)
-    {
-/*        NSLog(@"begin fetchEventsWithStartDate");
-        NSLog(@"startDate: %@", startDate);
-        NSLog(@"endDate: %@", endDate);
-        NSLog(@"festEvent: %@", festEvent);
-        NSLog(@" ");
-  */  }
     
     for (int i = 0; i < [ar count]; i++)
         [eventsArray addObject:[[CalendarEvent alloc] initWithEKEvent:[ar objectAtIndex:i]]];
