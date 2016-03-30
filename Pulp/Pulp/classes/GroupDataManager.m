@@ -29,7 +29,7 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context);
 static GroupDataManager *theManager;
 static dispatch_queue_t cacheQueue;
 
-@synthesize  contactsArray, fbContactsDictionary, cacheStartDate, cacheEndDate;
+@synthesize  contactsArray, fbContactsDictionary;
 
 @synthesize  fbEventsCalendarID;
 
@@ -47,7 +47,6 @@ static dispatch_queue_t cacheQueue;
     
     cacheQueue = dispatch_queue_create("com.alchemy.cachequeue", DISPATCH_QUEUE_CONCURRENT);
     self.contactsArray = [[NSMutableArray alloc] initWithCapacity:0];
-//    [self loadCache];
     
 
     self.fbContactsDictionary = (NSMutableDictionary *)[[GroupDiskManager sharedManager] loadDataFromDiskWithKey:@"fbcontacts"];
@@ -75,27 +74,6 @@ static dispatch_queue_t cacheQueue;
 }
 
 
-
--(void) loadCache
-{
-    // poplulate event cache with eventstore event
-    int month = 11;
-    int year = 2013;
-    
-    int newMonth = 1;
-    int newYear = 2015;
-    
-    [self loadCacheWithStartDate:[self getFirstDayOfMonth:month forYear:year] withEndDate:[self getLastDayOfMonth:newMonth forYear:newYear]];
-}
-
-- (void) loadCacheWithStartDate:(NSDate *)startDate withEndDate:(NSDate *)endDate
-{
-    self.cacheStartDate = startDate;
-    self.cacheEndDate = endDate;
-    
-  //  NSMutableArray *ekCals = [[NSMutableArray alloc] initWithCapacity:0];
-   // [ekCals addObjectsFromArray:[self getSelectedCalendars]];
-}
 
 
 - (NSMutableDictionary *)fetchEventsWithStartDate:(NSDate *)startDate withEndDate:(NSDate *)endDate withSelectedCalendars:(NSArray *)selectedCals {
@@ -260,29 +238,6 @@ NSInteger eventSort(id calEvent1, id calEvent2, void *context)
     return retDict;
     
 }
-
-
--(NSDate*) getFirstDayOfMonth:(int)month forYear:(int)year
-{
-    NSString *dateString = [NSString stringWithFormat:@"%d-%d-01 00:00:00", year, month];
-    NSDate *date = [[GroupFormatManager sharedManager].dateTimeFormatter dateFromString:dateString];
-    
-    return date;
-}
-
--(NSDate*) getLastDayOfMonth:(int)month forYear:(int)year
-{
-    NSString *startString = [NSString stringWithFormat:@"%d-%d-01 00:00:00", year, month];
-    NSDate *start = [[GroupFormatManager sharedManager].dateTimeFormatter dateFromString:startString];
-    
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSRange monthRange = [gregorian rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:start];
-    NSString *dateString = [NSString stringWithFormat:@"%d-%d-%lu 23:59:59", year, month, (unsigned long)monthRange.length];
-    NSDate *date = [[GroupFormatManager sharedManager].dateTimeFormatter dateFromString:dateString];
-    
-    return date;
-}
-
 
 
 - (void)dealloc

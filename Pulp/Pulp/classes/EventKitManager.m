@@ -96,7 +96,6 @@ static dispatch_queue_t ekQueue;
 
 -(void) initialize
 {
-    [[GroupDataManager sharedManager] loadCache];
     [[MainViewController sharedMainViewController] dataChanged];
 }
 

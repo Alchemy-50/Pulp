@@ -54,7 +54,6 @@ static FullCalendarViewController *staticVC;
 
 -(void) dataChanged
 {
-    [[GroupDataManager sharedManager] loadCache];
     [self updateMonthViews:YES];
     [self.dailyView.theTableView reloadData];
 }
